@@ -1,0 +1,165 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.modal-overlay {
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 99;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.login-signup {
+    padding: 40px;
+    text-align: center;
+    background-color: white;
+    border-radius: 5px;
+    position: relative;
+}
+
+.close-icon {
+    position: absolute;
+    cursor: pointer;
+    top: -4%;
+    left: 96%;
+    font-size: 20px;
+    background-color: white;
+    border-radius: 50%;
+    border: 1px solid lightgrey;
+    padding: 0 7px 5px;
+    color: #4b5563;
+}
+
+.login-logo-image img {
+    width: 36px;
+    margin-bottom: 20px;
+}
+
+.login-signup input {
+    width: 458px;
+    padding: 15px 20px;
+    border-radius: 3px;
+    border: 1px solid;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.login-signup .email {
+    position: absolute;
+    left: 9%;
+    font-size: 1.5em;
+    padding: 5px;
+    transition: 0.5s;
+    pointer-events: none;
+    color: rgb(108, 108, 108);
+
+}
+
+.login-signup input:valid~span,
+.login-signup input:focus~span {
+    color: rgb(108, 108, 108);
+    transform: translateX(10px) translateY(-7px);
+    font-size: 0.75em;
+    padding: 0 5px;
+    background: #fff;
+}
+
+.login-signup .login {
+    width: 458px;
+    display: block;
+    background-color: #F56A54;
+    padding: 15px 20px;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 1px solid;
+    font-size: 18px;
+}
+
+.login-signup .login:hover {
+    background-color: #f56a54cf;
+}
+
+.login-title h2 {
+    color: #F56A54;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+.login-title p {
+    margin-bottom: 10px;
+}
+
+.login-signup .or {
+    color: #F56A54;
+    padding: 15px 0;
+}
+
+.google-fb {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.login-google a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 458px;
+    background-color: #fff;
+    padding: 10px 15px;
+    color: black;
+    border-radius: 5px;
+    border: 1px solid;
+    font-size: 18px;
+    text-decoration: none;
+    margin-bottom: 20px;
+}
+
+.login-google a:hover {
+    background-color: #eceaea7e;
+}
+
+.login-google p {
+    margin: 0;
+    padding-right: 30%;
+}
+
+.login-google i {
+    padding-right: 20px;
+}
+
+
+.login-fb a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 458px;
+    background-color: #1E3A8A;
+    padding: 10px 15px;
+    color: white;
+    border-radius: 5px;
+    border: 1px solid;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+.login-fb a:hover {
+    background-color: #1e3b8ae3;
+}
+
+.login-fb p {
+    margin: 0;
+    padding-right: 30%;
+}
+
+.login-fb i {
+    padding-right: 20px;
+}
