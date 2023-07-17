@@ -1,0 +1,25 @@
+/* .footer_country {
+} */
+
+.CountryName h2 {
+  font-size: 20px;
+  font-weight: 500;
+}
+.CountryUl li {
+  display: flex;
+  align-items: center;
+}
+.CountryIcon {
+  margin-right: 10px;
+}
+.CountryUl a:hover {
+  text-decoration: underline;
+}
+@media screen and (max-width: 768px) {
+  .CountryName h2 {
+    font-size: 18px;
+    font-weight: 500;
+  }
+}
+@media screen and (max-width: 391px) {
+}
