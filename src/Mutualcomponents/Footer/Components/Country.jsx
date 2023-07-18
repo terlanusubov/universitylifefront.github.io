@@ -13,7 +13,7 @@ const Country = () => {
           <ul>
             <li>
               <FaLocationDot className="CountryIcon"></FaLocationDot>{" "}
-              <p className="">
+              <p className="max-w-[50%] max-[650px]:max-w-[70%] ">
                 5 Great James Street Holborn, WC1N 3DB London / United Kingdom
               </p>
             </li>

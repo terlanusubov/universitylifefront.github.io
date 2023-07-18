@@ -1,6 +1,3 @@
-/* .footer_country {
-} */
-
 .CountryName h2 {
   font-size: 20px;
   font-weight: 500;
@@ -11,14 +8,21 @@
 }
 .CountryIcon {
   margin-right: 10px;
+  font-size: 20px;
 }
+
 .CountryUl a:hover {
   text-decoration: underline;
 }
+
 @media screen and (max-width: 768px) {
   .CountryName h2 {
     font-size: 18px;
     font-weight: 500;
+  }
+  .CountryIcon {
+    margin-right: 7px;
+    font-size: 15px;
   }
 }
 @media screen and (max-width: 391px) {
