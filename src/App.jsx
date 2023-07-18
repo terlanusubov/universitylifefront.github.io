@@ -18,11 +18,7 @@ function App() {
 const state = useSelector((State) => State.searchInputReducer.openedSearchInput)
   return (
    <div className="App pt-[100px]">
-    <Header></Header>
-    <Routes>
-      <Route path='/' element={<Mainpage></Mainpage>}></Route>
-    </Routes>
-     <Footer></Footer>
+ 
    </div>
   )
 }
