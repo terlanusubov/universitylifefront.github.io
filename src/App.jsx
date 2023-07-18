@@ -1,26 +1,30 @@
 // Hooks...
-import { useDispatch, useSelector } from "react-redux";
-
+import { useDispatch, useSelector } from 'react-redux'
 // Components...
-import { Helmet } from "react-helmet";
-import { Routes, Route } from "react-router-dom";
-import Footer from "./Mutualcomponents/Footer/Footer";
-
+import { Helmet } from 'react-helmet'
+import { Routes,Route } from 'react-router-dom'
+import Header from './Mutualcomponents/Header/Header'
+import Footer from './Mutualcomponents/Footer/Footer'
 // Pages...
-
+import Mainpage from './Pages/Mainpage/Mainpage'
 // Stylings...
-import "./App.css";
+
+import './App.css'
+
+
 
 function App() {
+
+const state = useSelector((State) => State.searchInputReducer.openedSearchInput)
   return (
-    <div className="App pt-[100px]">
+   <div className="App pt-[100px]">
     <Header></Header>
     <Routes>
       <Route path='/' element={<Mainpage></Mainpage>}></Route>
     </Routes>
-      <Footer></Footer>
+     <Footer></Footer>
    </div>
-  );
+  )
 }
 
-export default App;
+export default App
