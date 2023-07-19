@@ -9,6 +9,7 @@ const Country = () => {
         <div className="CountryName">
           <h2 className="text-white">Baku</h2>
         </div>
+
         <div className="CountryUl text-white">
           <ul>
             <li>
