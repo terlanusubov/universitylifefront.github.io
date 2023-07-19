@@ -1,0 +1,250 @@
+@media only screen and (max-width: 1440px) and (min-width: 768px) {
+    .login-signup {
+        padding: 25px;
+        height: 480px;
+    }
+
+    .close-icon {
+        padding: 5px 6px 6px;
+    }
+
+
+    .login-signup input {
+        padding: 12px 16px;
+    }
+
+    .login-signup .login {
+        padding: 12px 18px;
+    }
+
+
+    .login-signup .or {
+        font-size: 20px;
+    }
+
+    .login-google a {
+        padding: 10px 15px;
+    }
+
+    .login-fb a {
+        padding: 10px 15px;
+    }
+}
+
+@media only screen and (max-width: 767px) and (min-width: 425px) {
+    .login-signup {
+        padding: 8px 13px;
+        width: 400px;
+        height: 450px;
+    }
+
+    .close-icon {
+        padding: 5px 6px 6px;
+    }
+
+
+    .login-signup input {
+        padding: 12px;
+        width: 370px;
+    }
+
+    .login-signup .login {
+        padding: 12px 18px;
+        width: 375px;
+    }
+
+    .login-signup .email {
+        padding: 2px;
+        font-size: 1.5em;
+    }
+
+    .login-title h2 {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+
+    .login-title p {
+        text-align: start;
+    }
+
+    .login-signup .or {
+        font-size: 18px;
+    }
+
+    .login-google a {
+        padding: 8px;
+        width: 370px;
+    }
+
+    .login-fb a {
+        padding: 8px;
+        width: 370px;
+    }
+}
+
+@media only screen and (max-width: 424px) and (min-width: 375px) {
+    .login-signup {
+        padding: 10px;
+        width: 355px;
+        height: 450px;
+    }
+
+    .close-icon {
+        padding: 5px 6px 6px;
+        left: 95%;
+    }
+
+
+    .login-signup input {
+        padding: 12px;
+        width: 325px;
+    }
+
+    .login-signup .login {
+        padding: 12px 18px;
+        width: 328px;
+    }
+
+    .login-signup .email {
+        padding: 2px;
+        font-size: 1.5em;
+    }
+
+    .login-title h2 {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+
+    .login-title p {
+        text-align: start;
+    }
+
+    .login-signup .or {
+        font-size: 18px;
+    }
+
+    .login-google a {
+        padding: 8px;
+        width: 325px;
+    }
+
+    .login-fb a {
+        padding: 8px;
+        width: 325px;
+    }
+}
+
+@media only screen and (max-width: 373px) and (min-width: 326px) {
+    .login-signup {
+        padding: 10px;
+        width: 355px;
+        height: 450px;
+    }
+
+    .close-icon {
+        padding: 5px 6px 6px;
+        left: 95%;
+    }
+
+
+    .login-signup input {
+        padding: 12px;
+        width: 325px;
+    }
+
+    .login-signup .login {
+        padding: 12px 18px;
+        width: 328px;
+    }
+
+    .login-signup .email {
+        padding: 2px;
+        font-size: 1.5em;
+    }
+
+    .login-title h2 {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+
+    .login-title p {
+        text-align: start;
+    }
+
+    .login-signup .or {
+        font-size: 18px;
+    }
+
+    .login-google a {
+        padding: 8px;
+        width: 325px;
+    }
+
+    .login-fb a {
+        padding: 8px;
+        width: 325px;
+    }
+}
+
+@media only screen and (max-width: 325px) and (min-width: 280px) {
+    .login-signup {
+        padding: 10px;
+        width: 300px;
+        height: 450px;
+    }
+
+
+    .login-title h2 {
+        font-size: 21px;
+    }
+
+    .login-title p {
+        font-size: 16px;
+    }
+
+    .close-icon {
+        padding: 5px 6px 6px;
+        left: 94%;
+    }
+
+
+    .login-signup input {
+        padding: 12px;
+        width: 280px;
+    }
+
+    .login-signup .login {
+        padding: 12px 18px;
+        width: 280px;
+    }
+
+    .login-signup .email {
+        padding: 2px;
+        font-size: 1.5em;
+    }
+
+    .login-title h2 {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+
+    .login-title p {
+        text-align: start;
+    }
+
+    .login-signup .or {
+        font-size: 18px;
+    }
+
+    .login-google a {
+        padding: 10px;
+        font-size: 14px;
+        width: 280px;
+    }
+
+    .login-fb a {
+        padding: 10px;
+        font-size: 14px;
+        width: 280px;
+    }
+}

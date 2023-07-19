@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+body {
+    height: 100vh;
+}
+
 .modal-overlay {
     position: fixed;
     background-color: rgba(0, 0, 0, 0.6);
@@ -32,13 +36,14 @@
     background-color: white;
     border-radius: 50%;
     border: 1px solid lightgrey;
-    padding: 0 7px 5px;
+    padding: 7px 7px 9px;
     color: #4b5563;
 }
 
 .login-logo-image img {
-    width: 36px;
+    width: 40px;
     margin-bottom: 20px;
+    display: inline;
 }
 
 .login-signup input {
@@ -58,7 +63,6 @@
     transition: 0.5s;
     pointer-events: none;
     color: rgb(108, 108, 108);
-
 }
 
 .login-signup input:valid~span,
@@ -90,6 +94,7 @@
     color: #F56A54;
     font-weight: 400;
     margin-bottom: 20px;
+    font-size: 22px;
 }
 
 .login-title p {
@@ -99,6 +104,8 @@
 .login-signup .or {
     color: #F56A54;
     padding: 15px 0;
+    font-size: 22px;
+    font-weight: 600;
 }
 
 .google-fb {

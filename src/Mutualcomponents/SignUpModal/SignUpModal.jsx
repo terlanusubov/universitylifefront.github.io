@@ -1,4 +1,5 @@
 import './Styles/SignUpModal.css';
+import './Styles/SignUpModalrespon.css';
 
 // Image
 import Logo from "./Assets/144.png"
