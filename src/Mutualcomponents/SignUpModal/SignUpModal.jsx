@@ -14,10 +14,14 @@ import { AiOutlineClose } from "react-icons/ai";
 import { Link } from "react-router-dom"
 import React, { useState, useRef } from 'react';
 
+// Hooks
+import { useDispatch, useSelector } from 'react-redux';
+import { inputModalSlice } from '../../Redux/inputModalSlice';
 function SignUpModal({ open, onClose }) {
   const [isMail, setIsMail] = useState("");
   const isEmail = useRef("");
-
+  const dispatch = useDispatch()
+  const state = useSelector(state => state)
   const handleLogin = (event) => {
     event.preventDefault();
     isEmail.current.value = "";
@@ -25,8 +29,22 @@ function SignUpModal({ open, onClose }) {
   }
 
 
-  // if (!open) return null;
+  const inputRef = useRef(null)
+  const [focused, setFocused] = useState(false)
+  const focusHanlder = () => {
 
+    setFocused(true)
+    inputRef.current?.focus()
+  }
+
+  const blurHandler = () => {
+    if (!inputRef.current?.value) {
+      setFocused(false)
+    }
+  }
+
+
+  console.log(state.inputModalSlice.inputFocused);
 
   return (
     <div className='modal-overlay'>
@@ -39,16 +57,16 @@ function SignUpModal({ open, onClose }) {
           <img src={Logo} alt="" />
         </div>
         <div className='login-title'>
-          <h2>Welcome to University Living</h2>
+          <h2 className='text-customOrange'>Welcome to University Living</h2>
           <p>Please enter your email, we'll send you otp on your email address</p>
         </div>
-        <form onSubmit={handleLogin}>
-          <input type="email" id='email' name='email' ref={isEmail} value={isMail} onChange={(e) => setIsMail(e.target.value)} required="required " />
-          <span className='email'>Email</span>
-          <button className='login'>Login</button>
-        </form>
+        <div className=' flex justify-center items-center relative'>
+          <input onFocus={focusHanlder} onBlur={blurHandler} type="text" ref={inputRef} className='w-[100%]  border-[1px] border-solid border-black' />
+          <span  onClick={focusHanlder} className={`input_text duration-[0.3s] absolute top-2 left-4 bg-white ${focused ? 'translate-y-[-20px]' : ''}`}>Email</span>
+        </div>
+        <button className='login bg-customOrange'>Login</button>
         <div className='or'>
-          <h3>OR</h3>
+          <h3 className='text-customOrange'>OR</h3>
         </div>
         <div className='google-fb'>
           <div className='login-google'>

@@ -53,6 +53,11 @@ body {
     border: 1px solid;
     margin-bottom: 20px;
     position: relative;
+    text-transform: lowercase;
+}
+
+.login-signup span {
+    font-size: 20px;
 }
 
 .login-signup .email {
@@ -65,19 +70,18 @@ body {
     color: rgb(108, 108, 108);
 }
 
-.login-signup input:valid~span,
-.login-signup input:focus~span {
+/* .login-signup input:focus~span,
+.login-signup input:valid~span {
     color: rgb(108, 108, 108);
     transform: translateX(10px) translateY(-7px);
     font-size: 0.75em;
     padding: 0 5px;
     background: #fff;
-}
+} */
 
 .login-signup .login {
     width: 458px;
     display: block;
-    background-color: #F56A54;
     padding: 15px 20px;
     color: white;
     cursor: pointer;
@@ -91,7 +95,6 @@ body {
 }
 
 .login-title h2 {
-    color: #F56A54;
     font-weight: 400;
     margin-bottom: 20px;
     font-size: 22px;
@@ -102,7 +105,6 @@ body {
 }
 
 .login-signup .or {
-    color: #F56A54;
     padding: 15px 0;
     font-size: 22px;
     font-weight: 600;
