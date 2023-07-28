@@ -1,0 +1,28 @@
+.services-banner {
+    background-image: url(../Assets/servicesbanner.jpg);
+    background-size: cover;
+    height: 330px;
+    background-repeat: no-repeat;
+}
+
+.services-banner button {
+    padding: 10px 15px;
+    color: white;
+    background-color: #F56A54;
+    border-radius: 5px;
+    border: 1px solid #F56A54;
+    font-size: 18px;
+}
+
+.services-banner button:hover {
+    background-color: #f56a54c5;
+}
+
+.services-banner-title h1 {
+    margin-bottom: 30px;
+    width: 50%;
+}
+
+.services-banner-title {
+    padding: 70px;
+}
