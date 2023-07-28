@@ -62,7 +62,7 @@ function SignUpModal({ open, onClose }) {
         </div>
         <div className=' flex justify-center items-center relative'>
           <input onFocus={focusHanlder} onBlur={blurHandler} type="text" ref={inputRef} className='w-[100%]  border-[1px] border-solid border-black' />
-          <span  onClick={focusHanlder} className={`input_text duration-[0.3s] absolute top-2 left-4 bg-white ${focused ? 'translate-y-[-20px]' : ''}`}>Email</span>
+          <span onClick={focusHanlder} className={`input_text duration-[0.3s] absolute top-2 left-4 bg-white ${focused ? 'translate-y-[-20px]' : ''}`}>Email</span>
         </div>
         <button className='login bg-customOrange'>Login</button>
         <div className='or'>
