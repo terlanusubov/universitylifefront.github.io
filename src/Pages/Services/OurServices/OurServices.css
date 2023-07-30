@@ -16,9 +16,8 @@
 }
 
 .our-services-title h3 {
-    margin-top: 40px;
-    font-size: 25px;
-    margin-bottom: 15px;
+    font-size: 35px;
+    font-weight: 600;
 }
 
 .our-services-title a {
@@ -79,5 +78,4 @@
 
 .our-services-box:hover .our-services-icon {
     margin-left: 10px;
-    /* font-size: 20px; */
 }

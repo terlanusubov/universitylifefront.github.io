@@ -18,19 +18,19 @@
     }
 
     /* /////////////// */
-    .our-services-box {
+    .services-box {
         width: 90%;
     }
 
-    .our-services-box-title h4 {
+    .services-box-title h4 {
         font-size: 16px;
     }
 
-    .our-services-box-title p {
+    .services-box-title p {
         font-size: 14px;
     }
 
-    .our-services-icon {
+    .services-icon {
         font-size: 18px;
     }
 }
@@ -56,11 +56,11 @@
     }
 
     /* /////////////// */
-    .our-services-box {
+    .services-box {
         width: 100%;
     }
 
-    .our-services-boxs {
+    .services-boxs {
         grid-template-columns: repeat(2, 50%);
     }
 }
@@ -77,8 +77,8 @@
     }
 
     /* /////////////// */
-    .our-services-boxs {
-        grid-template-columns: repeat(2, 50%);
+    .services-boxs {
+        grid-template-columns: repeat(1, 100%);
     }
 }
 
@@ -94,12 +94,12 @@
     }
 
     /* /////////////// */
-    .our-services-boxs {
+    .services-boxs {
         grid-template-columns: repeat(2, 50%);
     }
 }
 
-@media only screen and (max-width: 425px) and (min-width: 376px) {
+@media only screen and (max-width: 425px) and (min-width: 375px) {
     .services-banner-title h1 {
         font-size: 30px;
         width: 100%;
@@ -110,7 +110,7 @@
     }
 
     /* /////////////// */
-    .our-services-boxs {
+    .services-boxs {
         grid-template-columns: repeat(1, 1fr);
     }
 }
@@ -122,11 +122,11 @@
         width: 100%;
     }
 
-    .our-services-box-title h4 {
+    .services-box-title h4 {
         font-size: 16px;
     }
 
-    .our-services-box-title p {
+    .services-box-title p {
         font-size: 14px;
     }
 
@@ -135,8 +135,8 @@
     }
 
     /* /////////////// */
-    .our-services-boxs {
-        grid-template-columns: repeat(1, 1fr);
+    .services-boxs {
+        grid-template-columns: repeat(1, 100%);
     }
 }
 
@@ -147,23 +147,23 @@
         width: 100%;
     }
 
-    .our-services-box-title h4 {
+    .services-box-title h4 {
         font-size: 14px;
     }
 
-    .our-services-box img {
+    .services-box img {
         width: 98px;
     }
 
-    .our-services-box-title p {
+    .services-box-title p {
         font-size: 12px;
     }
 
-    .our-services-icon {
+    .services-icon {
         font-size: 14px;
     }
 
-    .our-services-box:hover .our-services-icon {
+    .services-box:hover .services-icon {
         margin-left: 6px;
     }
 
@@ -176,7 +176,7 @@
     }
 
     /* /////////////// */
-    .our-services-boxs {
+    .services-boxs {
         grid-template-columns: repeat(1, 1fr);
     }
 }

@@ -17,50 +17,50 @@ const Services = () => {
                     <button>Explore All Services</button>
                 </div>
                 {/* //////////////////////// */}
-                <div className='our-services'>
-                    <div className='our-services-title d-flex justify-content-center'>
+                <div className='services'>
+                    <div className='services-title'>
                         <h3>Our Services</h3>
                     </div>
-                    <div className="our-services-boxs">
-                        <div className="our-services-box">
+                    <div className="services-boxs">
+                        <div className="services-box">
                             <img src={Accoommodation} alt="" />
-                            <div className="our-services-box-title">
-                                <h4>Accommodation <HiOutlineChevronRight className="our-services-icon" /></h4>
+                            <div className="services-box-title">
+                                <h4>Accommodation <HiOutlineChevronRight className="services-icon" /></h4>
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                             </div>
                         </div>
-                        <div className="our-services-box">
+                        <div className="services-box">
                             <img src={Accoommodation} alt="" />
-                            <div className="our-services-box-title">
-                                <h4>Accommodation <HiOutlineChevronRight className="our-services-icon" /></h4>
+                            <div className="services-box-title">
+                                <h4>Accommodation <HiOutlineChevronRight className="services-icon" /></h4>
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                             </div>
                         </div>
-                        <div className="our-services-box">
+                        <div className="services-box">
                             <img src={Accoommodation} alt="" />
-                            <div className="our-services-box-title">
-                                <h4>Accommodation <HiOutlineChevronRight className="our-services-icon" /></h4>
+                            <div className="services-box-title">
+                                <h4>Accommodation <HiOutlineChevronRight className="services-icon" /></h4>
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                             </div>
                         </div>
-                        <div className="our-services-box">
+                        <div className="services-box">
                             <img src={Accoommodation} alt="" />
-                            <div className="our-services-box-title">
-                                <h4>Accommodation <HiOutlineChevronRight className="our-services-icon" /></h4>
+                            <div className="services-box-title">
+                                <h4>Accommodation <HiOutlineChevronRight className="services-icon" /></h4>
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                             </div>
                         </div>
-                        <div className="our-services-box">
+                        <div className="services-box">
                             <img src={Accoommodation} alt="" />
-                            <div className="our-services-box-title">
-                                <h4>Accommodation <HiOutlineChevronRight className="our-services-icon" /></h4>
+                            <div className="services-box-title">
+                                <h4>Accommodation <HiOutlineChevronRight className="services-icon" /></h4>
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                             </div>
                         </div>
-                        <div className="our-services-box">
+                        <div className="services-box">
                             <img src={Accoommodation} alt="" />
-                            <div className="our-services-box-title">
-                                <h4>Accommodation <HiOutlineChevronRight className="our-services-icon" /></h4>
+                            <div className="services-box-title">
+                                <h4>Accommodation <HiOutlineChevronRight className="services-icon" /></h4>
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                             </div>
                         </div>
