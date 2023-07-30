@@ -8,6 +8,7 @@ import { Routes, Route } from 'react-router-dom'
 
 // Stylings...
 import './App.css'
+import SignUpModal from './Mutualcomponents/SignUpModal/SignUpModal'
 
 
 
@@ -17,7 +18,7 @@ function App() {
   return (
     <div className="App">
 
-
+      <SignUpModal />
     </div>
   )
 }
