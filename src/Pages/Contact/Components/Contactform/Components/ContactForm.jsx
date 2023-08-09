@@ -23,8 +23,12 @@ export const ContactForm = () => {
     }
   });
 
+
   const setCurrentTravelCountry = (e) => {
     setInputCountryValue(e.target.dataset.value);
+    const selectedCountry = e.target.dataset.value;
+    setInputCountryValue(selectedCountry);
+    setPopUpOpened(false); 
   };
   const inputLabelHandler = () => {
     if (inputCountryValue) {
@@ -48,7 +52,7 @@ export const ContactForm = () => {
           />
           <label
             className="block text-gray-700 content-font mb-2 truncate"
-            for="fullName"
+            htmlFor="fullName"
           >
             Full Name<sup className="text-customOrange">*</sup>
           </label>
