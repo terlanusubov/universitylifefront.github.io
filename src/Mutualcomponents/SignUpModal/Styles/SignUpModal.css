@@ -20,7 +20,6 @@ body {
 }
 
 .login-signup {
-    width: 32%;
     padding: 40px;
     text-align: center;
     background-color: white;
@@ -31,7 +30,7 @@ body {
 .close-icon {
     position: absolute;
     cursor: pointer;
-    top: -4%;
+    top: -3%;
     left: 96%;
     font-size: 20px;
     background-color: white;
@@ -95,29 +94,6 @@ body {
     /* position: relative; */
     text-transform: lowercase;
 }
-
-/* .login-signup span {
-    font-size: 16px;
-} */
-
-/* .login-signup .email {
-    position: absolute;
-    left: 9%;
-    font-size: 1.5em;
-    padding: 5px;
-    transition: 0.5s;
-    pointer-events: none;
-    color: rgb(108, 108, 108);
-} */
-
-/* .login-signup input:focus~span,
-.login-signup input:valid~span {
-    color: rgb(108, 108, 108);
-    transform: translateX(10px) translateY(-7px);
-    font-size: 0.75em;
-    padding: 0 5px;
-    background: #fff;
-} */
 
 .login-signup .login {
     width: 100%;
@@ -197,17 +173,19 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #1E3A8A;
+    /* background-color: #1E3A8A; */
     padding: 10px 15px;
     color: white;
     border-radius: 5px;
     border: 1px solid;
     font-size: 18px;
     text-decoration: none;
+    color: #4267B2;
 }
 
 .login-fb a:hover {
-    background-color: #1e3b8ae3;
+    background-color: #4267b2e2;
+    color: white;
 }
 
 .login-fb p {
