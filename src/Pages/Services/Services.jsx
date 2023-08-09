@@ -11,10 +11,12 @@ const Services = () => {
     return (
         <>
             <section className='services-banner'>
-                {/* <img src={ServicesBanner} alt="" /> */}
-                <div className="services-banner-title">
-                    <h1>Essential services for safe and happy journey</h1>
-                    <button>Explore All Services</button>
+                <div className="services-img">
+                    {/* <img src={ServicesBanner} alt="" /> */}
+                    <div className="services-banner-title">
+                        <h1>Essential services for safe and happy journey</h1>
+                        <button>Explore All Services</button>
+                    </div>
                 </div>
                 {/* //////////////////////// */}
                 <div className='services'>

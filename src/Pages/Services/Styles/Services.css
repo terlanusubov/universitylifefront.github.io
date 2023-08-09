@@ -1,4 +1,4 @@
-.services-banner {
+.services-banner .services-img {
     background-image: url(../Assets/servicesbanner.jpg);
     background-size: cover;
     height: 330px;
@@ -46,7 +46,7 @@
 .services-boxs {
     display: grid;
     justify-content: space-between;
-    grid-template-columns: repeat(3, 33%);
+    grid-template-columns: repeat(3, 1fr);
     gap: 30px;
 }
 
