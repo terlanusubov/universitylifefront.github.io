@@ -1,0 +1,20 @@
+import React from 'react'
+// Components
+import PopularpropsNav from './Components/Popularpropsnav'
+import PopularpropsSide from './Components/PopularpropsSide'
+import Optionsmobile from './Components/Optionsmobile'
+import AccomodationContainer from './Components/AccomodationContainer'
+const Popularprops = () => {
+  return (
+    <div className='main_page_popular_props pb-[100px] px-[50px] pr-[10px] max-[1200px]:pl-[40px] max-[1024px]:px-[30px] mt-[50px]' >
+        <PopularpropsNav></PopularpropsNav>
+          <Optionsmobile></Optionsmobile>
+        <div className="popular_props_main_container flex ">
+          <PopularpropsSide></PopularpropsSide>
+          <AccomodationContainer></AccomodationContainer>
+        </div>
+    </div>
+  )
+}
+
+export default Popularprops
