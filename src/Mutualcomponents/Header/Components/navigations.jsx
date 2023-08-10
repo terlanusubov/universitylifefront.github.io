@@ -22,7 +22,7 @@ const Navigations = () => {
                     <Link to={'/scholarship'}>Scholarship</Link>
             </li>
             <li>
-                <Link to={'/costliving'}>Cost of Living</Link>
+                <Link to={'/cost-of-living'}>Cost of Living</Link>
             </li>
             <li>
                 <SignupButton></SignupButton>
