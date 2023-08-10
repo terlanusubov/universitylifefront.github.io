@@ -23,12 +23,12 @@ export const ContactForm = () => {
     }
   });
 
-
   const setCurrentTravelCountry = (e) => {
     setInputCountryValue(e.target.dataset.value);
     const selectedCountry = e.target.dataset.value;
     setInputCountryValue(selectedCountry);
-    setPopUpOpened(false); 
+    setPopUpOpened(false);
+
   };
   const inputLabelHandler = () => {
     if (inputCountryValue) {
@@ -105,57 +105,57 @@ export const ContactForm = () => {
                 <span className="text-customOrange mr-1.5">
                   <FaLocationDot></FaLocationDot>
                 </span>{" "}
-                <p className="text-CustomBlue">China</p>
+                China
               </div>
               <div
                 onClick={setCurrentTravelCountry}
-                data-value={"China"}
+                data-value={"Spain"}
                 className="z-[20] flex items-center p-2.5 cursor-pointer"
               >
                 <span className="text-customOrange mr-1.5">
                   <FaLocationDot></FaLocationDot>
                 </span>{" "}
-                <p className="text-CustomBlue">China</p>
+                Spain
               </div>
               <div
                 onClick={setCurrentTravelCountry}
-                data-value={"China"}
+                data-value={"Azerbaijan"}
                 className="z-[20] flex items-center p-2.5 cursor-pointer"
               >
                 <span className="text-customOrange mr-1.5">
                   <FaLocationDot></FaLocationDot>
                 </span>{" "}
-                <p className="text-CustomBlue">China</p>
+                Azerbaijan
               </div>
               <div
                 onClick={setCurrentTravelCountry}
-                data-value={"China"}
+                data-value={"United States"}
                 className="z-[20] flex items-center p-2.5 cursor-pointer"
               >
                 <span className="text-customOrange mr-1.5">
                   <FaLocationDot></FaLocationDot>
                 </span>{" "}
-                <p className="text-CustomBlue">China</p>
+                United States
               </div>
               <div
                 onClick={setCurrentTravelCountry}
-                data-value={"China"}
+                data-value={"United Kingdom"}
                 className="z-[20] flex items-center p-2.5 cursor-pointer"
               >
                 <span className="text-customOrange mr-1.5">
                   <FaLocationDot></FaLocationDot>
                 </span>{" "}
-                <p className="text-CustomBlue">China</p>
+                United Kingdom
               </div>
               <div
                 onClick={setCurrentTravelCountry}
-                data-value={"China"}
+                data-value={"Turkey"}
                 className="z-[20] flex items-center p-2.5 cursor-pointer"
               >
                 <span className="text-customOrange mr-1.5">
                   <FaLocationDot></FaLocationDot>
                 </span>{" "}
-                <p className="text-CustomBlue">China</p>
+                Turkey
               </div>
             </div>
           ) : (
