@@ -14,7 +14,7 @@ import nybg from '../Assets/newyork.jpg'
 const Country = () => {
   return (
     <div className='country_element rounded-[10px] cursor-pointer relative' >
-        <div className="country_element_content p-[13px] ">
+        <div className="country_element_content  ">
         <div className="country_element_image overflow-hidden rounded-[13px]">
             <img src={nybg}  className='w-[100%] h-[100%] object-cover rounded-[13px] hover:scale-[1.3] duration-[0.3s]'  alt="" />
         </div>

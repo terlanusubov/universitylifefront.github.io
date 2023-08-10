@@ -30,18 +30,18 @@ const Aside = () => {
           <img src={Logo} alt="" />
         </div>
         <div className="aside_options">
-          <div className="option cursor-pointer  flex flex-col items-start justify-center hover:bg-orange-300 hover:text-white text-[20px] h-[60px]">
-            <span className="option_text">
+          <div className="option cursor-pointer flex flex-col items-start justify-center hover:bg-customOrange hover:text-white text-[20px] h-[60px]">
+            <span className="option_text p-[12px]">
             Cost of Living
             </span>
           </div>
-          <div className="option cursor-pointer  flex flex-col items-start justify-center hover:bg-orange-300 hover:text-white text-[20px] h-[60px]">
-            <span className="option_text">
+          <div className="option cursor-pointer flex flex-col items-start justify-center hover:bg-customOrange hover:text-white text-[20px] h-[60px]">
+            <span className="option_text p-[12px]">
             Services
             </span>
           </div>
-          <div className="option cursor-pointer  flex flex-col items-start justify-center hover:bg-orange-300 hover:text-white text-[20px] h-[60px]">
-            <span className="option_text">
+          <div className="option cursor-pointer flex flex-col items-start justify-center hover:bg-customOrange hover:text-white text-[20px] h-[60px]">
+            <span className="option_text p-[12px]">
             Scholarship
             </span>
           </div>

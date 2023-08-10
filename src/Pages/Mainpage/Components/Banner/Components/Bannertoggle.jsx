@@ -22,15 +22,15 @@ const Bannertoggle = () => {
   const [currentOption,setCurrentOption] = useState('london')
   const isLondon = currentOption === 'london' ? true : false
   return (
-    <div className='main_page_banner_toggle bottom-[-310px] rounded-[10px] absolute w-[100%] h-[300px] bg-white ' >
+    <div className='main_page_banner_toggle bottom-[-310px] rounded-[10px] absolute w-[100%] h-[300px] bg-white shadow-md' >
       
     <div className="banner_toggle_nav flex items-center h-[40px] bg-[#F3F4F6] rounded-[10px] gap-[6px]">
-        <div onClick={() =>  {setCurrentOption('london')}} className={`banner_toggle_nav_element border-solid border-b-[1px] ${isLondon ? 'border-customOrange' : ''}  cursor-pointer w-[50%]  flex items-center justify-center h-[40px]`}>
+        <div onClick={() =>  {setCurrentOption('london')}} className={`banner_toggle_nav_element border-solid border-b-[1px] ${isLondon ? 'border-customOrange' : '' }  duration-[0.3s] cursor-pointer w-[50%]  flex items-center justify-center h-[40px]`}>
           <span className="banner_toggle_nav_element_text">
           London
           </span>
         </div>
-        <div onClick={() =>  {setCurrentOption('azerbaijan')}} className={`banner_toggle_nav_element border-solid border-b-[1px] ${isLondon ? '' : 'border-customOrange'}  cursor-pointer w-[50%]  flex items-center justify-center h-[40px]`}>
+        <div onClick={() =>  {setCurrentOption('azerbaijan')}} className={`banner_toggle_nav_element border-solid border-b-[1px] ${isLondon ? '' : 'border-customOrange'}  duration-[0.3s] cursor-pointer w-[50%]  flex items-center justify-center h-[40px]`}>
           <span className="banner_toggle_nav_element_text">
           Azerbaijan
           </span>
