@@ -5,14 +5,15 @@ import './Styles/Servicesrespon.css';
 import { HiOutlineChevronRight } from "react-icons/hi";
 
 // Image
-import Accoommodation from "../Services/Assets/accommodation.jpg"
+import Accoommodation from "../Services/Assets/accommodation.jpg";
+import ServicesBanner from "../Services/Assets/servicesbanner.jpg";
 
 const Services = () => {
     return (
         <>
             <section className='services-banner'>
                 <div className="services-img">
-                    {/* <img src={ServicesBanner} alt="" /> */}
+                    <img src={ServicesBanner} alt="" />
                     <div className="services-banner-title">
                         <h1>Essential services for safe and happy journey</h1>
                         <button>Explore All Services</button>

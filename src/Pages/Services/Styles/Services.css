@@ -1,12 +1,17 @@
-.services-banner .services-img {
-    background-image: url(../Assets/servicesbanner.jpg);
+.services-banner .services-img img {
+    /* background-image: url(../Assets/servicesbanner.jpg); */
     background-size: cover;
-    height: 330px;
+    width: 100%;
+    height: 400px;
     background-repeat: no-repeat;
 }
 
 .services {
     padding: 50px 30px;
+}
+
+.services-banner {
+    position: relative;
 }
 
 .services-banner button {
@@ -25,9 +30,14 @@
 .services-banner-title h1 {
     margin-bottom: 30px;
     width: 50%;
+    font-size: 40px;
+    font-weight: 600;
 }
 
 .services-banner-title {
+    position: absolute;
+    width: 100%;
+    top: 0;
     padding: 70px;
 }
 

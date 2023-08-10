@@ -67,6 +67,10 @@
 
 /* 768px */
 @media only screen and (max-width: 768px) and (min-width: 425px) {
+    .services-banner .services-img img {
+        height: 300px;
+    }
+
     .services-banner-title h1 {
         font-size: 30px;
         width: 100%;
@@ -101,6 +105,10 @@
 
 /* 375 */
 @media only screen and (max-width: 375px) and (min-width: 321px) {
+    .services-banner .services-img img {
+        height: 300px;
+    }
+
     .services-banner-title h1 {
         font-size: 25px;
         width: 100%;
@@ -126,6 +134,10 @@
 
 /* 320 */
 @media only screen and (max-width: 320px) and (min-width: 280px) {
+    .services-banner .services-img img {
+        height: 280px;
+    }
+
     .services-banner-title h1 {
         font-size: 20px;
         width: 100%;
