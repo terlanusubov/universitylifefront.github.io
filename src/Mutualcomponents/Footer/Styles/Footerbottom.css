@@ -1,0 +1,18 @@
+.footer_bottom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+}
+
+.FooterBottom {
+  font-size: 15px;
+}
+
+@media screen and (max-width: 768px) {
+}
+@media screen and (max-width: 391px) {
+  .FooterBottom {
+    font-size: 11px;
+  }
+}
