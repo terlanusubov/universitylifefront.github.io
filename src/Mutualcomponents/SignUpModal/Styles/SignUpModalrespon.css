@@ -1,250 +1,643 @@
-@media only screen and (max-width: 1440px) and (min-width: 768px) {
+@media only screen and (max-width: 1440px) and (min-width: 1025px) {
     .login-signup {
         padding: 25px;
-        height: 480px;
+        /* height: 550px; */
     }
 
-    .close-icon {
-        padding: 5px 6px 6px;
-    }
-
-
-    .login-signup input {
-        padding: 12px 16px;
-    }
-
-    .login-signup .login {
-        padding: 12px 18px;
-    }
-
-
-    .login-signup .or {
-        font-size: 20px;
-    }
-
-    .login-google a {
-        padding: 10px 15px;
-    }
-
-    .login-fb a {
-        padding: 10px 15px;
-    }
-}
-
-@media only screen and (max-width: 767px) and (min-width: 425px) {
-    .login-signup {
-        padding: 8px 13px;
-        width: 400px;
-        height: 450px;
-    }
-
-    .close-icon {
-        padding: 5px 6px 6px;
-    }
-
-
-    .login-signup input {
-        padding: 12px;
-        width: 370px;
-    }
-
-    .login-signup .login {
-        padding: 12px 18px;
-        width: 375px;
-    }
-
-    .login-signup .email {
-        padding: 2px;
-        font-size: 1.5em;
+    .login-logo-image img {
+        margin-bottom: 5px;
     }
 
     .login-title h2 {
         font-size: 20px;
+        margin-bottom: 5px;
+    }
+
+    .login-title p {
+        font-size: 14px;
         margin-bottom: 10px;
     }
 
-    .login-title p {
-        text-align: start;
-    }
-
-    .login-signup .or {
-        font-size: 18px;
-    }
-
-    .login-google a {
-        padding: 8px;
-        width: 370px;
-    }
-
-    .login-fb a {
-        padding: 8px;
-        width: 370px;
-    }
-}
-
-@media only screen and (max-width: 424px) and (min-width: 375px) {
-    .login-signup {
-        padding: 10px;
-        width: 355px;
-        height: 460px;
-    }
-
     .close-icon {
         padding: 5px 6px 6px;
-        left: 95%;
     }
 
+    .input_container span {
+        top: -155px;
+        left: 12px;
+        font-size: 16px;
+        padding: 0 5px;
+    }
+
+    .gone span {
+        top: -175px;
+    }
+
+    .tel-input {
+        margin-bottom: 8px;
+    }
+
+    .tel-input button {
+        padding: 20px 7px;
+    }
+
+    .tel-input .react-international-phone-input-container .react-international-phone-input {
+        padding: 20px;
+    }
+
+    .tel-input img {
+        width: 40px;
+    }
 
     .login-signup input {
-        padding: 12px;
-        width: 325px;
+        padding: 6px 16px;
+        margin-bottom: 15px;
     }
 
     .login-signup .login {
-        padding: 12px 18px;
-        width: 328px;
+        padding: 8px 18px;
+        font-size: 14px;
     }
 
-    .login-signup .email {
-        padding: 5px 0;
-        font-size: 21px;
-    }
-
-    .login-title h2 {
-        font-size: 20px;
-        margin-bottom: 10px;
-    }
-
-    .login-title p {
-        text-align: start;
-    }
 
     .login-signup .or {
-        font-size: 18px;
-    }
-
-    .login-google a {
-        padding: 8px;
-        width: 325px;
-    }
-
-    .login-fb a {
-        padding: 8px;
-        width: 325px;
-    }
-}
-
-@media only screen and (max-width: 375px) and (min-width: 326px) {
-    .login-signup {
-        padding: 10px;
-        width: 355px;
-        height: 450px;
-    }
-
-    .close-icon {
-        padding: 5px 6px 6px;
-        left: 94%;
-    }
-
-
-    .login-signup input {
-        padding: 12px;
-        width: 325px;
-    }
-
-    .login-signup .login {
-        padding: 12px 18px;
-        width: 328px;
-    }
-
-    .login-signup .email {
-        padding: 2px;
-        font-size: 1.5em;
-    }
-
-    .login-title h2 {
-        font-size: 20px;
-        margin-bottom: 10px;
-    }
-
-    .login-title p {
-        text-align: start;
-    }
-
-    .login-signup .or {
-        font-size: 18px;
-    }
-
-    .login-google a {
-        padding: 8px;
-        width: 325px;
-    }
-
-    .login-fb a {
-        padding: 8px;
-        width: 325px;
-    }
-}
-
-@media only screen and (max-width: 325px) and (min-width: 280px) {
-    .login-signup {
-        padding: 8px;
-        width: 300px;
-        height: 425px;
-    }
-
-
-    .login-title h2 {
-        font-size: 21px;
-    }
-
-    .login-title p {
         font-size: 16px;
     }
 
+}
+
+/* 1024 */
+@media only screen and (max-width: 1024px) and (min-width: 769px) {
+    .login-signup {
+        padding: 15px 20px;
+        height: 490px;
+    }
+
+    .login-logo-image img {
+        margin-bottom: 5px;
+    }
+
+    .login-title h2 {
+        font-size: 20px;
+        margin-bottom: 5px;
+    }
+
+    .login-title p {
+        font-size: 12px;
+        margin-bottom: 10px;
+    }
+
+    .close-icon {
+        padding: 5px 6px 6px;
+    }
+
+    .input_container span {
+        top: -155px;
+        left: 12px;
+        font-size: 16px;
+        padding: 0 5px;
+    }
+
+    .gone span {
+        top: -175px;
+    }
+
+    .tel-input {
+        margin-bottom: 8px;
+    }
+
+    .tel-input button {
+        padding: 20px 7px;
+    }
+
+    .tel-input .react-international-phone-input-container .react-international-phone-input {
+        padding: 20px;
+    }
+
+    .tel-input img {
+        width: 40px;
+    }
+
+    .login-signup input {
+        padding: 6px 16px;
+        margin-bottom: 15px;
+    }
+
+    .login-signup .login {
+        padding: 8px 18px;
+        font-size: 14px;
+    }
+
+
+    .login-signup .or {
+        font-size: 16px;
+    }
+
+    /* GOOGLE-FB */
+    .google-fb {
+        display: flex;
+        justify-content: space-around;
+        flex-direction: row;
+        align-items: normal;
+    }
+
+    .login-google {
+        width: 0;
+    }
+
+    .google-fb a {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        border: 1px solid lightgray;
+        transition: all .3s ease;
+        cursor: pointer;
+        background-color: unset;
+    }
+
+    .google-fb a:hover {
+        transform: translateY(-5px);
+        box-shadow: 0px 10px 20px 2px rgba(0, 0, 0, 0.25);
+    }
+
+    .login-google p {
+        display: none;
+    }
+
+    .google-fb svg {
+        width: 100%;
+        font-size: 25px;
+    }
+
+    /* FB */
+    .login-fb {
+        width: 20%;
+    }
+
+    .login-fb p {
+        display: none;
+    }
+}
+
+/* 768 */
+@media only screen and (max-width: 768px) and (min-width: 425px) {
+    .login-signup {
+        padding: 15px 20px;
+        height: 450px;
+    }
+
+    .login-logo-image img {
+        margin-bottom: 5px;
+    }
+
+    .login-title h2 {
+        font-size: 20px;
+        margin-bottom: 5px;
+    }
+
+    .login-title p {
+        font-size: 12px;
+        margin-bottom: 10px;
+    }
+
+    .close-icon {
+        padding: 5px 6px 6px;
+    }
+
+    .input_container span {
+        top: -155px;
+        left: 12px;
+        font-size: 16px;
+        padding: 0 5px;
+    }
+
+    .gone span {
+        top: -175px;
+    }
+
+    .tel-input {
+        margin-bottom: 8px;
+    }
+
+    .tel-input button {
+        padding: 20px 7px;
+    }
+
+    .tel-input .react-international-phone-input-container .react-international-phone-input {
+        padding: 20px;
+    }
+
+    .tel-input img {
+        width: 40px;
+    }
+
+    .login-signup input {
+        padding: 6px 16px;
+        margin-bottom: 15px;
+    }
+
+    .login-signup .login {
+        padding: 8px 18px;
+        font-size: 14px;
+    }
+
+
+    .login-signup .or {
+        padding: 5px 0;
+        font-size: 16px;
+    }
+
+    /* GOOGLE-FBs */
+    .google-fb {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: normal;
+    }
+
+    .login-google {
+        width: 0;
+    }
+
+    .google-fb a {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border: 1px solid lightgray;
+        transition: all .3s ease;
+        cursor: pointer;
+        background-color: unset;
+    }
+
+    .google-fb a:hover {
+        transform: translateY(-5px);
+        box-shadow: 0px 10px 20px 2px rgba(0, 0, 0, 0.25);
+    }
+
+    .login-google p {
+        display: none;
+    }
+
+    .google-fb svg {
+        width: 100%;
+        font-size: 55px;
+    }
+
+    /* FB */
+    .login-fb {
+        width: 20%;
+    }
+
+    .login-fb p {
+        display: none;
+    }
+}
+
+
+/* 425 */
+@media only screen and (max-width: 425px) and (min-width: 375px) {
+    .login-signup {
+        padding: 10px 20px;
+        height: 465px;
+        width: 90%;
+    }
+
+    .login-logo-image img {
+        margin-bottom: 5px;
+    }
+
+    .login-title h2 {
+        font-size: 20px;
+        margin-bottom: 5px;
+    }
+
+    .login-title p {
+        font-size: 12px;
+        margin-bottom: 10px;
+    }
+
     .close-icon {
         padding: 5px 6px 6px;
         left: 94%;
     }
 
+    .input_container span {
+        top: -155px;
+        left: 12px;
+        font-size: 16px;
+        padding: 0 5px;
+    }
+
+    .gone span {
+        top: -175px;
+    }
+
+    .tel-input {
+        margin-bottom: 8px;
+    }
+
+    .tel-input button {
+        padding: 20px 7px;
+    }
+
+    .tel-input .react-international-phone-input-container .react-international-phone-input {
+        padding: 20px;
+    }
+
+    .tel-input img {
+        width: 40px;
+    }
 
     .login-signup input {
-        padding: 12px;
-        width: 280px;
+        padding: 6px 16px;
+        margin-bottom: 15px;
     }
 
     .login-signup .login {
-        padding: 8px;
-        width: 280px;
+        padding: 8px 18px;
+        font-size: 14px;
     }
 
-    .login-signup .email {
-        padding: 8px 0;
-        font-size: 20px;
+
+    .login-signup .or {
+        padding: 5px 0;
+        font-size: 16px;
+    }
+
+    /* GOOGLE-FBs */
+    .google-fb {
+        display: flex;
+        justify-content: space-around;
+        flex-direction: row;
+        align-items: normal;
+    }
+
+    .login-google {
+        width: 0;
+    }
+
+    .google-fb a {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border: 1px solid lightgray;
+        transition: all .3s ease;
+        cursor: pointer;
+        background-color: unset;
+    }
+
+    .google-fb a:hover {
+        transform: translateY(-5px);
+        box-shadow: 0px 10px 20px 2px rgba(0, 0, 0, 0.25);
+    }
+
+    .login-google p {
+        display: none;
+    }
+
+    .google-fb svg {
+        width: 100%;
+        font-size: 55px;
+    }
+
+    /* FB */
+    .login-fb {
+        width: 20%;
+    }
+
+    .login-fb p {
+        display: none;
+    }
+}
+
+/* 375 */
+@media only screen and (max-width: 375px) and (min-width: 320px) {
+    .login-signup {
+        width: 90%;
+        padding: 10px 20px;
+        height: 465px;
+    }
+
+    .login-logo-image img {
+        margin-bottom: 5px;
     }
 
     .login-title h2 {
         font-size: 20px;
-        margin-bottom: 10px;
+        margin-bottom: 5px;
     }
 
     .login-title p {
-        text-align: start;
+        font-size: 12px;
+        margin-bottom: 10px;
     }
+
+    .close-icon {
+        padding: 5px 6px 6px;
+        left: 94%;
+    }
+
+    .input_container span {
+        top: -155px;
+        left: 12px;
+        font-size: 16px;
+        padding: 0 5px;
+    }
+
+    .gone span {
+        top: -175px;
+    }
+
+    .tel-input {
+        margin-bottom: 8px;
+    }
+
+    .tel-input button {
+        padding: 20px 7px;
+    }
+
+    .tel-input .react-international-phone-input-container .react-international-phone-input {
+        padding: 20px;
+    }
+
+    .tel-input img {
+        width: 40px;
+    }
+
+    .login-signup input {
+        padding: 6px 16px;
+        margin-bottom: 15px;
+    }
+
+    .login-signup .login {
+        padding: 8px 18px;
+        font-size: 14px;
+    }
+
 
     .login-signup .or {
-        font-size: 15px;
+        padding: 5px 0;
+        font-size: 16px;
     }
 
-    .login-google a {
-        padding: 8px;
-        font-size: 14px;
-        width: 280px;
+    /* GOOGLE-FBs */
+    .google-fb {
+        display: flex;
+        justify-content: space-around;
+        flex-direction: row;
+        align-items: normal;
     }
 
-    .login-fb a {
-        padding: 8px;
+    .login-google {
+        width: 0;
+    }
+
+    .google-fb a {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border: 1px solid lightgray;
+        transition: all .3s ease;
+        cursor: pointer;
+        background-color: unset;
+    }
+
+    .google-fb a:hover {
+        transform: translateY(-5px);
+        box-shadow: 0px 10px 20px 2px rgba(0, 0, 0, 0.25);
+    }
+
+    .login-google p {
+        display: none;
+    }
+
+    .google-fb svg {
+        width: 100%;
+        font-size: 55px;
+    }
+
+    /* FB */
+    .login-fb {
+        width: 20%;
+    }
+
+    .login-fb p {
+        display: none;
+    }
+}
+
+/* 320 */
+@media only screen and (max-width: 320px) and (min-width: 280px) {
+    .login-signup {
+        width: 90%;
+        padding: 5px 15px;
+        height: 425px;
+    }
+
+    .login-logo-image img {
+        margin-bottom: 5px;
+    }
+
+    .login-title h2 {
+        font-size: 18px;
+        margin-bottom: 5px;
+    }
+
+    .login-title p {
+        font-size: 12px;
+        margin-bottom: 10px;
+    }
+
+    .close-icon {
+        padding: 5px 6px 6px;
+        left: 93%;
+    }
+
+    .input_container span {
+        top: -135px;
+        left: 12px;
         font-size: 14px;
-        width: 280px;
+        padding: 0 5px;
+    }
+
+    .gone span {
+        top: -150px;
+    }
+
+    .tel-input {
+        margin-bottom: 8px;
+    }
+
+    .tel-input button {
+        padding: 15px 7px;
+    }
+
+    .tel-input .react-international-phone-input-container .react-international-phone-input {
+        padding: 15px;
+    }
+
+    .tel-input img {
+        width: 40px;
+    }
+
+    .login-signup input {
+        padding: 4px 16px;
+        margin-bottom: 15px;
+    }
+
+    .login-signup .login {
+        padding: 6px 18px;
+        font-size: 12px;
+    }
+
+
+    .login-signup .or {
+        padding: 2px 0;
+        font-size: 16px;
+    }
+
+    /* GOOGLE-FBs */
+    .google-fb {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: normal;
+    }
+
+    .login-google {
+        width: 0;
+    }
+
+    .google-fb a {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border: 1px solid lightgray;
+        transition: all .3s ease;
+        cursor: pointer;
+        background-color: unset;
+    }
+
+    .google-fb a:hover {
+        transform: translateY(-5px);
+        box-shadow: 0px 10px 20px 2px rgba(0, 0, 0, 0.25);
+    }
+
+    .login-google p {
+        display: none;
+    }
+
+    .google-fb svg {
+        width: 100%;
+        font-size: 55px;
+    }
+
+    /* FB */
+    .login-fb {
+        width: 20%;
+    }
+
+    .login-fb p {
+        display: none;
     }
 }

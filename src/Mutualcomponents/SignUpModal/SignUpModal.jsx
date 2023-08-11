@@ -1,5 +1,10 @@
 import './Styles/SignUpModal.css';
 import './Styles/SignUpModalrespon.css';
+import 'react-international-phone/style.css';
+
+
+import { PhoneInput } from 'react-international-phone';
+
 
 // Image
 import Logo from "./Assets/144.png"
@@ -16,8 +21,16 @@ import React, { useState, useRef } from 'react';
 
 // Hooks
 import { useDispatch, useSelector } from 'react-redux';
-import { inputModalSlice } from '../../Redux/inputModalSlice';
+
+
+
+
+
 function SignUpModal({ open, onClose }) {
+  const [phone, setPhone] = useState('');
+  const [value, setValue] = useState('');
+
+
   const [isMail, setIsMail] = useState("");
   const isEmail = useRef("");
   const dispatch = useDispatch()
@@ -28,18 +41,14 @@ function SignUpModal({ open, onClose }) {
     // setIsMail("");
   }
 
-  const inputRef = useRef(null)
-  const [focused, setFocused] = useState(false)
-  const focusHanlder = () => {
-
-    setFocused(true)
-    inputRef.current?.focus()
+  const focusHanlder = e => {
+    e.currentTarget.parentElement.classList.add('gone')
   }
-
-  const blurHandler = () => {
-    if (!inputRef.current?.value) {
-      setFocused(false)
+  const blurHandler = e => {
+    if (!e.currentTarget.value) {
+      e.currentTarget.parentElement.classList.remove('gone')
     }
+
   }
 
   console.log(state.inputModalSlice.inputFocused);
@@ -58,21 +67,26 @@ function SignUpModal({ open, onClose }) {
           <h2 className='text-customOrange'>Welcome to University Living</h2>
           <p>Please enter your email, we'll send you otp on your email address</p>
         </div>
-        <div className=' flex justify-center items-center relative'>
-          <input onFocus={focusHanlder} onBlur={blurHandler} type="text" ref={inputRef} className='w-[100%]  border-[1px] border-solid border-black' />
-          <span onClick={focusHanlder} className={`input_text duration-[0.3s] absolute top-2 left-4 bg-white ${focused ? 'translate-y-[-20px]' : ''}`}>Name</span>
+        <div className="input_container">
+          <input onFocus={focusHanlder} onBlur={blurHandler} type="name" id='name' name='name' className='border-[1px] border-solid border-black rounded-[10px] p-[10px]' />
+          <span className='text-white'>Name</span>
         </div>
-        <div className=' flex justify-center items-center relative'>
-          <input onFocus={focusHanlder} onBlur={blurHandler} type="text" ref={inputRef} className='w-[100%]  border-[1px] border-solid border-black' />
-          <span onClick={focusHanlder} className={`input_text duration-[0.3s] absolute top-2 left-4 bg-white ${focused ? 'translate-y-[-20px]' : ''}`}>Email</span>
+        <div className="input_container">
+          <input onFocus={focusHanlder} onBlur={blurHandler} type="email" id='email' name='email' className='border-[1px] border-solid border-black rounded-[10px] p-[10px]' />
+          <span className='text-white'>Email</span>
         </div>
-        <div className=' flex justify-center items-center relative'>
-          <input onFocus={focusHanlder} onBlur={blurHandler} type="text" ref={inputRef} className='w-[100%]  border-[1px] border-solid border-black' />
-          <span onClick={focusHanlder} className={`input_text duration-[0.3s] absolute top-2 left-4 bg-white ${focused ? 'translate-y-[-20px]' : ''}`}>Password</span>
+        <div className="input_container">
+          <input onFocus={focusHanlder} onBlur={blurHandler} type="password" id='pwd' name='pwd' className='border-[1px] border-solid border-black rounded-[10px] p-[10px]' />
+          <span className='text-white'>Password</span>
         </div>
-        <div className=' flex justify-center items-center relative'>
-          <input onFocus={focusHanlder} onBlur={blurHandler} type="text" ref={inputRef} className='w-[100%]  border-[1px] border-solid border-black' />
-          <span onClick={focusHanlder} className={`input_text duration-[0.3s] absolute top-2 left-4 bg-white ${focused ? 'translate-y-[-20px]' : ''}`}>Number</span>
+
+
+        <div className='tel-input'>
+          <PhoneInput
+            defaultCountry="az"
+            value={phone}
+            onChange={(phone) => setPhone(phone)}
+          />
         </div>
         <button className='login bg-customOrange'>Login</button>
         <div className='or'>
@@ -83,7 +97,7 @@ function SignUpModal({ open, onClose }) {
             <Link to="/"><FcGoogle /> <p>Continue with Google</p> </Link>
           </div>
           <div className='login-fb'>
-            <Link to="/" className='text-center'><ImFacebook2 /><p>Continue with Facebook</p></Link>
+            <Link to="/" className='text-center'><ImFacebook2 className='color-customBlue' /><p>Continue with Facebook</p></Link>
           </div>
         </div>
       </div >
