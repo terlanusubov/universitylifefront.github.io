@@ -28,7 +28,6 @@ export const ContactForm = () => {
     const selectedCountry = e.target.dataset.value;
     setInputCountryValue(selectedCountry);
     setPopUpOpened(false);
-
   };
   const inputLabelHandler = () => {
     if (inputCountryValue) {
@@ -48,7 +47,7 @@ export const ContactForm = () => {
             placeholder=""
             type="text"
             name="fullName"
-            autocomplete="off"
+            autoComplete="off"
           />
           <label
             className="block text-gray-700 content-font mb-2 truncate"
@@ -64,11 +63,11 @@ export const ContactForm = () => {
             placeholder=""
             type="text"
             name="Email"
-            autocomplete="off"
+            autoComplete="off"
           />
           <label
             className="block text-gray-700 content-font mb-2 truncate"
-            for="Email"
+            htmlFor="Email"
           >
             Email<sup className="text-customOrange">*</sup>
           </label>
@@ -83,7 +82,7 @@ export const ContactForm = () => {
             placeholder=""
             type="text"
             name="traveled_country"
-            autocomplete="off"
+            autoComplete="off"
             value={inputCountryValue}
             onChange={(e) => setInputCountryValue(e.target.value)}
           />
