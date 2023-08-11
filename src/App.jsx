@@ -21,6 +21,7 @@ import Mainpage from './Pages/Mainpage/Mainpage'
 // Stylings...
 
 import './App.css'
+import OurServices from './Pages/Services/Services';
 
 
 
@@ -45,6 +46,7 @@ const state = useSelector((State) => State.searchInputReducer.openedSearchInput)
     </Routes>
     <Footer></Footer>
    </div>
+
 
   )
 }
