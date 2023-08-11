@@ -1,7 +1,7 @@
-@media only screen and (max-width: 1445px) and (min-width: 1025px) {
+@media only screen and (max-width: 1440px) and (min-width: 1025px) {
     .login-signup {
-        padding: 17px 20px;
-        height: 460px;
+        padding: 10px 20px;
+        height: 470px;
     }
 
     .login-logo-image img {
@@ -9,28 +9,29 @@
     }
 
     .login-title h2 {
-        font-size: 18px;
+        font-size: 16px;
         margin-bottom: 5px;
     }
 
     .login-title p {
-        font-size: 14px;
+        font-size: 12px;
         margin-bottom: 10px;
     }
 
     .close-icon {
         padding: 5px 6px 6px;
+        left: 95%;
     }
 
     .input_container span {
-        top: -155px;
+        top: -135px;
         left: 12px;
-        font-size: 16px;
+        font-size: 14px;
         padding: 0 5px;
     }
 
     .gone span {
-        top: -175px;
+        top: -152px;
     }
 
     .tel-input {
@@ -50,7 +51,7 @@
     }
 
     .login-signup input {
-        padding: 6px 16px;
+        padding: 4px;
         margin-bottom: 15px;
     }
 
@@ -59,17 +60,6 @@
         font-size: 14px;
     }
 
-    /* .login-google a {
-        font-size: 16px;
-        padding: 5px 15px;
-        margin-bottom: 10px;
-    }
-
-    .login-fb a {
-        font-size: 16px;
-        padding: 5px 15px;
-        margin-bottom: 5px;
-    } */
     .google-fb {
         display: flex;
         justify-content: space-around;
@@ -82,8 +72,8 @@
     }
 
     .google-fb a {
-        width: 60px;
-        height: 60px;
+        width: 50px;
+        height: 50px;
         border-radius: 50%;
         border: 1px solid lightgray;
         transition: all .3s ease;
@@ -116,16 +106,15 @@
 
     .login-signup .or {
         font-size: 16px;
-        padding: 8px 0;
+        padding: 4px 0;
     }
-
 }
 
 /* 1024 */
 @media only screen and (max-width: 1024px) and (min-width: 769px) {
     .login-signup {
         padding: 15px 20px;
-        height: 490px;
+        height: 475px;
     }
 
     .login-logo-image img {
@@ -133,7 +122,7 @@
     }
 
     .login-title h2 {
-        font-size: 20px;
+        font-size: 18px;
         margin-bottom: 5px;
     }
 
@@ -144,17 +133,18 @@
 
     .close-icon {
         padding: 5px 6px 6px;
+        left: 95%;
     }
 
     .input_container span {
-        top: -155px;
+        top: -135px;
         left: 12px;
-        font-size: 16px;
+        font-size: 14px;
         padding: 0 5px;
     }
 
     .gone span {
-        top: -175px;
+        top: -152px;
     }
 
     .tel-input {
@@ -162,19 +152,19 @@
     }
 
     .tel-input button {
-        padding: 20px 7px;
+        padding: 15px 7px;
     }
 
     .tel-input .react-international-phone-input-container .react-international-phone-input {
-        padding: 20px;
+        padding: 15px;
     }
 
     .tel-input img {
-        width: 40px;
+        width: 30px;
     }
 
     .login-signup input {
-        padding: 6px 16px;
+        padding: 4px;
         margin-bottom: 15px;
     }
 
@@ -185,7 +175,8 @@
 
 
     .login-signup .or {
-        font-size: 16px;
+        font-size: 14px;
+        padding: 4px 0;
     }
 
     /* GOOGLE-FB */
@@ -201,8 +192,8 @@
     }
 
     .google-fb a {
-        width: 60px;
-        height: 60px;
+        width: 50px;
+        height: 50px;
         border-radius: 50%;
         border: 1px solid lightgray;
         transition: all .3s ease;
@@ -237,8 +228,8 @@
 /* 768 */
 @media only screen and (max-width: 768px) and (min-width: 425px) {
     .login-signup {
-        padding: 15px 20px;
-        height: 450px;
+        padding: 10px 20px;
+        height: 455px;
     }
 
     .login-logo-image img {
@@ -246,8 +237,8 @@
     }
 
     .login-title h2 {
-        font-size: 20px;
-        margin-bottom: 5px;
+        font-size: 16px;
+        margin-bottom: 3px;
     }
 
     .login-title p {
@@ -257,17 +248,18 @@
 
     .close-icon {
         padding: 5px 6px 6px;
+        left: 95%;
     }
 
     .input_container span {
-        top: -155px;
+        top: -135px;
         left: 12px;
-        font-size: 16px;
+        font-size: 14px;
         padding: 0 5px;
     }
 
     .gone span {
-        top: -175px;
+        top: -152px;
     }
 
     .tel-input {
@@ -275,20 +267,20 @@
     }
 
     .tel-input button {
-        padding: 20px 7px;
+        padding: 15px 7px;
     }
 
     .tel-input .react-international-phone-input-container .react-international-phone-input {
-        padding: 20px;
+        padding: 15px;
     }
 
     .tel-input img {
-        width: 40px;
+        width: 30px;
     }
 
     .login-signup input {
-        padding: 6px 16px;
-        margin-bottom: 15px;
+        padding: 4px;
+        margin-bottom: 14px;
     }
 
     .login-signup .login {
@@ -298,8 +290,8 @@
 
 
     .login-signup .or {
-        padding: 5px 0;
-        font-size: 16px;
+        font-size: 14px;
+        padding: 4px 0;
     }
 
     /* GOOGLE-FBs */
@@ -315,8 +307,8 @@
     }
 
     .google-fb a {
-        width: 50px;
-        height: 50px;
+        width: 45px;
+        height: 45px;
         border-radius: 50%;
         border: 1px solid lightgray;
         transition: all .3s ease;
@@ -362,29 +354,29 @@
     }
 
     .login-title h2 {
-        font-size: 20px;
+        font-size: 16px;
         margin-bottom: 5px;
     }
 
     .login-title p {
-        font-size: 12px;
+        font-size: 10px;
         margin-bottom: 10px;
     }
 
     .close-icon {
         padding: 5px 6px 6px;
-        left: 94%;
+        left: 95%;
     }
 
     .input_container span {
-        top: -155px;
+        top: -135px;
         left: 12px;
-        font-size: 16px;
+        font-size: 14px;
         padding: 0 5px;
     }
 
     .gone span {
-        top: -175px;
+        top: -152px;
     }
 
     .tel-input {
@@ -392,20 +384,20 @@
     }
 
     .tel-input button {
-        padding: 20px 7px;
+        padding: 15px 7px;
     }
 
     .tel-input .react-international-phone-input-container .react-international-phone-input {
-        padding: 20px;
+        padding: 15px;
     }
 
     .tel-input img {
-        width: 40px;
+        width: 30px;
     }
 
     .login-signup input {
-        padding: 6px 16px;
-        margin-bottom: 15px;
+        padding: 4px;
+        margin-bottom: 14px;
     }
 
     .login-signup .login {
@@ -415,8 +407,8 @@
 
 
     .login-signup .or {
-        padding: 5px 0;
-        font-size: 16px;
+        font-size: 14px;
+        padding: 4px 0;
     }
 
     /* GOOGLE-FBs */
@@ -466,11 +458,11 @@
 }
 
 /* 375 */
-@media only screen and (max-width: 375px) and (min-width: 320px) {
+@media only screen and (max-width: 375px) and (min-width: 321px) {
     .login-signup {
         width: 90%;
         padding: 10px 20px;
-        height: 465px;
+        height: 470px;
     }
 
     .login-logo-image img {
@@ -478,29 +470,29 @@
     }
 
     .login-title h2 {
-        font-size: 20px;
+        font-size: 16px;
         margin-bottom: 5px;
     }
 
     .login-title p {
-        font-size: 12px;
+        font-size: 10px;
         margin-bottom: 10px;
     }
 
     .close-icon {
         padding: 5px 6px 6px;
-        left: 94%;
+        left: 95%;
     }
 
     .input_container span {
-        top: -155px;
+        top: -135px;
         left: 12px;
-        font-size: 16px;
+        font-size: 14px;
         padding: 0 5px;
     }
 
     .gone span {
-        top: -175px;
+        top: -152px;
     }
 
     .tel-input {
@@ -508,20 +500,20 @@
     }
 
     .tel-input button {
-        padding: 20px 7px;
+        padding: 15px 7px;
     }
 
     .tel-input .react-international-phone-input-container .react-international-phone-input {
-        padding: 20px;
+        padding: 15px;
     }
 
     .tel-input img {
-        width: 40px;
+        width: 30px;
     }
 
     .login-signup input {
-        padding: 6px 16px;
-        margin-bottom: 15px;
+        padding: 4px;
+        margin-bottom: 14px;
     }
 
     .login-signup .login {
@@ -531,8 +523,8 @@
 
 
     .login-signup .or {
-        padding: 5px 0;
-        font-size: 16px;
+        font-size: 14px;
+        padding: 4px 0;
     }
 
     /* GOOGLE-FBs */
@@ -594,12 +586,12 @@
     }
 
     .login-title h2 {
-        font-size: 18px;
+        font-size: 14px;
         margin-bottom: 5px;
     }
 
     .login-title p {
-        font-size: 12px;
+        font-size: 8px;
         margin-bottom: 10px;
     }
 
@@ -609,14 +601,14 @@
     }
 
     .input_container span {
-        top: -135px;
+        top: -114px;
         left: 12px;
-        font-size: 14px;
+        font-size: 12px;
         padding: 0 5px;
     }
 
     .gone span {
-        top: -150px;
+        top: -130px;
     }
 
     .tel-input {
@@ -632,23 +624,23 @@
     }
 
     .tel-input img {
-        width: 40px;
+        width: 30px;
     }
 
     .login-signup input {
-        padding: 4px 16px;
-        margin-bottom: 15px;
+        padding: 3px;
+        margin-bottom: 12px;
     }
 
     .login-signup .login {
-        padding: 6px 18px;
-        font-size: 12px;
+        padding: 8px 18px;
+        font-size: 14px;
     }
 
 
     .login-signup .or {
-        padding: 2px 0;
-        font-size: 16px;
+        font-size: 12px;
+        padding: 4px 0;
     }
 
     /* GOOGLE-FBs */
@@ -664,8 +656,8 @@
     }
 
     .google-fb a {
-        width: 50px;
-        height: 50px;
+        width: 45px;
+        height: 45px;
         border-radius: 50%;
         border: 1px solid lightgray;
         transition: all .3s ease;

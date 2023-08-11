@@ -12,7 +12,7 @@ import Logo from "./Assets/144.png"
 // Icons
 
 import { FcGoogle } from "react-icons/fc";
-import { ImFacebook2 } from "react-icons/im";
+import { FaFacebookF } from "react-icons/fa";
 import { AiOutlineClose } from "react-icons/ai";
 
 // Router
@@ -68,8 +68,12 @@ function SignUpModal({ open, onClose }) {
           <p>Please enter your email, we'll send you otp on your email address</p>
         </div>
         <div className="input_container">
-          <input onFocus={focusHanlder} onBlur={blurHandler} type="name" id='name' name='name' className='border-[1px] border-solid border-black rounded-[10px] p-[10px]' />
+          <input onFocus={focusHanlder} onBlur={blurHandler} type="name" id='fname' name='fname' className='border-[1px] border-solid border-black rounded-[10px] p-[10px]' />
           <span className='text-white'>Name</span>
+        </div>
+        <div className="input_container">
+          <input onFocus={focusHanlder} onBlur={blurHandler} type="name" id='lname' name='lname' className='border-[1px] border-solid border-black rounded-[10px] p-[10px]' />
+          <span className='text-white'>Surname</span>
         </div>
         <div className="input_container">
           <input onFocus={focusHanlder} onBlur={blurHandler} type="email" id='email' name='email' className='border-[1px] border-solid border-black rounded-[10px] p-[10px]' />
@@ -97,7 +101,7 @@ function SignUpModal({ open, onClose }) {
             <Link to="/"><FcGoogle /> <p>Continue with Google</p> </Link>
           </div>
           <div className='login-fb'>
-            <Link to="/" className='text-center'><ImFacebook2 className='color-customBlue' /><p>Continue with Facebook</p></Link>
+            <Link to="/" className='text-center'><FaFacebookF className='color-customBlue' /><p>Continue with Facebook</p></Link>
           </div>
         </div>
       </div >
