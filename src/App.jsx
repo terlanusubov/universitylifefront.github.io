@@ -21,7 +21,7 @@ import Mainpage from './Pages/Mainpage/Mainpage'
 // Stylings...
 
 import './App.css'
-import OurServices from './Pages/Services/Services';
+
 
 
 
