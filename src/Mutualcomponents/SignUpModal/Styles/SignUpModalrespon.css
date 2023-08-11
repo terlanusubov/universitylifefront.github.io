@@ -1,7 +1,20 @@
 @media only screen and (max-width: 1440px) and (min-width: 1025px) {
     .login-signup {
         padding: 25px;
-        height: 480px;
+    }
+
+    .login-logo-image img {
+        margin-bottom: 5px;
+    }
+
+    .login-title h2 {
+        font-size: 20px;
+        margin-bottom: 5px;
+    }
+
+    .login-title p {
+        font-size: 14px;
+        margin-bottom: 10px;
     }
 
     .close-icon {
@@ -110,13 +123,30 @@
     }
 
     .login-signup .login {
-        padding: 12px 18px;
-        width: 375px;
+        padding: 8px 18px;
+        font-size: 14px;
+    }
+
+
+    .login-signup .or {
+        font-size: 16px;
+    }
+
+    /* GOOGLE-FB */
+    .google-fb {
+        display: flex;
+        justify-content: space-around;
+        flex-direction: row;
+        align-items: normal;
+    }
+
+    .login-google {
+        width: 0;
     }
 
     .google-fb a {
-        width: 70px;
-        height: 70px;
+        width: 60px;
+        height: 60px;
         border-radius: 50%;
         border: 1px solid lightgray;
         transition: all .3s ease;
@@ -213,7 +243,29 @@
 
     .login-signup .or {
         padding: 5px 0;
-        font-size: 21px;
+        font-size: 16px;
+    }
+
+    /* GOOGLE-FBs */
+    .google-fb {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: normal;
+    }
+
+    .login-google {
+        width: 0;
+    }
+
+    .google-fb a {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border: 1px solid lightgray;
+        transition: all .3s ease;
+        cursor: pointer;
+        background-color: unset;
     }
 
     .google-fb a:hover {
@@ -301,8 +353,26 @@
     }
 
     .login-signup .login {
-        padding: 12px 18px;
-        width: 328px;
+        padding: 8px 18px;
+        font-size: 14px;
+    }
+
+
+    .login-signup .or {
+        padding: 5px 0;
+        font-size: 16px;
+    }
+
+    /* GOOGLE-FBs */
+    .google-fb {
+        display: flex;
+        justify-content: space-around;
+        flex-direction: row;
+        align-items: normal;
+    }
+
+    .login-google {
+        width: 0;
     }
 
     .google-fb a {
@@ -399,8 +469,68 @@
     }
 
     .login-signup .login {
-        padding: 8px;
-        width: 280px;
+        padding: 8px 18px;
+        font-size: 14px;
+    }
+
+
+    .login-signup .or {
+        padding: 5px 0;
+        font-size: 16px;
+    }
+
+    /* GOOGLE-FBs */
+    .google-fb {
+        display: flex;
+        justify-content: space-around;
+        flex-direction: row;
+        align-items: normal;
+    }
+
+    .login-google {
+        width: 0;
+    }
+
+    .google-fb a {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border: 1px solid lightgray;
+        transition: all .3s ease;
+        cursor: pointer;
+        background-color: unset;
+    }
+
+    .google-fb a:hover {
+        transform: translateY(-5px);
+        box-shadow: 0px 10px 20px 2px rgba(0, 0, 0, 0.25);
+    }
+
+    .login-google p {
+        display: none;
+    }
+
+    .google-fb svg {
+        width: 100%;
+        font-size: 55px;
+    }
+
+    /* FB */
+    .login-fb {
+        width: 20%;
+    }
+
+    .login-fb p {
+        display: none;
+    }
+}
+
+/* 320 */
+@media only screen and (max-width: 320px) and (min-width: 280px) {
+    .login-signup {
+        width: 90%;
+        padding: 5px 15px;
+        height: 425px;
     }
 
     .login-logo-image img {
@@ -461,7 +591,44 @@
 
 
     .login-signup .or {
-        font-size: 15px;
+        padding: 2px 0;
+        font-size: 16px;
+    }
+
+    /* GOOGLE-FBs */
+    .google-fb {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: normal;
+    }
+
+    .login-google {
+        width: 0;
+    }
+
+    .google-fb a {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border: 1px solid lightgray;
+        transition: all .3s ease;
+        cursor: pointer;
+        background-color: unset;
+    }
+
+    .google-fb a:hover {
+        transform: translateY(-5px);
+        box-shadow: 0px 10px 20px 2px rgba(0, 0, 0, 0.25);
+    }
+
+    .login-google p {
+        display: none;
+    }
+
+    .google-fb svg {
+        width: 100%;
+        font-size: 55px;
     }
 
     /* FB */
