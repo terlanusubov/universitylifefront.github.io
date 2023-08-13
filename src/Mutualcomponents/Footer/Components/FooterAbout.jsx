@@ -17,7 +17,7 @@ const FooterAbout = () => {
           </li>
           <li>
             <a className="hover:text-customOrange" href="">
-              Contakt Us
+              Contact Us
             </a>
           </li>
           <li>

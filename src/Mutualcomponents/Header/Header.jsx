@@ -16,7 +16,7 @@ const Header = () => {
 const inputState = useSelector(state => state.searchInputReducer.openedSearchInput)
 const sideBarState = useSelector(state => state.sideBarReducer.openedSidebar)
   return (
-    <header className='flex fixed top-0 right-0 left-0 justify-between px-[3%] h-[100px] items-center z-[200] bg-white '>
+    <header className='flex fixed top-0 right-0 left-0 justify-between px-[3%]  h-[100px] items-center z-[200] bg-white '>
 
         <Logo></Logo>
         {
@@ -28,18 +28,20 @@ const sideBarState = useSelector(state => state.sideBarReducer.openedSidebar)
           
         }
         <Navigations></Navigations>
-        <Profile></Profile>
+        {/* <Profile></Profile> */}
 
         {
-          sideBarState ? <Sidebar></Sidebar> : ''
+          sideBarState 
+          ? 
+          <Sidebar></Sidebar> 
+          : 
+          ''
         }
          {
-          inputState ? 
-
+          inputState 
+          ? 
             <SearchInputModal></SearchInputModal>
-
-            : 
-
+          : 
             ''       
            }
     </header>

@@ -15,6 +15,7 @@ import Services from './Pages/Services/Services'
 
 // Pages...
 import Mainpage from './Pages/Mainpage/Mainpage'
+
 // Stylings...
 
 import './App.css'
@@ -36,8 +37,9 @@ const state = useSelector((State) => State.searchInputReducer.openedSearchInput)
    <div className="App pt-[100px]">
     <Header></Header>
     <Routes>
-      <Route path='/' element={<Mainpage></Mainpage>}></Route>
+       <Route path='/' element={<Mainpage></Mainpage>}></Route>
        <Route path='/services' element={<Services></Services>}></Route>
+       <Route path='/profile' element={<Profilepage></Profilepage>}></Route>
     </Routes>
     <Footer></Footer>
    </div>

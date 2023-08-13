@@ -22,7 +22,7 @@ const Profilepage = () => {
   return (
     <div className='profile_page bg-[#F9F9F9]'>
             <Profilepagenav></Profilepagenav>
-            <div className="profile_page_container flex   px-[5%] max-[1160px]:px-[4%]">
+            <div className="profile_page_container flex pb-[33px]  px-[5%] max-[1160px]:px-[4%]">
                 <ProfilePageSide></ProfilePageSide>
                 <ProfilePageMainContainer></ProfilePageMainContainer>
             </div>
