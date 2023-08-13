@@ -27,6 +27,12 @@ body {
     position: relative;
 }
 
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+    box-shadow: 0 0 0 1000px white inset;
+    -webkit-text-fill-color: #333;
+}
+
 .close-icon {
     position: absolute;
     cursor: pointer;

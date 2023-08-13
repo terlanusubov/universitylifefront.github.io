@@ -67,32 +67,35 @@ function SignUpModal({ open, onClose }) {
           <h2 className='text-customOrange'>Welcome to University Living</h2>
           <p>Please enter your email, we'll send you otp on your email address</p>
         </div>
-        <div className="input_container">
-          <input onFocus={focusHanlder} onBlur={blurHandler} type="name" id='fname' name='fname' className='border-[1px] border-solid border-black rounded-[10px] p-[10px]' />
-          <span className='text-white'>Name</span>
-        </div>
-        <div className="input_container">
-          <input onFocus={focusHanlder} onBlur={blurHandler} type="name" id='lname' name='lname' className='border-[1px] border-solid border-black rounded-[10px] p-[10px]' />
-          <span className='text-white'>Surname</span>
-        </div>
-        <div className="input_container">
-          <input onFocus={focusHanlder} onBlur={blurHandler} type="email" id='email' name='email' className='border-[1px] border-solid border-black rounded-[10px] p-[10px]' />
-          <span className='text-white'>Email</span>
-        </div>
-        <div className="input_container">
-          <input onFocus={focusHanlder} onBlur={blurHandler} type="password" id='pwd' name='pwd' className='border-[1px] border-solid border-black rounded-[10px] p-[10px]' />
-          <span className='text-white'>Password</span>
-        </div>
+        <form action="/">
+          <div className="input_container">
+            <input onFocus={focusHanlder} onBlur={blurHandler} type="name" id='fname' name='fname' className='border-[1px] border-solid border-black rounded-[10px] p-[10px]' />
+            <span className='text-white'>Name</span>
+          </div>
+          <div className="input_container">
+            <input onFocus={focusHanlder} onBlur={blurHandler} type="name" id='lname' name='lname' className='border-[1px] border-solid border-black rounded-[10px] p-[10px]' />
+            <span className='text-white'>Surname</span>
+          </div>
+          <div className="input_container">
+            <input onFocus={focusHanlder} onBlur={blurHandler} type="email" id='email' name='email' className='border-[1px] border-solid border-black rounded-[10px] p-[10px]' />
+            <span className='text-white'>Email</span>
+          </div>
+          <div className="input_container">
+            <input onFocus={focusHanlder} onBlur={blurHandler} type="password" id='pwd' name='pwd' className='border-[1px] border-solid border-black rounded-[10px] p-[10px]' />
+            <span className='text-white'>Password</span>
+          </div>
 
 
-        <div className='tel-input'>
-          <PhoneInput
-            defaultCountry="az"
-            value={phone}
-            onChange={(phone) => setPhone(phone)}
-          />
-        </div>
-        <button className='login bg-customOrange'>Login</button>
+          <div className='tel-input'>
+            <PhoneInput
+              defaultCountry="az"
+              value={phone}
+              onChange={(phone) => setPhone(phone)}
+            />
+          </div>
+          <button type="submit" className='login bg-customOrange'>Login</button>
+        </form>
+
         <div className='or'>
           <h3 className='text-customOrange'>OR</h3>
         </div>
