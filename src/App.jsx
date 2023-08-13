@@ -2,10 +2,7 @@
 import { useDispatch, useSelector } from 'react-redux'
 // Components...
 import { Helmet } from 'react-helmet'
-
-
-
-
+import Profilepage from './Pages/Profilepage/Profilepage'
 
 // Pages...
 
@@ -36,8 +33,6 @@ function App() {
 
 const state = useSelector((State) => State.searchInputReducer.openedSearchInput)
   return (
-
-
    <div className="App pt-[100px]">
     <Header></Header>
     <Routes>
