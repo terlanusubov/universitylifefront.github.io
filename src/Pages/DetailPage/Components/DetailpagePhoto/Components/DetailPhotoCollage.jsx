@@ -9,14 +9,6 @@ const DetailPhotoCollage = () => {
       <div className="lg:grid grid-cols-2 gap-3 md:rounded-xl overflow-hidden md:h-[30vh] lg:h-[45vh] h-[24vh] w-full max-h-[220px] md:max-h-[none]">
         <div className="bg-[#f1f1f1] relative md:h-[30vh] lg:h-[45vh] h-[24vh] max-h-[220px] md:max-h-[none]">
           <div>
-            <button
-              type="button"
-              data-role="none"
-              className="slick-arrow slick-prev slick-disabled"
-              //   style="display:block"
-            >
-              Previous
-            </button>
             <div>
               <img
                 alt="Nottingham Two Nottingham 0"
@@ -30,19 +22,11 @@ const DetailPhotoCollage = () => {
                 class="te-property-img w-full object-cover cursor-pointer md:h-[45vh] h-[24vh] md:rounded-l-xl max-h-[220px] md:max-h-[none] object-top"
               />
             </div>
-            <button
-              type="button"
-              data-role="none"
-              className="slick-arrow slick-next"
-              //   style="display:block"
-            >
-              Next
-            </button>
           </div>
           <div className="absolute bottom-2 flex justify-between z-[2] w-full md:w-auto px-2 md:bottom-4 md:px-2.5">
             <div className="block"></div>
-            <div className="bg-white left-4 md:px-3 md:py-2 py-1 px-2 rounded flex items-center cursor-pointer">
-              <div className="w-5 h-5 inline-block">
+            <div className="bg-white  left-4 md:px-3 md:py-2 py-1 px-2 rounded flex  items-center cursor-pointer">
+              <div className=" inline-block">
                 <FaImage></FaImage>
               </div>
               <div className="flex justify-between">
