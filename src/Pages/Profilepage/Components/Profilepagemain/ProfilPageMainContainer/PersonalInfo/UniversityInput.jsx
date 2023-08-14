@@ -7,10 +7,13 @@ const UniversityInput = ({inputTitle,inputId}) => {
     const inputRef = useRef()
     const popUpRef = useRef();
     document.addEventListener('click', e => {
-        
-        console.log(popUpRef.current);
-        if (!popUpRef.current.contains(e.target)) {
-                setFocused(false)
+        try {
+            if (!popUpRef.current.contains(e.target)) {
+                    setFocused(false)
+            }
+
+        } catch(err) {
+
         }
 
     })

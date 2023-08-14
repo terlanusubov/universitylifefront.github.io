@@ -23,7 +23,7 @@ const Navigations = () => {
                 <Link to={'/scholarship'}>Scholarship</Link>
             </li>
             <li className='h-[100%] flex items-center  max-[1080px]:text-[14.4px] max-[1024px]:hidden'>
-                <Link to={'/cost-of-living'}>Cost of Living</Link>
+                <Link to={'/contact-us'}>Contact Us</Link>
             </li>
             <li className='h-[100%] flex items-center  max-[1080px]:text-[14.4px] '>
                 {
