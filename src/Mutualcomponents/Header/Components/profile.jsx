@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 
 // Icons
@@ -14,12 +14,17 @@ import {CgProfile as ProfileIcon} from 'react-icons/cg'
 import DefaultPp from '../Assets/defaultpp.jpg'
 
 // Hooks
-import {useSelector} from 'react-redux'
+
+
+// Slices
+import {useDispatch, useSelector} from 'react-redux'
 import {useNavigate} from 'react-router-dom'
+import { ProfileTogglesSlice } from '../../../Redux/ProfileSlice'
 const profile = () => {
   const [hovered,setHovered] = useState(false)
   const isAuth = useSelector(state => state.authenticationReducer.isAuth)
   const navigate = useNavigate()
+  const dispatch = useDispatch();
 
 
   const mouseOverHandler = () => {
@@ -29,10 +34,16 @@ const profile = () => {
     setHovered(false)
   }
 
-  const clickHandler = () => {
+  const clickHandler = (e) => {
     navigate('/profile')
     setHovered(!hovered)
   }
+  const routeToProfile = (to) => {
+    
+    dispatch(ProfileTogglesSlice.actions.setCurrentPage(to))
+  }
+  
+
 
   return (
     <div onClick={clickHandler} onMouseOver={mouseOverHandler} onMouseLeave={mouseOutHandler} className={`ml-[10px] relative cursor-pointer profile flex items-center right-[20px] max-[400px]:right-[10px] h-[100%]`}>        
@@ -48,8 +59,8 @@ const profile = () => {
           {
             hovered 
             &&
-            <div className='nav_profile_popup flex flex-col max-w-[600px] w-[100%]  left-[0px] right-[-500%] shadow-[1px_1px_6px_-1px_rgba(0,0,0,0.3)] rounded-[9px] bg-white  absolute bottom-[-225px]'>
-                 <div className={`nav_popup_option rounded-[9px] p-[10px]   hover:bg-[#F3F3F3] hover:text-customOrange cursor-pointer flex items-center   w-[100%]` }>
+            <div className='nav_profile_popup flex flex-col max-w-[600px] w-[100%]  left-[0px] right-[-500%] shadow-[1px_1px_6px_-1px_rgba(0,0,0,0.3)] rounded-[9px] bg-white  absolute bottom-[-183px]'>
+                 <div onClick={() => routeToProfile('bookings')}  className={`nav_popup_option rounded-[9px] p-[10px]   hover:bg-[#F3F3F3] hover:text-customOrange cursor-pointer flex items-center   w-[100%]` }>
                     <div className="option_icon mr-[10px] text-[24px]">
                         <CalendarIcon></CalendarIcon>
                     </div>
@@ -57,15 +68,8 @@ const profile = () => {
                         My Booking
                     </div>
                 </div>
-                <div className={`nav_popup_option rounded-[9px] p-[10px]   hover:bg-[#F3F3F3] hover:text-customOrange cursor-pointer flex items-center   w-[100%]` }>
-                    <div className="option_icon mr-[10px] text-[24px]">
-                        <CouponIcon></CouponIcon>
-                    </div>
-                    <div className="profile_property_text">
-                        Vouchers
-                    </div>
-                </div>
-                <div className={`nav_popup_option rounded-[9px] p-[10px]   hover:bg-[#F3F3F3] hover:text-customOrange cursor-pointer flex items-center   w-[100%]` }>
+        
+                <div onClick={() => routeToProfile('wishlist')} className={`nav_popup_option rounded-[9px] p-[10px]   hover:bg-[#F3F3F3] hover:text-customOrange cursor-pointer flex items-center   w-[100%]` }>
                     <div className="option_icon mr-[10px] text-[24px]">
                         <WishListIcon></WishListIcon>
                     </div>
@@ -73,7 +77,7 @@ const profile = () => {
                         My Wishlist
                     </div>
                 </div>
-                <div className={`nav_popup_option rounded-[9px] p-[10px]   hover:bg-[#F3F3F3] hover:text-customOrange cursor-pointer flex items-center   w-[100%]` }>
+                <div onClick={() => routeToProfile('personalInfo')} className={`nav_popup_option rounded-[9px] p-[10px]   hover:bg-[#F3F3F3] hover:text-customOrange cursor-pointer flex items-center   w-[100%]` }>
                     <div className="option_icon mr-[10px] text-[24px]">
                         <InformationIcon></InformationIcon>
                     </div>
@@ -81,7 +85,7 @@ const profile = () => {
                         Personal Information
                     </div>
                 </div>
-                <div className={`nav_popup_option rounded-[9px] p-[10px]   hover:bg-[#F3F3F3] hover:text-customOrange cursor-pointer flex items-center   w-[100%]` }>
+                <div onClick={() => routeToProfile('profileDetails')} className={`nav_popup_option rounded-[9px] p-[10px]   hover:bg-[#F3F3F3] hover:text-customOrange cursor-pointer flex items-center   w-[100%]` }>
                     <div className="option_icon mr-[10px] text-[24px]">
                         <ProfileIcon></ProfileIcon>
                     </div>

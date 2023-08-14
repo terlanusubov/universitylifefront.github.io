@@ -16,15 +16,16 @@ import { ProfileTogglesSlice } from '../../../../../Redux/ProfileSlice'
 
 const ProfilePageSide = () => {
     const dispatch = useDispatch();
-    const navigateToProfile = (to) => {
+    const routeToProfile = (to) => {
         dispatch(ProfileTogglesSlice.actions.setCurrentPage(to))
     }
+
   return (
     <div className="profile_page_sidebar bg-white shadow-md rounded-[15px] mt-[-25px] max-w-[350px] max-[1200px]:max-w-[290px] w-[100%] max-[1024px]:hidden m-auto mr-[4%] max-[1250px]:mr-[3%]">
         <ProfilePageSideTop></ProfilePageSideTop>
         <div className="profile_page_side_bottom">
             <div className="profile_page_properties">
-                <div onClick={() => navigateToProfile('bookings')} className={`profile_page_property  p-[10px] hover:bg-[#F3F3F3] hover:text-customOrange cursor-pointer flex items-center   w-[100%]` }>
+                <div onClick={() => routeToProfile('bookings')} className={`profile_page_property  p-[10px] hover:bg-[#F3F3F3] hover:text-customOrange cursor-pointer flex items-center   w-[100%]` }>
                     <div className="property_icon mr-[10px] text-[24px]">
                         <CalendarIcon></CalendarIcon>
                     </div>
@@ -32,23 +33,7 @@ const ProfilePageSide = () => {
                         My Booking
                     </div>
                 </div>
-                <div onClick={() => navigateToProfile('vouchers')} className={`profile_page_property  p-[10px] hover:bg-[#F3F3F3] hover:text-customOrange cursor-pointer flex items-center   w-[100%]` }>
-                    <div className="property_icon mr-[10px] text-[24px]">
-                        <CouponIcon></CouponIcon>
-                    </div>
-                    <div className="profile_property_text">
-                        Vouchers
-                    </div>
-                </div>
-                <div onClick={() => navigateToProfile('referrals')} className={`profile_page_property  p-[10px] hover:bg-[#F3F3F3] hover:text-customOrange cursor-pointer flex items-center   w-[100%]` }>
-                    <div className="property_icon mr-[10px] text-[24px]">
-                        <PeopleIcon></PeopleIcon>
-                    </div>
-                    <div className="profile_property_text">
-                        Referral
-                    </div>
-                </div>
-                <div onClick={() => navigateToProfile('wishlist')} className={`profile_page_property  p-[10px] hover:bg-[#F3F3F3] hover:text-customOrange cursor-pointer flex items-center   w-[100%]` }>
+                <div onClick={() => routeToProfile('wishlist')}className={`profile_page_property  p-[10px] hover:bg-[#F3F3F3] hover:text-customOrange cursor-pointer flex items-center   w-[100%]` }>
                     <div className="property_icon mr-[10px] text-[24px]">
                         <WishListIcon></WishListIcon>
                     </div>
@@ -56,7 +41,7 @@ const ProfilePageSide = () => {
                         Wishlist
                     </div>
                 </div>
-                <div onClick={() => navigateToProfile('personalInfo')} className={`profile_page_property  p-[10px] hover:bg-[#F3F3F3] hover:text-customOrange cursor-pointer flex items-center   w-[100%]` }>
+                <div onClick={() => routeToProfile('personalInfo') } className={`profile_page_property  p-[10px] hover:bg-[#F3F3F3] hover:text-customOrange cursor-pointer flex items-center   w-[100%]` }>
                     <div className="property_icon mr-[10px] text-[24px]">
                         <InformationIcon></InformationIcon>
                     </div>
@@ -64,7 +49,7 @@ const ProfilePageSide = () => {
                         Personal Information
                     </div>
                 </div>
-                <div onClick={() => navigateToProfile('profileDetails')} className={`profile_page_property  p-[10px] hover:bg-[#F3F3F3] hover:text-customOrange cursor-pointer flex items-center   w-[100%]` }>
+                <div onClick={() => routeToProfile('profileDetails')} className={`profile_page_property  p-[10px] hover:bg-[#F3F3F3] hover:text-customOrange cursor-pointer flex items-center   w-[100%]` }>
                     <div className="property_icon mr-[10px] text-[24px]">
                         <ProfileIcon></ProfileIcon>
                     </div>
