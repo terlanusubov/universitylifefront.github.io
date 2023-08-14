@@ -44,3 +44,8 @@
 .popup div {
   border-bottom: 1px solid #e5e7eb;
 }
+
+.form-floating input::-webkit-autofill ~ label  {
+  transform: scale(0.85) translateY(-1.4rem) translateX(0.15rem);
+  width: auto;
+}
