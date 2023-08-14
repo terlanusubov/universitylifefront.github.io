@@ -1,5 +1,6 @@
 import React from "react";
-
+////////
+import "../../../Styles/DetailpageAboutU.css";
 const DetailpageAboutU = () => {
   return (
     <div>

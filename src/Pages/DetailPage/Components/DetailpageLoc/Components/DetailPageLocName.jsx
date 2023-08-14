@@ -1,6 +1,7 @@
 import React from "react";
+/////////
 import "../../../Styles/DetailpageLocName.css";
-
+/////////
 const DetailPageLocName = () => {
   return (
     <div className=" px-0 sm:px-5 sticky top-header-mobile lg:top-header-desktop bg-white z-[2]">

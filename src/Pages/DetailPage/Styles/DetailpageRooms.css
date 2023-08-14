@@ -1,0 +1,17 @@
+.shadow-3xl {
+  --tw-shadow: 5px 0 15px 10px rgb(0 0 0/4%);
+  --tw-shadow-colored: 5px 0 15px 10px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.rounded-xl {
+  border-radius: 0.75rem;
+}
+.border-gray-300 {
+  --tw-border-opacity: 1;
+  border-color: rgb(209 213 219 / var(--tw-border-opacity));
+}
+.DetailPagelastBorder div:last-child {
+  border: 0;
+}

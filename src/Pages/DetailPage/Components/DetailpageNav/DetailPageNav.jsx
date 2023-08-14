@@ -1,6 +1,9 @@
 import React from "react";
+/////////
 import DetailPageNavName from "./Components/DetailPageNavName";
-
+/////////
+import "../../Styles/DetailpageNav.css";
+/////////
 const DetailPageNav = () => {
   return (
     <div>

@@ -1,6 +1,7 @@
 import React from "react";
 import { FaHeart } from "react-icons/fa6";
-
+/////////
+import "../../../Styles/DetailpageCountryName.css";
 const DetailpageCountryName = () => {
   return (
     <div className="">

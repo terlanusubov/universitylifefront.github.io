@@ -1,7 +1,8 @@
 import React from "react";
 import { FaImage } from "react-icons/fa6";
+/////////
 import "../../../Styles/DetailPhotoCollage.css";
-
+/////////
 const DetailPhotoCollage = () => {
   return (
     <div className="md:my-5 w-full px-0 sm:px-5">
@@ -16,7 +17,19 @@ const DetailPhotoCollage = () => {
             >
               Previous
             </button>
-            <div></div>
+            <div>
+              <img
+                alt="Nottingham Two Nottingham 0"
+                sizes="(max-width: 768px) 50vw, 40vw"
+                srcset="https://cdn.universityliving.com/fit-in/256x0/filters:no_upscale()/filters:format(webp)/cms/TV2uZnmzr73Wa9VvtCK8t9mGqQ5sSV.jpg 256w, https://cdn.universityliving.com/fit-in/384x0/filters:no_upscale()/filters:format(webp)/cms/TV2uZnmzr73Wa9VvtCK8t9mGqQ5sSV.jpg 384w, https://cdn.universityliving.com/fit-in/640x0/filters:no_upscale()/filters:format(webp)/cms/TV2uZnmzr73Wa9VvtCK8t9mGqQ5sSV.jpg 640w, https://cdn.universityliving.com/fit-in/750x0/filters:no_upscale()/filters:format(webp)/cms/TV2uZnmzr73Wa9VvtCK8t9mGqQ5sSV.jpg 750w, https://cdn.universityliving.com/fit-in/828x0/filters:no_upscale()/filters:format(webp)/cms/TV2uZnmzr73Wa9VvtCK8t9mGqQ5sSV.jpg 828w, https://cdn.universityliving.com/fit-in/1080x0/filters:no_upscale()/filters:format(webp)/cms/TV2uZnmzr73Wa9VvtCK8t9mGqQ5sSV.jpg 1080w, https://cdn.universityliving.com/fit-in/1200x0/filters:no_upscale()/filters:format(webp)/cms/TV2uZnmzr73Wa9VvtCK8t9mGqQ5sSV.jpg 1200w, https://cdn.universityliving.com/fit-in/1920x0/filters:no_upscale()/filters:format(webp)/cms/TV2uZnmzr73Wa9VvtCK8t9mGqQ5sSV.jpg 1920w"
+                src="https://cdn.universityliving.com/fit-in/1920x0/filters:no_upscale()/filters:format(webp)/cms/TV2uZnmzr73Wa9VvtCK8t9mGqQ5sSV.jpg"
+                width="640"
+                height="360"
+                decoding="async"
+                data-nimg="1"
+                class="te-property-img w-full object-cover cursor-pointer md:h-[45vh] h-[24vh] md:rounded-l-xl max-h-[220px] md:max-h-[none] object-top"
+              />
+            </div>
             <button
               type="button"
               data-role="none"

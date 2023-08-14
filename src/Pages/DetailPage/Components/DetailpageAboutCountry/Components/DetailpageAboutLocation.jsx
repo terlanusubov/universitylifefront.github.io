@@ -1,5 +1,8 @@
 import React from "react";
 import { FaLocationDot } from "react-icons/fa6";
+//////////
+import "../../../Styles/DetailpageAboutLocation.css";
+//////////
 const DetailpageAboutLocation = () => {
   return (
     <div>
@@ -14,6 +17,7 @@ const DetailpageAboutLocation = () => {
           <p className="te-vom">View on Map</p>
         </div>
       </div>
+      <div class=" divider my-5"></div>
     </div>
   );
 };

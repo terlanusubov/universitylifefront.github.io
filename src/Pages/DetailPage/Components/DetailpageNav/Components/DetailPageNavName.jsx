@@ -1,5 +1,7 @@
 import React from "react";
-
+/////////
+import "../../../Styles/DetailpageNavName.css";
+/////////
 const DetailPageNavName = () => {
   return (
     <div className="bg-gray-100 py-3">
