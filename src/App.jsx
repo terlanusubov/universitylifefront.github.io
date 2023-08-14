@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 // Components...
 import { Helmet } from 'react-helmet'
 import Profilepage from './Pages/Profilepage/Profilepage'
-
+import Contact from "./Pages/Contact/Contact";
 // Pages...
 
 import { Routes,Route } from 'react-router-dom'
@@ -13,21 +13,14 @@ import OurServices from './Pages/Services/OurServices/OurServices'
 import Services from './Pages/Services/Services'
 
 
+
 // Pages...
 import Mainpage from './Pages/Mainpage/Mainpage'
 
 // Stylings...
 
+
 import './App.css'
-
-
-
-
-
-
-
- 
-   
 
      
 function App() {
@@ -40,12 +33,12 @@ const state = useSelector((State) => State.searchInputReducer.openedSearchInput)
        <Route path='/' element={<Mainpage></Mainpage>}></Route>
        <Route path='/services' element={<Services></Services>}></Route>
        <Route path='/profile' element={<Profilepage></Profilepage>}></Route>
+       <Route path='/contact-us' element={<Contact></Contact>}></Route>
     </Routes>
     <Footer></Footer>
    </div>
-
-
   )
+
 }
 
-export default App
+export default App;
