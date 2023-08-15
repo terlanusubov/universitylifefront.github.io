@@ -37,8 +37,8 @@ const Aside = () => {
         </div>
         <div className="aside_options">
           <div className="option cursor-pointer flex flex-col items-start justify-center hover:bg-customOrange hover:text-white text-[20px] h-[60px]">
-            <span className="option_text p-[12px]" onClick={(e) => navigateAndClose(e,'/cost-of-living')}>
-            Cost of Living
+            <span className="option_text p-[12px]" onClick={(e) => navigateAndClose(e,'/')}>
+            Home
             </span>
           </div>
           <div className="option cursor-pointer flex flex-col items-start justify-center hover:bg-customOrange hover:text-white text-[20px] h-[60px]">

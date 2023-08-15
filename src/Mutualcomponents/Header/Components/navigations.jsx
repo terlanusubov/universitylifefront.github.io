@@ -17,10 +17,10 @@ const Navigations = () => {
   return (
     <ul className={`${state ?  'hidden' : 'flex'} h-[100%] flex gap-[27px] max-[1024px]:gap-[20px]  items-center `}>
             <li className='h-[100%] flex items-center  max-[1080px]:text-[14.4px] max-[1024px]:hidden'>
-                <Link to={'/services'}>Services</Link>
+                <Link to={'/'}>Home</Link>
             </li>
             <li className='h-[100%] flex items-center  max-[1080px]:text-[14.4px] max-[1024px]:hidden'>
-                <Link to={'/scholarship'}>Scholarship</Link>
+                <Link to={'/services'}>Services</Link>
             </li>
             <li className='h-[100%] flex items-center  max-[1080px]:text-[14.4px] max-[1024px]:hidden'>
                 <Link to={'/contact-us'}>Contact Us</Link>
