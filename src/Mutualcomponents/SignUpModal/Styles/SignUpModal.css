@@ -95,11 +95,17 @@ input:-webkit-autofill:focus {
     width: 100%;
     padding: 7px;
     border-radius: 3px;
-    border: 1px solid;
     margin-bottom: 15px;
     /* position: relative; */
+    outline: none;
     text-transform: lowercase;
 }
+
+.login-signup input:-webkit-autofill {
+    color: rgb(108, 108, 108);
+    top: -175px;
+}
+
 
 .login-signup .login {
     width: 100%;
