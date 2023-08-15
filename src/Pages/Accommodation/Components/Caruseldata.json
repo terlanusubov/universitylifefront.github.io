@@ -1,0 +1,21 @@
+
+
+{
+    "slides": [
+        {
+            "src" : "../Assets/img/img1.jpg"
+        },
+        {
+            "src" : "../Assets/img/img2.jpg"
+        },
+        {
+            "src" : "../Assets/img/img3.jpg"
+        },
+        {
+            "src" : "../Assets/img/img4.jpg"
+        },
+        {
+            "src" : "../Assets/img/img5.jpg"
+        }
+    ]
+}
