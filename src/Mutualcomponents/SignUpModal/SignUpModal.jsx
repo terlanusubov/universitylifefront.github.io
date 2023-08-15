@@ -22,13 +22,14 @@ import React, { useState, useRef, useEffect } from 'react';
 // Hooks
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-hot-toast';
-
+import {useToaster} from 'react-hot-toast'
 // Components
 import { Toaster } from 'react-hot-toast';
 
 
 
 function SignUpModal({ open, onClose }) {
+  
   const [value, setValue] = useState('');
 
   // const assdas = async () => {
@@ -64,7 +65,17 @@ function SignUpModal({ open, onClose }) {
         },
         body: JSON.stringify(registerInformations)
       });
+      
       const description = await response.json()
+      if(description.statusCode === 200) {
+        toast.success("Successfully registered.")
+        console.log("Success")
+        
+      }
+      // console.log(description.description);
+      if (description.statusCode === 400) {
+        toast.error(description.description);
+      }
     
     }
 
@@ -98,7 +109,7 @@ function SignUpModal({ open, onClose }) {
 
   return (
     <>
-      <Toaster></Toaster>
+      <Toaster/>
       <div className='modal-overlay'>
 
         < div className='login-signup' >
