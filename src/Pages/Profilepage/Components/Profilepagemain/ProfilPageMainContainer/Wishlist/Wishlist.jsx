@@ -12,7 +12,7 @@ const Wishlist = () => {
                  You have not created any Wishlist yet.
                 </div> */}
 
-                <div className="favorite_rooms grid grid-cols-2 gap-[20px]">
+                <div className="favorite_rooms grid grid-cols-2 max-[615px]:grid-cols-1 gap-[20px]">
                         <WishElement></WishElement>
                         <WishElement></WishElement>
                         <WishElement></WishElement>
