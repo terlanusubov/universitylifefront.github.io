@@ -1,7 +1,7 @@
 @media only screen and (max-width: 1440px) and (min-width: 1025px) {
     .login-signup {
         padding: 10px 20px;
-        height: 470px;
+        height: 475px;
     }
 
     .login-logo-image img {
@@ -72,13 +72,13 @@
     }
 
     .google-fb a {
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
+        width: 45px;
+        height: 45px;
         border: 1px solid lightgray;
         transition: all .3s ease;
         cursor: pointer;
         background-color: unset;
+        padding: 6px;
     }
 
     .google-fb a:hover {
@@ -113,8 +113,9 @@
 /* 1024 */
 @media only screen and (max-width: 1024px) and (min-width: 769px) {
     .login-signup {
+        width: 50%;
         padding: 15px 20px;
-        height: 475px;
+        height: 480px;
     }
 
     .login-logo-image img {
@@ -192,13 +193,13 @@
     }
 
     .google-fb a {
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
+        width: 45px;
+        height: 45px;
         border: 1px solid lightgray;
         transition: all .3s ease;
         cursor: pointer;
         background-color: unset;
+        padding: 6px;
     }
 
     .google-fb a:hover {
@@ -228,6 +229,7 @@
 /* 768 */
 @media only screen and (max-width: 768px) and (min-width: 425px) {
     .login-signup {
+        width: 65%;
         padding: 10px 20px;
         height: 455px;
     }
@@ -307,13 +309,13 @@
     }
 
     .google-fb a {
-        width: 45px;
-        height: 45px;
-        border-radius: 50%;
+        width: 35px;
+        height: 35px;
         border: 1px solid lightgray;
         transition: all .3s ease;
         cursor: pointer;
         background-color: unset;
+        padding: 10px;
     }
 
     .google-fb a:hover {
@@ -346,7 +348,7 @@
     .login-signup {
         padding: 10px 20px;
         height: 465px;
-        width: 90%;
+        width: 80%;
     }
 
     .login-logo-image img {
@@ -424,13 +426,13 @@
     }
 
     .google-fb a {
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
+        width: 40px;
+        height: 40px;
         border: 1px solid lightgray;
         transition: all .3s ease;
         cursor: pointer;
         background-color: unset;
+        padding: 10px;
     }
 
     .google-fb a:hover {
@@ -460,9 +462,9 @@
 /* 375 */
 @media only screen and (max-width: 375px) and (min-width: 321px) {
     .login-signup {
-        width: 90%;
+        width: 80%;
         padding: 10px 20px;
-        height: 470px;
+        height: 460px;
     }
 
     .login-logo-image img {
@@ -540,13 +542,13 @@
     }
 
     .google-fb a {
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
+        width: 35px;
+        height: 35px;
         border: 1px solid lightgray;
         transition: all .3s ease;
         cursor: pointer;
         background-color: unset;
+        padding: 10px;
     }
 
     .google-fb a:hover {
@@ -634,7 +636,7 @@
 
     .login-signup .login {
         padding: 8px 18px;
-        font-size: 14px;
+        font-size: 12px;
     }
 
 
@@ -656,13 +658,13 @@
     }
 
     .google-fb a {
-        width: 45px;
-        height: 45px;
-        border-radius: 50%;
+        width: 35px;
+        height: 35px;
         border: 1px solid lightgray;
         transition: all .3s ease;
         cursor: pointer;
         background-color: unset;
+        padding: 10px;
     }
 
     .google-fb a:hover {
