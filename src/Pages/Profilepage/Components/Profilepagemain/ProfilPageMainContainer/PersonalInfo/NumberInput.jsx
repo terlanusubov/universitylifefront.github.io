@@ -10,7 +10,7 @@ import { PhoneInput } from "react-international-phone";
 function NumbersInput() {
 const [value, setValue] = useState()
   return (
-    <div className="rounded-[4px] international_input_profile_page max-w-[360px] w-[100%]">
+    <div className="rounded-[4px] international_input_profile_page max-w-[300px] w-[100%]">
       <div className="rounded-[4px] international_input  relative">
       <PhoneInput
       value={value} 

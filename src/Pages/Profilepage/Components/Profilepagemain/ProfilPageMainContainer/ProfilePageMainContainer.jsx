@@ -24,12 +24,8 @@ const ProfilePageMainContainer = () => {
         state==='wishlist' ? 
         <Wishlist></Wishlist> 
         :
-        state==='personalInfo' ?
+        state==='profile' ?
         <PersonalInfo></PersonalInfo>
-        :
-        state==='profileDetails'
-        ?
-        <Profile email={'joebiden@gmail.com'} fullName={'Elvin Suleymanov'}></Profile> 
         :
         ''
       }

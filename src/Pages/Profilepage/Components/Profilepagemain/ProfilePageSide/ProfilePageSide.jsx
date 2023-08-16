@@ -41,15 +41,8 @@ const ProfilePageSide = () => {
                         Wishlist
                     </div>
                 </div>
-                <div onClick={() => routeToProfile('personalInfo') } className={`profile_page_property  p-[10px] hover:bg-[#F3F3F3] hover:text-customOrange cursor-pointer flex items-center   w-[100%]` }>
-                    <div className="property_icon mr-[10px] text-[24px]">
-                        <InformationIcon></InformationIcon>
-                    </div>
-                    <div className="profile_property_text">
-                        Personal Information
-                    </div>
-                </div>
-                <div onClick={() => routeToProfile('profileDetails')} className={`profile_page_property  p-[10px] hover:bg-[#F3F3F3] hover:text-customOrange cursor-pointer flex items-center   w-[100%]` }>
+
+                <div onClick={() => routeToProfile('profile')} className={`profile_page_property  p-[10px] hover:bg-[#F3F3F3] hover:text-customOrange cursor-pointer flex items-center   w-[100%]` }>
                     <div className="property_icon mr-[10px] text-[24px]">
                         <ProfileIcon></ProfileIcon>
                     </div>

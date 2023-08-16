@@ -8,7 +8,6 @@ import { useSelector,useDispatch } from 'react-redux'
 const Searchbar = () => {
 
   const state = useSelector((State) => State.searchInputReducer.openedSearchInput)
-  console.log(state);
   return (
     <div className='navbar_search max-[1024px]:hidden w-[35%]'>
         <SearchInput></SearchInput>

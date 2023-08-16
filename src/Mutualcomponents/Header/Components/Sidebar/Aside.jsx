@@ -36,22 +36,26 @@ const Aside = () => {
           <img src={Logo} onClick={(e) => navigateAndClose(e,'/')} alt=""/>
         </div>
         <div className="aside_options">
-          <div className="option cursor-pointer flex flex-col items-start justify-center hover:bg-customOrange hover:text-white text-[20px] h-[60px]">
-            <span className="option_text p-[12px]" onClick={(e) => navigateAndClose(e,'/')}>
+          <div onClick={(e) => navigateAndClose(e,'/')} className="option cursor-pointer flex flex-col items-start justify-center hover:bg-customOrange hover:text-white text-[20px] h-[60px]">
+            <span className="option_text p-[12px]">
             Home
             </span>
           </div>
-          <div className="option cursor-pointer flex flex-col items-start justify-center hover:bg-customOrange hover:text-white text-[20px] h-[60px]">
-            <span className="option_text p-[12px]" onClick={(e) => navigateAndClose(e,'/services')}>
+          <div onClick={(e) => navigateAndClose(e,'/services')} className="option cursor-pointer flex flex-col items-start justify-center hover:bg-customOrange hover:text-white text-[20px] h-[60px]">
+            <span className="option_text p-[12px]">
             Services
             </span>
           </div>
-          <div className="option cursor-pointer flex flex-col items-start justify-center hover:bg-customOrange hover:text-white text-[20px] h-[60px]">
-            <span className="option_text p-[12px]" onClick={(e) => navigateAndClose(e,'/contact-us')}>
+          <div onClick={(e) => navigateAndClose(e,'/contact-us')} className="option cursor-pointer flex flex-col items-start justify-center hover:bg-customOrange hover:text-white text-[20px] h-[60px]">
+            <span className="option_text p-[12px]">
             Contact Us
             </span>
           </div>
-
+          <div onClick={(e) => navigateAndClose(e,'/bedrooms')} className="option cursor-pointer flex flex-col items-start justify-center hover:bg-customOrange hover:text-white text-[20px] h-[60px]">
+            <span className="option_text p-[12px]">
+            Bedrooms
+            </span>
+          </div>
         </div>
         <button className='bg-customOrange text-white text-[20px] w-[100%] h-[40px]'>Download App</button>
     </aside>

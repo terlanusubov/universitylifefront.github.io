@@ -20,6 +20,9 @@ const Navigations = () => {
                 <Link to={'/'}>Home</Link>
             </li>
             <li className='h-[100%] flex items-center  max-[1080px]:text-[14.4px] max-[1024px]:hidden'>
+                <Link to={'/bedrooms'}>Bedrooms</Link>
+            </li>
+            <li className='h-[100%] flex items-center  max-[1080px]:text-[14.4px] max-[1024px]:hidden'>
                 <Link to={'/services'}>Services</Link>
             </li>
             <li className='h-[100%] flex items-center  max-[1080px]:text-[14.4px] max-[1024px]:hidden'>

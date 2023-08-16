@@ -8,9 +8,9 @@ import Data from './Components/Data'
 
 // Icons
 import {IoIosBed as BedIcon} from 'react-icons/io'
-import {AiFillHome as HomeIcon} from 'react-icons/ai'
 import {PiStudentBold as StudentIcon} from 'react-icons/pi'
 import {BiSolidCity as CityIcon} from 'react-icons/bi'
+import {LiaUniversitySolid as UniversityIcon} from 'react-icons/lia'
 // Redux
 
 
@@ -22,7 +22,7 @@ const Countdata = () => {
             <Data dataName={'Beds'} dataDigit={320}><BedIcon/></Data>
             <Data dataName={'Cities'} dataDigit={320}><CityIcon/></Data>
             <Data dataName={'Students'} dataDigit={323120}><StudentIcon/></Data>
-            <Data dataName={'Properties'} dataDigit={312300}><HomeIcon/></Data>
+            <Data dataName={'Universities'} dataDigit={312300}><UniversityIcon/></Data>
     </div>
   )
 }
