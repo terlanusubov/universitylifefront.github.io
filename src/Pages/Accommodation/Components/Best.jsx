@@ -8,7 +8,7 @@ const Best = () => {
         setRead(!read)
     }
     return (
-        <div className='best'>
+        <div className='best pt-7'>
             <div className={read ? 'h-[9rem] relative overflow-hidden' : ''}>
                 <p className='text-xl font-bold'>Best London Accommodation For Students</p>
                 <div className='text-sm'>

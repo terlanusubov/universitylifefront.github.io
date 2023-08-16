@@ -1,4 +1,4 @@
-.card {
+.cardproduct {
     .cardimg {
         position: relative;
 
@@ -99,6 +99,35 @@
         }
     }
 }
+
+
+.card{
+    .offer-link{
+        a{
+            height: 35px;
+            box-shadow: inset 0 8px 6px -6px rgba(0,0,0,.063);
+            top: -0.4rem;
+            text-decoration: none;
+            border: none;
+            border-radius: 0 0 6px 6px;
+            padding: 8px 10px;
+            align-items: center;
+            text-transform: uppercase;
+            text-align: center;
+            min-width: 155px;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
 .best{
     .relative{
         .grad-color{
