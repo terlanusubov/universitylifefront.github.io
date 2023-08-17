@@ -107,16 +107,13 @@ const DetailPageRooms = () => {
                     </li>
                   </ul>
                   <ul class="col-span-4 lg:col-span-1 flex justify-end gap-x-3 flex-row-reverse lg:flex-row">
-                    <li
-                      class="flex-grow lg:flex-grow-0
-                          "
-                    >
+                    <li class="flex-grow lg:flex-grow-0">
                       <button
-                        class="w-full lg:w-36 te-penq te-penq my-1 py-2 rounded-md text-base w-full lg:w-48 bg-white border border-theme-blue text-theme-blue hover:text-white hover:bg-theme-blue focus:bg-white focus:text-theme-blue transition-colors disabled:opacity-70 disabled:cursor-not-allowed"
+                        class="w-full lg:w-36  my-1 py-2 rounded-md text-base w-full lg:w-48 bg-customOrange text-white hover:bg-theme-orange-hover border border-customOrange transition-colors disabled:opacity-70 disabled:cursor-not-allowed"
                         type="button"
                       >
-                        <div class="flex items-center justify-center gap-2 truncate te-penq">
-                          Enquire
+                        <div class="flex items-center justify-center gap-2 truncate ">
+                          Instant Book
                         </div>
                       </button>
                     </li>
@@ -129,7 +126,7 @@ const DetailPageRooms = () => {
                   </span>
                 </div>
               </div>
-              <div className="  border-b border-gray-300  py-5 first:pt-0 space-y-3">
+              {/* <div className="  border-b border-gray-300  py-5 first:pt-0 space-y-3">
                 <div class="grid grid-cols-4 gap-4 items-center">
                   <ul class="ratesMain col-span-4 lg:col-span-3 flex-wrap lg:flex-nowrap flex justify-between w-full lg:items-center">
                     <li
@@ -154,16 +151,13 @@ const DetailPageRooms = () => {
                     </li>
                   </ul>
                   <ul class="col-span-4 lg:col-span-1 flex justify-end gap-x-3 flex-row-reverse lg:flex-row">
-                    <li
-                      class="flex-grow lg:flex-grow-0
-                          "
-                    >
+                    <li class="flex-grow lg:flex-grow-0">
                       <button
-                        class="w-full lg:w-36 te-penq te-penq my-1 py-2 rounded-md text-base w-full lg:w-48 bg-white border border-theme-blue text-theme-blue hover:text-white hover:bg-theme-blue focus:bg-white focus:text-theme-blue transition-colors disabled:opacity-70 disabled:cursor-not-allowed"
+                        class="w-full lg:w-36  my-1 py-2 rounded-md text-base w-full lg:w-48 bg-theme-orange text-white hover:bg-theme-orange-hover border border-theme-orange transition-colors disabled:opacity-70 disabled:cursor-not-allowed"
                         type="button"
                       >
-                        <div class="flex items-center justify-center gap-2 truncate te-penq">
-                          Enquire
+                        <div class="flex items-center justify-center gap-2 truncate ">
+                          Instant Book
                         </div>
                       </button>
                     </li>
@@ -175,7 +169,7 @@ const DetailPageRooms = () => {
                     Book a room and get summer stay at £99 per week offer*
                   </span>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

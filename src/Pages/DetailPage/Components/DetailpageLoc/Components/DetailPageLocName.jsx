@@ -13,15 +13,6 @@ const DetailPageLocName = () => {
           <li class="mr-8 font-semibold cursor-pointer pb-3.5 whitespace-nowrap  te-roomtype ">
             Room Types
           </li>
-          <li class="mr-8 font-semibold cursor-pointer pb-3.5 whitespace-nowrap  te-paymentinfo">
-            Payment Info
-          </li>
-          <li class="mr-8 font-semibold cursor-pointer pb-3.5 whitespace-nowrap  te-review">
-            Reviews
-          </li>
-          <li class="mr-8 font-semibold cursor-pointer pb-3.5 whitespace-nowrap  te-similarproperty">
-            Similar Properties
-          </li>
         </ul>
       </div>
       <div className="divider"></div>

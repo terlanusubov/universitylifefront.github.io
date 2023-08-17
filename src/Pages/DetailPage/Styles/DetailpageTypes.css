@@ -1,4 +1,4 @@
-div button:hover {
+.DetailTypes button:hover {
   background-color: rgb(60 60 113 / var(--tw-border-opacity));
   color: white;
 }

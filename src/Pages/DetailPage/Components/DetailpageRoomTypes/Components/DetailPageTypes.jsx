@@ -6,7 +6,7 @@ const DetailPageTypes = () => {
   return (
     <div>
       <div class="py-1 w-full sticky top-[125px] lg:top-[140px] bg-white z-[1] drop-shadow-md">
-        <div class=" flex overflow-x-auto no-scrollbar container false">
+        <div class=" DetailTypes flex overflow-x-auto no-scrollbar container false">
           <button
             class=" DetailpageTypesActive mr-2 w-36 content-font flex-shrink-0 te-All my-1 px-4 py-2 rounded-md text-base   border  transition-colors disabled:opacity-70 disabled:cursor-not-allowed"
             // type="button"
