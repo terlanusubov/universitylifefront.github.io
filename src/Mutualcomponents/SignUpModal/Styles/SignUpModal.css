@@ -28,6 +28,7 @@ body {
     width: 26%;
 }
 
+
 .content {
     display: none;
 }
@@ -36,10 +37,11 @@ body {
     display: block;
 }
 
-input:autofill ~ span {
+input:autofill~span {
     color: rgb(108, 108, 108);
     top: -175px;
 }
+
 /* input:-webkit-autofill:focus {
     box-shadow: 0 0 0 1000px white inset;
     -webkit-text-fill-color: #333;
@@ -61,30 +63,21 @@ input:autofill ~ span {
 .register-login {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     margin-bottom: 10px;
 }
 
 .register-login .btn-reg {
-    color: white;
-    padding: 4px;
-    border-radius: 3px;
-    font-size: 14px;
+    font-size: 18px;
 }
 
-.register-login .btn-reg:hover {
-    background-color: #f56a54cf;
+.active {
+    border-bottom: 2px solid #F67864;
 }
+
 
 .register-login .btn-log {
-    border: 1px solid;
-    padding: 4px 15px;
-    border-radius: 3px;
-    font-size: 14px;
-}
-
-.register-login .btn-log:hover {
-    background-color: #eceaea7e;
+    font-size: 18px;
 }
 
 .tel-input {
