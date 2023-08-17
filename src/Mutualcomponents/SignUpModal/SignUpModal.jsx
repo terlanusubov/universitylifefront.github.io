@@ -62,7 +62,7 @@ function SignUpModal({ open, onClose }) {
     console.log(registerInformations);
     
     try {
-      const response = await fetch(`http://elnurhz-001-site1.itempurl.com/api/v1/account/register`, {
+      const response = await fetch(import.meta.env.VITE_API_KEY, {
         method: 'POST',
         // mode:'no-cors',
         headers: {
