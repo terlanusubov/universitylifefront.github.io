@@ -125,7 +125,7 @@ function SignUpModal({ open, onClose }) {
     <>
       <Toaster />
       <div className='modal-overlay'>
-        < div className='login-signup' >
+        < div className={toggle === 1 ? "login-signup" : "content"} >
           <div onClick={onClose} className='close-icon'>
             <AiOutlineClose />
           </div>
@@ -139,7 +139,7 @@ function SignUpModal({ open, onClose }) {
               <button className={toggle === 2 ? "active" : "btn-log"} onClick={() => toggleTab(2)}>Login</button>
             </div>
           </div>
-          <form action="/" onSubmit={RegisterHandler} className={toggle === 1 ? "show-content" : "content"} >
+          <form action="/" onSubmit={RegisterHandler} >
 
             <div className="input_container">
               <input onChange={(e) => setNameValue(e.target.value)} onFocus={focusHanlder} onBlur={blurHandler} type="name" id='fname' name='fname' className=' border rounded-[10px] p-[10px]' />
@@ -188,8 +188,24 @@ function SignUpModal({ open, onClose }) {
               </div>
             </div>
           </form>
+        </div >
 
-          <form action="/" className={toggle === 2 ? "show-content" : "content"}>
+        {/* ///////////////////////////////////////////////// */}
+        < div className={toggle === 2 ? "login-signup c-login" : "content"} >
+          <div onClick={onClose} className='close-icon'>
+            <AiOutlineClose />
+          </div>
+          <div className='login-logo-image'>
+            <img src={Logo} alt="" />
+          </div>
+          <div className='login-title'>
+            <h2 className='text-customOrange'>Welcome to University Living</h2>
+            <div className='register-login'>
+              <button className={toggle === 1 ? "active" : "btn-reg"} onClick={() => toggleTab(1)}>Register</button>
+              <button className={toggle === 2 ? "active" : "btn-log"} onClick={() => toggleTab(2)}>Login</button>
+            </div>
+          </div>
+          <form action="/" >
             <div className="input_container">
               <input onFocus={focusHanlder} onBlur={blurHandler} type="email" id='email' name='email' className=' border rounded-[10px] p-[10px]' />
               <span className='text-white'>Email</span>
@@ -201,7 +217,6 @@ function SignUpModal({ open, onClose }) {
             <button onSubmit={RegisterHandler} type="submit" className='login bg-customOrange'>Login</button>
 
           </form>
-
         </div >
       </div >
     </>

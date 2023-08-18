@@ -24,7 +24,7 @@ body {
     text-align: center;
     background-color: white;
     border-radius: 5px;
-    position: relative;
+    position: fixed;
     width: 26%;
 }
 
@@ -33,8 +33,21 @@ body {
     display: none;
 }
 
-.show-content {
+.show-conten {
     display: block;
+}
+
+.c-login {
+    width: 20%;
+    z-index: -1;
+    transform: translate(0%, 5%);
+}
+
+.c-login .close-icon {
+        top: -5%;
+        left: 94%;
+        font-size: 20px;
+        padding: 7px 7px 9px;
 }
 
 input:autofill~span {
