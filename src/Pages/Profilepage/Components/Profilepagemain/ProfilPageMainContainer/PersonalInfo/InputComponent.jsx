@@ -2,17 +2,17 @@ import React from 'react'
 import {useState,useRef,useEffect} from 'react'
 const InputComponent = ({inputTitle,inputId}) => {
     const [focused,setFocused] = useState(false)
+    const [inputValue,setInputValue] = useState('')
     const inputRef = useRef();
     const focusHandler = () => {
         setFocused(true)
     }
     const blurHandler = () => {
-        if (!inputRef.current.value) {
+        if (!inputValue) {
             setFocused(false)
         }
     }
 
-    const [inputValue,setInputValue] = useState('')
 
  
 
@@ -37,7 +37,7 @@ const InputComponent = ({inputTitle,inputId}) => {
 
     />
     <label
-      className={`block text-gray-700 content-font mb-2 truncate ${inputTitle === 'Email' ? 'flag' : ''} ${focused ? 'flag' : ''}`}
+      className={`block text-gray-700 content-font mb-2 truncate ${inputTitle === 'Email' ? 'flag' : ''} ${focused ? 'flag' : 'top-[10px] left-[8px]'}`}
       htmlFor={inputId}
     >
       {inputTitle}<sup className="text-customOrange">*</sup>
