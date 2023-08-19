@@ -44,21 +44,16 @@ body {
 }
 
 .c-login .close-icon {
-        top: -5%;
-        left: 94%;
-        font-size: 20px;
-        padding: 7px 7px 9px;
+    top: -5%;
+    left: 94%;
+    font-size: 20px;
+    padding: 7px 7px 9px;
 }
 
 input:autofill~span {
     color: rgb(108, 108, 108);
     top: -175px;
 }
-
-/* input:-webkit-autofill:focus {
-    box-shadow: 0 0 0 1000px white inset;
-    -webkit-text-fill-color: #333;
-} */
 
 .close-icon {
     position: absolute;

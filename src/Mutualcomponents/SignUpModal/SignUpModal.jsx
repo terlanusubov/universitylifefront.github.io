@@ -32,12 +32,19 @@ function SignUpModal({ open, onClose }) {
 
   const [value, setValue] = useState('');
 
-  // const assdas = async () => {
-  //   const token = await fetch('api',{
-  //     method:'POST',
+  // const LoginHandler = async (e) => {
+  //   e.preventDefault();
+  //   setLoading(true)
+  //   const loginInformations = {
+  //     email: emailValue,
+  //     password: passwordValue,
+  //   }
+  //   console.log(loginInformations);
+  //   const token = await fetch('api', {
+  //     method: 'POST',
   //     body: JSON.stringify()
   //   })
-  //   localStorage.setItem('token',JSON.stringify(token))
+  //   localStorage.setItem('token', JSON.stringify(token))
   // }
 
   const [nameValue, setNameValue] = useState('')
