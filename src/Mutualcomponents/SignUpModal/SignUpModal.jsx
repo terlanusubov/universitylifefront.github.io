@@ -50,23 +50,23 @@ function SignUpModal({ open, onClose }) {
     console.log(JSON.stringify(loginInformations));
     const promise = await fetch(`${import.meta.env.VITE_API_KEY}/account/login`, {
       headers:{
-        'Content-Type':'text/plain'
+        'Content-Type':'application/json'
       },
       method:'POST',
       body: JSON.stringify(loginInformations)
     })
    const response = await promise.json()
-   console.log(response);
-    // localStorage.setItem('token', JSON.stringify(token))
+
+    if (response.statusCode === 400) {
+      toast.error(response.description)
+      setLoginLoading(false)
+      return false;
+    }
+
     if (response.statusCode === 200) {
-      toast.success('ugurlu')
+      localStorage.setItem('tokenId',JSON.stringify(response.response.token))
     }
-    else if (response.statusCode === 400) {
-      toast.error('alinmadi')
-    }
-    else if(response.statusCode === 415) {
-      toast.error('Format Duz deyil')
-    } 
+    
     
     setLoginLoading(false)
   }
