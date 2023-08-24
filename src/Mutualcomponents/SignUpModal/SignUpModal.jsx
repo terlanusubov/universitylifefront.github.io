@@ -169,8 +169,8 @@ console.log(loginEmailValue,loginPasswordValue);
           <div className='login-title'>
             <h2 className='text-customOrange'>Welcome to University Living</h2>
             <div className='register-login'>
-              <button className={toggle === 1 ? "active" : "btn-reg"} onClick={() => toggleTab(1)}>Register</button>
-              <button className={toggle === 2 ? "active" : "btn-log"} onClick={() => toggleTab(2)}>Login</button>
+              <button className={toggle === 1 ? "btn active" : "btn"} onClick={() => toggleTab(1)}>Register</button>
+              <button className={toggle === 2 ? "btn active" : "btn"} onClick={() => toggleTab(2)}>Login</button>
             </div>
           </div>
           <form >

@@ -73,19 +73,30 @@ input:autofill~span {
     align-items: center;
     justify-content: space-around;
     margin-bottom: 10px;
+    position: relative;
+    transform: translate(5%, -10%);
 }
 
-.register-login .btn-reg {
+.register-login .btn {
     font-size: 18px;
 }
 
 .active {
-    border-bottom: 2px solid #F67864;
+    /* background: white; */
+    border-bottom: 2px solid transparent;
+    transform: translateX(-50%);
 }
 
-
-.register-login .btn-log {
-    font-size: 18px;
+.active::before {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(190% + 2px);
+    height: 3px;
+    background: #F67864;
 }
 
 .tel-input {

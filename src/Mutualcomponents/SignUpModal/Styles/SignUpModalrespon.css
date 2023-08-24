@@ -18,9 +18,13 @@
         margin-bottom: 10px;
     }
 
+    .register-login .btn {
+        font-size: 16px;
+    }
+
     .c-login {
-        width: 20%;
-        height: 280px;
+        width: 26%;
+        height: 260px;
         z-index: -1;
         transform: translate(0%, 5%);
     }
@@ -145,6 +149,10 @@
     .login-title p {
         font-size: 12px;
         margin-bottom: 10px;
+    }
+
+    .register-login .btn {
+        font-size: 16px;
     }
 
     .c-login {
@@ -277,16 +285,20 @@
         margin-bottom: 10px;
     }
 
+    .register-login .btn {
+        font-size: 16px;
+    }
+
     .c-login {
-        width: 50%;
-        height: 280px;
+        width: 80%;
+        height: 250px;
         z-index: -1;
         transform: translate(0%, 5%);
     }
 
     .c-login .close-icon {
         top: -5%;
-        left: 93%;
+        left: 96%;
         font-size: 20px;
         padding: 7px 7px 9px;
     }
@@ -408,16 +420,20 @@
         margin-bottom: 10px;
     }
 
+    .register-login .btn {
+        font-size: 16px;
+    }
+
     .c-login {
-        width: 60%;
-        height: 260px;
+        width: 80%;
+        height: 250px;
         z-index: -1;
         transform: translate(0%, 5%);
     }
 
     .c-login .close-icon {
-        top: -5%;
-        left: 91%;
+        top: -4%;
+        left: 93%;
         font-size: 18px;
         padding: 7px 7px 9px;
     }
@@ -538,8 +554,16 @@
         margin-bottom: 10px;
     }
 
+    .register-login .btn {
+        font-size: 14px;
+    }
+
+    .register-login {
+        font-size: 14px;
+    }
+
     .c-login {
-        width: 60%;
+        width: 80%;
         height: 250px;
         z-index: -1;
         transform: translate(0%, 5%);
@@ -547,7 +571,7 @@
 
     .c-login .close-icon {
         top: -5%;
-        left: 91%;
+        left: 93%;
         font-size: 16px;
         padding: 8px 7px 9px 7px;
     }
@@ -668,9 +692,15 @@
         margin-bottom: 10px;
     }
 
+    .register-login .btn {
+        font-size: 12px;
+    }
+    .register-login {
+        font-size: 12px;
+    }
     .c-login {
         padding: 10px 15px;
-        width: 60%;
+        width: 80%;
         height: 235px;
         z-index: -1;
         transform: translate(0%, 5%);
@@ -678,7 +708,7 @@
 
     .c-login .close-icon {
         top: -5%;
-        left: 90%;
+        left: 92%;
         font-size: 16px;
         padding: 7px 7px 9px;
     }
