@@ -31,9 +31,9 @@
 
     .c-login .close-icon {
         top: -5%;
-        left: 93%;
-        font-size: 18px;
-        padding: 7px 7px 9px;
+        left: 95%;
+        font-size: 16px;
+        padding: 6px 6px 8px;
     }
 
     .close-icon {
@@ -164,9 +164,9 @@
 
     .c-login .close-icon {
         top: -5%;
-        left: 95%;
-        font-size: 18px;
-        padding: 7px 7px 9px;
+        left: 96%;
+        font-size: 16px;
+        padding: 6px 6px 8px;
     }
 
     .close-icon {
@@ -298,9 +298,9 @@
 
     .c-login .close-icon {
         top: -5%;
-        left: 96%;
-        font-size: 20px;
-        padding: 7px 7px 9px;
+        left: 97%;
+        font-size: 16px;
+        padding: 6px 7px 8px;
     }
 
     .close-icon {
@@ -425,7 +425,7 @@
     }
 
     .c-login {
-        width: 80%;
+        width: 92%;
         height: 250px;
         z-index: -1;
         transform: translate(0%, 5%);
@@ -433,9 +433,9 @@
 
     .c-login .close-icon {
         top: -4%;
-        left: 93%;
-        font-size: 18px;
-        padding: 7px 7px 9px;
+        left: 95%;
+        font-size: 16px;
+        padding: 6px 6px 8px;
     }
 
     .close-icon {
@@ -563,7 +563,7 @@
     }
 
     .c-login {
-        width: 80%;
+        width: 92%;
         height: 250px;
         z-index: -1;
         transform: translate(0%, 5%);
@@ -571,9 +571,9 @@
 
     .c-login .close-icon {
         top: -5%;
-        left: 93%;
-        font-size: 16px;
-        padding: 8px 7px 9px 7px;
+        left: 94%;
+        font-size: 14px;
+        padding: 7px 6px 8px 6px;
     }
 
     .close-icon {
@@ -700,7 +700,7 @@
     }
     .c-login {
         padding: 10px 15px;
-        width: 80%;
+        width: 91%;
         height: 235px;
         z-index: -1;
         transform: translate(0%, 5%);
@@ -708,9 +708,9 @@
 
     .c-login .close-icon {
         top: -5%;
-        left: 92%;
-        font-size: 16px;
-        padding: 7px 7px 9px;
+        left: 94%;
+        font-size: 14px;
+        padding: 5px 5px 7px;
     }
 
     .close-icon {
@@ -756,7 +756,6 @@
         padding: 8px 18px;
         font-size: 12px;
     }
-
 
     .login-signup .or {
         font-size: 12px;
