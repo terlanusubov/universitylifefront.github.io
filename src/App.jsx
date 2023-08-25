@@ -17,7 +17,6 @@ function App() {
 
   return (
    <div className="App">
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Suscipit, facilis?
     <SignModal/>
    </div>
   )
