@@ -173,7 +173,7 @@ const Modal = () => {
               <span className="google_logo text-[26px]">
                   <GoogleIcon/>
               </span>
-              <span className="social_media_name mr-auto  text-[15px]">
+              <span className="social_media_name mr-auto  text-[15px] max-[280px]:text-[13px]">
                 Continue with Google
               </span>
           </button>
@@ -181,7 +181,7 @@ const Modal = () => {
               <span className="google_logo text-[26px]">
                   <FacebookIcon/>
               </span>
-              <span className="social_media_name mr-auto  text-[15px]">
+              <span className="social_media_name mr-auto  text-[15px] max-[280px]:text-[13px]">
                 Continue with Facebook
               </span>
           </button>
@@ -218,7 +218,7 @@ const Modal = () => {
               <span className="google_logo text-[26px]">
                   <GoogleIcon/>
               </span>
-              <span className="social_media_name mr-auto  text-[15px]">
+              <span className="social_media_name mr-auto  text-[15px] max-[281px]:text-[13px]">
                 Continue with Google
               </span>
           </button>
@@ -226,7 +226,7 @@ const Modal = () => {
               <span className="google_logo text-[26px]">
                   <FacebookIcon/>
               </span>
-              <span className="social_media_name mr-auto  text-[15px]">
+              <span className="social_media_name mr-auto  text-[15px] max-[281px]:text-[13px]">
                 Continue with Facebook
               </span>
           </button>
