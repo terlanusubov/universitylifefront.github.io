@@ -9,7 +9,7 @@ const SignupButton = () => {
   }
   return (
     <button onClick={openModal} className='sign_up_btn bg-customOrange text-white w-[125px] h-[40px] rounded-[8px] hover:bg-customLightOrange flex justify-center items-center'>
-        <span className="button_text max-[500px]:text-red-700">
+        <span className="button_text text-white">
         Login / Signup
         </span>
     </button>
