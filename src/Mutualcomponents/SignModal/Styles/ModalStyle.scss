@@ -4,6 +4,37 @@
 }
 
 
+.modal_container {
+    opacity: 0.5;
+    margin-bottom: -30px;
+    animation-name: modalAnimation;
+    animation-timing-function: ease-in-out;
+    animation-duration: .35s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes modalAnimation {
+    0% {
+        opacity: 0.5;
+        margin-bottom: -30px;
+    }
+
+    // 25% {
+    //     opacity: 0.6;
+    //     margin-bottom: -20px;   
+    // }
+
+    // 50% {
+    //     opacity: 0.8;
+    //     margin-bottom: -10px;
+    // }
+
+    100% {
+        opacity: 1;
+        margin-bottom: 0px;
+    }
+}
+
 .international_input_register {
    .international_input {
        display:flex;

@@ -18,9 +18,14 @@ const Banner = () => {
   const bannerToggleContainerRef = useRef()
   useEffect(() => {
     document.addEventListener('click', e => {
+      try {
         if (!bannerToggleContainerRef.current.contains(e.target)) {
           dispatch(bannerSlice.actions.closeBannerInput())
         }
+      }
+      catch(err) {
+        
+      }
     } )
   })
   return (

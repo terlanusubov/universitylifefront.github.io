@@ -30,19 +30,15 @@ const sideBarState = useSelector(state => state.sideBarReducer.openedSidebar)
         <Navigations></Navigations>
         {/* <Profile></Profile> */}
 
-        {
-          sideBarState 
-          ? 
-          <Sidebar></Sidebar> 
-          : 
-          ''
-        }
+          {
+            sideBarState 
+            &&
+            <Sidebar/>
+          }
          {
           inputState 
-          ? 
-            <SearchInputModal></SearchInputModal>
-          : 
-            ''       
+          &&
+          <SearchInputModal/>    
            }
     </header>
   )

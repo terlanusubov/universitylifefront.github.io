@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 // Components
 import InputComponent from './InputComponent'
@@ -9,7 +9,13 @@ import UniversityInput from './UniversityInput'
 const PersonalInfo = () => {
     const [editOpen,setEditOpen] = useState(false);
    
-    
+    const [NameInputValue,setNameInputValue] = useState('');
+    const [SurnameInputValue,setSurnameInputValue] = useState('');
+    const [EmailInputValue,setEmailInputValue] = useState('');
+    const [PhoneInputValue,setPhoneInputValue] = useState('');
+    const [CountryInputValue,setCountryInputValue] = useState('');
+
+  
   return (
     <div className='profile_page_personal_info'>
         <div className="profile_part_nav  rounded-[14px] mt-[-23px] max-[1024px]:mt-[-20px] p-[20px] bg-white shadow-[1px_2px_10px_-5px_rgba(0,0,0,0.3)] font-[600]">
@@ -21,16 +27,17 @@ const PersonalInfo = () => {
             {
                 editOpen 
                 &&
+                
                  <div className="main_container">
                     <div className="container_title pb-[20px]">
                         Personal Detail
                     </div>
-                    <div className="personal_details_container  grid grid-cols-2  justify-items-start gap-y-[40px] max-[1330px]:gap-x-[20px]">
-                            <InputComponent inputId="nameInput" inputTitle={'Name'}></InputComponent>
-                            <InputComponent inputId="surnameInput" inputTitle={'Surname'}></InputComponent>
-                            <InputComponent inputId="countryInput" inputTitle={'Country'}></InputComponent>
-                            <InputComponent inputId="emailInput" inputTitle={'Email'}></InputComponent>
-                            <NumbersInput></NumbersInput>
+                    <div className="personal_details_container  grid grid-cols-2  justify-items-start gap-y-[40px] gap-x-[20px]">
+                            <InputComponent setInputValue={setNameInputValue} inputValue={NameInputValue} inputId="nameInput" inputTitle={'Name'}></InputComponent>
+                            <InputComponent setInputValue={setSurnameInputValue} inputValue={SurnameInputValue} inputId="surnameInput" inputTitle={'Surname'}></InputComponent>
+                            <InputComponent setInputValue={setCountryInputValue} inputValue={CountryInputValue} inputId="countryInput" inputTitle={'Country'}></InputComponent>
+                            <InputComponent setInputValue={setEmailInputValue} inputValue={EmailInputValue} inputId="emailInput" inputTitle={'Email'}></InputComponent>
+                            <NumbersInput setInputValue={setPhoneInputValue} inputValue={PhoneInputValue}></NumbersInput>
                             <button className='max-w-[250px] w-[100%] bg-customOrange flex items-center justify-center rounded-[10px] duration-[.1s] hover:bg-[#de6c5a] text-white'>
                                 <span className="btn_text">
                                     Save Details

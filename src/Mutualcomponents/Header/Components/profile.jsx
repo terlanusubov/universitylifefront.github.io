@@ -21,6 +21,8 @@ import DefaultPp from '../Assets/defaultpp.jpg'
 import {useDispatch, useSelector} from 'react-redux'
 import {useNavigate} from 'react-router-dom'
 import { ProfileTogglesSlice } from '../../../Redux/ProfileSlice'
+import { ModalSlice } from '../../../Redux/ModalSlice'
+import { authenticationSlice } from '../../../Redux/AuthenticationSlice'
 const profile = () => {
   const [hovered,setHovered] = useState(false)
   const isAuth = useSelector(state => state.authenticationReducer.isAuth)
@@ -40,16 +42,21 @@ const profile = () => {
     setHovered(!hovered)
   }
   const routeToProfile = (to) => {
-    
+    navigate('/profile')
     dispatch(ProfileTogglesSlice.actions.setCurrentPage(to))
   }
   
-
+const logoutHandler = () => {
+    dispatch(authenticationSlice.actions.setAuth(false));
+    localStorage.removeItem('tokenId')
+    navigate('/')
+    window.location.reload();
+}
 
   return (
-    <div onClick={clickHandler} onMouseOver={mouseOverHandler} onMouseLeave={mouseOutHandler} className={`ml-[10px] relative cursor-pointer profile flex items-center max-w-[330px] w-[100%] right-[20px] max-[400px]:right-[15px]  h-[100%]`}>        
+    <div  onMouseOver={mouseOverHandler} onMouseLeave={mouseOutHandler} className={`ml-[10px] relative cursor-pointer profile flex items-center max-w-[330px] w-[100%] right-[20px] max-[400px]:right-[15px]  h-[100%]`}>        
           
-          <div className=" profile_icon w-[40px] h-[40px] rounded-[50%] bg-gray-300 relative mr-[10px]">
+          <div onClick={clickHandler} className=" profile_icon w-[40px] h-[40px] rounded-[50%] bg-gray-300 relative mr-[10px]">
               <PersonIcon className='text-[20px] absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] text-white'></PersonIcon>
           </div>
           <div  className={`profile_chevron_icon duration-[.3s] ml-[5px] ${hovered ? 'rotate-[180deg]' : ''}`}>
@@ -92,7 +99,7 @@ const profile = () => {
                         Profile
                     </div>
                 </div>
-                <div className={`nav_popup_option rounded-[9px] p-[10px]   hover:bg-[#F3F3F3] hover:text-customOrange cursor-pointer flex items-center   w-[100%]` }>
+                <div onClick={logoutHandler} className={`nav_popup_option rounded-[9px] p-[10px]   hover:bg-[#F3F3F3] hover:text-customOrange cursor-pointer flex items-center   w-[100%]` }>
                     <div className="option_icon mr-[10px] text-[24px]">
                         <LogoutIcon></LogoutIcon>
                     </div>

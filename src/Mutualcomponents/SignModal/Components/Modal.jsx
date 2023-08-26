@@ -12,13 +12,15 @@ import '../Styles/ModalStyle.scss'
 // Icons
 import {FcGoogle as GoogleIcon} from 'react-icons/fc'
 import {BiLogoFacebook as FacebookIcon} from 'react-icons/bi'
+import {AiFillCloseCircle as CloseIcon} from 'react-icons/ai'
 
-
-
+// Hooks
+import { ModalSlice, modalActions } from '../../../Redux/ModalSlice'
+import { useDispatch } from 'react-redux'
 
 const Modal = () => {
   const [modalPage,setModalPage] = useState('register');
-  
+  const dispatch = useDispatch();
   // RegisterValues
   const [nameValue,setNameValue] = useState('')
   const [EmailValueRegister,setEmailValueRegister] = useState('')
@@ -38,7 +40,7 @@ const Modal = () => {
       toast.error('Please Fill The Blanks')
       return false
     }
-
+    
     setLoginLoading(true)
 
     const loginInformations = {
@@ -54,7 +56,7 @@ const Modal = () => {
       body: JSON.stringify(loginInformations)
     })
    const response = await promise.json()
-
+   console.log(response);
     if (response.statusCode === 400) {
       toast.error(response.description)
       setLoginLoading(false)
@@ -67,6 +69,8 @@ const Modal = () => {
     
     
     setLoginLoading(false)
+    dispatch(ModalSlice.actions.setModal(false))
+    window.location.reload();
   }
 
   const registerHandler = async (e) => {
@@ -117,10 +121,22 @@ const Modal = () => {
     setRegisterLoading(false)
   }
 
+
+
+const closeModal = () => {
+  dispatch(
+  ModalSlice.actions.setModal(false)
+  )
+}
   return (
     <>
     <Toaster/>
-    <div className='modal_container overflow-hidden   top-[50%] left-[50%]  max-[495px]:max-w-[400px] max-w-[450px] w-[100%] bg-white h-[600px] rounded-[10px] '>
+    <div className='modal_container overflow-x-hidden relative   max-[495px]:max-w-[400px] max-w-[450px] w-[100%] bg-white h-[600px] rounded-[10px] z-[400] '>
+      <div className="close_btn absolute top-[1.5px] right-[1.5px]">
+        <button onClick={closeModal} className='text-[24px]'>
+          <CloseIcon/>
+        </button>
+      </div>
       <div className="navigations_container px-[20px] flex flex-col items-center justify-center py-[15px]">
         <div className="logo max-w-[60px] h-[50px] w-[100%] ">
          <img src={Logo} alt="" className='w-[100%] h-[100%]'/>
@@ -131,7 +147,7 @@ const Modal = () => {
           <span className={`modal_line bg-customOrange absolute  ease-in-out duration-[.14s] bottom-0 w-[50%] h-[2px] ${modalPage === 'login' ? 'translate-x-[100%]' : ''}`}></span>
         </div>
       </div>
-    <div className={`modal_content_container flex    duration-[.3s] ${modalPage === 'login' ? 'translate-x-[-100%]' : 'translate-x-[0%]'}`}>
+    <div className={`modal_content_container flex   duration-[.3s] ${modalPage === 'login' ? 'translate-x-[-100%]' : 'translate-x-[0%]'}`}>
        
         <form className='px-[20px] register_form flex min-w-[100%] flex-col gap-[20px] items-center '>
           <InputComponent inputValue={nameValue} setInputValue={setNameValue} inputTitle={'Name'} inputId={'nameInputId'}></InputComponent>
@@ -146,10 +162,9 @@ const Modal = () => {
             <span className="select-none input_text absolute top-[-10px] rounded-[2px] bg-white text-[13.3px] ease-out text-gray-500 duration-[.35s] px-[2px]  left-[16px] ">Phone Number</span>
             </div>
           </div>
-          <button onClick={registerHandler} className='w-[100%] bg-customOrange hover:bg-orange-600 duration-[.1s] h-[40px] rounded-[10px] text-white flex items-center justify-center' ><span className="btn_text">{registerLoading 
-          
+          <button onClick={registerHandler} className='w-[100%] bg-customOrange hover:bg-orange-600 duration-[.1s] h-[40px] rounded-[10px] text-white flex items-center justify-center' ><span className="btn_text">{
+          registerLoading 
           ?  
-          
           <div className="loading_element flex justify-center">
                 <div role="status">
                   <svg aria-hidden="true" className="w-8 h-8 mr-2 text-gray-200 animate-spin dark:text-gray-600 fill-customOrange" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -159,14 +174,8 @@ const Modal = () => {
                   <span className="sr-only">Loading...</span>
                 </div>
               </div>
-              
-              
-              : 
-              
-              
-              'Submit'
-              
-              
+              :           
+              'Submit'       
               }</span></button>
           <div className="auth_social_media flex flex-col w-[100%] gap-[10px]">
           <button className='google_auth pl-[10px] rounded-[10px] flex gap-[20px] items-center justify-between border hover:bg-gray-200 h-[40px] w-[100%]'>
