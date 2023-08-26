@@ -7,7 +7,7 @@ const FrequentlyAsked = () => {
         <div className='grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12'>
             <div>
                 <p className='text-base font-semibold mt-4 mb-3'>Frequently Asked Questions</p>
-                <p className='text-sm'> Check out these answers to common questions and go to <br /> <Link><span className='font-bold text-customOrange'>Help Centre</span></Link>for more details.</p>
+                <p className='text-sm'> Check out these answers to common questions and go to <br /> <Link><span className='font-bold text-customOrange'>Help Centre </span></Link>for more details.</p>
             </div>
             <div>
                 <div className='text-customOrange w-full mb-1 font-semibold text-lg md:text-xl lg:text-2xl'>

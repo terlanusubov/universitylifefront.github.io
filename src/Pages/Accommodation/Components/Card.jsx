@@ -4,6 +4,8 @@ import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io'
 import addimg from '../Assets/img/add.jpg'
 import offerimg from '../Assets/img/offer.jpg'
 import img from '../Assets/img/img1.jpg'
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Carousel } from 'react-responsive-carousel';
 
 const Card = () => {
     return (
@@ -11,8 +13,18 @@ const Card = () => {
             <div className='rounded-md shadow-md hover:shadow-lg transition-all flex-shrink-0 lg:w-full flex flex-col text-opacity-100 text-[#3e3E3E]'>
                 <div className='relative h-52'>
                     <Link className='w-full h-full'>
-                    {/* img-slide */}
-                    <img className='h-52 w-full' src={img} alt="" />
+                        {/* img-slide */}
+                        <Carousel infiniteLoop={true} showThumbs={false} showStatus={false}>
+                            <div>
+                                <img className='h-52 w-full'  src={img} />
+                            </div>
+                            <div>
+                                <img className='h-52 w-full'  src={img} />
+                            </div>
+                            <div>
+                                <img className='h-52 w-full'  src={img} />
+                            </div>
+                        </Carousel>
                     </Link>
                     <div className='offer-link'>
                         <Link className='flex items-center absolute left-3 bg-white text-xs px-2 p-1 cursor-pointer rounded-b text-black font-semibold'>

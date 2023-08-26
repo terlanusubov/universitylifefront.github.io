@@ -9,3 +9,20 @@
 .select-input:focus ~ .searchscroll{
     @apply block
 }
+.priceinput:focus ~ .pricelabel{
+    @apply bg-white transform -translate-y-[1.2rem] -translate-x-4 scale-75 w-20 ms-2 text-gray-400;
+}
+.priceinput:focus{
+    @apply placeholder:text-transparent
+}
+.filterpage::-webkit-scrollbar{
+    background-color: rgb(255, 255, 255);
+    width: 0.4rem;
+}
+.filterpage::-webkit-scrollbar-corner{
+    background-color: #eee;
+}
+.filterpage::-webkit-scrollbar-thumb{
+    background-color: rgb(212, 212, 212);
+    border-radius: 5px;
+}
