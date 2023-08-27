@@ -3,6 +3,15 @@
 @tailwind utilities;
 
 
+
+.rc-slider-track{
+    background-color: #F67864;
+}
+.rc-slider-handle{
+    border-color: #F67864;
+    padding: 0.5rem;
+    bottom: -3px;
+}
 .select-input:focus ~ .select-label{
     @apply bg-white transform -translate-y-[1.4rem] -translate-x-4 scale-75;
 }

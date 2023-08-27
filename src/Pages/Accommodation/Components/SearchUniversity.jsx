@@ -1,7 +1,10 @@
 import React, { useState } from 'react'
 import { BiFilterAlt } from 'react-icons/bi'
+import Slider from 'rc-slider';
+import 'rc-slider/assets/index.css';
 import '../Styles/searchuniversity.css'
 import { Link } from 'react-router-dom'
+import { Value } from 'sass';
 
 
 
@@ -9,12 +12,14 @@ import { Link } from 'react-router-dom'
 const SearchUniversity = () => {
     const [filter, setFilter] = useState(false);
     const [show, setShow] = useState(true);
+    const [value, setValue] = useState()
     const toggleFilter = () => {
         setFilter(!filter)
     }
     const showtoogle = () => {
         setShow(!show)
     }
+    const handleChange = e =>{setValue(e)}
     return (
         <div>
             <div className="flex justify-between my-3 sticky top-0 z-[70] transition-all  bg-white pt-4 pb-2">
@@ -23,8 +28,8 @@ const SearchUniversity = () => {
                         <div className='w-full'>
                             <div className='relative'>
                                 <div style={{ outline: "none", position: "relative" }} tabIndex="-1">
-                                    <div className="text-left relative mb-0">
-                                        <input className="flex select-input truncate items-center text-sm w-full h-11 placeholder:text-gray-400 text-gray-700 px-3 rounded border border-gray-200 gitbox-border pl-11 outline-none transition duration-200 after:content-['*'] after:text-gray-700" placeholder="Select University" type="text" autoComplete="off" aria-autocomplete="both" aria-expanded="false" aria-haspopup="listbox" role="combobox" />
+                                    <div className="text-left relative mb-0 after:absolute after:right-[15px] after:top-[16px] after:border-[#595959] after:border-r after:border-b after:inline-block after:p-[4px] after:rotate-45">
+                                        <input className="flex select-input truncate items-center text-sm w-full h-11 placeholder:text-gray-400 text-gray-700 px-3 rounded border border-gray-200 gitbox-border pl-11 outline-none transition duration-200" placeholder="Select University" type="text" autoComplete="off" aria-autocomplete="both" aria-expanded="false" aria-haspopup="listbox" role="combobox" />
                                         <label className="block select-label text-gray-500 text-sm mb-2 truncate absolute top-[0.8rem] left-11 transition duration-500">Select University</label>
                                         <div style={{ position: "absolute", inset: "0px auto auto 0px", transform: "translate(0,44px)", overflow: "auto", width: "459.516px", backgroundColor: "white", maxHeight: "153.59px" }} className='searchscroll hidden'>
                                             <p className='bg-neutral-100 px-5 py-2 text-xs'>TOP UNIVERSITIES</p>
@@ -274,21 +279,14 @@ const SearchUniversity = () => {
                                                         <span className='text-xs text-gray-400/70'>(in miles)</span>
                                                     </p>
                                                     <div className='col-span-2'>
-                                                        {/* <div>
-                                                            <div className='w-full box-border relative h-[14px] py-[5px] rounded-md touch-none'>
-                                                                <div className='absolute h-1 rounded-md w-full bg-[#e9e9e9] box-border'></div>
-                                                                <div className='w-full left-0 bg-customOrange absolute h-[4px] rounded-md box-border'></div>
-                                                                <div className='absolute w-full h-[4px] bg-transparent pointer-events-none box-border'>
-                                                                    <span className='left-full -translate-x-1/2 border-[#96dbfa] absolute -bottom-0.5 w-2 h-2 align-middle bg-white rounded-sm border-white cursor-pointer box-border'></span>
-                                                                </div>
-                                                                <div className='left-0 -translate-x-[60%] bg-white w-5 h-5 -mt-[9px] border-[#f56a54] z-1 absolute rounded-sm border-[#96dbfa] rounded-[50%] box-border cursor-grab touch-pan-x'></div>
-                                                                <div className='border-[#f56a54] absolute top-[18px] left-0 w-full text-xs box-border'></div>
-                                                            </div>
-                                                            <div className='w-full justify-between flex'>
+                                                        <div>
+                                                            <Slider onChange={handleChange} value={value}  min={0} max={50} defaultValue={50}  />
+                                                            <div className='flex justify-between w-full'>
                                                                 <span>0</span>
+                                                                {value}
                                                                 <span>50</span>
                                                             </div>
-                                                        </div> */}
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <hr className='my-5 border-gray-100' />

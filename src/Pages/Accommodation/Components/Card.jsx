@@ -27,11 +27,9 @@ const Card = () => {
                         </Carousel>
                     </Link>
                     <div className='offer-link'>
-                        <Link className='flex items-center absolute left-3 bg-white text-xs px-2 p-1 cursor-pointer rounded-b text-black font-semibold'>
-                            {/*  before */}
+                        <Link className='flex items-center absolute left-3 bg-white text-xs px-2 p-1 cursor-pointer rounded-b text-black font-semibold before:absolute before:border-t-[7px] before:-left-[6px] before:border-r-[6px] before:border-r-[#9e9e9e] before:scale-100 before:top-0 before:border-transparent after:absolute after:border-t-[7px] after:-right-[6px] after:border-l-[6px] after:border-l-[#9e9e9e] after:scale-100 after:top-0 after:border-transparent'>
                             <img src={offerimg} alt="" className='w-[22px] h-[22px]' />
                             <p className='text-xs pl-1 uppercase m-0'>offer upto <span className='text-customOrange font-semibold'>&nbsp; 50 &nbsp;£</span> </p>
-                            {/*  after */}
                         </Link>
                     </div>
                     <div className='cursor-pointer flex items-center bottom-2 left-2 rounded p-2 absolute text-white bg-[#3C3C71]'>

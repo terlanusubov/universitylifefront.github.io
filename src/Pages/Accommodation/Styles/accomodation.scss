@@ -26,12 +26,35 @@
                 height: 60px;
                 margin-top: auto;
                 margin-bottom: auto;
+                opacity: 0.8;
+                &::before{
+                    position: absolute;
+                    border: solid #eee;
+                    top: 25px;
+                    right: 10px;
+                    border-width: 0 2px 2px 0;
+                    display: inline-block;
+                    box-sizing: border-box;
+                    padding: 5px;
+                    transform: scale(1.2) rotate(135deg);
+                }
             }
             .control-next{
                 width: 40px;
                 height: 60px;
                 margin-top: auto;
                 margin-bottom: auto;
+                &::before{
+                    position: absolute;
+                    border: solid #eee;
+                    top: 25px;
+                    right: 10px;
+                    border-width: 0 2px 2px 0;
+                    display: inline-block;
+                    box-sizing: border-box;
+                    padding: 5px;
+                    transform: scale(1.2) rotate(-45deg);
+                }
             }
         }
     }
