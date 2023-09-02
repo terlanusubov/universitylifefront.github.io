@@ -215,7 +215,7 @@ const SearchUniversity = () => {
                                                                     <div className='block relative w-full'>
                                                                         <div className='w-full flex h-[44px] rounded border border-gray-200'>
                                                                             <div className='flex-grow rounded-s !w-full m-0 p-o bg-white relative inline-block align-middle'>
-                                                                                <input autoComplete='off' readOnly placeholder='Move In' className='pt-[7px] pb-[5px] !pl-2 h-full text-sm text-[#384151] font-normal focus:outline-none' type="text" />
+                                                                                <input autoComplete='off' readOnly placeholder='Move In' className='pt-[7px] pb-[5px] !pl-2 h-full text-sm text-[#384151] font-normal focus:outline-none' type="tex" />
                                                                                 <p className='border-0 h-[1px] -m-[1px] p-0 absolute w-[1px] overflow-hidden'>
                                                                                     Navigate forward to interact with the calendar and select a date. Press the question mark key to get the keyboard shortcuts for changing dates.
                                                                                 </p>
@@ -280,7 +280,8 @@ const SearchUniversity = () => {
                                                     </p>
                                                     <div className='col-span-2'>
                                                         <div>
-                                                            <Slider onChange={handleChange} value={value}  min={0} max={50} defaultValue={50}  />
+                                                            <Slider onChange={handleChange} value={value}  min={0} max={50} defaultValue={50} tipFormatter={value => <span className="tooltip">{value}</span>}  count={Number}  />
+                                                            <div></div>
                                                             <div className='flex justify-between w-full'>
                                                                 <span>0</span>
                                                                 {value}
