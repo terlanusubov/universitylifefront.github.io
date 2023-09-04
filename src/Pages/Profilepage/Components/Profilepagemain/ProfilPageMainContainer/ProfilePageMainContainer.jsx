@@ -12,9 +12,9 @@ import { useSelector } from 'react-redux'
 
 const ProfilePageMainContainer = () => {
   const state = useSelector(state =>  state.ProfileReducer.currentPage)
-  console.log(
-    state
-        );
+  
+
+  
   return (
     <div className='profile_page_main_container max-[1024px]:m-auto bg-transparent max-w-[950px] rounded-[14px] w-[100%]'>
       {
