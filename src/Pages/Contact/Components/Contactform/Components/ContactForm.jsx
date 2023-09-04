@@ -42,12 +42,12 @@ export const ContactForm = () => {
       <div className="grid md:grid-cols-2 md:gap-x-4 ">
         <div className="form-floating mb-4 ">
           <input
-            className="form-control content-font appearance-none border rounded w-full py-2 px-3 h-11 placeholder:text-gray-400 text-gray-700 leading-tight focus:outline-none "
-            id="fullName"
+            className="border outline-none w-[100%] rounded-[4px]  p-[9px]"
+            //  form-control content-font appearance-none border rounded w-full py-2 px-3 h-11 placeholder:text-gray-400 text-gray-700 leading-tight focus:outline-none id="fullName"
             placeholder=""
             type="text"
             name="fullName"
-            autoComplete="off"
+            // autoComplete="off"
           />
           <label
             className="block text-gray-700 content-font mb-2 truncate"
@@ -58,12 +58,13 @@ export const ContactForm = () => {
         </div>
         <div className="form-floating mb-4 ">
           <input
-            className="form-control content-font appearance-none border rounded w-full py-2 px-3 h-11 placeholder:text-gray-400 text-gray-700 leading-tight focus:outline-none "
+            className="border outline-none w-[100%] rounded-[4px]  p-[9px]"
+            // form-control content-font appearance-none border rounded w-full py-2 px-3 h-11 placeholder:text-gray-400 text-gray-700 leading-tight focus:outline-none
             id="Email"
             placeholder=""
             type="text"
             name="Email"
-            autoComplete="off"
+            // autoComplete="off"
           />
           <label
             className="block text-gray-700 content-font mb-2 truncate"
@@ -77,12 +78,13 @@ export const ContactForm = () => {
           <input
             onFocus={showPopUp}
             // onBlur={inputLabelHandler}
-            className="form-control content-font appearance-none border rounded w-full py-2 px-3 h-11 placeholder:text-gray-400 text-gray-700 leading-tight focus:outline-none "
+            className="border outline-none w-[100%] rounded-[4px]  p-[9px]"
+            // form-control content-font appearance-none border rounded w-full py-2 px-3 h-11 placeholder:text-gray-400 text-gray-700 leading-tight focus:outline-none
             id="traveled_country"
             placeholder=""
             type="text"
             name="traveled_country"
-            autoComplete="off"
+            // autoComplete="off"
             value={inputCountryValue}
             onChange={(e) => setInputCountryValue(e.target.value)}
           />
@@ -164,8 +166,8 @@ export const ContactForm = () => {
       </div>
       <div className="form-floating mb-4">
         <textarea
-          className=" resize-none form-control border rounded w-full p-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline content-font no-scrollbar"
-          name="userMessage"
+          className="border outline-none w-[100%] rounded-[4px]  p-[9px]"
+          // resize-none form-control border rounded w-full p-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline content-font no-scrollbarname="userMessage"
           placeholder=""
           cols="30"
           rows="5"

@@ -15,8 +15,8 @@ function ContactInput() {
     <div className="App mb-4">
       <div className=" international_input form-floating relative">
         <PhoneInput
-          className="form-control flex  content-font appearance-none border rounded w-full py-2 px-3 h-11 placeholder:text-gray-400 text-gray-700 leading-tight focus:outline-none "
-          value={value}
+          className="border outline-none w-[100%] rounded-[4px]  p-[9px]"
+          // form-control flex  content-font appearance-none border rounded w-full py-2 px-3 h-11 placeholder:text-gray-400 text-gray-700 leading-tight focus:outline-nonevalue={value}
           onChange={(e) => setValue(e)}
         />
         <label
