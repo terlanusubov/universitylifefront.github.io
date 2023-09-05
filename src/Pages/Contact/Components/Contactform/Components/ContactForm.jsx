@@ -132,57 +132,18 @@ fetch(import.meta.env.VITE_API_KEY + `countries`).then(data => data.json()).then
             inputId={"ContactFullName"}
             inputTitle={"Full Name"}
             inputValue={ContactFullName}
+            autoComplete={false}
             />
         </div>
-        {/* <div className="form-floating mb-4 ">
-          <input
-            className="border outline-none w-[100%] rounded-[4px]  p-[9px]"
-            //  form-control content-font appearance-none border rounded w-full py-2 px-3 h-11 placeholder:text-gray-400 text-gray-700 leading-tight focus:outline-none id="fullName"
-            placeholder=""
-            type="text"
-            name="fullName"
-            // autoComplete="off"
-          />
-          <label
-            className="block text-gray-700 content-font mb-2 truncate"
-            htmlFor="fullName"
-            >
-            Full Name<sup className="text-customOrange">*</sup>
-            </label>
-          </div> */}
         <div className="mb-4">
           <ContactInputComponent
             setInputValue={setContactEmail}
             inputId={"ContactEmail"}
             inputTitle={"Email"}
             inputValue={ContactEmail}
+            autoComplete={false}
             />
         </div>
-        {/* <div className="form-floating mb-4 ">
-          <input
-          className="border outline-none w-[100%] rounded-[4px]  p-[9px]"
-          // form-control content-font appearance-none border rounded w-full py-2 px-3 h-11 placeholder:text-gray-400 text-gray-700 leading-tight focus:outline-none
-          id="Email"
-          placeholder=""
-          type="text"
-          name="Email"
-          // autoComplete="off"
-          />
-          <label
-          className="block text-gray-700 content-font mb-2 truncate"
-          htmlFor="Email"
-          >
-          Email<sup className="text-customOrange">*</sup>
-          </label>
-        </div> */}
-        {/* <div className="mb-4 relative z-[20] " ref={popupInputRef}>
-          <ContactInputComponent
-          setInputValue={setContactTravveling}
-          inputId={"ContactTravveling"}
-            inputTitle={"Travveling Country"}
-            inputValue={ContactTravveling}
-            />
-          </div> */}
         <div className="mb-4">
           <ContactInput setInputValue={setPhoneInputValue} inputValue={phoneInputValue}/>
         </div>
@@ -192,11 +153,10 @@ fetch(import.meta.env.VITE_API_KEY + `countries`).then(data => data.json()).then
             onFocus={focusHandler}
             // onBlur={inputLabelHandler}
             className="border outline-none w-[100%] rounded-[4px]  p-[9px]"
-            // form-control content-font appearance-none border rounded w-full py-2 px-3 h-11 placeholder:text-gray-400 text-gray-700 leading-tight focus:outline-none
             id="traveled_country"
             type="text"
             name="traveled_country"
-            // autoComplete="off"
+            autoComplete={false}
             value={inputCountryValue}
             onChange={(e) => setInputCountryValue(e.target.value)}
             />
@@ -256,10 +216,10 @@ fetch(import.meta.env.VITE_API_KEY + `countries`).then(data => data.json()).then
           onFocus={focusHandlerTextArea}
           onBlur={blurHandlerTextArea}
           className="border outline-none w-[100%] rounded-[4px]  p-[9px]"
-          // resize-none form-control border rounded w-full p-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline content-font no-scrollbarname="userMessage"
           placeholder=""
           cols="30"
           rows="5"
+          autoComplete={false}
           ></textarea>
         <label
           htmlFor="textAreaContact"
