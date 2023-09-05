@@ -232,7 +232,7 @@ export const ContactForm = () => {
         <label
           htmlFor="textAreaContact"
           className={` select-none input_text absolute ease-in-out text-gray-500 
-          text-gray-500 rounded-[2px]  top-[50%] bg-white mb-2 absolute duration-[.2s] ${
+          text-gray-500 rounded-[2px]  bg-white mb-2 absolute duration-[.2s] ${
             descriptionFocused
               ? "top-[-9px] left-[16px] text-[11px] px-[0.5rem]"
               : "top-[10px]  left-[16px] text-[14px] "
