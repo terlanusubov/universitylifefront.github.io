@@ -11,8 +11,12 @@ import { Value } from 'sass';
 
 const SearchUniversity = () => {
     const [show, setShow] = useState(true);
+    const [select, setSelect] = useState(true)
     const [value, setValue] = useState()
  
+    const selecttoggle = () => {
+        setSelect(!select)
+    }
     const showtoogle = () => {
         setShow(!show)
     }
@@ -26,9 +30,9 @@ const SearchUniversity = () => {
                             <div className='relative'>
                                 <div style={{ outline: "none", position: "relative" }} tabIndex="-1">
                                     <div className="text-left relative mb-0 after:absolute after:right-[15px] after:top-[16px] after:border-[#595959] after:border-r after:border-b after:inline-block after:p-[4px] after:rotate-45">
-                                        <input className="selectinput flex select-input truncate items-center text-sm w-full h-11 placeholder:text-gray-400 text-gray-700 px-3 rounded border border-gray-200 gitbox-border pl-11 outline-none transition duration-200" placeholder="Select University" type="text" autoComplete="off" aria-autocomplete="both" aria-expanded="false" aria-haspopup="listbox" role="combobox" />
-                                        <label className="selectlabel hidden select-label text-gray-500 text-sm mb-2 truncate absolute top-[0.8rem] left-11 transition duration-500">Select University</label>
-                                        <div style={{ position: "absolute", inset: "0px auto auto 0px", transform: "translate(0,44px)", overflow: "auto", width: "100%", backgroundColor: "white", maxHeight: "153.59px" }} className='searchscroll hidden'>
+                                        <input onClick={selecttoggle} className="selectinput flex select-input truncate items-center text-sm w-full h-11 placeholder:text-gray-400 text-gray-700 px-3 rounded border border-gray-200 gitbox-border pl-11 outline-none transition duration-200" placeholder="Select University" type="text" autoComplete="off" aria-autocomplete="both" aria-expanded="false" aria-haspopup="listbox" role="combobox" />
+                                        <label className={select?'hidden select-label text-gray-500 text-sm mb-2 truncate absolute top-[0.8rem] left-11 transition duration-500':'block select-label text-gray-500 text-sm mb-2 truncate absolute top-[0.8rem] left-11 transition duration-500 bg-white transform -translate-y-[1.4rem] -translate-x-4 scale-75'}>Select University</label>
+                                        <div style={{ position: "absolute",zIndex:"10" , inset: "0px auto auto 0px", transform: "translate(0,44px)", overflow: "auto", width: "100%", backgroundColor: "white", maxHeight: "153.59px" }} className={select?'hidden searchscroll':'block searchscroll'}>
                                             <p className='bg-neutral-100 px-5 py-2 text-xs'>TOP UNIVERSITIES</p>
                                             <Link>
                                                 <div className='flex items-center'>

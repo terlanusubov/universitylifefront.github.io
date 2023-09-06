@@ -2,9 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-.selectinput:focus ~ .selectlabel{
-    display: block;
-}
+
 .rc-slider-track{
     background-color: #F67864;
 }
@@ -24,12 +22,7 @@
     bottom: -3px;
     box-shadow: none !important;
 }
-.select-input:focus ~ .select-label{
-    @apply bg-white transform -translate-y-[1.4rem] -translate-x-4 scale-75;
-}
-.select-input:focus ~ .searchscroll{
-    @apply block
-}
+
 .priceinput:focus ~ .pricelabel{
     @apply bg-white transform -translate-y-[1.2rem] -translate-x-4 scale-75 w-20 ms-2 text-gray-400;
 }
