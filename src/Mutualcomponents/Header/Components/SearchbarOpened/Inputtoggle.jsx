@@ -8,7 +8,7 @@ import {ImLocation as Locationicon} from 'react-icons/im'
 import {RiGraduationCapFill as Graduationicon} from 'react-icons/ri'
 const inputtoggle = () => {
   return (
-   <div className="search_bar_toggle rounded-[10px] h-[400px]   absolute bottom-[-410px] z-[500] w-[100%] bg-white">
+   <div className="search_bar_toggle rounded-[10px] min-h-fit  absolute  z-[500] w-[100%] bg-white">
     
       <div className="toggle_navbar flex gap-[5px] rounded-[10px] bg-[#F3F4F6] h-[45px]">
           <div className={`country_option text-center flex justify-center items-center w-[100%]  border-b-[2px] border-solid border-customOrange h-[100%]`}>
@@ -23,10 +23,6 @@ const inputtoggle = () => {
           </div>
       </div>
       <div className="rounded-b-[10px] search_bar_toggle_main py-[10px] px-[20px] flex flex-col gap-[10px] h-[100%]">
-
-
-
-
           <div className="recent_searches flex justify-center flex-col gap-[5px]">
             <div className="recent_searches_nav flex items-center gap-[15px]">
             <div className="recent_icon">
