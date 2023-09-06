@@ -64,7 +64,7 @@ const Modal = () => {
     }
 
     if (response.statusCode === 200) {
-      localStorage.setItem('tokenId',JSON.stringify(response.response.token))
+    localStorage.setItem('tokenId',JSON.stringify(response.response.token))
     }
     
     
@@ -146,9 +146,9 @@ const closeModal = () => {
           <button onClick={() => setModalPage('login')} className={`w-[50%] bg-white pb-[13px]  `}>Login</button>
           <span className={`modal_line bg-customOrange absolute  ease-in-out duration-[.14s] bottom-0 w-[50%] h-[2px] ${modalPage === 'login' ? 'translate-x-[100%]' : ''}`}></span>
         </div>
-      </div>
-    <div className={`modal_content_container flex   duration-[.3s] ${modalPage === 'login' ? 'translate-x-[-100%]' : 'translate-x-[0%]'}`}>
-       
+      </div>   
+    <div className={`modal_content_container flex   duration-[.3s] ${modalPage === 'login' ? 'translate-x-[-100%]' : 'translate-x-[0%]'}`}>  
+    
         <form className='px-[20px] register_form flex min-w-[100%] flex-col gap-[20px] items-center '>
           <InputComponent inputValue={nameValue} setInputValue={setNameValue} inputTitle={'Name'} inputId={'nameInputId'}></InputComponent>
           <InputComponent inputValue={SurnameValue} setInputValue={setSurnameValue} inputTitle={'Surname'} inputId={'SurnameInputId'}></InputComponent>

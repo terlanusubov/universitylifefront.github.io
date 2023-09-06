@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import BannerToggle from './Bannertoggle'
 
 // Redux
-import {bannerSlice} from '../../../../../Redux/toggleSlice'
+import {bannerSlice, searchInputSlice} from '../../../../../Redux/toggleSlice'
 
 const Bannerinput = () => {
     
@@ -18,7 +18,8 @@ const Bannerinput = () => {
 
 
     const focusHandler = (e) => {
-        dispatch(bannerSlice.actions.openBannerInput())
+        // dispatch(bannerSlice.actions.openBannerInput())
+        dispatch(searchInputSlice.actions.openSearchInput())
     }
    
 

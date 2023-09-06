@@ -29,7 +29,9 @@ const Banner = () => {
     } )
   })
   return (
-    <div style={{backgroundImage:`url(${BannerURl})`}}  className={`main_page_banner flex flex-col items-start justify-center gap-[30px] h-[70vh] px-[50px]  bg-cover bg-center max-[1024px]:px-[30px] max-[930px]:bg-right pt-[60px] max-[450px]:pt-[30px]`}>
+    <div style={{backgroundImage:`url(${BannerURl})`}}  className={` main_page_banner flex flex-col items-start justify-center gap-[30px] h-[70vh] px-[50px]  bg-cover bg-center max-[1024px]:px-[30px] max-[930px]:bg-right pt-[60px] max-[450px]:pt-[30px]`}>
+
+<div className="banner_content max-w-[1440px] w-[100%] mx-auto max-[1500px]:px-[10px]">
           <Bannertext></Bannertext>
           <div ref={bannerToggleContainerRef} className="banner_search relative max-w-[600px]  w-[100%]">
           <Bannerinput></Bannerinput>
@@ -37,6 +39,7 @@ const Banner = () => {
             bannerToggleState ? <Bannertoggle></Bannertoggle> : ''
           }
           </div>
+</div>
 
     </div>
   )

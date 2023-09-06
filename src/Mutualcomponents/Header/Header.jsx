@@ -16,9 +16,15 @@ const Header = () => {
 const inputState = useSelector(state => state.searchInputReducer.openedSearchInput)
 const sideBarState = useSelector(state => state.sideBarReducer.openedSidebar)
   return (
-    <header className='flex fixed top-0 right-0 left-0 justify-between px-[3%]  h-[100px] items-center z-[200] bg-white '>
+    <header className='flex  fixed top-0 right-0 left-0 justify-between   h-[100px] items-center z-[200] bg-white '>
 
-        <Logo></Logo>
+      <div className={`max-[1500px]:px-[10px] header_content w-[100%]  max-w-[1440px] mx-auto flex fixed top-0 right-0 left-0 ${inputState ? 'justify-center' : 'justify-between'}  h-[100px] items-center z-[200] bg-white`}>
+
+        {
+          inputState 
+          ||
+          <Logo></Logo>
+        }
         {
           inputState 
           ? 
@@ -39,7 +45,8 @@ const sideBarState = useSelector(state => state.sideBarReducer.openedSidebar)
           inputState 
           &&
           <SearchInputModal/>    
-           }
+        }
+        </div>
     </header>
   )
 }
