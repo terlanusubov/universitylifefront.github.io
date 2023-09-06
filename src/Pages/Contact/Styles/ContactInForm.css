@@ -49,3 +49,9 @@
   transform: scale(0.85) translateY(-1.4rem) translateX(0.15rem);
   width: auto;
 }
+
+
+/* input::-webkit-autofill ~ label {
+  transform: scale(0.85) translateY(-1.4rem) translateX(0.15rem);
+  width: auto;
+} */
