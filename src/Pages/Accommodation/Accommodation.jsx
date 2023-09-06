@@ -10,7 +10,7 @@ import SearchUniversity from './Components/SearchUniversity'
 
 const Accommodation = () => {
   return (
-    <div className="accommodation container mx-[40px] px-[16px] 2xl:mx-auto" >
+    <div className="accommodation container mx-[40px] px-[16px] mx-auto" >
         <Sorting />
         <SearchUniversity />
         <Cards /> 

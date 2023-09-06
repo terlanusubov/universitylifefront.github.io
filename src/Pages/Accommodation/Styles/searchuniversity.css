@@ -2,8 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
+.selectinput:focus ~ .selectlabel{
+    display: block;
+}
 .rc-slider-track{
     background-color: #F67864;
 }
@@ -34,15 +35,4 @@
 }
 .priceinput:focus{
     @apply placeholder:text-transparent
-}
-.filterpage::-webkit-scrollbar{
-    background-color: rgb(255, 255, 255);
-    width: 0.4rem;
-}
-.filterpage::-webkit-scrollbar-corner{
-    background-color: #eee;
-}
-.filterpage::-webkit-scrollbar-thumb{
-    background-color: rgb(212, 212, 212);
-    border-radius: 5px;
 }
