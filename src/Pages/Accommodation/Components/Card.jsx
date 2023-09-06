@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io'
 import addimg from '../Assets/img/add.jpg'
 import offerimg from '../Assets/img/offer.jpg'
-import img from '../Assets/img/img1.jpg'
+import img from '../Assets/img/img2.jpg'
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
 
