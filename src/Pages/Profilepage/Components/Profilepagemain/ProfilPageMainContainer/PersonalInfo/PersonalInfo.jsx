@@ -15,6 +15,26 @@ const PersonalInfo = () => {
     const [PhoneInputValue,setPhoneInputValue] = useState('');
     const [CountryInputValue,setCountryInputValue] = useState('');
 
+
+    const parseJwt = (token) => {
+        var base64Url = token.split('.')[1];
+        var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+        var jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function(c) {
+            return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+        }).join(''));
+    
+        return JSON.parse(jsonPayload);
+    }
+    
+    const returnCurrentUser = () => {
+    
+      const obj = parseJwt(localStorage.getItem('tokenId'))
+      return   {
+            email:obj.Email,
+            name:obj.name
+        }
+    }
+    
   
   return (
     <div className='profile_page_personal_info'>
@@ -22,7 +42,7 @@ const PersonalInfo = () => {
              Information  
         </div>
         <div className="profile_page_personal_info_container p-[25px] bg-white rounded-[14px]  shadow-[1px_2px_10px_-5px_rgba(0,0,0,0.3)] my-[20px]">
-            <Profile editMode={editOpen} fullName={`Joe Biden`} phoneNumber={`+1 321 235 4324`} email={`joebiden@gmail.com`} setEditMode={setEditOpen}></Profile>
+            <Profile editMode={editOpen} fullName={returnCurrentUser().name} phoneNumber={`+1 321 235 4324`} email={returnCurrentUser().email} setEditMode={setEditOpen}></Profile>
 
             {
                 editOpen 
