@@ -1,19 +1,11 @@
 import React from 'react'
 import Card from './Card'
 import { slides } from './Caruseldata.json'
-import { fetchProducts } from '../../../Redux/accomodation/productSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import ReactPaginate from 'react-paginate';
 import '../Styles/cards.css'
 
 const Cards = () => {
-  /* const dispatch = useDispatch();
-  const state = useSelector((state) => state);
-  
-  if (state.products.isLoading) {
-    return <h1>loading...</h1>
-  }
- */
   return (
     <div>
       <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-3 mb-7">
