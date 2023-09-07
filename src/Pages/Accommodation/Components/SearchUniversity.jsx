@@ -8,6 +8,28 @@ import { Link } from 'react-router-dom'
 
 const SearchUniversity = () => {
     const [search, setSearch] = useState('');
+
+
+
+    const [SearchValue, setSearchValue] = useState('');
+    
+    const [focused,setFocused] = useState(false)
+
+    const focusHandler = () => {
+        setFocused(true)
+    }
+
+    const blurHandler = () => {
+        if (!SearchValue) {
+            setFocused(false)
+        }
+    }
+
+
+
+
+
+
     return (
         <div>
             <div className="flex justify-between my-3 sticky top-0 z-[70] transition-all  bg-white pt-4 pb-2">
@@ -17,8 +39,10 @@ const SearchUniversity = () => {
                             <div className='relative'>
                                 <div style={{ outline: "none", position: "relative" }} tabIndex="-1">
                                     <div className="text-left relative mb-0 after:absolute after:right-[15px] after:top-[16px] after:border-[#595959] after:border-r after:border-b after:inline-block after:p-[4px] after:rotate-45">
-                                        <input onChange={(e) => setSearch(e.target.value)} value={search} className="selectinput flex select-input truncate items-center text-sm w-full h-11 placeholder:text-gray-400 text-gray-700 px-3 rounded border border-gray-200 gitbox-border pl-11 outline-none transition duration-200" placeholder="Select University" type="text" autoComplete="off" aria-autocomplete="both" aria-expanded="false" aria-haspopup="listbox" role="combobox" />
-                                        <label className='select-label text-gray-500 text-sm mb-2 truncate absolute top-[0.8rem] left-11 transition duration-500'>Select University</label>
+                                        <div className="input_element_container relative">
+                                            <input id='searchInputId' onFocus={focusHandler} onBlur={blurHandler} onChange={(e) => setSearchValue(e.target.value)} value={SearchValue} className="selectinput flex select-input truncate items-center text-sm w-full h-11 placeholder:text-gray-400 text-gray-700 px-3 rounded border border-gray-200 gitbox-border pl-11 outline-none transition duration-200" placeholder="Select University" type="text" autoComplete="off" aria-autocomplete="both" aria-expanded="false" aria-haspopup="listbox" role="combobox" />
+                                            <label htmlFor='searchInputId' className={` text-gray-500 text-sm mb-2 truncate absolute  duration-500 translate-y-[-50%]  ${focused ? 'top-0 left-[45px] bg-white px-[] text-[11px]' : 'top-[50%] left-[45px]'}`}>Select University</label>
+                                        </div>
                                         <div style={{ position: "absolute",zIndex:"10" , inset: "0 auto auto 0", transform: "translate(0,44px)", overflow: "auto", width: "100%", backgroundColor: "white", maxHeight: "153.59px" }} className='hidden searchscroll shadow-2xl shadow-stone-800 rounded-b'>
                                             <p className='bg-neutral-100 px-5 py-2 text-xs'>TOP UNIVERSITIES</p>
                                             <Link>
