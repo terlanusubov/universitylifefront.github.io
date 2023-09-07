@@ -19,7 +19,6 @@ const Popularcities = () => {
     const firstPromise = await fetch(`${import.meta.env.VITE_API_KEY}/cities?isTop=true`)
     const firstResponse = await firstPromise.json()
     
-    console.log(firstResponse);
     
       setCities(firstResponse)
       

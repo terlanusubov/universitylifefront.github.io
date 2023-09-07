@@ -93,9 +93,9 @@ const Modal = () => {
     try {
       const response = await fetch(`${import.meta.env.VITE_API_KEY}/account/register`, {
         method: 'POST',
-        // mode:'no-cors',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'mode':'no-cors'
         },
         body: JSON.stringify(registerInformations)
       });
