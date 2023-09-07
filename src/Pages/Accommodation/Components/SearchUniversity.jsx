@@ -43,7 +43,7 @@ const SearchUniversity = () => {
                                             <input id='searchInputId' onFocus={focusHandler} onBlur={blurHandler} onChange={(e) => setSearchValue(e.target.value)} value={SearchValue} className="selectinput flex select-input truncate items-center text-sm w-full h-11 placeholder:text-gray-400 text-gray-700 px-3 rounded border border-gray-200 gitbox-border pl-11 outline-none transition duration-200" placeholder="Select University" type="text" autoComplete="off" aria-autocomplete="both" aria-expanded="false" aria-haspopup="listbox" role="combobox" />
                                             <label htmlFor='searchInputId' className={` text-gray-500 text-sm mb-2 truncate absolute  duration-500 translate-y-[-50%]  ${focused ? 'top-0 left-[45px] bg-white px-[] text-[11px]' : 'top-[50%] left-[45px]'}`}>Select University</label>
                                         </div>
-                                        <div style={{ position: "absolute",zIndex:"10" , inset: "0 auto auto 0", transform: "translate(0,44px)", overflow: "auto", width: "100%", backgroundColor: "white", maxHeight: "153.59px" }} className='hidden searchscroll shadow-2xl shadow-stone-800 rounded-b'>
+                                        {focused&&<div style={{ position: "absolute",zIndex:"10" , inset: "0 auto auto 0", transform: "translate(0,44px)", overflow: "auto", width: "100%", backgroundColor: "white", maxHeight: "153.59px" }} className=' searchscroll shadow-2xl shadow-stone-800 rounded-b'>
                                             <p className='bg-neutral-100 px-5 py-2 text-xs'>TOP UNIVERSITIES</p>
                                             <Link>
                                                 <div className='flex items-center'>
@@ -145,7 +145,8 @@ const SearchUniversity = () => {
                                                     </div>
                                                 </div>
                                             </Link>
-                                        </div>
+                                        </div>}
+                                        
                                     </div>
                                 </div>
                             </div>
