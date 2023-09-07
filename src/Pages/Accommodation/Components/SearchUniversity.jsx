@@ -1,20 +1,13 @@
 import React, { useState } from 'react'
-import { BiFilterAlt } from 'react-icons/bi'
-import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
 import '../Styles/searchuniversity.css'
 import { Link } from 'react-router-dom'
-import { Value } from 'sass';
 
 
 
 
 const SearchUniversity = () => {
-    const [show, setShow] = useState(true);
     const [search, setSearch] = useState('');
-    const showtoogle = () => {
-        setShow(!show)
-    }
     return (
         <div>
             <div className="flex justify-between my-3 sticky top-0 z-[70] transition-all  bg-white pt-4 pb-2">

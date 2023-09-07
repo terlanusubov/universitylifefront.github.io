@@ -1,6 +1,5 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
-import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io'
 import addimg from '../Assets/img/add.jpg'
 import offerimg from '../Assets/img/offer.jpg'
 import img from '../Assets/img/img2.jpg'
@@ -13,7 +12,6 @@ const Card = () => {
             <div className='rounded-md shadow-md hover:shadow-lg transition-all flex-shrink-0 lg:w-full flex flex-col text-opacity-100 text-[#3e3E3E]'>
                 <div className='relative h-52'>
                     <Link className='w-full h-full'>
-                        {/* img-slide */}
                         <Carousel infiniteLoop={true} showThumbs={false} showStatus={false}>
                             <div>
                                 <img className='h-52 w-full'  src={img} />

@@ -1,7 +1,6 @@
 import React from 'react'
 import Card from './Card'
 import { slides } from './Caruseldata.json'
-import { useDispatch, useSelector } from 'react-redux';
 import ReactPaginate from 'react-paginate';
 import '../Styles/cards.css'
 
@@ -9,9 +8,6 @@ const Cards = () => {
   return (
     <div>
       <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-3 mb-7">
-        {/*  {state.products.data && state.products.data.map((e)=>
-          <li>{e.title}</li>
-        )} */}
         <Card data={slides} />
         <Card data={slides} />
         <Card data={slides} />
