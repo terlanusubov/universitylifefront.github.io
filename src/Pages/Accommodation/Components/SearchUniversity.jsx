@@ -2,22 +2,25 @@ import React, { useState } from 'react'
 import 'rc-slider/assets/index.css';
 import '../Styles/searchuniversity.css'
 import { Link } from 'react-router-dom'
+import { useRef } from 'react';
 
 
 
 
 const SearchUniversity = () => {
     const [search, setSearch] = useState('');
-
-
-
+    
+    const searchInputRef = useRef();
     const [SearchValue, setSearchValue] = useState('');
     
     const [focused,setFocused] = useState(false)
-
+    const [isShown,setIsShown] = useState(false)
     const focusHandler = () => {
         setFocused(true)
+        setIsShown(true)
     }
+
+
 
     const blurHandler = () => {
         if (!SearchValue) {
@@ -26,7 +29,14 @@ const SearchUniversity = () => {
     }
 
 
-
+    document.addEventListener("click",(e)=>{
+        try{
+            if(!searchInputRef.current.contains(e.target)){
+                setIsShown(false)
+            }
+        }
+        catch(e){}
+    });
 
 
 
@@ -38,12 +48,12 @@ const SearchUniversity = () => {
                         <div className='w-full'>
                             <div className='relative'>
                                 <div style={{ outline: "none", position: "relative" }} tabIndex="-1">
-                                    <div className="text-left relative mb-0 after:absolute after:right-[15px] after:top-[16px] after:border-[#595959] after:border-r after:border-b after:inline-block after:p-[4px] after:rotate-45">
-                                        <div className="input_element_container relative">
+                                    <div  ref={searchInputRef} className="text-left relative mb-0 after:absolute after:right-[15px] after:top-[16px] after:border-[#595959] after:border-r after:border-b after:inline-block after:p-[4px] after:rotate-45" >
+                                        <div className="input_element_container relative" >
                                             <input id='searchInputId' onFocus={focusHandler} onBlur={blurHandler} onChange={(e) => setSearchValue(e.target.value)} value={SearchValue} className="selectinput flex select-input truncate items-center text-sm w-full h-11 placeholder:text-gray-400 text-gray-700 px-3 rounded border border-gray-200 gitbox-border pl-11 outline-none transition duration-200" placeholder="Select University" type="text" autoComplete="off" aria-autocomplete="both" aria-expanded="false" aria-haspopup="listbox" role="combobox" />
                                             <label htmlFor='searchInputId' className={` text-gray-500 text-sm mb-2 truncate absolute  duration-500 translate-y-[-50%]  ${focused ? 'top-0 left-[45px] bg-white px-[] text-[11px]' : 'top-[50%] left-[45px]'}`}>Select University</label>
                                         </div>
-                                        {focused&&<div style={{ position: "absolute",zIndex:"10" , inset: "0 auto auto 0", transform: "translate(0,44px)", overflow: "auto", width: "100%", backgroundColor: "white", maxHeight: "153.59px" }} className=' searchscroll shadow-2xl shadow-stone-800 rounded-b'>
+                                        {isShown && <div style={{ position: "absolute",zIndex:"10" , inset: "0 auto auto 0", transform: "translate(0,44px)", overflow: "auto", width: "100%", backgroundColor: "white", maxHeight: "153.59px" }} className=' searchscroll shadow-2xl shadow-stone-800 rounded-b'>
                                             <p className='bg-neutral-100 px-5 py-2 text-xs'>TOP UNIVERSITIES</p>
                                             <Link>
                                                 <div className='flex items-center'>

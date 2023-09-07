@@ -9,18 +9,18 @@ import { Carousel } from 'react-responsive-carousel';
 const Card = () => {
     return (
         <div className='card'>
-            <div className='rounded-md shadow-md hover:shadow-lg transition-all flex-shrink-0 lg:w-full flex flex-col text-opacity-100 text-[#3e3E3E]'>
+            <div className='rounded-lg shadow-md hover:shadow-md transition-all flex-shrink-0 lg:w-full flex flex-col text-opacity-100 text-[#3e3E3E]'>
                 <div className='relative h-52'>
                     <Link className='w-full h-full'>
                         <Carousel infiniteLoop={true} showThumbs={false} showStatus={false}>
                             <div>
-                                <img className='h-52 w-full'  src={img} />
+                                <img className='h-52 w-full rounded-t-md'  src={img} />
                             </div>
                             <div>
-                                <img className='h-52 w-full'  src={img} />
+                                <img className='h-52 w-full rounded-t-md'  src={img} />
                             </div>
                             <div>
-                                <img className='h-52 w-full'  src={img} />
+                                <img className='h-52 w-full rounded-t-md'  src={img} />
                             </div>
                         </Carousel>
                     </Link>
