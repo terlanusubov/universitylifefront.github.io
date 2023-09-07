@@ -32,10 +32,14 @@ const PopularpropsNav = () => {
 
 
   const [countries,setCountries] = useState([])
-
-  useEffect(() => {
-    fetch(import.meta.env.VITE_API_KEY + '/countries').then((data) => data.json()).then((data) => setCountries(data.map((data,index) => {
+  
+  const fetchCountries = async () => {
+    const promise = await fetch(import.meta.env.VITE_API_KEY + '/countries');
+    const response = await promise.json()
+    let defaultCountry;
+    const mappedResponse = response.map((data,index) => {
       if (index === 0) {
+        defaultCountry = data
         return {
           ...data,
           isActiveOption:true
@@ -45,25 +49,36 @@ const PopularpropsNav = () => {
         ...data,
         isActiveOption:false
       }
-    })))
+    })
+    setCountries(mappedResponse)
+    dispatch(propertiesSlice.actions.setCurrentCountry(defaultCountry))
+  } 
+
+
+  useEffect(() => {
+    fetchCountries();
   },[])
 
   return (
     <div className='popular_props_nav pb-[25px]'>
-   
             <h1 className='text-left font-[600] text-[26px] pl-0 p-[20px]'>Popular Properties</h1>
             <div className="popular_properties_options flex-wrap flex gap-[30px]">
-
                 {
-                  countries.length 
-                  &&
+                  countries.length
+                  ?
                   countries.map((data) => {
                     return (
                       <button onClick={() => setCurrentCountryFilter(data)} key={data.id} className={` ${data.isActiveOption ? 'bg-customBlue  text-white' : 'bg-[#F3F4F6] text-black'} h-[44px] w-[100%] max-w-[180px] rounded-[22px]`}>{data.name}</button>
                       )
                     })
+                  :
+                  <>
+                     <button  className={`option animate-pulse duration-[.25s]  bg-gray-300   h-[44px] w-[100%] max-w-[180px] rounded-[22px]`}>   
+                    </button>
+                    <button  className={`option animate-pulse duration-[.25s] bg-gray-300   h-[44px] w-[100%] max-w-[180px] rounded-[22px]`}>   
+                    </button>
+                  </>
                   }
-                  {/* <button className=' bg-[#F3F4F6] text-black h-[44px] w-[100%] max-w-[180px] rounded-[22px]'>Azerbaijan</button> */}
             </div>
     </div>
   )
