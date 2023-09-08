@@ -28,6 +28,7 @@
 }
 
 .services-banner-title h1 {
+    color: white;
     margin-bottom: 30px;
     width: 50%;
     font-size: 40px;
@@ -75,7 +76,7 @@
 }
 
 .services-box-title {
-    padding: 0 15px;
+    padding: 25px 10px;
 }
 
 
