@@ -6,7 +6,7 @@ const Partners = () => {
         <div className="partners_title text-[30px] font-[600]">
             Media Spotlight
         </div>
-        <div className="partners_container flex items-center justify-between max-[1040px]:overflow-scroll">
+        <div className="partners_container flex items-center justify-between max-[1040px]:overflow-x-scroll">
         <div className="partner max-w-[250px] min-w-[200px]  m-[10px]  w-[100%]">
             <img src={Partner} alt="" className='object-cover'/>
         </div>

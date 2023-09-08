@@ -1,14 +1,15 @@
 import React from "react";
 import "../Styles/Footerabout.css";
+import { Link } from "react-router-dom";
 const FooterAbout = () => {
   return (
     <div className="footer_about">
       <div>
         <ul className="text-white">
           <li>
-            <a className="hover:text-customOrange" href="">
+            <Link to={'/'} className="hover:text-customOrange">
               Home
-            </a>
+            </Link>
           </li>
           <li>
             <a className="hover:text-customOrange" href="">
@@ -16,14 +17,14 @@ const FooterAbout = () => {
             </a>
           </li>
           <li>
-            <a className="hover:text-customOrange" href="">
-              Contakt Us
-            </a>
+            <Link to={'/contact-us'} className="hover:text-customOrange">
+              Contact Us
+            </Link>
           </li>
           <li>
-            <a className="hover:text-customOrange" href="">
+            <Link to={'/services'} className="hover:text-customOrange">
               Services
-            </a>
+            </Link>
           </li>
           <li>
             <a className="hover:text-customOrange" href="">

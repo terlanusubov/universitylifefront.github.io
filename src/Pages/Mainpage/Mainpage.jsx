@@ -22,7 +22,7 @@ const Mainpage = () => {
       <Banner></Banner>
       <Countdata></Countdata>
       <Popularcities></Popularcities>
-      <Comments></Comments>
+      {/* <Comments></Comments> */}
       <Popularprops></Popularprops>
       <Partners></Partners>
    </div>

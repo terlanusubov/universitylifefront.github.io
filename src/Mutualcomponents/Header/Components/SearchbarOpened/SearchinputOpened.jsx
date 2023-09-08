@@ -19,7 +19,7 @@ const SearchinputOpened = () => {
   }
   return (
     <div className=' opened_search_input_container relative  w-[60%]'>
-        <input  autoFocus type="text" className='border-[1.4px] border-solid   border-gray-300 rounded-[6px] pl-[35px] outline-none py-[10px] w-[100%] placeholder:text-[14px] duration-[.4s] ' placeholder='Search by City, University or Property' />
+        <input  autoFocus type="text" className='border-[1.4px] border-solid   border-gray-300 rounded-[6px] pl-[35px] outline-none py-[10px] w-[100%] placeholder:text-[14px] duration-[.4s] ' placeholder='Search by City, University or City' />
         <SearchIcon className='absolute top-[16px] left-[9px]'></SearchIcon>
         <Inputtoggle></Inputtoggle>
        

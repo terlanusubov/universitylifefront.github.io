@@ -2,7 +2,7 @@ import React from 'react'
 import {AiFillStar as StarIcon} from 'react-icons/ai'
 const Comment = () => {
   return (
-<div className="student_comment p-[20px] rounded-[13px]">
+<div className="student_comment rounded-[13px]">
     <div className="student_comment_content p-[20px]  rounded-[13px]   shadow-[0_0.5px_2px_0.1px_rgba(0,0,0,0.3)] hover:shadow-[0_2px_4px_0.1px_rgba(0,0,0,0.3)] duration-[.2s] cursor-pointer">
       <div className="student_comment_content_top  flex justify-between items-center">
           <div className="student_comment_name text-[23px] font-[600] max-[576px]:text-[19px] max-[1100px]:text-[21px]">
