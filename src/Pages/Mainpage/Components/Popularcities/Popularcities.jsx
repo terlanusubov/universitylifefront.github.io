@@ -41,8 +41,8 @@ const Popularcities = () => {
         </div>
         <div  className='countries_container  grid grid-cols-4 max-[1024px]:grid-cols-2 max-[568px]:grid-cols-1 gap-[13px] gap-x-[20px]'>
            {
-            cities 
-            &&
+            cities.length
+            ?
             cities.map((data,index) => {
               return (
               <div key={index} className='country_element rounded-[10px] cursor-pointer overflow-hidden relative' >
@@ -63,6 +63,18 @@ const Popularcities = () => {
               </div>
               )
             })
+            :
+            
+            <>
+            <div className='rounded-[13px] bg-gray-300 animate-pulse overflow-hidden max-w-[350px] w-[100%] h-[220px] max-[1024px]:max-w-none'>
+            </div>
+            <div className='rounded-[13px] bg-gray-300 animate-pulse overflow-hidden max-w-[350px] w-[100%] h-[220px] max-[1024px]:max-w-none'>
+           </div>
+            <div className='rounded-[13px] bg-gray-300 animate-pulse overflow-hidden max-w-[350px] w-[100%] h-[220px] max-[1024px]:max-w-none'>
+             </div>
+             <div className='rounded-[13px] bg-gray-300 animate-pulse overflow-hidden max-w-[350px] w-[100%] h-[220px] max-[1024px]:max-w-none'>
+             </div>
+            </>
            }
       </div>
     </div>

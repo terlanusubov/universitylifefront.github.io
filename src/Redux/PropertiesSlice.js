@@ -4,7 +4,8 @@ export const propertiesSlice = createSlice({
     name:"Popular Properties",
     initialState: {
         currentCountry:'',
-        currentCity:''
+        currentCity:'',
+        currentCityId:''
     },
     reducers: {
         setCurrentCountry: (state,action) => {
@@ -12,6 +13,9 @@ export const propertiesSlice = createSlice({
         },
         setCurrentCity:(state,action) => {
             state.currentCity = action.payload
+        },
+        setCurrentCityId:(state,action) => {
+            state.currentCityId = action.payload;
         }
     }
 })
