@@ -59,6 +59,7 @@
     justify-content: space-between;
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
+    padding: 0 70px;
 }
 
 .services-box {
@@ -73,10 +74,12 @@
 
 .services-box img {
     width: 128px;
+    height: 128px;
+    border-radius: 5px;
 }
 
 .services-box-title {
-    padding: 25px 10px;
+    padding: 0 18px;
 }
 
 
@@ -85,6 +88,7 @@
     font-size: 18px;
     display: flex;
     align-items: center;
+    font-weight: 500;
 }
 
 .services-box-title p {

@@ -101,6 +101,14 @@
         text-align: center;
     }
 
+    .services-box-title h4 {
+        font-size: 16px;
+    }
+
+    .services-icon {
+        font-size: 14px;
+    }
+
     /* /////////////// */
     .services-boxs {
         grid-template-columns: repeat(1, 1fr);
@@ -161,6 +169,7 @@
 
     .services-box img {
         width: 98px;
+        height: 98px;
     }
 
     .services-box-title p {

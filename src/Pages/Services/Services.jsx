@@ -41,14 +41,14 @@ const Services = () => {
                     <div className='services-title'>
                         <h3>Our Services</h3>
                     </div>
-                    <div className="services-boxs duzeltbunu max-w-[1440px] w-[100%] max-[1500px]:px-[10px] mx-auto">
+                    <div className="services-boxs duzeltbunu  max-[320px]:p-0">
                         {
                             services.length
                                 ?
                                 services.map((data) => {
                                     return (
                                         <div className="services-box" key={data.id}>
-                                            <img src={data.image} alt="" />
+                                            <img src={data.image} alt="" className="object-cover" />
                                             <div className="services-box-title">
                                                 <h4>{data.name} <HiOutlineChevronRight className="services-icon" /></h4>
                                                 <p>{data.description}</p>
