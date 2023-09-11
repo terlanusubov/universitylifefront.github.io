@@ -14,11 +14,9 @@ const [rooms,setRooms] = useState([])
 const [roomLoading,setRoomLoading] = useState(false)
 
 const fetchRooms = async () => {
-  console.log(CityState.id);
 
   if (CityState.id) {
     console.log('test');
-    setRoomLoading(true)
     const promise = await fetch(import.meta.env.VITE_API_KEY + `/bedroom?CityId=${CityState.id}`)
     const response = await promise.json()
     setRooms(response.response.bedRooms)
@@ -28,6 +26,7 @@ const fetchRooms = async () => {
 }
 
   useEffect(() => {
+    setRoomLoading(true)
     fetchRooms();
   },[CityState.id])
 
@@ -54,6 +53,7 @@ const fetchRooms = async () => {
         </div>
       </>
       :
+
       <h1 className='text-center w-[100%] text-[30px]'>There is no room</h1>
     }
     </div>
