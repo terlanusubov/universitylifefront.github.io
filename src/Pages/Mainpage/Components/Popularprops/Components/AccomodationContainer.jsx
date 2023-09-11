@@ -11,7 +11,7 @@ const AccomodationContainer = () => {
 const CityState = useSelector(state => state.propertiesReducer.currentCity)
 const [rooms,setRooms] = useState([])
 
-const [roomLoading,setRoomLoading] = useState(false)
+const [roomLoading,setRoomLoading] = useState(true)
 
 const fetchRooms = async () => {
 
@@ -26,7 +26,6 @@ const fetchRooms = async () => {
 }
 
   useEffect(() => {
-    setRoomLoading(true)
     fetchRooms();
   },[CityState.id])
 
