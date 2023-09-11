@@ -8,6 +8,7 @@ import Test from '../../../Assets/times.jpg'
 
 import { useSelector } from 'react-redux'
 const AccomodationContainer = () => {
+
 const CityState = useSelector(state => state.propertiesReducer.currentCity)
 const [rooms,setRooms] = useState([])
 
@@ -15,14 +16,14 @@ const [roomLoading,setRoomLoading] = useState(true)
 
 const fetchRooms = async () => {
 
-  if (CityState.id) {
+  if (!CityState.id) {
+    return false;
+  }
     console.log('test');
     const promise = await fetch(import.meta.env.VITE_API_KEY + `/bedroom?CityId=${CityState.id}`)
     const response = await promise.json()
     setRooms(response.response.bedRooms)
     setRoomLoading(false)
-    
-  }
 }
 
   useEffect(() => {
@@ -30,25 +31,33 @@ const fetchRooms = async () => {
   },[CityState.id])
 
   return (
-    <div className='popular_props_accommodation_container  grid grid-cols-3 max-[1024px]:flex max-[1024px]:overflow-x-scroll max-[1024px]:overflow-y-hidden gap-[10px]  pl-[20px] max-[1150px]:pl-[10px] max-[1024px]:pt-[50px] '>
+    <div className=' popular_props_accommodation_container content-start grid grid-cols-3 max-[1024px]:flex max-[1024px]:overflow-x-scroll max-[1024px]:overflow-y-hidden gap-[10px]  pl-[20px] max-[1150px]:pl-[10px] max-[1024px]:pt-[50px] '>
           
     {
       rooms.length
       ? 
       rooms.map((data,index) => {
+        console.log(data);
         return (
-          <Room key={index} views={1561} bg={Example} roomName={data.name} offerPrice={50} weeklyPrice={data.price}></Room>
+          <Room key={data.bedRoomStatusId} views={1561} bg={data.bedRoomImages[0]} roomName={data.name} offerPrice={50} weeklyPrice={data.price}></Room>
         )
       })
       :
       roomLoading
       ?
       <>
-        <div className="room popular_props_room bg-gray-200  animate-pulse duration-[.2s] w-[100%] max-w-[340px] max-[1341px]:max-w-[310px]  max-[1024px]:min-w-[300px]  h-[230px] max-[1450px]:h-[210px] max-[1200px]:h-[194px] rounded-[20px]">
+        
+        <div className="room popular_props_room bg-gray-200  animate-pulse duration-[.2s] w-[100%] min-w-[270px] max-[1160px]:min-w-[240px]   max-w-[340px] max-[1341px]:max-w-[310px]  max-[1024px]:min-w-[300px]  h-[210px] max-[1450px]:h-[210px] max-[1200px]:h-[194px] rounded-[20px]">
         </div>
-        <div className="room popular_props_room bg-gray-200 animate-pulse duration-[.2s] w-[100%] max-w-[340px] max-[1341px]:max-w-[310px]  max-[1024px]:min-w-[300px]  h-[230px] max-[1450px]:h-[210px] max-[1200px]:h-[194px] rounded-[20px]">
+        <div className="room popular_props_room bg-gray-200 animate-pulse duration-[.2s] w-[100%] min-w-[270px] max-[1160px]:min-w-[240px]  max-w-[340px] max-[1341px]:max-w-[310px]  max-[1024px]:min-w-[300px]  h-[210px] max-[1450px]:h-[210px] max-[1200px]:h-[194px] rounded-[20px]">
         </div>
-        <div className="room popular_props_room bg-gray-200 animate-pulse duration-[.2s] w-[100%] max-w-[340px] max-[1341px]:max-w-[310px]  max-[1024px]:min-w-[300px]  h-[230px] max-[1450px]:h-[210px] max-[1200px]:h-[194px] rounded-[20px]">
+        <div className="room popular_props_room bg-gray-200  animate-pulse duration-[.2s] w-[100%] min-w-[270px] max-[1160px]:min-w-[240px]   max-w-[340px] max-[1341px]:max-w-[310px]  max-[1024px]:min-w-[300px]  h-[210px] max-[1450px]:h-[210px] max-[1200px]:h-[194px] rounded-[20px]">
+        </div>
+        <div className="room popular_props_room bg-gray-200 animate-pulse duration-[.2s] w-[100%] min-w-[270px] max-[1160px]:min-w-[240px]  max-w-[340px] max-[1341px]:max-w-[310px]  max-[1024px]:min-w-[300px]  h-[210px] max-[1450px]:h-[210px] max-[1200px]:h-[194px] rounded-[20px]">
+        </div>
+        <div className="room popular_props_room bg-gray-200  animate-pulse duration-[.2s] w-[100%] min-w-[270px] max-[1160px]:min-w-[240px]   max-w-[340px] max-[1341px]:max-w-[310px]  max-[1024px]:min-w-[300px]  h-[210px] max-[1450px]:h-[210px] max-[1200px]:h-[194px] rounded-[20px]">
+        </div>
+        <div className="room popular_props_room bg-gray-200  animate-pulse duration-[.2s] w-[100%] min-w-[270px] max-[1160px]:min-w-[240px]   max-w-[340px] max-[1341px]:max-w-[310px]  max-[1024px]:min-w-[300px]  h-[210px] max-[1450px]:h-[210px] max-[1200px]:h-[194px] rounded-[20px]">
         </div>
       </>
       :
