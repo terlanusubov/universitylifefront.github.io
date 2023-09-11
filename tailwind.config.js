@@ -12,7 +12,7 @@ export default {
         customBlue:'#0378A4',
         customRed:'#E41D36',
         customDarkBlue:'#0C53CD',
-        customLightOrange:'#fa8c7a'
+        customLightOrange:'#eec974'
       }
     },
   },

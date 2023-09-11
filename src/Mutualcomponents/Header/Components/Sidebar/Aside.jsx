@@ -11,7 +11,7 @@ import { useNavigate } from 'react-router-dom'
 import {sideBarSlice} from '../../../../Redux/toggleSlice' 
 
 
-import Logo from '../../Assets/hostellogo.png'
+import Logo from '../../Assets/mainLogo.png'
 import { useDispatch } from 'react-redux'
 const Aside = () => {
   const navigate = useNavigate();
@@ -33,7 +33,9 @@ const Aside = () => {
           <div className="quit_icon">
             <Closeicon className='text-[34px] cursor-pointer' onClick={closeSideBar}></Closeicon>
           </div>
-          <img src={Logo} onClick={(e) => navigateAndClose(e,'/')} alt=""/>
+          <div className="image ml-[5px] max-w-[200px]">
+          <img src={Logo} onClick={(e) => navigateAndClose(e,'/')} className='w-[100%  h-[100%]' alt=""/>
+          </div>
         </div>
         <div className="aside_options">
           <div onClick={(e) => navigateAndClose(e,'/')} className="option cursor-pointer flex flex-col items-start justify-center hover:bg-customOrange hover:text-white text-[20px] h-[60px]">

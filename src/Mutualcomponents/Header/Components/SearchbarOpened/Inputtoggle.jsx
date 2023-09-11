@@ -26,7 +26,7 @@ const inputtoggle = () => {
           <div className="recent_searches flex justify-center flex-col gap-[5px]">
             <div className="recent_searches_nav flex items-center gap-[15px]">
             <div className="recent_icon">
-              <Clockicon fill='#F67864' className='text-[28px]'></Clockicon>
+              <Clockicon  className='text-[28px] text-customOrange'></Clockicon>
             </div>
             <span className="recent_searches_text text-customOrange font-[600]">
               Recent Searches
@@ -59,23 +59,23 @@ const inputtoggle = () => {
             <div className="popular_cities_nav flex items-center gap-[15px]">
 
             <div className="location_icon">
-              <Locationicon fill='#F67864' className='text-[28px]'></Locationicon>
+              <Locationicon  className='text-[28px] text-customOrange'></Locationicon>
             </div>
             <span className="popular_cities_text text-customOrange font-[600]">
               Popular Cities
             </span>
             </div>
             <div className="popular_cities_main px-[10px] flex flex-wrap ">
-                <div className="city w-[50%] bg-white hover:bg-orange-100 cursor-pointer rounded-[10px] p-[5px] ">
+                <div className="city w-[50%] bg-white hover:bg-customLightOrange hover:text-white cursor-pointer rounded-[10px] p-[5px] ">
                     London
                 </div>
-                <div className="city w-[50%] bg-white hover:bg-orange-100 cursor-pointer rounded-[10px] p-[5px] ">
+                <div className="city w-[50%] bg-white hover:bg-customLightOrange hover:text-white cursor-pointer rounded-[10px] p-[5px] ">
                   Londra
                 </div>
-                <div className="city w-[50%] bg-white hover:bg-orange-100 cursor-pointer rounded-[10px] p-[5px] ">
+                <div className="city w-[50%] bg-white hover:bg-customLightOrange hover:text-white cursor-pointer rounded-[10px] p-[5px] ">
                   Manchester
                 </div>
-                <div className="city w-[50%] bg-white hover:bg-orange-100 cursor-pointer rounded-[10px] p-[5px] ">
+                <div className="city w-[50%] bg-white hover:bg-customLightOrange hover:text-white cursor-pointer rounded-[10px] p-[5px] ">
                   Liverpool
                 </div>
             </div>
@@ -86,23 +86,23 @@ const inputtoggle = () => {
           <div className="popular_universities flex flex-col gap-[12px]">
               <div className="popular_universities_nav flex items-center gap-[15px]">
                   <div className="popular_universities_icon">
-                  <Graduationicon fill='#F67864' className='text-[28px]'></Graduationicon>
+                  <Graduationicon  className='text-[28px] text-customOrange'></Graduationicon>
                   </div>
                   <span className="popular_universities_text text-customOrange font-[600]">
                     Popular Universities
                   </span>
               </div>
               <div className="popular_universities_main flex flex-wrap px-[10px]">
-                <div className="university w-[50%] bg-white hover:bg-orange-100 cursor-pointer rounded-[10px] p-[5px] ">
+                <div className="university w-[50%] bg-white hover:bg-customLightOrange hover:text-white cursor-pointer rounded-[10px] p-[5px] ">
                     Harvard
                 </div>
-                <div className="university w-[50%] bg-white hover:bg-orange-100 cursor-pointer rounded-[10px] p-[5px] ">
+                <div className="university w-[50%] bg-white hover:bg-customLightOrange hover:text-white cursor-pointer rounded-[10px] p-[5px] ">
                     Arizona University
                 </div>
-                <div className="university w-[50%] bg-white hover:bg-orange-100 cursor-pointer rounded-[10px] p-[5px] ">
+                <div className="university w-[50%] bg-white hover:bg-customLightOrange hover:text-white cursor-pointer rounded-[10px] p-[5px] ">
                   California State University
                 </div>
-                <div className="university w-[50%] bg-white hover:bg-orange-100 cursor-pointer rounded-[10px] p-[5px] ">
+                <div className="university w-[50%] bg-white hover:bg-customLightOrange hover:text-white cursor-pointer rounded-[10px] p-[5px] ">
                   University Of Florida
                 </div>
               </div>

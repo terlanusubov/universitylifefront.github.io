@@ -28,7 +28,7 @@ const Logo = () => {
         <MenuIcon onClick={() => sideBarHandler()} className='text-[25px] mr-[7px]'></MenuIcon>
       </div>
       <div className="logo_image_container" >
-      <img src={LogoImage} onClick={goHome} className='min-w-[100px] max-w-[200px] cursor-pointer' alt="" />
+      <img src={LogoImage} onClick={goHome} className='max-[650px]:max-w-[150px] min-w-[100px] max-w-[200px] cursor-pointer' alt="" />
       </div>
     </div>
   )
