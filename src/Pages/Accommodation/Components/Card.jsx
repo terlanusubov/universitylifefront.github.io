@@ -15,14 +15,15 @@ const Card = (props) => {
                 <div className='relative h-52'>
                     <Link className='w-full h-full'>
                         <Carousel infiniteLoop={true} showThumbs={false} showStatus={false}>
+
                             <div>
-                                <img className='h-52 w-full rounded-t-md'  src={props.img} />
+                                <img className='h-52 w-full rounded-t-md object-cover'  src={props.slideImages[0]} />
                             </div>
                             <div>
-                                <img className='h-52 w-full rounded-t-md'  src={props.img} />
+                                <img className='h-52 w-full rounded-t-md object-cover'  src={props.slideImages[1]} />
                             </div>
                             <div>
-                                <img className='h-52 w-full rounded-t-md'  src={props.img} />
+                                <img className='h-52 w-full rounded-t-md object-cover'  src={props.slideImages[2]} />
                             </div>
                         </Carousel>
                     </Link>
@@ -53,7 +54,7 @@ const Card = (props) => {
                     </div>
                     <div className='flex justify-between items-center my-1.5'>
                         <div className='text-xs truncate pr-4'>
-                            {props.type}&nbsp; 
+                            {props.type.map(data => <span className='mx-[3px]'>{data}</span>)}&nbsp; 
                         </div>
                         <div className='text-right text-xs flex-shrink-0'>Starting From</div>
                     </div>

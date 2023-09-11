@@ -165,7 +165,7 @@ const SearchUniversity = () => {
                     <div className='relative'>
                         <div className='lg:ml-2 mb-2 md:mb-0 flex space-x-2 pt-2 md:pt-0 md:mx-2 lg:mx-0'>
                             <div className='flex items-center flex-grow'>
-                                <input aftercontent='<SlArrowDown/>' checked type="radio" className='w-0 h-0 peer hidden after:content-[attr(aftercontent)]' />
+                                <input aftercontent='<SlArrowDown/>'  type="radio" className='w-0 h-0 peer hidden after:content-[attr(aftercontent)]' />
                                 <label className='relative h-12 md:h-11 rounded border border-gray-200 bg-white text-gray-900 active:border-customOrange active:bg-customOrange active:text-white px-3 flex items-center justify-between box-border w-full text-xs lg:text-sm transition-colors cursor-pointer peer-checked:text-white peer-checked:bg-customOrange peer-checked:border-customOrange peer-disabled:text-gray-900 peer-disabled:border-gray-200 peer-disabled:cursor-default  hover:border-customOrange whitespace-normal hover:text-customOrange' htmlFor="">
                                     Student Housing
                                     <div className='relative group flex justify-center items-center'>
