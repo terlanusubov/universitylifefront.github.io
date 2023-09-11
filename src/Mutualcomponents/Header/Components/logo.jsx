@@ -1,7 +1,7 @@
 import React from 'react'
 
 // Assets
-import LogoImage from '../Assets/hostellogo.png'
+import LogoImage from '../Assets/mainLogo.png'
 
 // Icons
 import {FiMenu as MenuIcon} from 'react-icons/fi'
@@ -28,7 +28,7 @@ const Logo = () => {
         <MenuIcon onClick={() => sideBarHandler()} className='text-[25px] mr-[7px]'></MenuIcon>
       </div>
       <div className="logo_image_container" >
-      <img src={LogoImage} onClick={goHome} className='min-w-[100px] max-w-[140px] cursor-pointer' alt="" />
+      <img src={LogoImage} onClick={goHome} className='min-w-[100px] max-w-[200px] cursor-pointer' alt="" />
       </div>
     </div>
   )

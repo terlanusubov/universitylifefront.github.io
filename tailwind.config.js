@@ -8,8 +8,8 @@ export default {
     backgroundImage:{'banner-bg':"url(./src/Pages/Mainpage/Assets/bannerbg.png)"},
     extend: {
       colors:{ 
-        customOrange:'#F67864',
-        customBlue:'#3F3675',
+        customOrange:'#F4B41A',
+        customBlue:'#0378A4',
         customRed:'#E41D36',
         customDarkBlue:'#0C53CD',
         customLightOrange:'#fa8c7a'

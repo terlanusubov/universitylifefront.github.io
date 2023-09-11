@@ -162,7 +162,7 @@ const closeModal = () => {
             <span className="select-none input_text absolute top-[-10px] rounded-[2px] bg-white text-[13.3px] ease-out text-gray-500 duration-[.35s] px-[2px]  left-[16px] ">Phone Number</span>
             </div>
           </div>
-          <button onClick={registerHandler} className='w-[100%] bg-customOrange hover:bg-orange-600 duration-[.1s] h-[40px] rounded-[10px] text-white flex items-center justify-center' ><span className="btn_text">{
+          <button onClick={registerHandler} className='w-[100%] bg-customOrange hover:bg-[#dfb34d]  duration-[.1s] h-[40px] rounded-[10px] text-white flex items-center justify-center' ><span className="btn_text">{
           registerLoading 
           ?  
           <div className="loading_element flex justify-center">
@@ -199,7 +199,7 @@ const closeModal = () => {
         <form className='px-[20px] login_form flex min-w-[100%] flex-col gap-[20px] items-center'>
           <InputComponent inputValue={emailValueLogin} setInputValue={setEmailValueLogin} inputTitle={'Email'} inputId={'loginEmailInputId'}></InputComponent>
           <InputComponent inputValue={passwordValueLogin} setInputValue={setPasswordValueLogin} inputTitle={'Password'} inputId={'loginPasswordInputId'}></InputComponent>
-          <button onClick={LoginHandler} className='w-[100%] bg-customOrange hover:bg-orange-600 duration-[.1s] h-[40px] rounded-[10px] text-white flex items-center justify-center' ><span className="btn_text">{
+          <button onClick={LoginHandler} className='w-[100%] bg-customOrange hover:bg-[#dfb34d]  duration-[.1s] h-[40px] rounded-[10px] text-white flex items-center justify-center' ><span className="btn_text">{
           loginLoading 
           
           ?  
