@@ -6,7 +6,7 @@ import store from './Redux/store.js'
 import { Provider } from 'react-redux'
 import ContextComponent from './Context/Context.jsx'
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <Provider store={store}>
+  <Provider store={store} >
     <ContextComponent>
   <BrowserRouter> 
     <React.StrictMode>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 /////////
 import DetailPhoto from "./Components/DetailpagePhoto/DetailPhoto";
 import DetailPageNav from "./Components/DetailpageNav/DetailPageNav";
@@ -9,13 +9,15 @@ import DetailpageRoomTypes from "./Components/DetailpageRoomTypes/DetailpageRoom
 import "./Styles/Detailpage.css";
 /////////
 const Detailpage = () => {
+  const [roomTypeCords,setRoomsTypeCords] = useState(0);
+
   return (
     <div>
-      <DetailPhoto></DetailPhoto>
+      <DetailPhoto ></DetailPhoto>
       <DetailPageNav></DetailPageNav>
-      <DetailPageLoc></DetailPageLoc>
+      <DetailPageLoc cords={roomTypeCords}></DetailPageLoc>
       <DetailpageAboutCountry></DetailpageAboutCountry>
-      <DetailpageRoomTypes></DetailpageRoomTypes>
+      <DetailpageRoomTypes setCords={setRoomsTypeCords}></DetailpageRoomTypes>
     </div>
   );
 };

@@ -4,10 +4,10 @@ import DetailPageLocName from "./Components/DetailPageLocName";
 /////////
 import "../../Styles/DetailpageLoc.css";
 /////////
-const DetailPageLoc = () => {
+const DetailPageLoc = ({cords}) => {
   return (
     <div>
-      <DetailPageLocName></DetailPageLocName>
+      <DetailPageLocName cords={cords}></DetailPageLocName>
     </div>
   );
 };
