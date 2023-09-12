@@ -8,7 +8,7 @@ const PopularpropsSide = () => {
     const state = useSelector(state => state.propertiesReducer.currentCountry);
     const countryId = useSelector(state => state.propertiesReducer.current)
     const dispatch = useDispatch();
-    const [loadingCities,setLoadingCities] = useState(false)
+    const [loadingCities,setLoadingCities] = useState(true)
 
     const fetchCities = async () => {
         setLoadingCities(true)
