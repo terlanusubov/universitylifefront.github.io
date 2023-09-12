@@ -17,7 +17,7 @@ const FooterAbout = () => {
           </li>
           <li>
             <a className="hover:text-customOrange" href="">
-              Contakt Us
+              Contact Us
             </a>
           </li>
           <li>
@@ -27,12 +27,12 @@ const FooterAbout = () => {
           </li>
           <li>
             <a className="hover:text-customOrange" href="">
-              Ibrahim
+              Careers
             </a>
           </li>
           <li>
             <a className="hover:text-customOrange" href="">
-              Elnur
+              Blog
             </a>
           </li>
         </ul>

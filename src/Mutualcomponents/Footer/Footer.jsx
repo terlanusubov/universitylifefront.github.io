@@ -7,9 +7,11 @@ import "../Footer/Footer.css";
 const Footer = () => {
   return (
     <footer className="Footer bg-customBlue">
-      <FooterNav></FooterNav>
-      <FooterIcons></FooterIcons>
-      <FooterBottom></FooterBottom>
+      <div className="w-[100%]  max-w-[1440px] mx-auto">
+        <FooterNav></FooterNav>
+        <FooterIcons></FooterIcons>
+        <FooterBottom></FooterBottom>
+      </div>
     </footer>
   );
 };
