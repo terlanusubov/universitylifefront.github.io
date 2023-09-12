@@ -3,6 +3,7 @@ import Card from './Card'
 import Caruseldata from './Caruseldata'
 import ReactPaginate from 'react-paginate';
 import '../Styles/cards.css'
+import { useSelector } from 'react-redux';
 
 const Cards = () => {
 
@@ -10,17 +11,18 @@ const Cards = () => {
   const [bedRooms, setBedRooms] = useState([]);
   const [RoomsPerPage, setRoomsPerPage] = useState()
   const [totalData, setTotalData] = useState(0)
-  const [currentPage, setCurrentPage] = useState(0)
+  const [currentPage, setCurrentPage] = useState(1)
   const [endOffset, setEndOffset] = useState(0)
-
+  const filterUniversityId = useSelector(state => state.detailPageReducer.currentUniversityId)
+  
   const fetchBedRooms = async () => {
 
-    const promise = await fetch(import.meta.env.VITE_API_KEY + '/bedroom');
+    const promise = await fetch(import.meta.env.VITE_API_KEY +`/bedroom?Page=${currentPage}`);
 
     const result = await promise.json();
+    console.log(result);
 
     const { bedRooms, pageSize, totalData, totalPage } = result.response;
-
 
     setRoomsPerPage(pageSize);
 
@@ -28,11 +30,10 @@ const Cards = () => {
 
     setTotalData(totalData);
 
-    setBedRooms(bedRooms.slice(currentPage, currentPage + pageSize));
+    setBedRooms(bedRooms);
 
     setEndOffset(0 + pageSize)
 
-    console.log(bedRooms, pageNumber, pageSize, totalData, totalPage);
   }
 
   useEffect(() => {
@@ -42,9 +43,7 @@ const Cards = () => {
   const [pageNumber, setPageNumber] = useState(0);
 
   const changePageHandler = (e) => {
-    if (bedRooms.length) {
-      setCurrentPage(e.selected * RoomsPerPage)
-    }
+    setCurrentPage(e.selected + 1)
   }
 
 
@@ -83,7 +82,7 @@ const Cards = () => {
           bedRooms.length
           ?
           bedRooms.map((data, index) => {
-            return <Card type={data.bedRoomRoomTypes} price={data.price} key={index} title={data.name} description={data.description} slideImages={data.bedRoomImages} />
+            return <Card  type={data.bedRoomRoomTypes} price={data.price} key={index} title={data.name} description={data.description} slideImages={data.bedRoomImages} />
           })
           :
           <div className='animate-pulse'>there is no bedroom </div>
@@ -93,14 +92,15 @@ const Cards = () => {
         <div className='hidden lg:block'>
           {
             bedRooms.length
-            &&
+            ?
             <p className='text-gray-700 text-sm'>
               Showing
               <span className='font-medium'>&nbsp;1&nbsp;-&nbsp;{totalPage} &nbsp;</span>
               properties out of
               <span className='font-medium'>&nbsp;{totalData}</span>
             </p>
-
+            :
+            'Loading...'
           }
         </div>
         <div className='flex items-center'>
@@ -108,7 +108,7 @@ const Cards = () => {
 
           {
             bedRooms.length
-            &&
+            ?
             <ReactPaginate
               previousLabel={'<'}
               nextLabel={'>'}
@@ -123,6 +123,8 @@ const Cards = () => {
               activeLinkClassName={'activepagelink'}
               disabledLinkClassName={'disabledpagelink'}
             />
+            :
+            'Loading'
           }
 
         </div>

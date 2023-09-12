@@ -11,6 +11,7 @@ import SearchUniversity from './Components/SearchUniversity'
 const Accommodation = () => {
   return (
     <div className="accommodation container px-[16px] mx-auto" >
+      
         <Sorting />
         <SearchUniversity />
         <Cards /> 

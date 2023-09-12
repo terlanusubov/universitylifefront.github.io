@@ -7,6 +7,8 @@ import { Carousel } from 'react-responsive-carousel';
 import { useCart } from 'react-use-cart';
 
 const Card = (props) => {
+
+
     const {addItem} = useCart();
 
     return (
@@ -15,7 +17,6 @@ const Card = (props) => {
                 <div className='relative h-52'>
                     <Link className='w-full h-full'>
                         <Carousel infiniteLoop={true} showThumbs={false} showStatus={false}>
-
                             <div>
                                 <img className='h-52 w-full rounded-t-md object-cover'  src={props.slideImages[0]} />
                             </div>
@@ -54,7 +55,7 @@ const Card = (props) => {
                     </div>
                     <div className='flex justify-between items-center my-1.5'>
                         <div className='text-xs truncate pr-4'>
-                            {props.type.map(data => <span className='mx-[3px]'>{data}</span>)}&nbsp; 
+                            {props.type.map((data,index) => <span key={index} className='mx-[3px]'>{data}</span>)}&nbsp; 
                         </div>
                         <div className='text-right text-xs flex-shrink-0'>Starting From</div>
                     </div>

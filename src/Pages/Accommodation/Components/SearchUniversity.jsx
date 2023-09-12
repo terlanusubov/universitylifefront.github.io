@@ -1,8 +1,10 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import 'rc-slider/assets/index.css';
 import '../Styles/searchuniversity.css'
 import { Link } from 'react-router-dom'
 import { useRef } from 'react';
+import { useDispatch } from 'react-redux';
+import { detailPageSlice } from '../../../Redux/detailPageSlice';
 
 
 
@@ -12,7 +14,9 @@ const SearchUniversity = () => {
     
     const searchInputRef = useRef();
     const [SearchValue, setSearchValue] = useState('');
-    
+    const dispatch = useDispatch();
+    const [universities,setUniversities] = useState([])
+
     const [focused,setFocused] = useState(false)
     const [isShown,setIsShown] = useState(false)
     const focusHandler = () => {
@@ -20,7 +24,25 @@ const SearchUniversity = () => {
         setIsShown(true)
     }
 
+    const selectUniversityHandler = (id) => {
+        dispatch(detailPageSlice.actions.setCurrentUniversityId(id))
+    }
 
+    const searchUniversityHandler = async (e) => {
+        setSearchValue(e.target.value)
+        const promise = await fetch(import.meta.env.VITE_API_KEY + '/university')
+        const response = await promise.json();
+        console.log(response);
+    }
+
+    const fetchUniversities = async () => {
+        const promise = await fetch(import.meta.env.VITE_API_KEY + '/university')
+        const response = await promise.json();
+        setUniversities(response.response);
+    }
+    useEffect(() => {
+        fetchUniversities()
+    },[])
 
     const blurHandler = () => {
         if (!SearchValue) {
@@ -50,111 +72,37 @@ const SearchUniversity = () => {
                                 <div style={{ outline: "none", position: "relative" }} tabIndex="-1">
                                     <div  ref={searchInputRef} className="text-left relative mb-0 after:absolute after:right-[15px] after:top-[16px] after:border-[#595959] after:border-r after:border-b after:inline-block after:p-[4px] after:rotate-45" >
                                         <div className="input_element_container relative" >
-                                            <input id='searchInputId' onFocus={focusHandler} onBlur={blurHandler} onChange={(e) => setSearchValue(e.target.value)} value={SearchValue} className="selectinput flex select-input truncate items-center text-sm w-full h-11 placeholder:text-gray-400 text-gray-700 px-3 rounded border border-gray-200 gitbox-border pl-11 outline-none transition duration-200" placeholder="Select University" type="text" autoComplete="off" aria-autocomplete="both" aria-expanded="false" aria-haspopup="listbox" role="combobox" />
+                                            <input id='searchInputId' onFocus={focusHandler} onBlur={blurHandler} onChange={searchUniversityHandler} value={SearchValue} className="selectinput flex select-input truncate items-center text-sm w-full h-11 placeholder:text-gray-400 text-gray-700 px-3 rounded border border-gray-200 gitbox-border pl-11 outline-none transition duration-200" placeholder="Select University" type="text" autoComplete="off" aria-autocomplete="both" aria-expanded="false" aria-haspopup="listbox" role="combobox" />
                                             <label htmlFor='searchInputId' className={` text-gray-500 text-sm mb-2 truncate absolute  duration-500 translate-y-[-50%]  ${focused ? 'top-0 left-[45px] bg-white px-[] text-[11px]' : 'top-[50%] left-[45px]'}`}>Select University</label>
                                         </div>
                                         {isShown && <div style={{ position: "absolute",zIndex:"10" , inset: "0 auto auto 0", transform: "translate(0,44px)", overflow: "auto", width: "100%", backgroundColor: "white", maxHeight: "153.59px" }} className=' searchscroll shadow-2xl shadow-stone-800 rounded-b'>
                                             <p className='bg-neutral-100 px-5 py-2 text-xs'>TOP UNIVERSITIES</p>
-                                            <Link>
-                                                <div className='flex items-center'>
-                                                    <div className='p-3'>
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                                            <path d="M12.0003 14.3982L4.84082 12.1946V14.3625V15.8749C4.84082 17.5763 8.04728 18.9558 12.0024 18.9558C15.9573 18.9558 19.1643 17.5763 19.1643 15.8749C19.1643 15.8615 19.16 15.848 19.1597 15.8349V12.1946L12.0003 14.3982Z" fill="#F56A54" />
-                                                            <path d="M0 9.66109L2.5577 10.576L2.77566 10.1092L3.71529 10.0293L3.84926 10.1687L3.04297 10.3599L2.92546 10.7077C2.92524 10.7077 1.10418 14.5149 1.37164 16.3773C1.37164 16.3773 2.50835 17.0554 3.64457 16.3773L3.94653 11.2852V10.8613L5.63786 10.4797L5.5184 10.7739L4.25736 11.184L4.8406 11.3923L12 13.5959L19.1594 11.3923L24 9.66112L12 5.04443L0 9.66109Z" fill="#F56A54" />
-                                                        </svg>
-                                                    </div>
-                                                    <div>
-                                                        <p>King's College London (KCL)</p>
-                                                        <p className='text-[0.6rem] font-light'>London, United Kingdom</p>
-                                                    </div>
-                                                </div>
-                                            </Link>
-                                            <Link>
-                                                <div className='flex items-center'>
-                                                    <div className='p-3'>
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                                            <path d="M12.0003 14.3982L4.84082 12.1946V14.3625V15.8749C4.84082 17.5763 8.04728 18.9558 12.0024 18.9558C15.9573 18.9558 19.1643 17.5763 19.1643 15.8749C19.1643 15.8615 19.16 15.848 19.1597 15.8349V12.1946L12.0003 14.3982Z" fill="#F56A54" />
-                                                            <path d="M0 9.66109L2.5577 10.576L2.77566 10.1092L3.71529 10.0293L3.84926 10.1687L3.04297 10.3599L2.92546 10.7077C2.92524 10.7077 1.10418 14.5149 1.37164 16.3773C1.37164 16.3773 2.50835 17.0554 3.64457 16.3773L3.94653 11.2852V10.8613L5.63786 10.4797L5.5184 10.7739L4.25736 11.184L4.8406 11.3923L12 13.5959L19.1594 11.3923L24 9.66112L12 5.04443L0 9.66109Z" fill="#F56A54" />
-                                                        </svg>
-                                                    </div>
-                                                    <div>
-                                                        <p>King's College London (KCL)</p>
-                                                        <p className='text-[0.6rem] font-light'>London, United Kingdom</p>
-                                                    </div>
-                                                </div>
-                                            </Link>
-                                            <Link>
-                                                <div className='flex items-center'>
-                                                    <div className='p-3'>
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                                            <path d="M12.0003 14.3982L4.84082 12.1946V14.3625V15.8749C4.84082 17.5763 8.04728 18.9558 12.0024 18.9558C15.9573 18.9558 19.1643 17.5763 19.1643 15.8749C19.1643 15.8615 19.16 15.848 19.1597 15.8349V12.1946L12.0003 14.3982Z" fill="#F56A54" />
-                                                            <path d="M0 9.66109L2.5577 10.576L2.77566 10.1092L3.71529 10.0293L3.84926 10.1687L3.04297 10.3599L2.92546 10.7077C2.92524 10.7077 1.10418 14.5149 1.37164 16.3773C1.37164 16.3773 2.50835 17.0554 3.64457 16.3773L3.94653 11.2852V10.8613L5.63786 10.4797L5.5184 10.7739L4.25736 11.184L4.8406 11.3923L12 13.5959L19.1594 11.3923L24 9.66112L12 5.04443L0 9.66109Z" fill="#F56A54" />
-                                                        </svg>
-                                                    </div>
-                                                    <div>
-                                                        <p>King's College London (KCL)</p>
-                                                        <p className='text-[0.6rem] font-light'>London, United Kingdom</p>
-                                                    </div>
-                                                </div>
-                                            </Link>
-
-                                            <p className='bg-neutral-100 px-5 py-2 text-xs'>OTHER UNIVERSITIES</p>
-                                            <Link>
-                                                <div className='flex items-center'>
-                                                    <div className='p-3'>
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                                            <path d="M12.0003 14.3982L4.84082 12.1946V14.3625V15.8749C4.84082 17.5763 8.04728 18.9558 12.0024 18.9558C15.9573 18.9558 19.1643 17.5763 19.1643 15.8749C19.1643 15.8615 19.16 15.848 19.1597 15.8349V12.1946L12.0003 14.3982Z" fill="#F56A54" />
-                                                            <path d="M0 9.66109L2.5577 10.576L2.77566 10.1092L3.71529 10.0293L3.84926 10.1687L3.04297 10.3599L2.92546 10.7077C2.92524 10.7077 1.10418 14.5149 1.37164 16.3773C1.37164 16.3773 2.50835 17.0554 3.64457 16.3773L3.94653 11.2852V10.8613L5.63786 10.4797L5.5184 10.7739L4.25736 11.184L4.8406 11.3923L12 13.5959L19.1594 11.3923L24 9.66112L12 5.04443L0 9.66109Z" fill="#F56A54" />
-                                                        </svg>
-                                                    </div>
-                                                    <div>
-                                                        <p>King's College London (KCL)</p>
-                                                        <p className='text-[0.6rem] font-light'>London, United Kingdom</p>
-                                                    </div>
-                                                </div>
-                                            </Link>
-                                            <Link>
-                                                <div className='flex items-center'>
-                                                    <div className='p-3'>
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                                            <path d="M12.0003 14.3982L4.84082 12.1946V14.3625V15.8749C4.84082 17.5763 8.04728 18.9558 12.0024 18.9558C15.9573 18.9558 19.1643 17.5763 19.1643 15.8749C19.1643 15.8615 19.16 15.848 19.1597 15.8349V12.1946L12.0003 14.3982Z" fill="#F56A54" />
-                                                            <path d="M0 9.66109L2.5577 10.576L2.77566 10.1092L3.71529 10.0293L3.84926 10.1687L3.04297 10.3599L2.92546 10.7077C2.92524 10.7077 1.10418 14.5149 1.37164 16.3773C1.37164 16.3773 2.50835 17.0554 3.64457 16.3773L3.94653 11.2852V10.8613L5.63786 10.4797L5.5184 10.7739L4.25736 11.184L4.8406 11.3923L12 13.5959L19.1594 11.3923L24 9.66112L12 5.04443L0 9.66109Z" fill="#F56A54" />
-                                                        </svg>
-                                                    </div>
-                                                    <div>
-                                                        <p>King's College London (KCL)</p>
-                                                        <p className='text-[0.6rem] font-light'>London, United Kingdom</p>
-                                                    </div>
-                                                </div>
-                                            </Link>
-                                            <Link>
-                                                <div className='flex items-center'>
-                                                    <div className='p-3'>
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                                            <path d="M12.0003 14.3982L4.84082 12.1946V14.3625V15.8749C4.84082 17.5763 8.04728 18.9558 12.0024 18.9558C15.9573 18.9558 19.1643 17.5763 19.1643 15.8749C19.1643 15.8615 19.16 15.848 19.1597 15.8349V12.1946L12.0003 14.3982Z" fill="#F56A54" />
-                                                            <path d="M0 9.66109L2.5577 10.576L2.77566 10.1092L3.71529 10.0293L3.84926 10.1687L3.04297 10.3599L2.92546 10.7077C2.92524 10.7077 1.10418 14.5149 1.37164 16.3773C1.37164 16.3773 2.50835 17.0554 3.64457 16.3773L3.94653 11.2852V10.8613L5.63786 10.4797L5.5184 10.7739L4.25736 11.184L4.8406 11.3923L12 13.5959L19.1594 11.3923L24 9.66112L12 5.04443L0 9.66109Z" fill="#F56A54" />
-                                                        </svg>
-                                                    </div>
-                                                    <div>
-                                                        <p>King's College London (KCL)</p>
-                                                        <p className='text-[0.6rem] font-light'>London, United Kingdom</p>
-                                                    </div>
-                                                </div>
-                                            </Link>
-                                            <Link>
-                                                <div className='flex items-center'>
-                                                    <div className='p-3'>
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                                            <path d="M12.0003 14.3982L4.84082 12.1946V14.3625V15.8749C4.84082 17.5763 8.04728 18.9558 12.0024 18.9558C15.9573 18.9558 19.1643 17.5763 19.1643 15.8749C19.1643 15.8615 19.16 15.848 19.1597 15.8349V12.1946L12.0003 14.3982Z" fill="#F56A54" />
-                                                            <path d="M0 9.66109L2.5577 10.576L2.77566 10.1092L3.71529 10.0293L3.84926 10.1687L3.04297 10.3599L2.92546 10.7077C2.92524 10.7077 1.10418 14.5149 1.37164 16.3773C1.37164 16.3773 2.50835 17.0554 3.64457 16.3773L3.94653 11.2852V10.8613L5.63786 10.4797L5.5184 10.7739L4.25736 11.184L4.8406 11.3923L12 13.5959L19.1594 11.3923L24 9.66112L12 5.04443L0 9.66109Z" fill="#F56A54" />
-                                                        </svg>
-                                                    </div>
-                                                    <div>
-                                                        <p>King's College London (KCL)</p>
-                                                        <p className='text-[0.6rem] font-light'>London, United Kingdom</p>
-                                                    </div>
-                                                </div>
-                                            </Link>
+                                            {
+                                                universities.length
+                                                ?
+                                                universities.map((data) => {
+                                                    return (
+                                                            <div className='flex items-center cursor-pointer' onClick={() => selectUniversityHandler(data.universityId)} key={data.universityId}>
+                                                                <div className='p-3'>
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                                        <path d="M12.0003 14.3982L4.84082 12.1946V14.3625V15.8749C4.84082 17.5763 8.04728 18.9558 12.0024 18.9558C15.9573 18.9558 19.1643 17.5763 19.1643 15.8749C19.1643 15.8615 19.16 15.848 19.1597 15.8349V12.1946L12.0003 14.3982Z" fill="#F56A54" />
+                                                                        <path d="M0 9.66109L2.5577 10.576L2.77566 10.1092L3.71529 10.0293L3.84926 10.1687L3.04297 10.3599L2.92546 10.7077C2.92524 10.7077 1.10418 14.5149 1.37164 16.3773C1.37164 16.3773 2.50835 17.0554 3.64457 16.3773L3.94653 11.2852V10.8613L5.63786 10.4797L5.5184 10.7739L4.25736 11.184L4.8406 11.3923L12 13.5959L19.1594 11.3923L24 9.66112L12 5.04443L0 9.66109Z" fill="#F56A54" />
+                                                                    </svg>
+                                                                </div>
+                                                                <div>
+                                                                    <p>{data.name}</p>
+                                                                    <p className='text-[0.6rem] font-light'>London, United Kingdom</p>
+                                                                </div>
+                                                            </div>
+                                                    )
+                                                })
+                                                :
+                                                'Loading...'
+                                            }
+                                         
+                                             
+                                            {/* <p className='bg-neutral-100 px-5 py-2 text-xs'>OTHER UNIVERSITIES</p> */}
+                           
                                         </div>}
                                         
                                     </div>
