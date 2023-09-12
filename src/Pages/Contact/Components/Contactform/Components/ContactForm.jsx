@@ -58,7 +58,7 @@ export const ContactForm = () => {
       return false;
     }
 
-    const response = await fetch(import.meta.env.VITE_API_KEY + "Contact", {
+    const response = await fetch(import.meta.env.VITE_API_KEY + "/Contact", {
       headers: {
         "Content-type": "application/json",
       },
@@ -112,10 +112,24 @@ export const ContactForm = () => {
     } catch (e) {}
   });
   //////
+
+  const fetchCountries = async () => {
+    const promise = await fetch(import.meta.env.VITE_API_KEY + '/countries')
+    const response = await promise.json();
+    setFilteredCountries(response)
+  }
+
+  useEffect(() => {
+    fetchCountries()
+  },[])
+
+
   const handleCountryInputChange = (e) => {
+
     const value = e.target.value;
     setInputCountryValue(value);
 
+     
     const filtered = countries.filter((country) =>
       country.name.toLowerCase().includes(value.toLowerCase())
     );
@@ -136,10 +150,11 @@ export const ContactForm = () => {
   const [ContactTravveling, setContactTravveling] = useState("");
 
   useEffect(() => {
-    fetch(import.meta.env.VITE_API_KEY + `countries`)
+    fetch(import.meta.env.VITE_API_KEY + `/countries`)
       .then((data) => data.json())
       .then((data) => setCountries(data));
   }, []);
+
   return (
     <>
       <Toaster />
@@ -254,7 +269,7 @@ export const ContactForm = () => {
             </label>
             {popUpOpened ? (
               <div className="popup  w-[100%] bg-white border-solid border-[1px]  rounded-b h-[100px] absolute overflow-y-scroll">
-                {filteredCountries.length > 0 ? (
+                {filteredCountries.length ? (
                   filteredCountries.map((country) => (
                     <div
                       key={country.id}
