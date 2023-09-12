@@ -18,9 +18,7 @@ export const ContactForm = () => {
   const [countries, setCountries] = useState([]);
   const [isFullNameFocused, setIsFullNameFocused] = useState(false);
   const [isEmailFocused, setIsEmailFocused] = useState(false);
-  //////
   const [selectedCountry, setSelectedCountry] = useState("");
-  //////
   const [filteredCountries, setFilteredCountries] = useState([]);
 
   //
@@ -37,10 +35,7 @@ export const ContactForm = () => {
       fullName: ContactFullName,
       email: ContactEmail,
       phone: filteredPhone,
-      // country: inputCountryValue,
-      ///////
       country: selectedCountry,
-      //////
       comment: contactDescription,
     };
 
@@ -48,10 +43,7 @@ export const ContactForm = () => {
       ContactFullName == "" ||
       ContactEmail == "" ||
       filteredPhone == "" ||
-      /////
       selectedCountry == "" ||
-      /////
-      // inputCountryValue == "" ||
       contactDescription == ""
     ) {
       toast.error("Please Fill All Blanks");
@@ -80,7 +72,7 @@ export const ContactForm = () => {
     setDescriptionFocused(false);
     setIsEmailFocused(false);
     setIsFullNameFocused(false);
-    fetchCountries()
+    fetchCountries();
   };
 
   const focusHandler = (e) => {
@@ -112,38 +104,31 @@ export const ContactForm = () => {
       }
     } catch (e) {}
   });
-  //////
 
   const fetchCountries = async () => {
-    const promise = await fetch(import.meta.env.VITE_API_KEY + '/countries')
+    const promise = await fetch(import.meta.env.VITE_API_KEY + "/countries");
     const response = await promise.json();
-    setFilteredCountries(response)
-  }
+    setFilteredCountries(response);
+  };
 
   useEffect(() => {
-    fetchCountries()
-  },[])
-
+    fetchCountries();
+  }, []);
 
   const handleCountryInputChange = (e) => {
-
     const value = e.target.value;
     setInputCountryValue(value);
 
-     
     const filtered = countries.filter((country) =>
       country.name.toLowerCase().includes(value.toLowerCase())
     );
     setFilteredCountries(filtered);
-    // setCountries(filtered);
   };
-  //////
+
   const setCurrentTravelCountry = (e, value) => {
-    //////
     setInputCountryValue(value);
     setSelectedCountry(value);
     setPopUpOpened(false);
-    //////
   };
 
   const [ContactFullName, setContactFullName] = useState("");
@@ -187,61 +172,6 @@ export const ContactForm = () => {
               inputValue={phoneInputValue}
             />
           </div>
-
-          {/* <div className="mb-4 relative z-[20]" ref={popupInputRef}>
-            <input
-              onBlur={blurHandlerCountry}
-              onFocus={focusHandler}
-              className="border outline-none w-[100%] rounded-[4px]  p-[9px]"
-              id="traveled_country"
-              type="text"
-              name="traveled_country"
-              autoComplete="new-password"
-              value={inputCountryValue}
-              // onChange={(e) => setInputCountryValue(e.target.value)}
-              //////
-              onChange={handleCountryInputChange}
-              //////
-            />
-            <label
-              className={`duration-[.3s] bg-white px-[3px] text-gray-700  absolute
-            ${
-              inputCountryValue
-                ? "top-[-10px] left-[16px] text-[11px]"
-                : labelGone
-                ? "top-[-10px] left-[16px] text-[11px]"
-                : "top-[10px] left-[16px] text-[14px]"
-            }
-            `}
-              htmlFor="traveled_country"
-            >
-              Travelling Country<sup className="text-customOrange">*</sup>
-            </label>
-            {popUpOpened ? (
-              <div className="popup  w-[100%] bg-white border-solid border-[1px]  rounded-b h-[100px] absolute overflow-y-scroll">
-                {countries.length &&
-                  countries.map((country) => {
-                    return (
-                      <div
-                        key={country.id}
-                        onClick={(e) =>
-                          setCurrentTravelCountry(e, country.name)
-                        }
-                        data-value={country.name}
-                        className="z-[20] flex items-center p-2.5 cursor-pointer"
-                      >
-                        <span className="text-customOrange mr-1.5">
-                          <FaLocationDot></FaLocationDot>
-                        </span>{" "}
-                        {country.name}
-                      </div>
-                    );
-                  })}
-              </div>
-            ) : (
-              ""
-            )}
-          </div> */}
           <div className="mb-4 relative z-[20]" ref={popupInputRef}>
             <input
               onBlur={blurHandlerCountry}
@@ -304,7 +234,6 @@ export const ContactForm = () => {
             placeholder=""
             cols="30"
             rows="5"
-            // autoComplete="off"
             autoComplete="new-password"
           ></textarea>
           <label
