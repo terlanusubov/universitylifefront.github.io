@@ -1,7 +1,5 @@
 import React from "react";
 import FooterAbout from "./FooterAbout";
-// import CountryBaku from "./CountryBaku";
-// import CountryLondon from "./CountryLondon";
 import CountryComponent from "./CountryComponent";
 import "../Styles/footernav.css";
 

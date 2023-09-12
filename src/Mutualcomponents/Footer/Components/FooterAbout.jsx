@@ -7,22 +7,22 @@ const FooterAbout = () => {
         <ul className="text-white">
           <li>
             <a className="hover:text-customOrange" href="">
-              Home
-            </a>
-          </li>
-          <li>
-            <a className="hover:text-customOrange" href="">
-              About
-            </a>
-          </li>
-          <li>
-            <a className="hover:text-customOrange" href="">
-              Contact Us
+             Contact Us
             </a>
           </li>
           <li>
             <a className="hover:text-customOrange" href="">
               Services
+            </a>
+          </li>
+          <li>
+            <a className="hover:text-customOrange" href="">
+              
+            </a>
+          </li>
+          <li>
+            <a className="hover:text-customOrange" href="">
+              
             </a>
           </li>
           <li>
