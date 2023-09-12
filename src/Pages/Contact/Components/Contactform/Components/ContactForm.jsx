@@ -80,6 +80,7 @@ export const ContactForm = () => {
     setDescriptionFocused(false);
     setIsEmailFocused(false);
     setIsFullNameFocused(false);
+    fetchCountries()
   };
 
   const focusHandler = (e) => {
