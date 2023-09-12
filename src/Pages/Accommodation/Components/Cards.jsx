@@ -1,4 +1,4 @@
-import React,{useEffect, useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import Card from './Card'
 import Caruseldata from './Caruseldata'
 import ReactPaginate from 'react-paginate';
@@ -6,12 +6,12 @@ import '../Styles/cards.css'
 
 const Cards = () => {
 
-  const [totalPage,setTotalPage] = useState(0);
-  const [bedRooms,setBedRooms] = useState([]);
-  const [RoomsPerPage,setRoomsPerPage] = useState()
-  const [totalData,setTotalData] = useState(0)
-  const [currentPage,setCurrentPage] = useState(0)
-  const [endOffset,setEndOffset] = useState(0)
+  const [totalPage, setTotalPage] = useState(0);
+  const [bedRooms, setBedRooms] = useState([]);
+  const [RoomsPerPage, setRoomsPerPage] = useState()
+  const [totalData, setTotalData] = useState(0)
+  const [currentPage, setCurrentPage] = useState(0)
+  const [endOffset, setEndOffset] = useState(0)
 
   const fetchBedRooms = async () => {
 
@@ -19,36 +19,36 @@ const Cards = () => {
 
     const result = await promise.json();
 
-    const {bedRooms,pageSize,totalData,totalPage} = result.response;
+    const { bedRooms, pageSize, totalData, totalPage } = result.response;
 
-    
+
     setRoomsPerPage(pageSize);
-    
+
     setTotalPage(totalPage);
-    
+
     setTotalData(totalData);
-    
+
     setBedRooms(bedRooms.slice(currentPage, currentPage + pageSize));
 
     setEndOffset(0 + pageSize)
-    
-    console.log(bedRooms,pageNumber,pageSize,totalData,totalPage);
+
+    console.log(bedRooms, pageNumber, pageSize, totalData, totalPage);
   }
 
   useEffect(() => {
     fetchBedRooms();
-  },[currentPage])
+  }, [currentPage])
 
-  const[pageNumber,setPageNumber]=useState(0);
-  
+  const [pageNumber, setPageNumber] = useState(0);
+
   const changePageHandler = (e) => {
     if (bedRooms.length) {
       setCurrentPage(e.selected * RoomsPerPage)
     }
   }
-  
-  
-  const [items,setItems]=useState(Caruseldata.productData);
+
+
+  const [items, setItems] = useState(Caruseldata.productData);
 
   // const itemPerPage=12;
   // const pageVisited=pageNumber*itemPerPage;
@@ -66,7 +66,7 @@ const Cards = () => {
   //             item={item}
   //             key={index}
   //             />
-    
+
   //   )
   // });
 
@@ -81,10 +81,12 @@ const Cards = () => {
       <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-3 mb-7">
         {
           bedRooms.length
-          &&
-          bedRooms.map((data,index) => {
-           return <Card type={data.bedRoomRoomTypes} price={data.price} key={index} title={data.name} description={data.description} slideImages={data.bedRoomImages}  />
+          ?
+          bedRooms.map((data, index) => {
+            return <Card type={data.bedRoomRoomTypes} price={data.price} key={index} title={data.name} description={data.description} slideImages={data.bedRoomImages} />
           })
+          :
+          <div className='animate-pulse'>there is no bedroom </div>
         }
       </div>
       <div className='sm:flex sm:flex-1 sm:items-center sm:justify-between'>
@@ -92,34 +94,34 @@ const Cards = () => {
           {
             bedRooms.length
             &&
-          <p className='text-gray-700 text-sm'>
-            Showing
-            <span className='font-medium'>&nbsp;1&nbsp;-&nbsp;{totalPage} &nbsp;</span>
-            properties out of
-            <span className='font-medium'>&nbsp;{totalData}</span>
-          </p>
+            <p className='text-gray-700 text-sm'>
+              Showing
+              <span className='font-medium'>&nbsp;1&nbsp;-&nbsp;{totalPage} &nbsp;</span>
+              properties out of
+              <span className='font-medium'>&nbsp;{totalData}</span>
+            </p>
 
           }
         </div>
         <div className='flex items-center'>
           <span className='text-sm text-gray-700 mr-2'>Page</span>
-          
+
           {
-            bedRooms.length      
-              &&
-          <ReactPaginate
-            previousLabel={'<'}
-            nextLabel={'>'}
-            pageCount={totalPage}
-            onPageChange={changePageHandler}
-            pageRangeDisplayed={3}
-            marginPagesDisplayed={1}
-            containerClassName={'paginate'}
-            pageClassName={'pages'}
-            previousClassName={'prepage'}
-            nextClassName={'nextpage'}
-            activeClassName={'activepage'}
-            disabledClassName={'disabled'}
+            bedRooms.length
+            &&
+            <ReactPaginate
+              previousLabel={'<'}
+              nextLabel={'>'}
+              pageCount={totalPage}
+              onPageChange={changePageHandler}
+              pageRangeDisplayed={3}
+              marginPagesDisplayed={1}
+              containerClassName={'paginate'}
+              pageLinkClassName={'pagelink'}
+              previousLinkClassName={'prepagelink'}
+              nextLinkClassName={'nextpagelink'}
+              activeLinkClassName={'activepagelink'}
+              disabledLinkClassName={'disabledpagelink'}
             />
           }
 

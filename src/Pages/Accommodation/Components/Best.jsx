@@ -111,7 +111,7 @@ const Best = () => {
                     <li className='text-sm my-2 ms-4'>London houses best 800 bookshops and 325 public libraries</li>
                     <li className='text-sm my-2 ms-4'>Big Ben is 164 years old and survived a long time</li>
                 </ul>
-                <div className='h-[9rem] absolute top-0 z-[1] grad-color w-full'></div>
+                <div className={read?'h-[9rem] absolute top-0 z-[1] grad-color w-full':'w-0 h-0'}></div>
             </div>
             <button onClick={readToogle} className={read ? 'text-sm my-2 font-bold text-customOrange' : 'text-sm my-2 font-bold text-[#574F86]'}>{read ? 'Read more' : 'Read less'}</button>
         </div>
