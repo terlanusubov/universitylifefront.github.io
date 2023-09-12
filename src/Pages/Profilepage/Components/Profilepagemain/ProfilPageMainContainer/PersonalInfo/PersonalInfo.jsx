@@ -6,15 +6,9 @@ import NumbersInput from './NumberInput'
 import DateInput from './DateInput'
 import Profile from '../Profile/Profile'
 import UniversityInput from './UniversityInput'
-const PersonalInfo = () => {
-    const [editOpen,setEditOpen] = useState(false);
-   
-    const [NameInputValue,setNameInputValue] = useState('');
-    const [SurnameInputValue,setSurnameInputValue] = useState('');
-    const [EmailInputValue,setEmailInputValue] = useState('');
-    const [PhoneInputValue,setPhoneInputValue] = useState('');
-    const [CountryInputValue,setCountryInputValue] = useState('');
+import toast, { Toaster } from 'react-hot-toast'
 
+const PersonalInfo = () => {
 
     const parseJwt = (token) => {
         var base64Url = token.split('.')[1];
@@ -31,12 +25,55 @@ const PersonalInfo = () => {
       const obj = parseJwt(localStorage.getItem('tokenId'))
       return   {
             email:obj.Email,
-            name:obj.name
+            userId:obj.id
         }
     }
-    
+
+
+    const [editOpen,setEditOpen] = useState(false);
+   
+    const [NameInputValue,setNameInputValue] = useState('');
+    const [SurnameInputValue,setSurnameInputValue] = useState('');
+    const [EmailInputValue,setEmailInputValue] = useState(returnCurrentUser().email ? returnCurrentUser().email : '');
+    const [PhoneInputValue,setPhoneInputValue] = useState('');
+    const [CountryInputValue,setCountryInputValue] = useState('');
+
+
+ 
+    const updateUserInfo = async () => {
+
+        const updatedInfos = {
+            userId: returnCurrentUser().userId,
+            name: NameInputValue,
+            surname: SurnameInputValue,
+            phoneNumber: PhoneInputValue.replaceAll('(','').replaceAll(')','').replaceAll('-','').replaceAll(' ','')
+          }
+
+        if (NameInputValue === '' || SurnameInputValue === '' || PhoneInputValue === '') {
+
+            toast.error("Please Fill All Blanks")
+            return false;
+        }
+          console.log(updatedInfos);
+        const promise = await fetch(import.meta.env.VITE_API_KEY + '/account/update', {
+            headers: {
+                'Content-type':'application/json'
+            },
+            method:'POST',
+            body: JSON.stringify(updatedInfos)
+        })
+       const result = await promise.json();
+       if (result.statusCode === 200) {
+        toast.success('Your Information Updated Successfully')
+       }
+       else {
+        toast.error('Something Unknown Happened')
+       }
+    }
   
   return (
+    <>
+    <Toaster/>
     <div className='profile_page_personal_info'>
         <div className="profile_part_nav  rounded-[14px] mt-[-23px] max-[1024px]:mt-[-20px] p-[20px] bg-white shadow-[1px_2px_10px_-5px_rgba(0,0,0,0.3)] font-[600]">
              Information  
@@ -58,7 +95,7 @@ const PersonalInfo = () => {
                             <InputComponent setInputValue={setCountryInputValue} inputValue={CountryInputValue} inputId="countryInput" inputTitle={'Country'}></InputComponent>
                             <InputComponent setInputValue={setEmailInputValue} inputValue={EmailInputValue} inputId="emailInput" inputTitle={'Email'}></InputComponent>
                             <NumbersInput setInputValue={setPhoneInputValue} inputValue={PhoneInputValue}></NumbersInput>
-                            <button className='max-w-[250px] w-[100%] bg-customOrange flex items-center justify-center rounded-[10px] duration-[.1s] hover:bg-[#de6c5a] text-white'>
+                            <button onClick={updateUserInfo} className='max-w-[250px] w-[100%] bg-customOrange flex items-center justify-center rounded-[10px] duration-[.1s] hover:bg-[#de6c5a] text-white'>
                                 <span className="btn_text">
                                     Save Details
                                 </span>
@@ -68,6 +105,7 @@ const PersonalInfo = () => {
             }
         </div>
     </div>
+    </>
   )
 }
 

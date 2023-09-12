@@ -1,12 +1,11 @@
 import React from 'react'
 
-
-
+import {BsFillPersonFill as PersonIcon} from 'react-icons/bs'
 // Assets
 import User from '../Assets/joebiden.jpg'
 const ProfilePageSideTop = (props) => {
   
-  function parseJwt (token) {
+function parseJwt (token) {
     var base64Url = token.split('.')[1];
     var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
     var jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function(c) {
@@ -28,9 +27,9 @@ const returnCurrentUser = () => {
 
   return (
     <div className='profile_page_sidebar_top flex flex-col items-center justify-center'>
-        <div className="user_profile_picture rounded-[50%] h-[120px] w-[120px] mt-[12px]">
-            <img className='w-[100%] h-[100%] rounded-[50%] object-cover' src={User} alt="" />
-        </div>
+        <div  className="mt-[10px] profile_icon w-[100px] h-[100px] rounded-[50%] bg-gray-300 relative mr-[10px]">
+              <PersonIcon className='text-[60px] absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] text-white'></PersonIcon>
+          </div>
         <div className="user_information pb-[10px]">
           <div className="text-center user_fullname font-[600] text-[20px]">
           </div>

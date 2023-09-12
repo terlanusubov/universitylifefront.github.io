@@ -23,10 +23,10 @@ const Countdata = () => {
 
   return (
     <div className="w-[100%] mx-auto max-w-[1440px] max-[1475px]:px-[20px] max-[1024px]:px-[30px] justify-items-center main_page_count_data py-[30px]   grid grid-cols-4 max-[920px]:grid-cols-2 grid-rows-1 max-[920px]:grid-rows-2 ">
-              <Data dataName={'Beds'} dataDigit={statistics.bedRoomCount}><BedIcon/></Data>
-              <Data dataName={'Cities'} dataDigit={statistics.cityCount}><CityIcon/></Data>
-              <Data dataName={'Students'} dataDigit={statistics.studentCount}><StudentIcon/></Data>
-              <Data dataName={'Universities'} dataDigit={statistics.universityCount}><UniversityIcon/></Data>
+          <Data dataName={'Beds'} dataDigit={statistics.bedRoomCount}><BedIcon/></Data>
+          <Data dataName={'Cities'} dataDigit={statistics.cityCount}><CityIcon/></Data>
+          <Data dataName={'Students'} dataDigit={statistics.studentCount}><StudentIcon/></Data>
+          <Data dataName={'Universities'} dataDigit={statistics.universityCount}><UniversityIcon/></Data>
     </div>
   )
 }
