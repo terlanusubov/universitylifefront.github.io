@@ -62,6 +62,7 @@ export const ContactForm = () => {
       toast.success("Form Successfully Sent");
     } else {
       toast.error("Something Unknown Happened");
+      return false;
     }
 
     setContactDescription("");
