@@ -107,7 +107,7 @@ export const ContactForm = () => {
     try {
       if (!popupInputRef.current.contains(e.target)) {
         setPopUpOpened(false);
-        // setLabelGone(false);
+        setLabelGone(false);
       }
     } catch (e) {}
   });
