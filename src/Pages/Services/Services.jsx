@@ -5,7 +5,6 @@ import './Styles/Servicesrespon.css';
 import { HiOutlineChevronRight } from "react-icons/hi";
 
 // Image
-import Accoommodation from "../Services/Assets/accommodation.jpg";
 import ServicesBanner from "../Services/Assets/servicesbanner.jpg";
 import { useEffect, useState } from "react";
 
