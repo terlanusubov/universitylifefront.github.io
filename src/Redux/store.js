@@ -7,6 +7,7 @@ import { authenticationSlice } from "./AuthenticationSlice";
 import { ModalSlice } from "./ModalSlice";
 import { userInformationSlice } from "./userInformationSlice";
 import { propertiesSlice } from "./PropertiesSlice";
+import { detailPageSlice } from "./detailPageSlice";
 const store = configureStore({
     reducer: {
             searchInputReducer:searchInputSlice.reducer,
@@ -16,7 +17,8 @@ const store = configureStore({
             authenticationReducer:authenticationSlice.reducer,
             modalReducer:ModalSlice.reducer,
             propertiesReducer:propertiesSlice.reducer,
-            userInformationReducer:userInformationSlice.reducer
+            userInformationReducer:userInformationSlice.reducer,
+            detailPageReducer:detailPageSlice.reducer
     }
 })
 
