@@ -5,17 +5,50 @@ import offerimg from '../Assets/img/offer.jpg'
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
 import { useCart } from 'react-use-cart';
+import { useDispatch } from 'react-redux';
+// import { ModalSlice } from '../../../Redux/ModalSlice';
 
 const Card = (props) => {
 
+    const dispatch = useDispatch();
+
+    
+  const parseJwt = (token) => {
+    var base64Url = token.split('.')[1];
+    var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+    var jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function(c) {
+        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+    }).join(''));
+
+    return JSON.parse(jsonPayload);
+  }
+  
+
+    const addToWishListHandler = async () => {
+        
+
+        if (!localStorage.getItem('tokenId')){
+            dispatch(ModalSlice.actions.setModal(true))
+        
+        }
+
+        else {
+           const token = localStorage.getItem('tokenId') 
+           const userId = parseJwt(token)
+           const promise = fetch(import.meta.env.VITE_API_KEY + `/userwishlist`, {
+            method:'POST'
+           })
+        }
+        
+    }
 
     const {addItem} = useCart();
 
     return (
-        <div className='card' >
+        <div className='card'>
             <div className='rounded-lg shadow-md hover:shadow-md transition-all flex-shrink-0 lg:w-full flex flex-col text-opacity-100 text-[#3e3E3E]'>
                 <div className='relative h-52'>
-                    <Link className='w-full h-full'>
+                    <Link  className='w-full h-full'>
                         <Carousel infiniteLoop={true} showThumbs={false} showStatus={false}>
                             <div>
                                 <img className='h-52 w-full rounded-t-md object-cover'  src={props.slideImages[0]} />
@@ -42,8 +75,8 @@ const Card = (props) => {
                         <img className='w-[15px] h-[15px]' src={addimg} alt="" />
                         <span className='pl-2 text-xs font-semibold'>Add to Compare</span>
                     </div>
-                    <div className='absolute top-2 right-2'>
-                        <svg className="shadow-2xl fill-[#000] opacity-60 w-6 h-6 cursor-pointer" fill="currentColor" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1z"></path></svg>
+                    <div className='absolute top-2 right-2' onClick={addToWishListHandler}>
+                        <svg  className=" shadow-2xl fill-[#000] opacity-60 w-6 h-6 cursor-pointer" fill="currentColor" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1z"></path></svg>
                     </div>
                 </div>
                 <div className='w-full bg-white rounded-b-md p-3'>
