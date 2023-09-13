@@ -47,7 +47,7 @@ const Popularcities = () => {
             ?
             cities.map((data,index) => {
               return (
-                <Link  to={'/accomodations'}>
+                <Link  to={'/accomodations'} key={index}>
 
                   <div key={index} className='country_element rounded-[10px] cursor-pointer overflow-hidden relative' >
                     <div className="country_element_content rounded-[13px] overflow-hidden">
