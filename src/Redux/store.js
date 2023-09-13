@@ -5,6 +5,7 @@ import { sideBarSlice } from "./toggleSlice";
 import { bannerSlice } from "./toggleSlice";
 import { authenticationSlice } from "./AuthenticationSlice";
 import { ModalSlice } from "./ModalSlice";
+import { userInformationSlice } from "./userInformationSlice";
 import { propertiesSlice } from "./PropertiesSlice";
 const store = configureStore({
     reducer: {
@@ -14,7 +15,8 @@ const store = configureStore({
             bannerReducer:bannerSlice.reducer,
             authenticationReducer:authenticationSlice.reducer,
             modalReducer:ModalSlice.reducer,
-            propertiesReducer:propertiesSlice.reducer
+            propertiesReducer:propertiesSlice.reducer,
+            userInformationReducer:userInformationSlice.reducer
     }
 })
 

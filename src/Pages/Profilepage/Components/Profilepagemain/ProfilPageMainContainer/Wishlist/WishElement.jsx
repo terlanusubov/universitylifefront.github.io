@@ -1,7 +1,19 @@
 import React from 'react'
 // Assets
 import roomImg from '../../../../Assets/roomimg.webp'
-const WishElement = () => {
+const WishElement = ({imgSource,distance,price,bedRoomId,wishId}) => {
+
+    const deleteHandler = async () => {
+        const promise = await fetch(import.meta.env.VITE_API_KEY + `/userwishlist/${wishId}`,{
+            headers: {
+                'Content-type':'text/plain'
+            },
+            method:'DELETE'
+        })
+        const response = promise.json()
+    }
+
+
   return (
     <div className='wishlist_wish_el  w-[100%] rounded-[16px]  '>
         <div className="wishlist_el_container hover:shadow-md cursor-pointer rounded-[16px] duration-[.3s]">
@@ -15,7 +27,7 @@ const WishElement = () => {
                         92NY Residence
                     </span>
                     <span className='distance'>
-                        7.60 Miles
+                        {distance} Miles
                     </span>
                 </div>
                 <div className="info_line_second flex justify-between">
@@ -31,13 +43,13 @@ const WishElement = () => {
                         New York
                     </span>
                     <span className=" room_price text-customOrange font-[600] text-[16px]">
-                     1.600 US$/month
+                    {price} US$/month
                     </span>
                 </div>
             </div>
             
         </div>
-        <button className='text-customOrange w-[100%] text-end py-[7px] '>Remove</button>
+        <button onClick={deleteHandler} className='text-customOrange w-[100%] text-end py-[7px] '>Remove</button>
     </div>
   )
 }

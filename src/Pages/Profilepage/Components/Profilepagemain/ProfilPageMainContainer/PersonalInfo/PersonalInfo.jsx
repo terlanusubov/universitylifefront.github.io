@@ -7,9 +7,13 @@ import DateInput from './DateInput'
 import Profile from '../Profile/Profile'
 import UniversityInput from './UniversityInput'
 import toast, { Toaster } from 'react-hot-toast'
+import { useDispatch } from 'react-redux'
+import {userInformationSlice} from '../../../../../../Redux/userInformationSlice'
 
 const PersonalInfo = () => {
 
+    
+    
     const parseJwt = (token) => {
         var base64Url = token.split('.')[1];
         var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
@@ -21,25 +25,28 @@ const PersonalInfo = () => {
     }
     
     const returnCurrentUser = () => {
-    
+        
       const obj = parseJwt(localStorage.getItem('tokenId'))
+      
       return   {
             email:obj.Email,
             userId:obj.id
         }
     }
-
-
+    
+    const dispatch = useDispatch();
+    dispatch(userInformationSlice.actions.setCurrentUserId(returnCurrentUser().userId))
+    
     const [editOpen,setEditOpen] = useState(false);
-   
+    
     const [NameInputValue,setNameInputValue] = useState('');
     const [SurnameInputValue,setSurnameInputValue] = useState('');
     const [EmailInputValue,setEmailInputValue] = useState(returnCurrentUser().email ? returnCurrentUser().email : '');
     const [PhoneInputValue,setPhoneInputValue] = useState('');
     const [CountryInputValue,setCountryInputValue] = useState('');
-
-
- 
+    
+    
+    
     const updateUserInfo = async () => {
 
         const updatedInfos = {
