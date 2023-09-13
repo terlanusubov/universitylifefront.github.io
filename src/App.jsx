@@ -6,6 +6,9 @@ import Profilepage from './Pages/Profilepage/Profilepage'
 import Contact from "./Pages/Contact/Contact";
 import SignModal from './Mutualcomponents/SignModal/SignModal'
 // Pages...
+import Accommodation from './Pages/Accommodation/Accommodation'
+// Stylings...
+import './App.css'
 
 import { Routes,Route } from 'react-router-dom'
 
@@ -15,9 +18,6 @@ import OurServices from './Pages/Services/OurServices/OurServices'
 import Services from './Pages/Services/Services'
 
 
-
-
-// Pages...
 import Mainpage from './Pages/Mainpage/Mainpage'
 
 // Stylings...

@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+.paginate {
+    @apply w-[300px] md:w-full isolate inline-flex rounded-md justify-center;
+}
+
+.disabledpagelink{
+    @apply opacity-40 !bg-gray-300 text-gray-800 w-6 h-6 inline-block;
+}  
+.pagelink{
+    @apply w-8 transition-all justify-center relative z-10 inline-flex items-center border rounded px-2 py-1.5 m-1 text-xs font-medium text-gray-600 focus:z-20 hover:border-customOrange hover:text-customOrange hover:bg-customOrange/10 inline-block;
+}
+
+.prepagelink{
+    @apply w-6 h-[24px]  inline-flex items-center rounded-full border border-gray-300 bg-white px-1.5 py-1.5 m-2 text-sm font-medium text-gray-500 hover:bg-gray-50 focus:z-20;
+}
+.nextpagelink{
+    @apply w-6 h-[24px]  inline-flex items-center rounded-full border border-gray-300 bg-white px-2 py-1.5 m-2 text-sm font-medium text-gray-500 hover:bg-gray-50 focus:z-20;
+}
+.activepagelink{
+    @apply z-10 inline-flex items-center border rounded px-2 py-1.5 m-1 text-xs !text-gray-50  bg-customOrange  font-bold hover:text-customOrange focus:z-20 hover:border-customOrange hover:bg-customOrange/10;
+}
+
+.break {
+    @apply  z-10 inline-flex items-center text-sm font-medium focus:z-10;
+}
