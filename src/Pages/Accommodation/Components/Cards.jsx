@@ -83,7 +83,8 @@ const Cards = () => {
           bedRooms.length
           ?
           bedRooms.map((data, index) => {
-            return <Card  type={data.bedRoomRoomTypes} price={data.price} key={index} title={data.name} description={data.description} slideImages={data.bedRoomImages} />
+            console.log(data);
+            return <Card bedRoomId={data.bedRoomStatusId} type={data.bedRoomRoomTypes} price={data.price} key={index} title={data.name} description={data.description} slideImages={data.bedRoomImages} />
           })
           :
           <div className='animate-pulse'>there is no bedroom </div>

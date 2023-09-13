@@ -39,6 +39,7 @@ const modalState = useSelector((State) => State.modalReducer.isOpen)
        <Route path='/services' element={<Services></Services>}></Route>
        <Route path='/profile' element={<Profilepage></Profilepage>}></Route>
        <Route path='/contact-us' element={<Contact></Contact>}></Route>
+       <Route path='/accomodations' element={<Accommodation></Accommodation>}></Route>
     </Routes>
     <Footer></Footer>
    </div>

@@ -34,10 +34,11 @@ const Card = (props) => {
 
         else {
            const token = localStorage.getItem('tokenId') 
-           const userId = parseJwt(token)
-           const promise = fetch(import.meta.env.VITE_API_KEY + `/userwishlist`, {
+           const userId = parseJwt(token).id
+           const promise = await fetch(import.meta.env.VITE_API_KEY + `/userwishlist?UserId=${userId}&BedRoomId=${props.bedRoomId}`, {
             method:'POST'
            })
+           console.log(promise);
         }
         
     }

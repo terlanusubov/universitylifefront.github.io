@@ -20,7 +20,7 @@ const Navigations = () => {
                 <Link to={'/'}>Home</Link>
             </li>
             <li className='h-[100%] flex items-center  max-[1080px]:text-[14.4px] max-[1024px]:hidden'>
-                <Link to={'/bedrooms'}>Bedrooms</Link>
+                <Link to={'/accomodations'}>Bedrooms</Link>
             </li>
             <li className='h-[100%] flex items-center  max-[1080px]:text-[14.4px] max-[1024px]:hidden'>
                 <Link to={'/services'}>Services</Link>

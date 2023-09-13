@@ -2,6 +2,7 @@ import React,{useState,useEffect} from 'react'
 
 // Components
 import Country from './Components/Country'
+import { Link } from 'react-router-dom'
 // Hooks
 
 // Icons
@@ -18,7 +19,7 @@ const Popularcities = () => {
   const fetchingTopCities = async () => {
     const firstPromise = await fetch(`${import.meta.env.VITE_API_KEY}/cities?isTop=true`)
     const firstResponse = await firstPromise.json()
-    
+    console.log(firstResponse);
     
       setCities(firstResponse)
       
@@ -33,6 +34,7 @@ const Popularcities = () => {
     fetchingTopCities()
   },[])
 
+ 
 
   return (
     <div className='main_page_popular_cities max-w-[1440px] w-[100%] mx-auto max-[1475px]:px-[20px] max-[1024px]:px-[30px]'>
@@ -45,22 +47,25 @@ const Popularcities = () => {
             ?
             cities.map((data,index) => {
               return (
-              <div key={index} className='country_element rounded-[10px] cursor-pointer overflow-hidden relative' >
-                <div className="country_element_content rounded-[13px] overflow-hidden">
-                <div className="country_element_image rounded-[13px] overflow-hidden max-w-[350px] w-[100%] h-[220px] max-[1024px]:max-w-none">
-                    <img src={data.image}  className='w-[100%] h-[100%] object-cover rounded-[13px]  hover:scale-[1.3] duration-[0.3s] ease-in'  alt="" />
-                </div>
-                <div className="flex gap-[10px] flex-col items-start   country_element_text absolute bottom-[30px] left-[30px] bg-white/20 p-[6px] text-white font-[600] rounded-[10px] backdrop-blur-[10px]">
-                    <div className="country_name">
-                        {data.name}
+                <Link  to={'/accomodations'}>
+
+                  <div key={index} className='country_element rounded-[10px] cursor-pointer overflow-hidden relative' >
+                    <div className="country_element_content rounded-[13px] overflow-hidden">
+                    <div className="country_element_image rounded-[13px] overflow-hidden max-w-[350px] w-[100%] h-[220px] max-[1024px]:max-w-none">
+                        <img src={data.image}  className='w-[100%] h-[100%] object-cover rounded-[13px]  hover:scale-[1.3] duration-[0.3s] ease-in'  alt="" />
                     </div>
-                    <div className="country_bed_count">
-                        {data.bedRoomCount} Beds
+                    <div className="flex gap-[10px] flex-col items-start   country_element_text absolute bottom-[30px] left-[30px] bg-white/20 p-[6px] text-white font-[600] rounded-[10px] backdrop-blur-[10px]">
+                        <div className="country_name">
+                            {data.name}
+                        </div>
+                        <div className="country_bed_count">
+                            {data.bedRoomCount} Beds
+                        </div>
                     </div>
-                </div>
-                
-                </div>
-              </div>
+                    
+                    </div>
+                  </div>
+                </Link>
               )
             })
             :

@@ -30,15 +30,14 @@ const Wishlist = () => {
 
     const [currentUserId,setCurrentUserId] = useState(returnCurrentUser().userId ? returnCurrentUser().userId : '');
 
+  const [wishlistLoading,setWishListLoading] = useState(true)
 
   const fetchWishList = async () => {
-
     console.log(currentUserId);
     const promise = await fetch(import.meta.env.VITE_API_KEY + `/userwishlist?UserId=${currentUserId}`);
-
     const response = await promise.json();
-
     setFavorites(response)
+    setWishListLoading(false)
   }
 
   useEffect(() => {
@@ -67,7 +66,13 @@ const Wishlist = () => {
                       )
                     })
                     :
-                    'Loading...'
+                    wishlistLoading
+                    ?
+                    <div className='animating animate-pulse bg-gray-300 max-w-[300px] w-[100%] h-[200px]'>
+
+                    </div>
+                    :
+                    'Your Wishlist is Empty'
                   }
                 </div>
           </div>
