@@ -19,7 +19,6 @@ const fetchRooms = async () => {
   if (!CityState.id) {
     return false;
   }
-    console.log('test');
     const promise = await fetch(import.meta.env.VITE_API_KEY + `/bedroom?CityId=${CityState.id}`)
     const response = await promise.json()
     setRooms(response.response.bedRooms)
@@ -37,7 +36,6 @@ const fetchRooms = async () => {
       rooms.length
       ? 
       rooms.map((data,index) => {
-        console.log(data);
         return (
           <Room key={data.bedRoomStatusId} views={1561} bg={data.bedRoomImages[0]} roomName={data.name} offerPrice={50} weeklyPrice={data.price}></Room>
         )

@@ -14,14 +14,27 @@ const Cards = () => {
   const [totalData, setTotalData] = useState(0)
   const [currentPage, setCurrentPage] = useState(1)
   const [endOffset, setEndOffset] = useState(0)
+  const [favoritedIds,setFavoritedIds] = useState([]);
   const filterUniversityId = useSelector(state => state.detailPageReducer.currentUniversityId)
   
+
+
+  const parseJwt = (token) => {
+    var base64Url = token.split('.')[1];
+    var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+    var jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function(c) {
+        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+    }).join(''));
+
+    return JSON.parse(jsonPayload);
+  }
+
+
   const fetchBedRooms = async () => {
 
     const promise = await fetch(import.meta.env.VITE_API_KEY +`/bedroom?Page=${currentPage}`);
 
     const result = await promise.json();
-    console.log(result);
 
     const { bedRooms, pageSize, totalData, totalPage } = result.response;
 
@@ -37,9 +50,24 @@ const Cards = () => {
 
   }
 
+
+
+  const fetchFavorites = async () => {
+    if (localStorage.getItem('tokenId')) {
+
+      const userId = parseJwt(localStorage.getItem('tokenId')).id
+      const promise = await fetch(import.meta.env.VITE_API_KEY + `/userwishlist?UserId=${userId}`)
+      const response = await promise.json();
+      setFavoritedIds(response.map((data) => {
+        return {id:data.bedRoomId, userWishlistId:data.userWishlistId}
+      })) 
+    }
+  }
+
+
   useEffect(() => {
+    fetchFavorites();
     fetchBedRooms();
-    
     setTimeout(() => {
       window.scroll({
         top: 0, 
@@ -48,6 +76,8 @@ const Cards = () => {
        });
     }, 100);
   }, [currentPage])
+
+
 
   const [pageNumber, setPageNumber] = useState(0);
 
@@ -96,8 +126,10 @@ const Cards = () => {
           bedRooms.length
           ?
           bedRooms.map((data, index) => {
-            console.log(data);
-            return <Card bedRoomId={data.id} type={data.bedRoomRoomTypes} price={data.price} key={index} title={data.name} description={data.description} slideImages={data.bedRoomImages} />
+              // let isFavorite = favoritedIds.map((data) => data.id).includes(data.id);
+               const isFavorite = favoritedIds.some((UserFavorites) => UserFavorites.id == data.id);
+               let wishListId = favoritedIds.find((favorited) => favorited.id == data.id);
+            return <Card userWishlistId={wishListId ? wishListId.userWishlistId : null} isFavorite={isFavorite} bedRoomId={data.id} type={data.bedRoomRoomTypes} price={data.price} key={data.id} title={data.name} description={data.description} slideImages={data.bedRoomImages} />
           })
           :
           <div className='animate-pulse'>there is no bedroom </div>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import addimg from '../Assets/img/add.jpg'
 import offerimg from '../Assets/img/offer.jpg'
@@ -10,9 +10,29 @@ import { ModalSlice } from '../../../Redux/ModalSlice';
 import toast from 'react-hot-toast';
 const Card = (props) => {
 
-    const dispatch = useDispatch();
 
-    
+const [isFavoriteCard,setIsFavoriteCard] = useState(props.isFavorite);
+
+  const dispatch = useDispatch();
+    const [userWishListId,setUserWishListId] = useState(props.userWishlistId)
+
+  const deleteHandler = async () => {
+      if (!userWishListId) {
+          return false;
+        }
+        console.log('delete handler');
+      const promise = await fetch(import.meta.env.VITE_API_KEY + `/userwishlist/${userWishListId}`,{
+          headers: {
+            'Content-type':'text/plain'
+        },
+        method:'DELETE'
+    })
+    const response = await promise.json()
+    const deletedBedroomId = response.response.bedRoomId
+    console.log(response);
+    setIsFavoriteCard(false);
+    toast.success("Item Successfully Removed From Wishlist",{style:{fontSize:'15px'}})
+}
   const parseJwt = (token) => {
     var base64Url = token.split('.')[1];
     var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
@@ -24,6 +44,10 @@ const Card = (props) => {
   }
   
 
+
+
+
+
     const addToWishListHandler = async () => {
         
 
@@ -31,6 +55,10 @@ const Card = (props) => {
             dispatch(ModalSlice.actions.setModal(true))
         }
         else {
+            if (isFavoriteCard) {
+                await deleteHandler();
+                return false;
+            }
            const token = localStorage.getItem('tokenId') 
            const userId = +parseJwt(token).id
            console.log({UserId:userId,BedRoomId:props.bedRoomId});
@@ -42,8 +70,11 @@ const Card = (props) => {
             method:'POST',
             body:JSON.stringify({UserId:userId,BedRoomId:props.bedRoomId})
            })
-           toast.success("Item Successfully Added")
-           console.log( await promise.json());
+           const response = await promise.json();
+           toast.success("Item Successfully Added");
+           setIsFavoriteCard(true);
+           console.log(response);
+           setUserWishListId(response.response.userWishlistId)
         }
         
     }
@@ -82,7 +113,13 @@ const Card = (props) => {
                         <span className='pl-2 text-xs font-semibold'>Add to Compare</span>
                     </div>
                     <div className='absolute top-2 right-2' onClick={addToWishListHandler}>
-                        <svg  className=" shadow-2xl fill-[#000] opacity-60 w-6 h-6 cursor-pointer" fill="currentColor" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1z"></path></svg>
+                        {
+                        isFavoriteCard
+                        ?
+                        <svg  className=" shadow-2xl fill-[#d91010] opacity-60 w-6 h-6 cursor-pointer" fill="currentColor" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1z"></path></svg>
+                        :
+                        <svg  className=" shadow-2xl fill-[#000000a2] opacity-60 w-6 h-6 cursor-pointer" fill="currentColor" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1z"></path></svg>
+                        }
                     </div>
                 </div>
                 <div className='w-full bg-white rounded-b-md p-3'>

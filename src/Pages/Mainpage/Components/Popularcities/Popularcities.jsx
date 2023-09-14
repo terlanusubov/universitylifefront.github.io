@@ -19,16 +19,8 @@ const Popularcities = () => {
   const fetchingTopCities = async () => {
     const firstPromise = await fetch(`${import.meta.env.VITE_API_KEY}/cities?isTop=true`)
     const firstResponse = await firstPromise.json()
-    console.log(firstResponse);
-    
-      setCities(firstResponse)
-      
-    // const secondPromise = await fetch(`${import.meta.env.VITE_API_KEY}/cities`, {
-    //   method:'POST',
-    //   body:JSON.stringify({
-
-    //   })
-    // })
+    setCities(firstResponse)
+   
   }
   useEffect(() => {
     fetchingTopCities()
@@ -47,7 +39,7 @@ const Popularcities = () => {
             ?
             cities.map((data,index) => {
               return (
-                <Link  to={'/accomodations'}>
+                <Link key={index}  to={'/accomodations'}>
 
                   <div key={index} className='country_element rounded-[10px] cursor-pointer overflow-hidden relative' >
                     <div className="country_element_content rounded-[13px] overflow-hidden">

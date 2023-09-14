@@ -15,8 +15,8 @@ const WishElement = ({imgSource,distance,price,bedRoomId,wishId,callback}) => {
         })
         const response = await promise.json()
         const deletedBedroomId = response.response.bedRoomId
-        callback(deletedBedroomId);
         setDeleteStart(false)
+        callback(deletedBedroomId);
     }
 
 

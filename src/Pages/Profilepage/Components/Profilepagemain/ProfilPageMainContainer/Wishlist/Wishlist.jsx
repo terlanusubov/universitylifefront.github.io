@@ -37,6 +37,7 @@ const Wishlist = () => {
     const promise = await fetch(import.meta.env.VITE_API_KEY + `/userwishlist?UserId=${currentUserId}`);
     const response = await promise.json();
     setFavorites(response)
+    console.log(response);
     setWishListLoading(false)
   }
 
@@ -48,7 +49,6 @@ const Wishlist = () => {
     setFavorites(favorites.filter((data) => data.bedRoomId != id));
     toast.success("Item Successfully Deleted")
   }
-
   return (
     <>
     <Toaster/>
@@ -65,7 +65,7 @@ const Wishlist = () => {
                   {
                     favorites.length
                     ?
-                    favorites.map((data) => {
+                    favorites.map((data,index) => {
                       return (
                         <WishElement callback={deleteHandler} key={data.bedRoomId} wishId={data.userWishlistId} bedRoomId={data.bedRoomId}/>
                         )
