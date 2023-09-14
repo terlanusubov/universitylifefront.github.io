@@ -1,0 +1,39 @@
+
+    .opened_search_input_container {
+        animation-name: containerAnimation;
+    animation-duration: .4s;
+    animation-fill-mode:forwards;
+    animation-timing-function: cubic-bezier(0.03, 0.1, 0.25, 1);;
+    
+    input {
+        animation-name: searchInput;
+        animation-duration: .4s;
+        animation-fill-mode:forwards;
+        animation-timing-function: cubic-bezier(0.03, 0.1, 0.25, 1);;
+        width: 100%;
+    }
+    .search_bar_toggle {
+        animation-name: searchInput;
+        animation-duration: .4s;
+        animation-fill-mode:forwards;
+        animation-timing-function: cubic-bezier(0.03, 0.1, 0.25, 1);;
+        max-width: 350px;
+        width: 100%;
+    }
+}
+@keyframes containerAnimation {
+    0% {
+        width: 60%;
+    }
+    100%  {
+        width: 70%;
+    }
+}
+@keyframes searchInput {
+0% {
+    max-width: 350px;
+}
+100% {
+    max-width: 100%;
+}
+}
