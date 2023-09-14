@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 // Components
 import WishElement from './WishElement'
 import { useSelector,useDispatch } from 'react-redux'
-
+import toast, {Toaster} from 'react-hot-toast'
 const Wishlist = () => {
 
   const [favorites,setFavorites] = useState([])
@@ -31,7 +31,7 @@ const Wishlist = () => {
     const [currentUserId,setCurrentUserId] = useState(returnCurrentUser().userId ? returnCurrentUser().userId : '');
 
   const [wishlistLoading,setWishListLoading] = useState(true)
-
+  const [deletedBedroomId,setDeletedBedroomId] = useState(0);
   const fetchWishList = async () => {
     console.log(currentUserId);
     const promise = await fetch(import.meta.env.VITE_API_KEY + `/userwishlist?UserId=${currentUserId}`);
@@ -44,8 +44,14 @@ const Wishlist = () => {
     fetchWishList()
   },[])
 
+  const deleteHandler = (id) => {
+    setFavorites(favorites.filter((data) => data.bedRoomId != id));
+    toast.success("Item Successfully Deleted")
+  }
 
   return (
+    <>
+    <Toaster/>
     <div className='profile_wishlist flex flex-col justify-start'>
           <div className="profile_part_nav  rounded-[14px] mt-[-23px] max-[1024px]:mt-[-20px] p-[20px] bg-white shadow-[1px_2px_10px_-5px_rgba(0,0,0,0.3)] font-[600]">
              My Wishlist    
@@ -60,11 +66,10 @@ const Wishlist = () => {
                     favorites.length
                     ?
                     favorites.map((data) => {
-                      console.log(data);
                       return (
-                        <WishElement key={data.bedRoomId} wishId={data.userWishlistId} bedRoomId={data.bedRoomId}/>
-                      )
-                    })
+                        <WishElement callback={deleteHandler} key={data.bedRoomId} wishId={data.userWishlistId} bedRoomId={data.bedRoomId}/>
+                        )
+                      })
                     :
                     wishlistLoading
                     ?
@@ -77,6 +82,7 @@ const Wishlist = () => {
                 </div>
           </div>
     </div>
+    </>
   )
 }
 

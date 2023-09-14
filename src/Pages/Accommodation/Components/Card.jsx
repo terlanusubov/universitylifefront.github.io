@@ -7,7 +7,7 @@ import { Carousel } from 'react-responsive-carousel';
 import { useCart } from 'react-use-cart';
 import { useDispatch } from 'react-redux';
 import { ModalSlice } from '../../../Redux/ModalSlice';
-
+import toast from 'react-hot-toast';
 const Card = (props) => {
 
     const dispatch = useDispatch();
@@ -42,6 +42,7 @@ const Card = (props) => {
             method:'POST',
             body:JSON.stringify({UserId:userId,BedRoomId:props.bedRoomId})
            })
+           toast.success("Item Successfully Added")
            console.log( await promise.json());
         }
         

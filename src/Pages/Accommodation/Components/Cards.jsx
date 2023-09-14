@@ -4,6 +4,7 @@ import Caruseldata from './Caruseldata'
 import ReactPaginate from 'react-paginate';
 import '../Styles/cards.css'
 import { useSelector } from 'react-redux';
+import { Toaster } from 'react-hot-toast';
 
 const Cards = () => {
 
@@ -87,6 +88,8 @@ const Cards = () => {
  
 
   return (
+    <>
+    <Toaster/>
     <div>
       <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-3 mb-7">
         {
@@ -122,26 +125,27 @@ const Cards = () => {
             bedRooms.length
             ?
             <ReactPaginate
-              previousLabel={'<'}
-              nextLabel={'>'}
-              pageCount={totalPage}
-              onPageChange={changePageHandler}
-              pageRangeDisplayed={3}
-              marginPagesDisplayed={1}
-              containerClassName={'paginate'}
+            previousLabel={'<'}
+            nextLabel={'>'}
+            pageCount={totalPage}
+            onPageChange={changePageHandler}
+            pageRangeDisplayed={3}
+            marginPagesDisplayed={1}
+            containerClassName={'paginate'}
               pageLinkClassName={'pagelink'}
               previousLinkClassName={'prepagelink'}
               nextLinkClassName={'nextpagelink'}
               activeLinkClassName={'activepagelink'}
               disabledLinkClassName={'disabledpagelink'}
-            />
-            :
-            'Loading'
-          }
+              />
+              :
+              'Loading'
+            }
 
         </div>
       </div>
     </div>
+            </>
 
   )
 }
