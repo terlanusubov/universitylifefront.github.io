@@ -5,7 +5,7 @@ import InputComponent from './InputComponent'
 import { PhoneInput } from 'react-international-phone'
 import { Toaster,toast } from 'react-hot-toast'
 // Assets
-import Logo from '../../../Mutualcomponents/Header/Assets/mainLogo.png'
+import Logo from '../../../Mutualcomponents/Header/Assets/modalLogo.png'
 
 // Styles
 import '../Styles/ModalStyle.scss'
@@ -111,7 +111,6 @@ const Modal = () => {
       if (description.statusCode === 400) {
         // toast.error(description.description);
         throw new Error(description.description)
-        console.log(description.description);
       }
 
     }
@@ -138,8 +137,8 @@ const closeModal = () => {
         </button>
       </div>
       <div className="navigations_container py-[10px] flex flex-col items-center justify-center ">
-        <div className="logo max-w-[200px] h-[55px] w-[100%] ">
-         <img src={Logo} alt="" className='w-[100%] h-[100%]'/>
+        <div className="logo max-w-[40px] h-[65px] w-[100%] ">
+         <img src={Logo} alt="" className=' w-[100%] h-[100%]'/>
         </div>
         <div className="modal_navigations w-[100%] flex justify-between relative">
           <button onClick={() => setModalPage('register')} className={`w-[50%] bg-white pb-[13px]`}>Register</button>

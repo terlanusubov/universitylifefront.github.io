@@ -6,7 +6,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
 import { useCart } from 'react-use-cart';
 import { useDispatch } from 'react-redux';
-// import { ModalSlice } from '../../../Redux/ModalSlice';
+import { ModalSlice } from '../../../Redux/ModalSlice';
 
 const Card = (props) => {
 
@@ -29,16 +29,20 @@ const Card = (props) => {
 
         if (!localStorage.getItem('tokenId')){
             dispatch(ModalSlice.actions.setModal(true))
-        
         }
-
         else {
            const token = localStorage.getItem('tokenId') 
-           const userId = parseJwt(token).id
-           const promise = await fetch(import.meta.env.VITE_API_KEY + `/userwishlist?UserId=${userId}&BedRoomId=${props.bedRoomId}`, {
-            method:'POST'
+           const userId = +parseJwt(token).id
+           console.log({UserId:userId,BedRoomId:props.bedRoomId});
+           const promise = await fetch(import.meta.env.VITE_API_KEY + `/userwishlist`, {
+            headers: {
+                'accept':'text/plain',
+                'Content-type':'application/json'
+            },
+            method:'POST',
+            body:JSON.stringify({UserId:userId,BedRoomId:props.bedRoomId})
            })
-           console.log(promise);
+           console.log( await promise.json());
         }
         
     }

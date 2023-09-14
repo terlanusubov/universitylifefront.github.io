@@ -38,13 +38,23 @@ const Cards = () => {
 
   useEffect(() => {
     fetchBedRooms();
+    
+    setTimeout(() => {
+      window.scroll({
+        top: 0, 
+        left: 0, 
+        behavior: 'smooth' 
+       });
+    }, 100);
   }, [currentPage])
 
   const [pageNumber, setPageNumber] = useState(0);
 
   const changePageHandler = (e) => {
-    setCurrentPage(e.selected + 1)
+    setCurrentPage(e.selected + 1);
+    
   }
+
 
 
   const [items, setItems] = useState(Caruseldata.productData);
@@ -84,7 +94,7 @@ const Cards = () => {
           ?
           bedRooms.map((data, index) => {
             console.log(data);
-            return <Card bedRoomId={data.bedRoomStatusId} type={data.bedRoomRoomTypes} price={data.price} key={index} title={data.name} description={data.description} slideImages={data.bedRoomImages} />
+            return <Card bedRoomId={data.id} type={data.bedRoomRoomTypes} price={data.price} key={index} title={data.name} description={data.description} slideImages={data.bedRoomImages} />
           })
           :
           <div className='animate-pulse'>there is no bedroom </div>
