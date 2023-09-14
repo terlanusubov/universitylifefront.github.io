@@ -22,7 +22,13 @@
         ;
         max-width: 350px;
         width: 100%;
+        overflow-y: scroll;
+        height: 500px;
     }
+}
+
+.serachbares-active {
+    display: block;
 }
 
 .search_bar_toggle .search-inp {
@@ -37,12 +43,17 @@
 }
 
 .search_bar_toggle .search-inp:hover {
-    color: white;
+    color: black;
     background-color: #eec974;
+}
+
+.search_bar_toggle .search-inp h1 {
+    color: #000;
 }
 
 .search_bar_toggle .search-inp svg {
     margin-right: 10px;
+    font-size: 20px;
 }
 
 @keyframes containerAnimation {

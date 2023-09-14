@@ -8,23 +8,25 @@ import { ImLocation, ImLocation as Locationicon } from 'react-icons/im'
 import { RiGraduationCapFill as Graduationicon } from 'react-icons/ri'
 import { ImLocation2 as IoIosSchool } from 'react-icons/im'
 const inputtoggle = ({ data }) => {
+  console.log(data);
 
   return (
     <div className="search_bar_toggle  rounded-[10px] min-h-fit  absolute  z-[500] w-[100%] bg-white">
       {
-        data
+        data != null
           ?
           data.map((data) => {
             return (
               <div className='search-inp'>
                 <ImLocation></ImLocation>
-                {data.name}</div>
+                <h1>{data.name}</h1>
+              </div>
             )
           })
           :
           ""
       }
-      <div className="toggle_navbar flex gap-[5px] rounded-[10px] bg-[#F3F4F6] h-[45px]">
+      <div className="toggle_navbar flex gap-[5px] rounded-[10px] bg-[#F3F4F6] h-[45px]" >
         <div className={`country_option text-center flex justify-center items-center w-[100%]  border-b-[2px] border-solid border-customOrange h-[100%]`}>
           <span className="country_name">
             London
@@ -123,8 +125,9 @@ const inputtoggle = ({ data }) => {
 
 
       </div>
+
     </div>
-    
+
   )
 }
 
