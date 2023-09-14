@@ -46,4 +46,4 @@ const SearchinputOpened = () => {
   )
 }
 
-export default SearchinputOpened
+export default SearchinputOpened;
