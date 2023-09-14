@@ -1,32 +1,28 @@
 // Hooks...
-import { useDispatch, useSelector } from 'react-redux'
-// Components...
-// import { Helmet } from 'react-helmet'
-// import { Routes,Route } from 'react-router-dom'
-// import Header from './Mutualcomponents/Header/Header'
-import Footer from './Mutualcomponents/Footer/Footer'
-
-// Pages...
-// import Mainpage from './Pages/Mainpage/Mainpage'
-// Stylings...
-
-import './App.css'
-
-
+import React, { useState } from "react";
+import Footer from "./Mutualcomponents/Footer/Footer";
+import Error from "./Pages/Error/Error";
+import "./App.css";
 
 function App() {
-
-const state = useSelector((State) => State.searchInputReducer.openedSearchInput)
+  //
+  // const [showError, setShowError] = useState(false);
+  // //
+  // const toggleError = () => {
+  //   setShowError(!showError);
+  // };
+  //
   return (
-   <div className="App pt-[100px]">
-
-    {/* <Header></Header> */}
-    {/* <Routes>
-      <Route path='/' element={<Mainpage></Mainpage>}></Route>
-    </Routes> */}
-    <Footer></Footer>
-   </div>
-  )
+    <div className="App">
+      {/* {showError ? (
+        <Error goBack={toggleError} />
+      ) : (
+        <Footer showError={toggleError} />
+      )} */}
+      <Footer></Footer>
+      {/* <Error></Error> */}
+    </div>
+  );
 }
 
-export default App
+export default App;

@@ -11,6 +11,9 @@ const Footer = () => {
         <FooterNav></FooterNav>
         <FooterIcons></FooterIcons>
         <FooterBottom></FooterBottom>
+        {/* <div>
+           <button className="text-white" onClick={showError}></button> 
+        </div> */}
       </div>
     </footer>
   );
