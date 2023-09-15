@@ -33,13 +33,15 @@ const PersonalInfo = () => {
             userId:obj.id
         }
     }
-    
+
+    const [userInformations,setUserInformations] = useState([])
+
     const dispatch = useDispatch();
     dispatch(userInformationSlice.actions.setCurrentUserId(returnCurrentUser().userId))
     
     const [editOpen,setEditOpen] = useState(false);
     
-    const [NameInputValue,setNameInputValue] = useState('');
+    const [NameInputValue,setNameInputValue] = useState(userInformations.name ? userInformations.name : '');
     const [SurnameInputValue,setSurnameInputValue] = useState('');
     const [EmailInputValue,setEmailInputValue] = useState(returnCurrentUser().email ? returnCurrentUser().email : '');
     const [PhoneInputValue,setPhoneInputValue] = useState('');
@@ -78,6 +80,17 @@ const PersonalInfo = () => {
        }
     }
   
+
+    const fetchUserInformations = async () => {
+        const promise = await fetch(import.meta.env.VITE_API_KEY + `/account?UserId=${returnCurrentUser().userId}`)
+        const result = await promise.json();
+        setUserInformations(result[0]);
+
+    }
+    useEffect(() => {
+    fetchUserInformations();
+    },[])
+
   return (
     <>
     <Toaster/>

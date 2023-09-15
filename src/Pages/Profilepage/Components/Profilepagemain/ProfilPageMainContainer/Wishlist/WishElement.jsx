@@ -2,7 +2,7 @@ import React from 'react'
 // Assets
 import roomImg from '../../../../Assets/roomimg.webp'
 import { useState } from 'react'
-const WishElement = ({imgSource,distance,price,bedRoomId,wishId,callback}) => {
+const WishElement = ({imgSource,distance,price,bedRoomId,wishId,callback,bedRoomName,bedRoomImages}) => {
 
     const [deleteStart,setDeleteStart] = useState(false)
     const deleteHandler = async () => {
@@ -24,13 +24,13 @@ const WishElement = ({imgSource,distance,price,bedRoomId,wishId,callback}) => {
     <div className='wishlist_wish_el  w-[100%] rounded-[16px]  '>
         <div className="wishlist_el_container hover:shadow-md cursor-pointer rounded-[16px] duration-[.3s]">
 
-            <div className="wish_el_top">
-                <img src={roomImg} className='object-cover rounded-t-[16px]' alt="" />
+            <div className="wish_el_top h-[230px]">
+                <img src={bedRoomImages[0] ? bedRoomImages[0] : roomImg} className='object-cover w-full h-full rounded-t-[16px]' alt="" />
             </div>
             <div className="wish_el_bottom  rounded-b-[16px] shadow-[2px_4px_10px_-5px_rgba(0,0,0,0.3)] p-[10px]">
                 <div className="info_line_first flex justify-between">
                     <span className="room_name font-[600]">
-                        92NY Residence
+                        {bedRoomName}
                     </span>
                     <span className='distance'>
                         {distance} Miles

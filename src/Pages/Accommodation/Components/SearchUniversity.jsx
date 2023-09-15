@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 import { useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { detailPageSlice } from '../../../Redux/detailPageSlice';
+import { AccomodationSlice } from '../../../Redux/AccomodationSlice';
 
 
 
@@ -24,15 +25,18 @@ const SearchUniversity = () => {
         setIsShown(true)
     }
 
-    const selectUniversityHandler = (id) => {
-        dispatch(detailPageSlice.actions.setCurrentUniversityId(id))
+    const selectUniversityHandler = (data) => {
+        setSearchValue(data.name);
+        dispatch(AccomodationSlice.actions.setCurrentFilterOption({universityId:data.universityId,cityId:data.cityId}));
+        
+        setIsShown(false)
     }
 
     const searchUniversityHandler = async (e) => {
         setSearchValue(e.target.value)
         const promise = await fetch(import.meta.env.VITE_API_KEY + '/university')
         const response = await promise.json();
-        console.log(response);
+
     }
 
     const fetchUniversities = async () => {
@@ -40,6 +44,7 @@ const SearchUniversity = () => {
         const response = await promise.json();
         setUniversities(response.response);
     }
+
     useEffect(() => {
         fetchUniversities()
     },[])
@@ -73,7 +78,7 @@ const SearchUniversity = () => {
                                     <div  ref={searchInputRef} className="text-left relative mb-0 after:absolute after:right-[15px] after:top-[16px] after:border-[#595959] after:border-r after:border-b after:inline-block after:p-[4px] after:rotate-45" >
                                         <div className="input_element_container relative" >
                                             <input id='searchInputId' onFocus={focusHandler} onBlur={blurHandler} onChange={searchUniversityHandler} value={SearchValue} className="selectinput flex select-input truncate items-center text-sm w-full h-11 placeholder:text-gray-400 text-gray-700 px-3 rounded border border-gray-200 gitbox-border pl-11 outline-none transition duration-200" placeholder="Select University" type="text" autoComplete="off" aria-autocomplete="both" aria-expanded="false" aria-haspopup="listbox" role="combobox" />
-                                            <label htmlFor='searchInputId' className={` text-gray-500 text-sm mb-2 truncate absolute  duration-500 translate-y-[-50%]  ${focused ? 'top-0 left-[45px] bg-white px-[] text-[11px]' : 'top-[50%] left-[45px]'}`}>Select University</label>
+                                            <label htmlFor='searchInputId' className={` text-gray-500 text-sm mb-2 truncate absolute  duration-500 translate-y-[-50%]   ${focused || SearchValue ? 'top-0 left-[45px] bg-white px-[] text-[11px]' : 'top-[50%] left-[45px]'}`}>Select University</label>
                                         </div>
                                         {isShown && <div style={{ position: "absolute",zIndex:"10" , inset: "0 auto auto 0", transform: "translate(0,44px)", overflow: "auto", width: "100%", backgroundColor: "white", maxHeight: "153.59px" }} className=' searchscroll shadow-2xl shadow-stone-800 rounded-b'>
                                             <p className='bg-neutral-100 px-5 py-2 text-xs'>TOP UNIVERSITIES</p>
@@ -82,7 +87,7 @@ const SearchUniversity = () => {
                                                 ?
                                                 universities.map((data) => {
                                                     return (
-                                                            <div className='flex items-center cursor-pointer' onClick={() => selectUniversityHandler(data.universityId)} key={data.universityId}>
+                                                            <div className='flex items-center cursor-pointer' onClick={() => selectUniversityHandler(data)} key={data.universityId}>
                                                                 <div className='p-3'>
                                                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                                                         <path d="M12.0003 14.3982L4.84082 12.1946V14.3625V15.8749C4.84082 17.5763 8.04728 18.9558 12.0024 18.9558C15.9573 18.9558 19.1643 17.5763 19.1643 15.8749C19.1643 15.8615 19.16 15.848 19.1597 15.8349V12.1946L12.0003 14.3982Z" fill="#F56A54" />
@@ -111,7 +116,7 @@ const SearchUniversity = () => {
                         </div>
                     </div>
                     <div className='relative'>
-                        <div className='lg:ml-2 mb-2 md:mb-0 flex space-x-2 pt-2 md:pt-0 md:mx-2 lg:mx-0'>
+                        {/* <div className='lg:ml-2 mb-2 md:mb-0 flex space-x-2 pt-2 md:pt-0 md:mx-2 lg:mx-0'>
                             <div className='flex items-center flex-grow'>
                                 <input aftercontent='<SlArrowDown/>'  type="radio" className='w-0 h-0 peer hidden after:content-[attr(aftercontent)]' />
                                 <label className='relative h-12 md:h-11 rounded border border-gray-200 bg-white text-gray-900 active:border-customOrange active:bg-customOrange active:text-white px-3 flex items-center justify-between box-border w-full text-xs lg:text-sm transition-colors cursor-pointer peer-checked:text-white peer-checked:bg-customOrange peer-checked:border-customOrange peer-disabled:text-gray-900 peer-disabled:border-gray-200 peer-disabled:cursor-default  hover:border-customOrange whitespace-normal hover:text-customOrange' htmlFor="">
@@ -155,7 +160,7 @@ const SearchUniversity = () => {
                                     </div>
                                 </label>
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </div>

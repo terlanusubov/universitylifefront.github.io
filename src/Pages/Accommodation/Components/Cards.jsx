@@ -15,9 +15,10 @@ const Cards = () => {
   const [currentPage, setCurrentPage] = useState(1)
   const [endOffset, setEndOffset] = useState(0)
   const [favoritedIds,setFavoritedIds] = useState([]);
-  const filterUniversityId = useSelector(state => state.detailPageReducer.currentUniversityId)
-  
+  const [distances,setDistances] = useState([])
 
+  const FilterCityId = useSelector((state) => state.accomodationReducer.currentFilterOptions.cityId)
+  const filterString = useSelector((state) => state.accomodationReducer.currentFilterOptions.universityId)
 
   const parseJwt = (token) => {
     var base64Url = token.split('.')[1];
@@ -29,44 +30,49 @@ const Cards = () => {
     return JSON.parse(jsonPayload);
   }
 
+  const fetchBedRoomsWithUniversity = async () => {
+    const promise = await fetch(import.meta.env.VITE_API_KEY + `/bedroom?Page=${currentPage}&UniversityId=${filterString}`)
+    const {response} = await promise.json();
+    const {dictance:distance} = response;
+    setDistances(distance);
+
+  }
 
   const fetchBedRooms = async () => {
-
     const promise = await fetch(import.meta.env.VITE_API_KEY +`/bedroom?Page=${currentPage}`);
-
     const result = await promise.json();
-
     const { bedRooms, pageSize, totalData, totalPage } = result.response;
-
     setRoomsPerPage(pageSize);
-
     setTotalPage(totalPage);
-
     setTotalData(totalData);
-
-    setBedRooms(bedRooms);
-
-    setEndOffset(0 + pageSize)
-
+    await fetchFavorites();
+    setBedRooms(bedRooms)
+    setEndOffset(0 + pageSize);
   }
 
 
 
+  useEffect(() => {
+    if (filterString) {
+      fetchBedRoomsWithUniversity();
+    }
+  },[filterString])
+
+  
   const fetchFavorites = async () => {
     if (localStorage.getItem('tokenId')) {
-
       const userId = parseJwt(localStorage.getItem('tokenId')).id
       const promise = await fetch(import.meta.env.VITE_API_KEY + `/userwishlist?UserId=${userId}`)
       const response = await promise.json();
       setFavoritedIds(response.map((data) => {
-        return {id:data.bedRoomId, userWishlistId:data.userWishlistId}
+        return {id:data.id, userWishlistId:data.userWishlistId}
       })) 
     }
   }
 
 
+
   useEffect(() => {
-    fetchFavorites();
     fetchBedRooms();
     setTimeout(() => {
       window.scroll({
@@ -86,7 +92,7 @@ const Cards = () => {
     
   }
 
-
+ 
 
   const [items, setItems] = useState(Caruseldata.productData);
 
@@ -125,11 +131,11 @@ const Cards = () => {
         {
           bedRooms.length
           ?
-          bedRooms.map((data, index) => {
+          bedRooms.map((data) => {
               // let isFavorite = favoritedIds.map((data) => data.id).includes(data.id);
-               const isFavorite = favoritedIds.some((UserFavorites) => UserFavorites.id == data.id);
+               let isFavorite = favoritedIds.some((UserFavorites) => UserFavorites.id == data.id);
                let wishListId = favoritedIds.find((favorited) => favorited.id == data.id);
-            return <Card userWishlistId={wishListId ? wishListId.userWishlistId : null} isFavorite={isFavorite} bedRoomId={data.id} type={data.bedRoomRoomTypes} price={data.price} key={data.id} title={data.name} description={data.description} slideImages={data.bedRoomImages} />
+               return <Card userWishlistId={wishListId ? wishListId.userWishlistId : null} isFavorite={isFavorite} bedRoomId={data.id} type={data.bedRoomRoomTypes} price={data.price} key={data.id} title={data.name} description={data.description} slideImages={data.bedRoomImages} />
           })
           :
           <div className='animate-pulse'>there is no bedroom </div>

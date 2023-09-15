@@ -21,8 +21,9 @@ const fetchRooms = async () => {
   }
     const promise = await fetch(import.meta.env.VITE_API_KEY + `/bedroom?CityId=${CityState.id}`)
     const response = await promise.json()
-    setRooms(response.response.bedRooms)
-    setRoomLoading(false)
+    setRooms(response.response.bedRooms);
+    setRoomLoading(false);
+    
 }
 
   useEffect(() => {
