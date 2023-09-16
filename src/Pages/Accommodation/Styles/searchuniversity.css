@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.rc-slider-track{
+    background-color: #F67864;
+}
+.rc-slider-handle{
+    border-color: #F67864;
+    padding: 0.5rem;
+    bottom: -3px;
+}
+.rc-slider-handle:hover{
+    border-color: #F67864;
+    padding: 0.5rem;
+    bottom: -3px;
+}
+.rc-slider-handle-dragging:active{
+    border-color: #F67864 !important;
+    padding: 0.5rem;
+    bottom: -3px;
+    box-shadow: none !important;
+}
+.selectinput:focus ~ .select-label{
+    @apply text-gray-500 text-sm mb-2 truncate absolute top-[0.8rem] left-11 transition duration-500 bg-white transform -translate-y-[1.4rem] -translate-x-4 scale-75;
+}
+.priceinput:focus ~ .pricelabel{
+    @apply bg-white transform -translate-y-[1.2rem] -translate-x-4 scale-75 w-20 ms-2 text-gray-400;
+}
+.priceinput:focus{
+    @apply placeholder:text-transparent
+}
