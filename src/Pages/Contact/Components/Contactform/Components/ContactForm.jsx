@@ -21,6 +21,17 @@ export const ContactForm = () => {
   const [selectedCountry, setSelectedCountry] = useState("");
   const [filteredCountries, setFilteredCountries] = useState([]);
 
+  const parseJwt = (token) => {
+    var base64Url = token.split('.')[1];
+    var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+    var jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function(c) {
+        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+    }).join(''));
+
+    return JSON.parse(jsonPayload);
+  }
+
+
   //
   const submitFormHandler = async (e) => {
     e.preventDefault();
@@ -112,8 +123,23 @@ export const ContactForm = () => {
     setFilteredCountries(response);
   };
 
+  const fetchUserInformations = async () => {
+    const promise = await fetch(import.meta.env.VITE_API_KEY + '/account?UserId=' + parseJwt(localStorage.getItem('tokenId')).id)
+    const result = await promise.json();
+    
+    setIsEmailFocused(true);
+    setIsFullNameFocused(true)
+    setContactFullName(result[0].name + result[0].sureName)
+    setContactEmail(result[0].email)
+    setPhoneInputValue(result[0].phoneNumebr)
+
+  }
+
   useEffect(() => {
     fetchCountries();
+    if (localStorage.getItem('tokenId')) {
+      fetchUserInformations();
+    }
   }, []);
 
   const handleCountryInputChange = (e) => {
@@ -187,6 +213,7 @@ export const ContactForm = () => {
             />
             <label
               className={`duration-[.3s] bg-white px-[3px] text-gray-700  absolute
+
               ${
                 inputCountryValue
                   ? "top-[-10px] left-[16px] text-[11px]"

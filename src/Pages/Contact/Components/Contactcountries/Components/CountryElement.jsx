@@ -4,7 +4,7 @@ import { FaWhatsapp, FaPhone } from "react-icons/fa6";
 
 export const CountryElement = () => {
   return (
-    <div className="CountryElement hover:shadow-xl">
+    <div className="CountryElement  cursor-pointer">
       <div className="CountryElImg">
         <img
           src="https://cdn.universityliving.com/files/16662641010191.unitedkingdom.webp?w=128"
@@ -20,7 +20,7 @@ export const CountryElement = () => {
         </p>
         <div className="CountryElContact flex place-items-center justify-between">
           {" "}
-          <div className="CountryELNumber flex text-white items-center  bg-customOrange">
+          <div className="CountryELNumber flex text-white items-center  hover:bg-customLightOrange bg-customOrange">
             <span className="mr-1.5">
               <FaPhone></FaPhone>
             </span>{" "}

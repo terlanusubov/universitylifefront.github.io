@@ -40,7 +40,7 @@ const ContactInputComponent = ({
       />
       <label
         htmlFor={inputId}
-        className={`select-none input_text absolute  rounded-[2px] bg-white translate-y-[-50%] ease-in-out text-gray-500 duration-[.25s] px-[4px]  left-[15px] ${
+        className={`select-none  input_text absolute  rounded-[2px] bg-white translate-y-[-50%] ease-in-out text-gray-500 duration-[.25s] px-[4px]  left-[15px] ${
           isFocused ? "top-0 text-[11px]" : "top-[50%] text-[14px]"
         }`}
       >
