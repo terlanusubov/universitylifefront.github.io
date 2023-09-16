@@ -1,12 +1,12 @@
-.form-floating {
+/* .form-floating {
   position: relative;
   text-align: left;
-}
+} */
 .form-floating textarea,
 .form-floating > input {
   padding-left: 17px;
 }
-.form-floating > input:focus ~ label,
+/* .form-floating > input:focus ~ label,
 .form-floating > input:not(:placeholder-shown) ~ label,
 .form-floating > select:valid ~ label,
 .form-floating > select[aria-label="valid"] ~ label,
@@ -14,7 +14,7 @@
 .form-floating > textarea:not(:placeholder-shown) ~ label {
   transform: scale(0.85) translateY(-1.4rem) translateX(0.15rem);
   width: auto;
-}
+} */
 
 .form-floating > label {
   position: absolute;
@@ -49,3 +49,9 @@
   transform: scale(0.85) translateY(-1.4rem) translateX(0.15rem);
   width: auto;
 }
+
+
+/* input::-webkit-autofill ~ label {
+  transform: scale(0.85) translateY(-1.4rem) translateX(0.15rem);
+  width: auto;
+} */
