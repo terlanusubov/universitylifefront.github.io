@@ -1,40 +1,48 @@
 import React from "react";
-import "../Styles/Footerabout.css";
 import { Link } from "react-router-dom";
+import "../Styles/Footerabout.css";
 const FooterAbout = () => {
   return (
     <div className="footer_about">
       <div>
         <ul className="text-white">
           <li>
-            <Link to={'/'} className="hover:text-customOrange">
-              Home
-            </Link>
-          </li>
-          <li>
-            <a className="hover:text-customOrange" href="">
-              About
-            </a>
-          </li>
-          <li>
-            <Link to={'/contact-us'} className="hover:text-customOrange">
+            <Link className="hover:text-customOrange" to={'/contact-us'}>
               Contact Us
             </Link>
           </li>
           <li>
-            <Link to={'/services'} className="hover:text-customOrange">
+            <Link className="hover:text-customOrange" to={'/contact-us'}>
               Services
             </Link>
           </li>
           <li>
-            <a className="hover:text-customOrange" href="">
-              Ibrahim
-            </a>
+          <li>
+            <Link className="hover:text-customOrange" to={'/'}>
+              Home
+            </Link>
+          </li>
           </li>
           <li>
-            <a className="hover:text-customOrange" href="">
-              Elnur
-            </a>
+          <li>
+            <Link className="hover:text-customOrange" to={'/accomodations'}>
+              BedRooms
+            </Link>
+          </li>
+          </li>
+          <li>
+          <li>
+           <Link className="hover:text-customOrange" to={'/'}>
+            Careers
+            </Link>
+          </li>
+          </li>
+          <li>
+          <li>
+            <Link className="hover:text-customOrange" to={'/blog'}>
+              Blog
+            </Link>
+          </li>
           </li>
         </ul>
       </div>
