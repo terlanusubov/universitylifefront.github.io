@@ -14,32 +14,66 @@ const Cards = () => {
   const [totalData, setTotalData] = useState(0)
   const [currentPage, setCurrentPage] = useState(1)
   const [endOffset, setEndOffset] = useState(0)
-  const filterUniversityId = useSelector(state => state.detailPageReducer.currentUniversityId)
-  
-  const fetchBedRooms = async () => {
+  const [favoritedIds,setFavoritedIds] = useState([]);
+  const [distances,setDistances] = useState([])
 
-    const promise = await fetch(import.meta.env.VITE_API_KEY +`/bedroom?Page=${currentPage}`);
+  const FilterCityId = useSelector((state) => state.accomodationReducer.currentFilterOptions.cityId)
+  const filterString = useSelector((state) => state.accomodationReducer.currentFilterOptions.universityId)
 
-    const result = await promise.json();
-    console.log(result);
+  const parseJwt = (token) => {
+    var base64Url = token.split('.')[1];
+    var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+    var jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function(c) {
+        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+    }).join(''));
 
-    const { bedRooms, pageSize, totalData, totalPage } = result.response;
+    return JSON.parse(jsonPayload);
+  }
 
-    setRoomsPerPage(pageSize);
-
-    setTotalPage(totalPage);
-
-    setTotalData(totalData);
-
-    setBedRooms(bedRooms);
-
-    setEndOffset(0 + pageSize)
+  const fetchBedRoomsWithUniversity = async () => {
+    const promise = await fetch(import.meta.env.VITE_API_KEY + `/bedroom?Page=${currentPage}&UniversityId=${filterString}`)
+    const {response} = await promise.json();
+    const {dictance:distance} = response;
+    setDistances(distance);
 
   }
 
+  const fetchBedRooms = async () => {
+    const promise = await fetch(import.meta.env.VITE_API_KEY +`/bedroom?Page=${currentPage}`);
+    const result = await promise.json();
+    const { bedRooms, pageSize, totalData, totalPage } = result.response;
+    setRoomsPerPage(pageSize);
+    setTotalPage(totalPage);
+    setTotalData(totalData);
+    await fetchFavorites();
+    setBedRooms(bedRooms)
+    setEndOffset(0 + pageSize);
+  }
+
+
+
+  useEffect(() => {
+    if (filterString) {
+      fetchBedRoomsWithUniversity();
+    }
+  },[filterString])
+
+  
+  const fetchFavorites = async () => {
+    if (localStorage.getItem('tokenId')) {
+      const userId = parseJwt(localStorage.getItem('tokenId')).id
+      const promise = await fetch(import.meta.env.VITE_API_KEY + `/userwishlist?UserId=${userId}`)
+      const response = await promise.json();
+      setFavoritedIds(response.map((data) => {
+        return {id:data.id, userWishlistId:data.userWishlistId}
+      })) 
+    }
+  }
+
+
+
   useEffect(() => {
     fetchBedRooms();
-    
     setTimeout(() => {
       window.scroll({
         top: 0, 
@@ -49,6 +83,8 @@ const Cards = () => {
     }, 100);
   }, [currentPage])
 
+
+
   const [pageNumber, setPageNumber] = useState(0);
 
   const changePageHandler = (e) => {
@@ -56,7 +92,7 @@ const Cards = () => {
     
   }
 
-
+ 
 
   const [items, setItems] = useState(Caruseldata.productData);
 
@@ -95,9 +131,11 @@ const Cards = () => {
         {
           bedRooms.length
           ?
-          bedRooms.map((data, index) => {
-            console.log(data);
-            return <Card bedRoomId={data.id} type={data.bedRoomRoomTypes} price={data.price} key={index} title={data.name} description={data.description} slideImages={data.bedRoomImages} />
+          bedRooms.map((data) => {
+              // let isFavorite = favoritedIds.map((data) => data.id).includes(data.id);
+               let isFavorite = favoritedIds.some((UserFavorites) => UserFavorites.id == data.id);
+               let wishListId = favoritedIds.find((favorited) => favorited.id == data.id);
+               return <Card userWishlistId={wishListId ? wishListId.userWishlistId : null} isFavorite={isFavorite} bedRoomId={data.id} type={data.bedRoomRoomTypes} price={data.price} key={data.id} title={data.name} description={data.description} slideImages={data.bedRoomImages} />
           })
           :
           <div className='animate-pulse'>there is no bedroom </div>

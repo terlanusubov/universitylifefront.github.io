@@ -13,7 +13,6 @@ const Optionsmobile = () => {
     if (state.id) {
       const promise = await fetch(import.meta.env.VITE_API_KEY + `/cities?CountryId=${state.id}`)
       const response = await promise.json();
-      console.log(response);
       setOptions(response);
     }
 
