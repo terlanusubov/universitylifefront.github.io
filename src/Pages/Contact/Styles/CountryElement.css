@@ -1,0 +1,49 @@
+.CountryElement {
+  display: flex;
+  align-items: center;
+}
+
+.CountryElImg {
+  width: 125px;
+  height: 125px;
+  margin-right: 20px;
+}
+.CountryElImg img {
+  width: 100%;
+  height: 100%;
+}
+.CountryElContact {
+  margin: 5px 0px;
+}
+.CountryElLocation h2 {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 5px 0px;
+}
+.CountryElLocation p {
+  margin: 4px 0px;
+  font-size: 14px;
+}
+.CountryELNumber {
+  padding: 4px 10px;
+  border-radius: 5px;
+}
+.CountryElWp {
+  font-size: 32px;
+}
+
+@media screen and (max-width: 1078px) {
+  .CountryElement {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+  }
+}
+
+@media screen and (max-width: 710px) {
+  .CountryElImg {
+    width: 125px;
+    height: 125px;
+    margin-right: 10px;
+  }
+}

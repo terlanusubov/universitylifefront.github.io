@@ -1,0 +1,89 @@
+
+
+.card{
+    .offer-link{
+        a{
+            height: 35px;
+            box-shadow: inset 0 8px 6px -6px rgba(0,0,0,.063);
+            top: -0.4rem;
+            text-decoration: none;
+            border: none;
+            border-radius: 0 0 6px 6px;
+            padding: 8px 10px;
+            align-items: center;
+            text-transform: uppercase;
+            text-align: center;
+            min-width: 155px;
+        }
+    }
+    .carousel-root{
+        .carousel-slider{
+            .control-dots{
+                display: none;
+            }
+            .control-prev{
+                width: 40px;
+                height: 60px;
+                margin-top: auto;
+                margin-bottom: auto;
+                opacity: 0.8;
+                &::before{
+                    position: absolute;
+                    border: solid #eee;
+                    top: 25px;
+                    right: 10px;
+                    border-width: 0 2px 2px 0;
+                    display: inline-block;
+                    box-sizing: border-box;
+                    padding: 5px;
+                    transform: scale(1.2) rotate(135deg);
+                }
+            }
+            .control-next{
+                width: 40px;
+                height: 60px;
+                margin-top: auto;
+                margin-bottom: auto;
+                &::before{
+                    position: absolute;
+                    border: solid #eee;
+                    top: 25px;
+                    right: 10px;
+                    border-width: 0 2px 2px 0;
+                    display: inline-block;
+                    box-sizing: border-box;
+                    padding: 5px;
+                    transform: scale(1.2) rotate(-45deg);
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+.best{
+    .relative{
+        .grad-color{
+            background-image: linear-gradient(to bottom,transparent,rgba(255, 255, 255, 0.713));
+        }
+    }
+}
+.searchscroll::-webkit-scrollbar{
+    background-color: rgb(255, 255, 255);
+    width: 0.4rem;
+    border-radius: 0.25rem;
+}
+.searchscroll::-webkit-scrollbar-corner{
+    background-color: #eee;
+}
+.searchscroll::-webkit-scrollbar-thumb{
+    background-color: rgb(212, 212, 212);
+    border-radius: 5px;
+}
