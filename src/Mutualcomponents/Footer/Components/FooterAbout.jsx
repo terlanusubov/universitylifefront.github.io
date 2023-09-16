@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "../Styles/Footerabout.css";
 const FooterAbout = () => {
   return (
@@ -6,34 +7,42 @@ const FooterAbout = () => {
       <div>
         <ul className="text-white">
           <li>
-            <a className="hover:text-customOrange" href="">
-             Contact Us
-            </a>
+            <Link className="hover:text-customOrange" to={'/contact-us'}>
+              Contact Us
+            </Link>
           </li>
           <li>
-            <a className="hover:text-customOrange" href="">
+            <Link className="hover:text-customOrange" to={'/contact-us'}>
               Services
-            </a>
+            </Link>
           </li>
           <li>
-            <a className="hover:text-customOrange" href="">
-              
-            </a>
+          <li>
+            <Link className="hover:text-customOrange" to={'/'}>
+              Home
+            </Link>
+          </li>
           </li>
           <li>
-            <a className="hover:text-customOrange" href="">
-              
-            </a>
+          <li>
+            <Link className="hover:text-customOrange" to={'/accomodations'}>
+              BedRooms
+            </Link>
+          </li>
           </li>
           <li>
-            <a className="hover:text-customOrange" href="">
-              Careers
-            </a>
+          <li>
+           <Link className="hover:text-customOrange" to={'/'}>
+            Careers
+            </Link>
+          </li>
           </li>
           <li>
-            <a className="hover:text-customOrange" href="">
+          <li>
+            <Link className="hover:text-customOrange" to={'/blog'}>
               Blog
-            </a>
+            </Link>
+          </li>
           </li>
         </ul>
       </div>
