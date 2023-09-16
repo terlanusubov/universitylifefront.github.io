@@ -34,12 +34,13 @@ const modalState = useSelector((State) => State.modalReducer.isOpen)
       <SignModal/>
     }
     <Routes>
-       <Route path='/' element={<Mainpage></Mainpage>}></Route>
-       <Route path='/services' element={<Services></Services>}></Route>
-       <Route path='/profile' element={<Profilepage></Profilepage>}></Route>
-       <Route path='/contact-us' element={<Contact></Contact>}></Route>
-       <Route path='/accomodations' element={<Accommodation></Accommodation>}></Route>
-       <Route path='*' element={<Error/>}></Route>
+       <Route path='/' element={<Mainpage/>}></Route>
+       <Route path='/services' element={<Services/>}></Route>
+       <Route path='/profile' element={<Profilepage/>}></Route>
+       <Route path='/contact-us' element={<Contact/>}></Route>
+       <Route path='/accomodations/page/:page' element={<Accommodation/>}></Route>
+       {/* <Route path='/accomodations/page/:page/unveristyId/:universityId' element={<Accommodation/>}></Route> */}
+       {/* <Route path='*' element={<Error/>}></Route> */}
     </Routes>
     <Footer></Footer>
    </div>

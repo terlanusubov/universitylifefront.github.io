@@ -53,7 +53,7 @@ const Aside = () => {
             Contact Us
             </span>
           </div>
-          <div onClick={(e) => navigateAndClose(e,'/accomodations')} className="option cursor-pointer flex flex-col items-start justify-center hover:bg-customOrange hover:text-white text-[20px] h-[60px]">
+          <div onClick={(e) => navigateAndClose(e,'/accomodations/page/1')} className="option cursor-pointer flex flex-col items-start justify-center hover:bg-customOrange hover:text-white text-[20px] h-[60px]">
             <span className="option_text p-[12px]">
             Bedrooms
             </span>

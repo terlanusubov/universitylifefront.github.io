@@ -17,32 +17,24 @@ const FooterAbout = () => {
             </Link>
           </li>
           <li>
-          <li>
             <Link className="hover:text-customOrange" to={'/'}>
               Home
             </Link>
           </li>
-          </li>
-          <li>
           <li>
             <Link className="hover:text-customOrange" to={'/accomodations'}>
               BedRooms
             </Link>
           </li>
-          </li>
-          <li>
           <li>
            <Link className="hover:text-customOrange" to={'/'}>
             Careers
             </Link>
           </li>
-          </li>
-          <li>
           <li>
             <Link className="hover:text-customOrange" to={'/blog'}>
               Blog
             </Link>
-          </li>
           </li>
         </ul>
       </div>

@@ -20,7 +20,6 @@ const Popularcities = () => {
     const firstPromise = await fetch(`${import.meta.env.VITE_API_KEY}/cities?isTop=true`)
     const firstResponse = await firstPromise.json()
     setCities(firstResponse)
-   
   }
   useEffect(() => {
     fetchingTopCities()
@@ -39,7 +38,7 @@ const Popularcities = () => {
             ?
             cities.map((data,index) => {
               return (
-                <Link key={index}  to={'/accomodations'}>
+                <Link key={index}  to={'/accomodations/page/1'}>
 
                   <div key={index} className='country_element rounded-[10px] cursor-pointer overflow-hidden relative' >
                     <div className="country_element_content rounded-[13px] overflow-hidden">

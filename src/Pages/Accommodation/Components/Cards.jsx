@@ -5,6 +5,7 @@ import ReactPaginate from 'react-paginate';
 import '../Styles/cards.css'
 import { useSelector } from 'react-redux';
 import { Toaster } from 'react-hot-toast';
+import { useNavigate, useParams } from 'react-router-dom';
 
 const Cards = () => {
 
@@ -12,10 +13,16 @@ const Cards = () => {
   const [bedRooms, setBedRooms] = useState([]);
   const [RoomsPerPage, setRoomsPerPage] = useState()
   const [totalData, setTotalData] = useState(0)
-  const [currentPage, setCurrentPage] = useState(1)
   const [endOffset, setEndOffset] = useState(0)
   const [favoritedIds,setFavoritedIds] = useState([]);
   const [distances,setDistances] = useState([])
+  const [distanceLimit,setDistanceLimit] = useState(5300);
+  const [loadingBedRooms,setLoadingBedrooms] = useState(true)
+  const [currentPage, setCurrentPage] = useState(useParams().page)
+
+  // States
+
+  const navigate = useNavigate();
 
   const FilterCityId = useSelector((state) => state.accomodationReducer.currentFilterOptions.cityId)
   const filterString = useSelector((state) => state.accomodationReducer.currentFilterOptions.universityId)
@@ -31,33 +38,67 @@ const Cards = () => {
   }
 
   const fetchBedRoomsWithUniversity = async () => {
-    const promise = await fetch(import.meta.env.VITE_API_KEY + `/bedroom?Page=${currentPage}&UniversityId=${filterString}`)
+      setCurrentPage(1)
+      const promise = await fetch(import.meta.env.VITE_API_KEY + `/bedroom?Page=${currentPage}&UniversityId=${filterString}`)
     const {response} = await promise.json();
-    const {dictance:distance} = response;
+    const {dictance:distance,bedRooms:bedRoomsArr} = response;
     setDistances(distance);
+    const mappedDistances =  distance.map((data) => {
+      const arr = Object.entries(data)
+      return {
+        id : arr[0][0],
+        distance: arr[0][1]
+      }
+    })
+    console.log(mappedDistances);
+    const validDistances = mappedDistances.filter((data) => data.distance < distanceLimit);
+
+    const filteredBedrooms =  bedRoomsArr.filter((bedRoom) => {
+      if (validDistances.some((data) => +data.id === bedRoom.id)) {
+        return bedRoom
+      }
+    });
+
+    console.log(filteredBedrooms);
+    setBedRooms(filteredBedrooms)
 
   }
 
   const fetchBedRooms = async () => {
+
     const promise = await fetch(import.meta.env.VITE_API_KEY +`/bedroom?Page=${currentPage}`);
     const result = await promise.json();
     const { bedRooms, pageSize, totalData, totalPage } = result.response;
+    console.log(result);
     setRoomsPerPage(pageSize);
     setTotalPage(totalPage);
     setTotalData(totalData);
     await fetchFavorites();
     setBedRooms(bedRooms)
     setEndOffset(0 + pageSize);
+    setLoadingBedrooms(false)
   }
 
 
 
   useEffect(() => {
-    if (filterString) {
-      fetchBedRoomsWithUniversity();
-    }
+      if (filterString) {
+        fetchBedRoomsWithUniversity();
+        
+      }
   },[filterString])
-
+  
+  useEffect(() => {
+      fetchBedRooms();
+      setTimeout(() => {
+        window.scroll({
+          top: 0, 
+          left: 0, 
+          behavior: 'smooth' 
+         });
+      }, 100);
+  }, [currentPage])
+  
   
   const fetchFavorites = async () => {
     if (localStorage.getItem('tokenId')) {
@@ -66,62 +107,14 @@ const Cards = () => {
       const response = await promise.json();
       setFavoritedIds(response.map((data) => {
         return {id:data.id, userWishlistId:data.userWishlistId}
-      })) 
+      }));
     }
   }
 
-
-
-  useEffect(() => {
-    fetchBedRooms();
-    setTimeout(() => {
-      window.scroll({
-        top: 0, 
-        left: 0, 
-        behavior: 'smooth' 
-       });
-    }, 100);
-  }, [currentPage])
-
-
-
-  const [pageNumber, setPageNumber] = useState(0);
-
   const changePageHandler = (e) => {
     setCurrentPage(e.selected + 1);
-    
+    navigate(`/accomodations/page/${e.selected + 1}`, {replace:true})
   }
-
- 
-
-  const [items, setItems] = useState(Caruseldata.productData);
-
-  // const itemPerPage=12;
-  // const pageVisited=pageNumber*itemPerPage;
-
-
-  // const displayItems=items.slice(pageVisited,pageVisited+itemPerPage).map((item,index)=>{
-  //   return(
-  //     <Card 
-  //            title={item.title}
-  //            city={item.city}
-  //             img={item.img}
-  //             price={item.price}
-  //             distance={item.distance}
-  //             type={item.type}
-  //             item={item}
-  //             key={index}
-  //             />
-
-  //   )
-  // });
-
-  // const pageCount = Math.ceil(items.lenght/itemPerPage);
-  // const changepage = ({selected})=>{
-  //   setPageNumber(selected)
-  // }
-
- 
 
   return (
     <>
@@ -138,22 +131,22 @@ const Cards = () => {
                return <Card userWishlistId={wishListId ? wishListId.userWishlistId : null} isFavorite={isFavorite} bedRoomId={data.id} type={data.bedRoomRoomTypes} price={data.price} key={data.id} title={data.name} description={data.description} slideImages={data.bedRoomImages} />
           })
           :
-          <div className='animate-pulse'>there is no bedroom </div>
+          <div className=''>there is no bedroom </div>
         }
       </div>
       <div className='sm:flex sm:flex-1 sm:items-center sm:justify-between'>
         <div className='hidden lg:block'>
           {
-            bedRooms.length
+            loadingBedRooms
             ?
+            'Loading...'
+            :
             <p className='text-gray-700 text-sm'>
               Showing
               <span className='font-medium'>&nbsp;1&nbsp;-&nbsp;{totalPage} &nbsp;</span>
               properties out of
               <span className='font-medium'>&nbsp;{totalData}</span>
             </p>
-            :
-            'Loading...'
           }
         </div>
         <div className='flex items-center'>

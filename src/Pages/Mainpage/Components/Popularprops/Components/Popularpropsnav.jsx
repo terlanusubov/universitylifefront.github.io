@@ -36,6 +36,7 @@ const PopularpropsNav = () => {
   const fetchCountries = async () => {
     const promise = await fetch(import.meta.env.VITE_API_KEY + '/countries');
     const response = await promise.json()
+    console.log(response);
     let defaultCountry;
     const mappedResponse = response.map((data,index) => {
       if (index === 0) {
@@ -73,7 +74,7 @@ const PopularpropsNav = () => {
                     })
                   :
                   <>
-                     <button  className={`option animate-pulse duration-[.25s]  bg-gray-300   h-[44px] w-[100%] max-w-[180px] rounded-[22px]`}>   
+                    <button  className={`option animate-pulse duration-[.25s]  bg-gray-300   h-[44px] w-[100%] max-w-[180px] rounded-[22px]`}>   
                     </button>
                     <button  className={`option animate-pulse duration-[.25s] bg-gray-300   h-[44px] w-[100%] max-w-[180px] rounded-[22px]`}>   
                     </button>

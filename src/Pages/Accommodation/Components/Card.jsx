@@ -15,9 +15,7 @@ const [isFavoriteCard,setIsFavoriteCard] = useState(props.isFavorite);
 
 const dispatch = useDispatch();
 const [userWishListId,setUserWishListId] = useState(props.userWishlistId)
-    useEffect(() => {
-    console.log(props.isFavorite);
-    },[])
+ 
   const deleteHandler = async () => {
       if (!userWishListId) {
           return false;
