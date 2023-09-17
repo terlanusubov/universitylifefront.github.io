@@ -1,0 +1,15 @@
+.contact_contries_container {
+  grid-template-columns: repeat(3, auto);
+  gap: 10px 10px;
+}
+@media screen and (max-width: 1078px) {
+  .contact_contries_container {
+    grid-template-columns: repeat(2, auto);
+    gap: 10px 5px;
+  }
+}
+@media screen and (max-width: 710px) {
+  .contact_contries_container {
+    grid-template-columns: auto;
+  }
+}

@@ -1,0 +1,57 @@
+/* .form-floating {
+  position: relative;
+  text-align: left;
+} */
+.form-floating textarea,
+.form-floating > input {
+  padding-left: 17px;
+}
+/* .form-floating > input:focus ~ label,
+.form-floating > input:not(:placeholder-shown) ~ label,
+.form-floating > select:valid ~ label,
+.form-floating > select[aria-label="valid"] ~ label,
+.form-floating > textarea:focus ~ label,
+.form-floating > textarea:not(:placeholder-shown) ~ label {
+  transform: scale(0.85) translateY(-1.4rem) translateX(0.15rem);
+  width: auto;
+} */
+
+.form-floating > label {
+  position: absolute;
+  top: 10px;
+  left: 8px;
+  height: auto;
+  padding: 0 0.5rem;
+  pointer-events: none;
+  border: 1px solid transparent;
+  transform-origin: 0 0;
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  background-color: #fff;
+  font-size: 13px;
+  color: #757575;
+  /* width: 90%; */
+  margin: 0;
+}
+
+.flag {
+  transform: scale(0.85) translateY(-1.4rem) translateX(0.15rem);
+  width: auto;
+}
+
+.popup {
+  border: 0 solid #e5e7eb;
+}
+.popup div {
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.form-floating input:-webkit-autofill ~ label  {
+  transform: scale(0.85) translateY(-1.4rem) translateX(0.15rem);
+  width: auto;
+}
+
+
+/* input::-webkit-autofill ~ label {
+  transform: scale(0.85) translateY(-1.4rem) translateX(0.15rem);
+  width: auto;
+} */
