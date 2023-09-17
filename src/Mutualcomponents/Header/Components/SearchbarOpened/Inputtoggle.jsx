@@ -1,15 +1,62 @@
 import React from 'react'
 
 
-
 // Components/Icons
 import {AiOutlineClockCircle as Clockicon} from 'react-icons/ai'
 import {ImLocation as Locationicon} from 'react-icons/im'
 import {RiGraduationCapFill as Graduationicon} from 'react-icons/ri'
-const inputtoggle = () => {
+import { useNavigate } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { AccomodationSlice } from '../../../../Redux/AccomodationSlice'
+import { searchInputSlice } from '../../../../Redux/toggleSlice'
+
+
+const inputtoggle = ({result,resultType,isLoading,searchValue}) => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const navigateToAccomodations = (data) => {
+    if (data.universityId) {
+      dispatch(AccomodationSlice.actions.setCurrentFilterOption({universityId:data.universityId,cityId:''}));
+      navigate(`/accomodations/page/1`,{replace:true})
+    }
+    else if(data.cityId) {
+      dispatch(AccomodationSlice.actions.setCurrentFilterOption({universityId:'',cityId:data.cityId}));
+      navigate(`/accomodations/page/1/city/${data.cityId}`,{replace:true})
+    }
+    dispatch(searchInputSlice.actions.closeSearchInput());
+  }
+  
   return (
-   <div className="search_bar_toggle rounded-[10px] min-h-fit  absolute  z-[500] w-[100%] bg-white">
-    
+   <div className="search_bar_toggle rounded-[10px] rounded-br-none min-h-fit  absolute  z-[500] w-[100%] bg-white">
+    {
+      result.length
+      ?
+      <div className='search_results overflow-y-scroll min-h-fit max-h-[430px] pb-0'>
+        {
+        result.map((data,index) => 
+         <div key={index} onClick={() => navigateToAccomodations(data)} className='search_result last:rounded-bl-[10px] p-[10px] cursor-pointer text-customOrange hover:text-white hover:bg-customLightOrange flex items-center gap-[10px]'>
+          {
+            data.universityId
+            ?
+            <Graduationicon  className='text-[28px] '></Graduationicon>
+            :
+            <Locationicon  className='text-[25px] '></Locationicon>
+          }     
+          <span className="text">
+          {data.name}
+          </span>
+          </div>
+          ) 
+        }
+      </div>
+      :
+      isLoading 
+      ?
+      'Loading...'
+      :
+        searchValue==='' 
+        ?
+    <>
       <div className="toggle_navbar flex gap-[5px] rounded-[10px] bg-[#F3F4F6] h-[45px]">
           <div className={`country_option text-center flex justify-center items-center w-[100%]  border-b-[2px] border-solid border-customOrange h-[100%]`}>
             <span className="country_name">
@@ -34,9 +81,6 @@ const inputtoggle = () => {
             </div>
 
             <div className="recent_searches_main flex items-center flex-wrap gap-[15px]">
-
-
-
               <div className="searched_country flex justify-center items-center h-[40px] w-[100px] ">
                 <span className="searched_country_text">
                   London
@@ -111,6 +155,12 @@ const inputtoggle = () => {
 
 
       </div>
+    </>
+        :
+        'Nothing Found'
+      
+    }
+
    </div>
   )
 }

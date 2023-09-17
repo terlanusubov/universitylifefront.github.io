@@ -19,16 +19,7 @@ const Popularcities = () => {
   const fetchingTopCities = async () => {
     const firstPromise = await fetch(`${import.meta.env.VITE_API_KEY}/cities?isTop=true`)
     const firstResponse = await firstPromise.json()
-    console.log(firstResponse);
-    
-      setCities(firstResponse)
-      
-    // const secondPromise = await fetch(`${import.meta.env.VITE_API_KEY}/cities`, {
-    //   method:'POST',
-    //   body:JSON.stringify({
-
-    //   })
-    // })
+    setCities(firstResponse)
   }
   useEffect(() => {
     fetchingTopCities()
@@ -45,11 +36,10 @@ const Popularcities = () => {
            {
             cities.length
             ?
-            cities.map((data,index) => {
+            cities.map((data) => {
               return (
-                <Link  to={'/accomodations'}>
-
-                  <div key={index} className='country_element rounded-[10px] cursor-pointer overflow-hidden relative' >
+                <Link key={data.id}  to={`/accomodations/page/1/city/${data.id}`}>
+                  <div key={data.id} className='country_element rounded-[10px] cursor-pointer overflow-hidden relative' >
                     <div className="country_element_content rounded-[13px] overflow-hidden">
                     <div className="country_element_image rounded-[13px] overflow-hidden max-w-[350px] w-[100%] h-[220px] max-[1024px]:max-w-none">
                         <img src={data.image}  className='w-[100%] h-[100%] object-cover rounded-[13px]  hover:scale-[1.3] duration-[0.3s] ease-in'  alt="" />

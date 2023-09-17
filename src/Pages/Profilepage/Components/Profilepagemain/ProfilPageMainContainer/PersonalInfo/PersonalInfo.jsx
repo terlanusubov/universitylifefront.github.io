@@ -27,13 +27,14 @@ const PersonalInfo = () => {
     const returnCurrentUser = () => {
         
       const obj = parseJwt(localStorage.getItem('tokenId'))
-      
       return   {
             email:obj.Email,
             userId:obj.id
         }
     }
-    
+
+    const [userInformations,setUserInformations] = useState([])
+
     const dispatch = useDispatch();
     dispatch(userInformationSlice.actions.setCurrentUserId(returnCurrentUser().userId))
     
@@ -44,8 +45,8 @@ const PersonalInfo = () => {
     const [EmailInputValue,setEmailInputValue] = useState(returnCurrentUser().email ? returnCurrentUser().email : '');
     const [PhoneInputValue,setPhoneInputValue] = useState('');
     const [CountryInputValue,setCountryInputValue] = useState('');
-    
-    
+    const [fullname,setFullname] = useState('')
+    const [staticPhone,setStaticPhone] = useState('')
     
     const updateUserInfo = async () => {
 
@@ -72,12 +73,30 @@ const PersonalInfo = () => {
        const result = await promise.json();
        if (result.statusCode === 200) {
         toast.success('Your Information Updated Successfully')
+        setTimeout(() => {
+            window.location.reload()
+        }, 500);
        }
        else {
         toast.error('Something Unknown Happened')
        }
+
     }
   
+
+    const fetchUserInformations = async () => {
+        const promise = await fetch(import.meta.env.VITE_API_KEY + `/account?UserId=${returnCurrentUser().userId}`)
+        const result = await promise.json();
+        setNameInputValue(result[0].name)
+        setSurnameInputValue(result[0].sureName)
+        setPhoneInputValue(result[0].phoneNumebr)
+        setFullname(result[0].name + ' ' + result[0].sureName)
+        setStaticPhone(result[0].phoneNumebr)
+    }
+    useEffect(() => {
+    fetchUserInformations();
+    },[])
+
   return (
     <>
     <Toaster/>
@@ -86,7 +105,7 @@ const PersonalInfo = () => {
              Information  
         </div>
         <div className="profile_page_personal_info_container p-[25px] bg-white rounded-[14px]  shadow-[1px_2px_10px_-5px_rgba(0,0,0,0.3)] my-[20px]">
-            <Profile editMode={editOpen} fullName={returnCurrentUser().name} phoneNumber={`+1 321 235 4324`} email={returnCurrentUser().email} setEditMode={setEditOpen}></Profile>
+            <Profile  editMode={editOpen} fullName={fullname ? fullname : ''} phoneNumber={staticPhone ? staticPhone : ''} email={returnCurrentUser().email} setEditMode={setEditOpen}></Profile>
 
             {
                 editOpen 
@@ -99,10 +118,9 @@ const PersonalInfo = () => {
                     <div className="personal_details_container  grid grid-cols-2  justify-items-start gap-y-[40px] gap-x-[20px]">
                             <InputComponent setInputValue={setNameInputValue} inputValue={NameInputValue} inputId="nameInput" inputTitle={'Name'}></InputComponent>
                             <InputComponent setInputValue={setSurnameInputValue} inputValue={SurnameInputValue} inputId="surnameInput" inputTitle={'Surname'}></InputComponent>
-                            <InputComponent setInputValue={setCountryInputValue} inputValue={CountryInputValue} inputId="countryInput" inputTitle={'Country'}></InputComponent>
                             <InputComponent setInputValue={setEmailInputValue} inputValue={EmailInputValue} inputId="emailInput" inputTitle={'Email'}></InputComponent>
                             <NumbersInput setInputValue={setPhoneInputValue} inputValue={PhoneInputValue}></NumbersInput>
-                            <button onClick={updateUserInfo} className='max-w-[250px] w-[100%] bg-customOrange flex items-center justify-center rounded-[10px] duration-[.1s] hover:bg-[#de6c5a] text-white'>
+                            <button onClick={updateUserInfo} className='max-w-[250px] h-[40px] w-[100%] bg-customOrange flex items-center justify-center rounded-[10px] duration-[.1s] hover:bg-[#de6c5a] text-white'>
                                 <span className="btn_text">
                                     Save Details
                                 </span>

@@ -17,21 +17,25 @@
         padding: 70px;
     }
 
+    .services-box-title {
+        padding: 0 8px;
+    }
+
     /* /////////////// */
     .services-box {
         width: 90%;
     }
 
     .services-box-title h4 {
-        font-size: 16px;
-    }
-
-    .services-box-title p {
         font-size: 14px;
     }
 
+    .services-box-title p {
+        font-size: 12px;
+    }
+
     .services-icon {
-        font-size: 18px;
+        font-size: 16px;
     }
 }
 
@@ -53,6 +57,11 @@
 
     .services-banner-title {
         padding: 70px;
+    }
+
+    .services-boxs {
+        grid-template-columns: repeat(3, 1fr);
+        padding: 0 10px;
     }
 
     /* /////////////// */
@@ -83,6 +92,7 @@
     /* /////////////// */
     .services-boxs {
         grid-template-columns: repeat(1, 100%);
+        padding: 0;
     }
 }
 
@@ -97,9 +107,33 @@
         text-align: center;
     }
 
+    .services-box-title {
+        padding: 0 8px;
+    }
+
+    .services-box-title h4 {
+        font-size: 14px;
+    }
+
+    .services-box-title p {
+        font-size: 12px;
+    }
+
+    .services-box img {
+        width: 98px;
+        height: 98px;
+    }
+
+    .services-icon {
+        font-size: 14px;
+    }
+
+
+
     /* /////////////// */
     .services-boxs {
         grid-template-columns: repeat(1, 1fr);
+        padding: 0;
     }
 }
 
@@ -114,21 +148,39 @@
         width: 100%;
     }
 
+    .services-box-title {
+        padding: 0 8px;
+    }
+
     .services-box-title h4 {
-        font-size: 16px;
+        font-size: 12px;
     }
 
     .services-box-title p {
-        font-size: 14px;
+        font-size: 10px;
+    }
+
+    .services-box img {
+        width: 85px;
+        height: 85px;
     }
 
     .services-banner-title {
         text-align: center;
     }
 
+    .services-box-title {
+        padding: 0 8px;
+    }
+
+    .services-icon {
+        font-size: 14px;
+    }
+
     /* /////////////// */
     .services-boxs {
         grid-template-columns: repeat(1, 100%);
+        padding: 0;
     }
 }
 
@@ -144,19 +196,20 @@
     }
 
     .services-box-title h4 {
-        font-size: 14px;
+        font-size: 12px;
     }
 
     .services-box img {
         width: 98px;
+        height: 98px;
     }
 
     .services-box-title p {
-        font-size: 12px;
+        font-size: 10px;
     }
 
     .services-icon {
-        font-size: 14px;
+        font-size: 12px;
     }
 
     .services-box:hover .services-icon {

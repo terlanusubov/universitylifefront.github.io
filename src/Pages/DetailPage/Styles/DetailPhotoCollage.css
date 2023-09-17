@@ -1,0 +1,41 @@
+div ul li img {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  color: transparent;
+}
+div button {
+  display: block;
+}
+.slick-prev {
+  left: 0;
+  z-index: 1;
+}
+
+.slick-prev {
+  width: 40px;
+  height: 60px;
+  background: rgba(0, 0, 0, 0.3);
+  transition: all 0.5s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.slick-next,
+.slick-prev {
+  font-size: 0;
+  /* line-height: 0; */
+  position: absolute;
+  top: 50%;
+  display: block;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  transform: translateY(-50%);
+  cursor: pointer;
+  border: none;
+}

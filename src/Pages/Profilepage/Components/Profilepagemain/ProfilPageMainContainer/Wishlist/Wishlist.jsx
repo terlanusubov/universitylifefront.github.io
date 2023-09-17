@@ -32,23 +32,24 @@ const Wishlist = () => {
 
   const [wishlistLoading,setWishListLoading] = useState(true)
   const [deletedBedroomId,setDeletedBedroomId] = useState(0);
+
   const fetchWishList = async () => {
     console.log(currentUserId);
     const promise = await fetch(import.meta.env.VITE_API_KEY + `/userwishlist?UserId=${currentUserId}`);
     const response = await promise.json();
-    setFavorites(response)
-    setWishListLoading(false)
+    setFavorites(response);
+    setWishListLoading(false);
+    console.log(response);
   }
 
   useEffect(() => {
-    fetchWishList()
+    fetchWishList();
   },[])
 
   const deleteHandler = (id) => {
-    setFavorites(favorites.filter((data) => data.bedRoomId != id));
+    setFavorites(favorites.filter((data) => data.id != id));
     toast.success("Item Successfully Deleted")
   }
-
   return (
     <>
     <Toaster/>
@@ -67,14 +68,13 @@ const Wishlist = () => {
                     ?
                     favorites.map((data) => {
                       return (
-                        <WishElement callback={deleteHandler} key={data.bedRoomId} wishId={data.userWishlistId} bedRoomId={data.bedRoomId}/>
+                        <WishElement bedRoomImages={data.bedRoomImages} bedRoomName={data.name} price={data.price} distance={data.distanceToCenter} callback={deleteHandler} key={data.id} wishId={data.userWishlistId} bedRoomId={data.bedRoomId}/>
                         )
                       })
                     :
                     wishlistLoading
                     ?
-                    <div className='animating animate-pulse bg-gray-300 max-w-[300px] w-[100%] h-[200px]'>
-
+                    <div className='animating animate-pulse bg-gray-300 max-w-[300px] w-[100%] h-[200px] rounded-[10px]'>
                     </div>
                     :
                     'Your Wishlist is Empty'

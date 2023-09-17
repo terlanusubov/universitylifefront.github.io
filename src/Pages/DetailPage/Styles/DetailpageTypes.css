@@ -1,0 +1,13 @@
+.DetailTypes button:hover {
+  background-color: rgb(60 60 113 / var(--tw-border-opacity));
+  color: white;
+}
+div button {
+  --tw-border-opacity: 1;
+  border-color: rgb(60 60 113 / var(--tw-border-opacity));
+}
+
+.DetailpageTypesActive {
+  background-color: rgb(60 60 113 / var(--tw-border-opacity));
+  color: white;
+}

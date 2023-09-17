@@ -7,7 +7,7 @@
   border: 1px solid black;
   outline: none;
   width: 100%;
-  padding: 5px;
+  /* padding: 5px; */
   padding-left: 29px;
   border: 0px;
 }
@@ -72,7 +72,7 @@
   padding-left: 13px;
   font-size: 12px;
 }
-.flag {
+/* .flag {
   transform: scale(0.85) translateY(-1.4rem) translateX(0.15rem);
   width: auto;
-}
+} */
