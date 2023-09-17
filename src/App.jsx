@@ -16,7 +16,7 @@ import Footer from './Mutualcomponents/Footer/Footer'
 import OurServices from './Pages/Services/OurServices/OurServices'
 import Services from './Pages/Services/Services'
 import Error from './Pages/Error/Error'
-
+import DetailPage from './Pages/DetailPage/Detailpage'
 import Mainpage from './Pages/Mainpage/Mainpage'
 
 // Stylings...
@@ -39,8 +39,9 @@ const modalState = useSelector((State) => State.modalReducer.isOpen)
        <Route path='/profile' element={<Profilepage/>}></Route>
        <Route path='/contact-us' element={<Contact/>}></Route>
        <Route path='/accomodations/page/:page' element={<Accommodation/>}></Route>
+       <Route path='/accomodations/bedroom/:bedRoomId' element={<DetailPage/>}></Route>
        {/* <Route path='/accomodations/page/:page/unveristyId/:universityId' element={<Accommodation/>}></Route> */}
-       {/* <Route path='*' element={<Error/>}></Route> */}
+       <Route path='*' element={<Error/>}></Route>  
     </Routes>
     <Footer></Footer>
    </div>

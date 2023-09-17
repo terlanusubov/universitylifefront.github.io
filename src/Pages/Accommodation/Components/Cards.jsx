@@ -3,12 +3,13 @@ import Card from './Card'
 import Caruseldata from './Caruseldata'
 import ReactPaginate from 'react-paginate';
 import '../Styles/cards.css'
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Toaster } from 'react-hot-toast';
 import { useNavigate, useParams } from 'react-router-dom';
+import { AccomodationSlice } from '../../../Redux/AccomodationSlice';
 
 const Cards = () => {
-
+  const dispatch = useDispatch();
   const [totalPage, setTotalPage] = useState(0);
   const [bedRooms, setBedRooms] = useState([]);
   const [RoomsPerPage, setRoomsPerPage] = useState()
@@ -86,6 +87,18 @@ const Cards = () => {
         
       }
   },[filterString])
+
+  useEffect(() => {
+
+    return () => {
+      setBedRooms([]);
+      dispatch(AccomodationSlice.actions.setCurrentFilterOption({
+        universityId:'',
+        cityId:''
+    }))
+      fetchBedRooms();
+    };
+  },[])
   
   useEffect(() => {
     if (!filterString) {

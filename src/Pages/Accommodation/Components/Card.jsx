@@ -16,7 +16,7 @@ const [isFavoriteCard,setIsFavoriteCard] = useState(props.isFavorite);
 const dispatch = useDispatch();
 const [userWishListId,setUserWishListId] = useState(props.userWishlistId)
  
-  const deleteHandler = async () => {
+const deleteHandler = async () => {
       if (!userWishListId) {
           return false;
         }
@@ -35,7 +35,7 @@ const [userWishListId,setUserWishListId] = useState(props.userWishlistId)
 }
 
 
-  const parseJwt = (token) => {
+const parseJwt = (token) => {
     var base64Url = token.split('.')[1];
     var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
     var jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function(c) {
@@ -43,14 +43,14 @@ const [userWishListId,setUserWishListId] = useState(props.userWishlistId)
     }).join(''));
 
     return JSON.parse(jsonPayload);
-  }
+}
   
 
 
 
 
 
-    const addToWishListHandler = async () => {
+const addToWishListHandler = async () => {
         
 
         if (!localStorage.getItem('tokenId')){
@@ -83,7 +83,7 @@ const [userWishListId,setUserWishListId] = useState(props.userWishlistId)
            setUserWishListId(response.response.userWishlistId)
         }
         
-    }
+}
 
 
     return (
@@ -147,10 +147,7 @@ const [userWishListId,setUserWishListId] = useState(props.userWishlistId)
                         <div className='text-right text-customOrange font-bold text-[1rem] leading-5'>{props.price} &nbsp; £/week</div>
                     </div>
                     <div className='flex items-end justify-between mt-1.5'>
-                        <div className='mt-1 flex'>
-                            <div className='text-center bg-gray-400/20 text-[0.65rem] mr-2.5 px-2 py-1 rounded capitalize text-gray-700'>No Visa No Pay</div>
-                            <div className='text-center bg-gray-400/20 text-[0.65rem] px-2 py-1 rounded capitalize text-gray-700'>No University No Pay</div>
-                        </div>
+                        
                     </div>
                 </div>
             </div>

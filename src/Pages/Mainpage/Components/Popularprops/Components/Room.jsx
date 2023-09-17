@@ -5,8 +5,10 @@ import {BsSuitHeartFill as HeartIconFill} from 'react-icons/bs'
 import {BsHouseAddFill as HouseIconPricing} from 'react-icons/bs' 
 
 import '../Styles/Room.scss'
+import { Link } from 'react-router-dom'
 const Room = (props) => {
   return (
+    <Link to={`/accomodations/bedroom/${2}`}>
     <div className='popular_props_room w-[100%] max-w-[340px] max-[1341px]:max-w-[310px]  max-[1024px]:min-w-[300px]  h-[230px] max-[1450px]:h-[210px] max-[1200px]:h-[194px] rounded-[20px]'>
       <div className="popular_props_room_top relative h-[85%]">
         {/* <div className="pricing max-w-[170px] w-[100%] h-[30px]  absolute top-[-7px] rounded-[10px] rounded-t-[0px] gap-[7px] flex items-center pl-[5px] left-[20px] ">
@@ -32,6 +34,7 @@ const Room = (props) => {
         </div>
       </div>
     </div>
+    </Link>  
   )
 }
 
