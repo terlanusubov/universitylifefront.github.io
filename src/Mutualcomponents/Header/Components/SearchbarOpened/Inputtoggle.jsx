@@ -16,16 +16,14 @@ const inputtoggle = ({result,resultType,isLoading,searchValue}) => {
   const dispatch = useDispatch();
   const navigateToAccomodations = (data) => {
     if (data.universityId) {
-      dispatch(AccomodationSlice.actions.setCurrentFilterOption({universityId:data.universityId}));
-      dispatch(searchInputSlice.actions.closeSearchInput());
-
+      dispatch(AccomodationSlice.actions.setCurrentFilterOption({universityId:data.universityId,cityId:''}));
       navigate(`/accomodations/page/1`,{replace:true})
     }
     else if(data.cityId) {
-      dispatch(AccomodationSlice.actions.setCurrentFilterOption({cityId:data.cityId}));
-      dispatch(searchInputSlice.actions.closeSearchInput());
+      dispatch(AccomodationSlice.actions.setCurrentFilterOption({universityId:'',cityId:data.cityId}));
       navigate(`/accomodations/page/1/city/${data.cityId}`,{replace:true})
     }
+    dispatch(searchInputSlice.actions.closeSearchInput());
   }
   
   return (
@@ -35,9 +33,8 @@ const inputtoggle = ({result,resultType,isLoading,searchValue}) => {
       ?
       <div className='search_results overflow-y-scroll min-h-fit max-h-[430px] pb-0'>
         {
-        result.map((data) => 
-      
-         <div onClick={() => navigateToAccomodations(data)} className='search_result last:rounded-bl-[10px] p-[10px] cursor-pointer text-customOrange hover:text-white hover:bg-customLightOrange flex items-center gap-[10px]'>
+        result.map((data,index) => 
+         <div key={index} onClick={() => navigateToAccomodations(data)} className='search_result last:rounded-bl-[10px] p-[10px] cursor-pointer text-customOrange hover:text-white hover:bg-customLightOrange flex items-center gap-[10px]'>
           {
             data.universityId
             ?

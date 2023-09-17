@@ -51,7 +51,6 @@ const parseJwt = (token) => {
 
 
 
-
 const addToWishListHandler = async () => {
         
 
@@ -89,11 +88,10 @@ const addToWishListHandler = async () => {
 
 
     return (
-        <Link to={`/accomodations/bedroom/${props.bedRoomId}`} replace>
         <div className='card'>
             <div className='rounded-lg shadow-md hover:shadow-md transition-all flex-shrink-0 lg:w-full flex flex-col text-opacity-100 text-[#3e3E3E]'>
                 <div className='relative h-52'>
-                    <Link  className='w-full h-full'>
+                    <Link  to={`/accomodations/bedroom/${props.bedRoomId}`} replace className='w-full h-full'>
                         <Carousel infiniteLoop={true} showThumbs={false} showStatus={false}>
                             <div>
                                 <img className='h-52 w-full rounded-t-md object-cover'  src={props.slideImages[0]} />
@@ -155,7 +153,6 @@ const addToWishListHandler = async () => {
                 </div>
             </div>
         </div>
-        </Link>
     )
 }
 
