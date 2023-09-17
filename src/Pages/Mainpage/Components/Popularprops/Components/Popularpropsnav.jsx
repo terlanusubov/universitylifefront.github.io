@@ -36,7 +36,6 @@ const PopularpropsNav = () => {
   const fetchCountries = async () => {
     const promise = await fetch(import.meta.env.VITE_API_KEY + '/countries');
     const response = await promise.json()
-    console.log(response);
     let defaultCountry;
     const mappedResponse = response.map((data,index) => {
       if (index === 0) {

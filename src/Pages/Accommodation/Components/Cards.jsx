@@ -20,7 +20,7 @@ const Cards = () => {
   const [distanceLimit,setDistanceLimit] = useState(5300);
   const [loadingBedRooms,setLoadingBedrooms] = useState(true)
   const [currentPage, setCurrentPage] = useState(useParams().page)
-
+  const [currentCityFilter,setCurrentCityFilter] = useState(useParams().cityId)
   // States
 
   const navigate = useNavigate();
@@ -39,10 +39,11 @@ const Cards = () => {
   }
 
   const fetchBedRoomsWithUniversity = async () => {
-      
+       
       const promise = await fetch(import.meta.env.VITE_API_KEY + `/bedroom?Page=${currentPage}&UniversityId=${filterString}`)
     const {response} = await promise.json();
     const {dictance:distance,bedRooms:bedRoomsArr,totalPage} = response;
+    console.log('fetch with city', response);
     setDistances(distance);
     setTotalPage(totalPage)
     const mappedDistances =  distance.map((data) => {
@@ -64,33 +65,46 @@ const Cards = () => {
     navigate('/accomodations/page/1')
   }
 
-  const fetchBedRooms = async () => {
+  const fetchBedRoomsWithCity = async () => {
+    const promise = await fetch(import.meta.env.VITE_API_KEY + `/bedroom?Page=${currentPage}&CityId=${currentCityFilter}`)
+    const {response} = await promise.json();
+    const {bedRooms,totalPage} = response
+    console.log('fetch with city', response);
+    setBedRooms(bedRooms)
+    setTotalPage(totalPage)
+  }
 
+  const fetchBedRooms = async () => {
     const promise = await fetch(import.meta.env.VITE_API_KEY +`/bedroom?Page=${currentPage}`);
     const result = await promise.json();
     const { bedRooms, pageSize, totalData, totalPage } = result.response;
-    console.log(result);
     setRoomsPerPage(pageSize);
     setTotalPage(totalPage);
-    setTotalData(totalData);
+    // setTotalData(totalData);
     await fetchFavorites();
     setBedRooms(bedRooms)
-    setEndOffset(0 + pageSize);
+    // setEndOffset(0 + pageSize);
     setLoadingBedrooms(false)
   }
 
-
+  useEffect(() => {
+    if (currentCityFilter) {
+      console.log('use effect with currentCityFilter');
+      fetchBedRoomsWithCity();
+    }
+  },[currentCityFilter])
 
   useEffect(() => {
-      if (filterString) {
+    if (filterString) {
+        console.log('use Effect with filterstring');
         fetchBedRoomsWithUniversity();
-        
       }
   },[filterString])
 
   useEffect(() => {
 
     return () => {
+      console.log('unmounting useEffect');
       setBedRooms([]);
       dispatch(AccomodationSlice.actions.setCurrentFilterOption({
         universityId:'',
@@ -101,8 +115,11 @@ const Cards = () => {
   },[])
   
   useEffect(() => {
-    if (!filterString) {
+    if (!filterString && !currentCityFilter) {
       fetchBedRooms();
+    }
+    if (currentCityFilter) {
+      fetchBedRoomsWithCity();
     }
       setTimeout(() => {
         window.scroll({
@@ -111,7 +128,7 @@ const Cards = () => {
           behavior: 'smooth' 
          });
       }, 100);
-  }, [currentPage])
+  },[currentPage])
   
   
   const fetchFavorites = async () => {
@@ -140,6 +157,7 @@ const Cards = () => {
           ?
           bedRooms.map((data) => {
               // let isFavorite = favoritedIds.map((data) => data.id).includes(data.id);
+              console.log(data);
                let isFavorite = favoritedIds.some((UserFavorites) => UserFavorites.id == data.id);
                let wishListId = favoritedIds.find((favorited) => favorited.id == data.id);
                return <Card userWishlistId={wishListId ? wishListId.userWishlistId : null} isFavorite={isFavorite} bedRoomId={data.id} type={data.bedRoomRoomTypes} price={data.price} key={data.id} title={data.name} description={data.description} slideImages={data.bedRoomImages} />

@@ -40,8 +40,8 @@ const modalState = useSelector((State) => State.modalReducer.isOpen)
        <Route path='/contact-us' element={<Contact/>}></Route>
        <Route path='/accomodations/page/:page' element={<Accommodation/>}></Route>
        <Route path='/accomodations/bedroom/:bedRoomId' element={<DetailPage/>}></Route>
-       {/* <Route path='/accomodations/page/:page/unveristyId/:universityId' element={<Accommodation/>}></Route> */}
-       <Route path='*' element={<Error/>}></Route>  
+       <Route path='/accomodations/page/:page/city/:cityId' element={<Accommodation/>}></Route>
+       <Route path='*' element={<Error/>}></Route>    
     </Routes>
     <Footer></Footer>
    </div>

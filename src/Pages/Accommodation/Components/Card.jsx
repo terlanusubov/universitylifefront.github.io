@@ -8,6 +8,8 @@ import { useCart } from 'react-use-cart';
 import { useDispatch } from 'react-redux';
 import { ModalSlice } from '../../../Redux/ModalSlice';
 import toast from 'react-hot-toast';
+
+
 const Card = (props) => {
 
 
@@ -87,6 +89,7 @@ const addToWishListHandler = async () => {
 
 
     return (
+        <Link to={`/accomodations/bedroom/${props.bedRoomId}`} replace>
         <div className='card'>
             <div className='rounded-lg shadow-md hover:shadow-md transition-all flex-shrink-0 lg:w-full flex flex-col text-opacity-100 text-[#3e3E3E]'>
                 <div className='relative h-52'>
@@ -105,8 +108,8 @@ const addToWishListHandler = async () => {
                     </Link>
                     {/* <div className='offer-link'>
                         <Link className='flex items-center absolute left-3 bg-white text-xs px-2 p-1 cursor-pointer rounded-b text-black font-semibold before:absolute before:border-t-[7px] before:-left-[6px] before:border-r-[6px] before:border-r-[#9e9e9e] before:scale-100 before:top-0 before:border-transparent after:absolute after:border-t-[7px] after:-right-[6px] after:border-l-[6px] after:border-l-[#9e9e9e] after:scale-100 after:top-0 after:border-transparent'>
-                            <img src={offerimg} alt="" className='w-[22px] h-[22px]' />
-                            <p className='text-xs pl-1 uppercase m-0'>offer upto <span className='text-customOrange font-semibold'>&nbsp; 50 &nbsp;£</span> </p>
+                        <img src={offerimg} alt="" className='w-[22px] h-[22px]' />
+                        <p className='text-xs pl-1 uppercase m-0'>offer upto <span className='text-customOrange font-semibold'>&nbsp; 50 &nbsp;£</span> </p>
                         </Link>
                     </div> */}
                     {/* <div className='cursor-pointer flex items-center bottom-2 left-2 rounded p-2 absolute text-white bg-[#3C3C71]'>
@@ -124,7 +127,7 @@ const addToWishListHandler = async () => {
                         <svg  className=" shadow-2xl fill-[#d91010] opacity-60 w-6 h-6 cursor-pointer" fill="currentColor" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1z"></path></svg>
                         :
                         <svg  className=" shadow-2xl fill-[#000000a2] opacity-60 w-6 h-6 cursor-pointer" fill="currentColor" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1z"></path></svg>
-                        }
+                    }
                     </div>
                 </div>
                 <div className='w-full bg-white rounded-b-md p-3'>
@@ -152,6 +155,7 @@ const addToWishListHandler = async () => {
                 </div>
             </div>
         </div>
+        </Link>
     )
 }
 
