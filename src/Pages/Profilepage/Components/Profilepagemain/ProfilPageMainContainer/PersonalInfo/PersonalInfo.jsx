@@ -73,10 +73,14 @@ const PersonalInfo = () => {
        const result = await promise.json();
        if (result.statusCode === 200) {
         toast.success('Your Information Updated Successfully')
+        setTimeout(() => {
+            window.location.reload()
+        }, 500);
        }
        else {
         toast.error('Something Unknown Happened')
        }
+
     }
   
 
@@ -91,7 +95,6 @@ const PersonalInfo = () => {
     }
     useEffect(() => {
     fetchUserInformations();
-    
     },[])
 
   return (

@@ -129,7 +129,7 @@ export const ContactForm = () => {
     
     setIsEmailFocused(true);
     setIsFullNameFocused(true)
-    setContactFullName(result[0].name + result[0].sureName)
+    setContactFullName(result[0].name + ' ' +result[0].sureName)
     setContactEmail(result[0].email)
     setPhoneInputValue(result[0].phoneNumebr)
 

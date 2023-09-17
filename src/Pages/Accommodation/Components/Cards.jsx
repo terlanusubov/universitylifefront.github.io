@@ -38,11 +38,12 @@ const Cards = () => {
   }
 
   const fetchBedRoomsWithUniversity = async () => {
-      setCurrentPage(1)
+      
       const promise = await fetch(import.meta.env.VITE_API_KEY + `/bedroom?Page=${currentPage}&UniversityId=${filterString}`)
     const {response} = await promise.json();
-    const {dictance:distance,bedRooms:bedRoomsArr} = response;
+    const {dictance:distance,bedRooms:bedRoomsArr,totalPage} = response;
     setDistances(distance);
+    setTotalPage(totalPage)
     const mappedDistances =  distance.map((data) => {
       const arr = Object.entries(data)
       return {
@@ -50,7 +51,6 @@ const Cards = () => {
         distance: arr[0][1]
       }
     })
-    console.log(mappedDistances);
     const validDistances = mappedDistances.filter((data) => data.distance < distanceLimit);
 
     const filteredBedrooms =  bedRoomsArr.filter((bedRoom) => {
@@ -59,9 +59,8 @@ const Cards = () => {
       }
     });
 
-    console.log(filteredBedrooms);
     setBedRooms(filteredBedrooms)
-
+    navigate('/accomodations/page/1')
   }
 
   const fetchBedRooms = async () => {
@@ -89,7 +88,9 @@ const Cards = () => {
   },[filterString])
   
   useEffect(() => {
+    if (!filterString) {
       fetchBedRooms();
+    }
       setTimeout(() => {
         window.scroll({
           top: 0, 
@@ -136,18 +137,7 @@ const Cards = () => {
       </div>
       <div className='sm:flex sm:flex-1 sm:items-center sm:justify-between'>
         <div className='hidden lg:block'>
-          {
-            loadingBedRooms
-            ?
-            'Loading...'
-            :
-            <p className='text-gray-700 text-sm'>
-              Showing
-              <span className='font-medium'>&nbsp;1&nbsp;-&nbsp;{totalPage} &nbsp;</span>
-              properties out of
-              <span className='font-medium'>&nbsp;{totalData}</span>
-            </p>
-          }
+          
         </div>
         <div className='flex items-center'>
           <span className='text-sm text-gray-700 mr-2'>Page</span>
