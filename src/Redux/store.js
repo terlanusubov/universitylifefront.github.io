@@ -1,6 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { ProfileTogglesSlice } from "./ProfileSlice";
 import { searchInputSlice } from "./toggleSlice";
+import { detailSliderSlice } from "./slider";
 import { sideBarSlice } from "./toggleSlice";
 import { bannerSlice } from "./toggleSlice";
 import { authenticationSlice } from "./AuthenticationSlice";
@@ -20,7 +21,8 @@ const store = configureStore({
             propertiesReducer:propertiesSlice.reducer,
             userInformationReducer:userInformationSlice.reducer,
             detailPageReducer:detailPageSlice.reducer,
-            accomodationReducer:AccomodationSlice.reducer
+            accomodationReducer:AccomodationSlice.reducer,
+            detailSliceReducer:detailSliderSlice.reducer
     }
 })
 

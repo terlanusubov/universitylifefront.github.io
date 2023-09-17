@@ -1,0 +1,17 @@
+@media (min-width: 1024px) {
+  .top-header-desktop {
+    top: 82px;
+  }
+}
+
+.divider {
+  border-bottom-width: 1px;
+  --tw-border-opacity: 1;
+  border-color: rgb(243 244 246 / var(--tw-border-opacity));
+}
+
+.DetailPageLocNameActive {
+  --tw-border-opacity: 1;
+  border-color: rgb(60 60 113 / var(--tw-border-opacity));
+  border-bottom-width: 3px;
+}
