@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState,useRef } from 'react'
 import Card from './Card'
 import Caruseldata from './Caruseldata'
 import ReactPaginate from 'react-paginate';
@@ -7,7 +7,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Toaster } from 'react-hot-toast';
 import { useNavigate, useParams } from 'react-router-dom';
 import { AccomodationSlice } from '../../../Redux/AccomodationSlice';
-
+import {favoritesSlice} from '../../../Redux/FavoritesSlice'
+import CustomPagination from './Pagination'
+import Pagination from 'rc-pagination';
 const Cards = () => {
   const dispatch = useDispatch();
   const [totalPage, setTotalPage] = useState(0);
@@ -22,7 +24,7 @@ const Cards = () => {
   const [currentPage, setCurrentPage] = useState(useParams().page)
   const [currentCityFilter,setCurrentCityFilter] = useState(useParams().cityId)
   // States
-
+  const carouselRef = useRef(null); 
   const navigate = useNavigate();
 
   const FilterCityId = useSelector((state) => state.accomodationReducer.currentFilterOptions.cityId)
@@ -42,7 +44,6 @@ const Cards = () => {
     const promise = await fetch(import.meta.env.VITE_API_KEY + `/bedroom?Page=${currentPage}&UniversityId=${filterString}`)
     const {response} = await promise.json();
     const {dictance:distance,bedRooms:bedRoomsArr,totalPage} = response;
-    console.log('fetch with university', response);
     setDistances(distance);
     setTotalPage(totalPage)
     const mappedDistances =  distance.map((data) => {
@@ -68,7 +69,6 @@ const Cards = () => {
     const promise = await fetch(import.meta.env.VITE_API_KEY + `/bedroom?Page=${currentPage}&CityId=${FilterCityId ? FilterCityId : currentCityFilter}`)
     const {response} = await promise.json();
     const {bedRooms,totalPage} = response
-    console.log('fetch with city', response);
     setBedRooms(bedRooms)
     setTotalPage(totalPage)
   }
@@ -87,25 +87,20 @@ const Cards = () => {
   }
 
   useEffect(() => {
-    console.log('filter city id is changed');
     if (FilterCityId) {
       dispatch(AccomodationSlice.actions.setCurrentFilterOption({universityId:'',cityId:FilterCityId}))
       fetchBedRoomsWithCity();
     }
     else if (currentCityFilter) {
       dispatch(AccomodationSlice.actions.setCurrentFilterOption({universityId:'',cityId:currentCityFilter}))
-      console.log(currentCityFilter);
       fetchBedRoomsWithCity();
     }
   },[FilterCityId])
 
   useEffect(() => {
-    console.log('changed uni');
     if (filterString) {
-        console.log('use Effect with filterstring');
         dispatch(AccomodationSlice.actions.setCurrentFilterOption({universityId:filterString,cityId:''}))
         fetchBedRoomsWithUniversity();
-        
       }
       else if (currentCityFilter) {
         setCurrentCityFilter('')
@@ -115,9 +110,7 @@ const Cards = () => {
 
 
   useEffect(() => {
-
     return () => {
-      console.log('unmounting useEffect');
       setBedRooms([]);
       dispatch(AccomodationSlice.actions.setCurrentFilterOption({
         universityId:'',
@@ -127,8 +120,6 @@ const Cards = () => {
   },[])
   
   useEffect(() => {
-    console.log(filterString);
-    console.log(currentCityFilter);
     if (!filterString && !currentCityFilter) {
       fetchBedRooms();
     }
@@ -161,9 +152,12 @@ const Cards = () => {
   }
 
   const changePageHandler = (e) => {
-    setCurrentPage(e.selected + 1);
-    navigate(`/accomodations/page/${e.selected + 1}`, {replace:true})
+    setCurrentPage(e);
+    console.log(e);
+    navigate(`/accomodations/page/${e}`, {replace:true})
   }
+
+
 
   return (
     <>
@@ -193,20 +187,23 @@ const Cards = () => {
           {
             bedRooms.length
             ?
-            <ReactPaginate
-            previousLabel={'<'}
-            nextLabel={'>'}
-            pageCount={totalPage}
-            onPageChange={changePageHandler}
-            pageRangeDisplayed={3}
-            marginPagesDisplayed={1}
-            containerClassName={'paginate'}
-              pageLinkClassName={'pagelink'}
-              previousLinkClassName={'prepagelink'}
-              nextLinkClassName={'nextpagelink'}
-              activeLinkClassName={'activepagelink'}
-              disabledLinkClassName={'disabledpagelink'}
-              />
+            //  <ReactPaginate
+            //   previousLabel={'<'}
+            //   nextLabel={'>'}
+            //   pageCount={totalPage}
+            //   onPageChange={changePageHandler}
+            //   pageRangeDisplayed={3}
+            //   marginPagesDisplayed={1}
+            //   containerClassName={'paginate'}
+            //     pageLinkClassName={'pagelink'}
+            //     previousLinkClassName={'prepagelink'}
+            //     nextLinkClassName={'nextpagelink'}
+            //     activeLinkClassName={'activepagelink'}
+            //     disabledLinkClassName={'disabledpagelink'}
+            //     ref={carouselRef}
+                
+            //   />  
+            <CustomPagination currentPage={+currentPage} totalPages={totalPage} onPageChange={changePageHandler}  />
               :
               'Loading'
             }
@@ -214,7 +211,7 @@ const Cards = () => {
         </div>
       </div>
     </div>
-            </>
+    </>
 
   )
 }

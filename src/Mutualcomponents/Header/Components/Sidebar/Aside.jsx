@@ -33,7 +33,7 @@ const Aside = () => {
           <div className="quit_icon">
             <Closeicon className='text-[34px] cursor-pointer' onClick={closeSideBar}></Closeicon>
           </div>
-          <div className="image ml-[5px]  max-w-[200px]">
+          <div className="image ml-[5px] h-[50px] max-w-[200px]">
           <img src={Logo} onClick={(e) => navigateAndClose(e,'/')} className='w-[100%  h-[100%]' alt=""/>
           </div>
         </div>

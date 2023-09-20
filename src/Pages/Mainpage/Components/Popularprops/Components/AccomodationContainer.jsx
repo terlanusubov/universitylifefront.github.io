@@ -39,7 +39,7 @@ const fetchRooms = async () => {
       rooms.map((data,index) => {
         console.log(data)
         return (
-          <Room key={data.bedRoomStatusId} views={1561} bg={data.bedRoomImages[0]} roomName={data.name} offerPrice={50} weeklyPrice={data.price}></Room>
+          <Room id={data.id} key={data.id} views={1561} bg={data.bedRoomImages[0]} roomName={data.name} offerPrice={50} weeklyPrice={data.price}></Room>
         )
       })
       :

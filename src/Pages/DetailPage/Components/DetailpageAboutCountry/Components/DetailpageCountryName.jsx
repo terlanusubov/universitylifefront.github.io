@@ -1,20 +1,101 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { FaHeart } from "react-icons/fa6";
 /////////
 import "../../../Styles/DetailpageCountryName.css";
-const DetailpageCountryName = () => {
+import { useState } from "react";
+import { useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { ModalSlice } from "../../../../../Redux/ModalSlice";
+import toast from "react-hot-toast";
+
+const DetailpageCountryName = ({userId,bedRoomId}) => {
+const dispatch = useDispatch();
+
+const [isFavorite,setIsFavorite] = useState(false);
+const [favorites,setFavorites] = useState([])
+const [wishListId,setWishListId] = useState();
+
+  const fetchFavorites =  async () => {
+    if (!userId) {
+      return false;
+    }
+    const promise = await fetch(import.meta.env.VITE_API_KEY + `/userwishlist?UserId=${userId}`)
+    const response = await promise.json();
+    setIsFavorite(response.some((data) => data.id === +bedRoomId));
+    setWishListId(response.find((data) => data.id === +bedRoomId).userWishlistId)
+  }
+
+
+  const deleteFromWishlistHandler = async () => {
+    if (!wishListId) {
+      return false;
+    }
+
+    const promise = await fetch(import.meta.env.VITE_API_KEY  + `/userwishlist/${wishListId}`, {
+      method:'DELETE'
+    })
+    const response = await promise.json();
+    if (response.statusCode === 200) {
+      setIsFavorite(false);
+      toast.success('Item Removed Successfully')
+    }
+    console.log(response);
+  }
+
+  const addToWishlistHandler = async () => {
+    if (!userId) {
+        dispatch(ModalSlice.actions.openModal());
+        return false;
+    }
+    if (isFavorite) {
+      deleteFromWishlistHandler();
+      return false;
+    }
+    const promise = await fetch(import.meta.env.VITE_API_KEY + '/userwishlist', {
+      method:'POST',
+      headers: {
+        'Content-type':'application/json'
+      },
+      body: JSON.stringify({
+        userId:+userId,
+        bedRoomId:+bedRoomId
+      })
+    })
+    const response = await promise.json();
+    if (response.statusCode === 200) {
+      toast.success('Item Successfully Added');
+      setIsFavorite(true)
+    }
+    else if (response.statusCode === 208) {
+      toast.error('This Item Already Exist In Your Wishlist')
+    }
+  }
+
+
+  useEffect(() => {
+    fetchFavorites();
+  },[])
+
   return (
     <div className="">
-      <div className="mt-3 lg:mt-0 mb-2 lg:mb-0 flex justify-between">
-        <h1 class="font-semibold text-gray-800">Nottingham Two Nottingham</h1>
-        <div className="te-savep flex items-center  cursor-pointer">
-          <span className="shadow-2xl fill-[#000] opacity-60 w-5 h-4 cursor-pointer te-savep">
-            <FaHeart></FaHeart>
+      <div className="mt-3 lg:mt-0 mb-2 lg:mb-0  items-center h-[50px] flex justify-between">
+        <h1 className="font-semibold text-gray-800">Nottingham Two Nottingham</h1>
+          <button onClick={addToWishlistHandler} className="te-savep flex  gap-[20px]  h-full cursor-pointer">
+            {
+              isFavorite
+              ?
+          <span className="shadow-2xl  text-[30px] opacity-60 w-5 h-4 cursor-pointer te-savep">
+            <FaHeart fill="red"/>
           </span>
+            :
+            <span className="shadow-2xl text-[30px] opacity-60 w-5 h-4 cursor-pointer te-savep">
+            <FaHeart />
+           </span>
+            } 
           <p className="te-savep text-base text-theme-gray-text font-normal pl-1 hover:underline cursor-pointer sm:block hidden">
             Wishlist
           </p>
-        </div>
+          </button>
       </div>
     </div>
   );

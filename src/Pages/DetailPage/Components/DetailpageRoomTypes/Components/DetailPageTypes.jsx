@@ -2,45 +2,44 @@ import React from "react";
 /////////
 import "../../../Styles/DetailpageTypes.css";
 /////////
-const DetailPageTypes = () => {
+const DetailPageTypes = ({types}) => {
   return (
-    <div>
-      <div class="py-1 w-full sticky top-[125px] lg:top-[140px] bg-white z-[1] drop-shadow-md">
-        <div class=" DetailTypes flex overflow-x-auto no-scrollbar container false">
-          <button
-            class=" DetailpageTypesActive mr-2 w-36 content-font flex-shrink-0 te-All my-1 px-4 py-2 rounded-md text-base   border  transition-colors disabled:opacity-70 disabled:cursor-not-allowed"
+      <div className="py-1 w-full sticky top-[125px] lg:top-[140px] bg-white z-[1] drop-shadow-md">
+        <div className=" DetailTypes flex overflow-x-auto no-scrollbar container false">
+    
+          {
+            types
+            &&
+            types.map((data,index) => {
+              return (
+          <button key={index}
+            className={`${index === 0 ? 'DetailpageTypesActive' : ''} mx-2 w-36 content-font flex-shrink-0 te-Ensuite my-1 px-4 py-2 rounded-md text-base  border transition-colors disabled:opacity-70 disabled:cursor-not-allowed`}
             // type="button"
           >
-            <div class="flex items-center justify-center gap-2 truncate te-All">
-              All
+            <div className="flex items-center justify-center gap-2 truncate te-Ensuite">
+             {data}
             </div>
           </button>
+              )
+            })
+          }
           <button
-            class="  mx-2 w-36 content-font flex-shrink-0 te-Ensuite my-1 px-4 py-2 rounded-md text-base  border transition-colors disabled:opacity-70 disabled:cursor-not-allowed"
+            className="  mx-2 w-36 content-font flex-shrink-0 te-Studio my-1 px-4 py-2 rounded-md text-base  border transition-colors disabled:opacity-70 disabled:cursor-not-allowed"
             // type="button"
           >
-            <div class="flex items-center justify-center gap-2 truncate te-Ensuite">
-              Ensuite
-            </div>
-          </button>
-          <button
-            class="  mx-2 w-36 content-font flex-shrink-0 te-Studio my-1 px-4 py-2 rounded-md text-base  border transition-colors disabled:opacity-70 disabled:cursor-not-allowed"
-            // type="button"
-          >
-            <div class="flex items-center justify-center gap-2 truncate te-Studio">
+            <div className="flex items-center justify-center gap-2 truncate te-Studio">
               Studio
             </div>
           </button>
           <button
-            class="  mx-2 w-36 content-font flex-shrink-0 te-Apartments my-1 px-4 py-2 rounded-md text-base  border transition-colors disabled:opacity-70 disabled:cursor-not-allowed"
+            className="  mx-2 w-36 content-font flex-shrink-0 te-Apartments my-1 px-4 py-2 rounded-md text-base  border transition-colors disabled:opacity-70 disabled:cursor-not-allowed"
             // type="button"
           >
-            <div class="flex items-center justify-center gap-2 truncate te-Apartments">
+            <div className="flex items-center justify-center gap-2 truncate te-Apartments">
               Apartments
             </div>
           </button>
         </div>
-      </div>
     </div>
   );
 };

@@ -21,20 +21,20 @@ const DetailPageRooms = () => {
                 class="te-room-img object-cover h-full md:max-h-[260px] w-full rounded-t-xl lg:rounded-tl-xl lg:rounded-tr-none cursor-pointer"
                 loading="lazy"
               />
-              <div class="absolute bottom-2.5 flex">
-                <div class="rounded ml-2 px-1.5 py-0.5 flex bg-black/50 cursor-pointer">
+              <div className="absolute bottom-2.5 flex">
+                <div className="rounded ml-2 px-1.5 py-0.5 flex bg-black/50 cursor-pointer">
                   <img
                     alt="View all photos"
-                    srcset="https://cdn.universityliving.com/files/1669200157285photo.svg?w=32 1x, https://cdn.universityliving.com/files/1669200157285photo.svg?w=48 2x"
+                    srcSet="https://cdn.universityliving.com/files/1669200157285photo.svg?w=32 1x, https://cdn.universityliving.com/files/1669200157285photo.svg?w=48 2x"
                     src="https://cdn.universityliving.com/files/1669200157285photo.svg?w=48"
                     width="20"
                     height="24"
                     decoding="async"
                     data-nimg="1"
-                    class="w-[20px] h-[24px]"
+                    className="w-[20px] h-[24px]"
                     loading="lazy"
                   />
-                  &nbsp;<span class="text-white ml-1">4</span>
+                  &nbsp;<span className="text-white ml-1">4</span>
                 </div>
               </div>
             </div>
@@ -59,68 +59,68 @@ const DetailPageRooms = () => {
             </div>
           </div>
           <div className="px-4 lg:px-6">
-            <div class="border-t border-gray-300 mt-6 mb-3"></div>
-            <div class="hidden lg:grid grid-cols-4 gap-4">
-              <ul class="col-span-4 md:col-span-3 flex justify-between w-full mt-2.5 mb-2">
-                <li class="w-2/12">
-                  <p class="content-font text-gray-600 font-bold">
+            <div className="border-t border-gray-300 mt-6 mb-3"></div>
+            <div className="hidden lg:grid grid-cols-4 gap-4">
+              <ul className="col-span-4 md:col-span-3 flex justify-between w-full mt-2.5 mb-2">
+                <li className="w-2/12">
+                  <p className="content-font text-gray-600 font-bold">
                     Stay Duration
                   </p>
                 </li>
-                <li class="w-2/6">
-                  <p class="content-font text-gray-600 font-bold">Move</p>
+                <li className="w-2/6">
+                  <p className="content-font text-gray-600 font-bold">Move</p>
                 </li>
-                <li class="w-2/12">
-                  <p class="content-font text-gray-600 font-bold">Occupancy</p>
+                <li className="w-2/12">
+                  <p className="content-font text-gray-600 font-bold">Occupancy</p>
                 </li>
-                <li class="w-2/12">
-                  <p class="content-font text-gray-600 font-bold">Price</p>
+                <li className="w-2/12">
+                  <p className="content-font text-gray-600 font-bold">Price</p>
                 </li>
-                <li class="w-2/12">
-                  <p class="content-font text-gray-600 font-bold">Total </p>
+                <li className="w-2/12">
+                  <p className="content-font text-gray-600 font-bold">Total </p>
                 </li>
               </ul>
             </div>
             <div className="DetailPagelastBorder">
               <div className="  border-b border-gray-300  py-5 first:pt-0 space-y-3">
-                <div class="grid grid-cols-4 gap-4 items-center">
-                  <ul class="ratesMain col-span-4 lg:col-span-3 flex-wrap lg:flex-nowrap flex justify-between w-full lg:items-center">
+                <div className="grid grid-cols-4 gap-4 items-center">
+                  <ul className="ratesMain col-span-4 lg:col-span-3 flex-wrap lg:flex-nowrap flex justify-between w-full lg:items-center">
                     <li
-                      class="w-4/12 lg:w-2/12 mb-4 lg:mb-0"
+                      className="w-4/12 lg:w-2/12 mb-4 lg:mb-0"
                       data-label="Stay Duration"
                     >
-                      <p class="content-font text-gray-600">51 weeks</p>
+                      <p className="content-font text-gray-600">51 weeks</p>
                     </li>
-                    <li class="w-8/12 lg:w-2/6 mb-4 lg:mb-0" data-label="Move">
-                      <div class="content-font text-gray-600">
-                        <div class="lg:pr-3">Sep 9, 2023 - Aug 31, 2024</div>
+                    <li className="w-8/12 lg:w-2/6 mb-4 lg:mb-0" data-label="Move">
+                      <div className="content-font text-gray-600">
+                        <div className="lg:pr-3">Sep 9, 2023 - Aug 31, 2024</div>
                       </div>
                     </li>
-                    <li class="w-4/12 lg:w-2/12" data-label="Occupancy">
-                      <p class="content-font text-gray-600">Single</p>
+                    <li className="w-4/12 lg:w-2/12" data-label="Occupancy">
+                      <p className="content-font text-gray-600">Single</p>
                     </li>
-                    <li class="w-4/12 lg:w-2/12" data-label="Price">
-                      <p class="content-font text-gray-600">189&nbsp;£/week</p>
+                    <li className="w-4/12 lg:w-2/12" data-label="Price">
+                      <p className="content-font text-gray-600">189&nbsp;£/week</p>
                     </li>
-                    <li class="w-4/12 lg:w-2/12" data-label="Total">
-                      <p class="content-font text-gray-600">9.639&nbsp;£</p>
+                    <li className="w-4/12 lg:w-2/12" data-label="Total">
+                      <p className="content-font text-gray-600">9.639&nbsp;£</p>
                     </li>
                   </ul>
-                  <ul class="col-span-4 lg:col-span-1 flex justify-end gap-x-3 flex-row-reverse lg:flex-row">
-                    <li class="flex-grow lg:flex-grow-0">
+                  <ul className="col-span-4 lg:col-span-1 flex justify-end gap-x-3 flex-row-reverse lg:flex-row">
+                    <li className="flex-grow lg:flex-grow-0">
                       <button
-                        class="w-full lg:w-36  my-1 py-2 rounded-md text-base w-full lg:w-48 bg-customOrange text-white hover:bg-theme-orange-hover border border-customOrange transition-colors disabled:opacity-70 disabled:cursor-not-allowed"
+                        className="w-full lg:w-36  my-1 py-2 rounded-md text-base w-full lg:w-48 bg-customOrange text-white hover:bg-theme-orange-hover border border-customOrange transition-colors disabled:opacity-70 disabled:cursor-not-allowed"
                         type="button"
                       >
-                        <div class="flex items-center justify-center gap-2 truncate ">
+                        <div className="flex items-center justify-center gap-2 truncate ">
                           Instant Book
                         </div>
                       </button>
                     </li>
                   </ul>
                 </div>
-                <div class="text-theme-blue content-font bg-gray-100 py-1.5 px-2.5 font-semibold w-full flex items-center rounded-md">
-                  <span class="uppercase mr-6">Offer 1</span>
+                <div className="text-theme-blue content-font bg-gray-100 py-1.5 px-2.5 font-semibold w-full flex items-center rounded-md">
+                  <span className="uppercase mr-6">Offer 1</span>
                   <span>
                     Book a room and get summer stay at £99 per week offer*
                   </span>

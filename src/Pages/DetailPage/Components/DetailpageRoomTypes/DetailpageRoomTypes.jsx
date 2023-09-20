@@ -5,18 +5,20 @@ import DetailPageTypes from "./Components/DetailPageTypes";
 import DetailPageRooms from "./Components/DetailPageRooms";
 /////////
 import "../../Styles/DetailpageRoomTypes.css";
-const DetailpageRoomTypes = ({setCords}) => {
+const DetailpageRoomTypes = ({setCords,types,typeIds}) => {
 
   const RoomtypeRef = useRef();
   useEffect(() => {
     setCords(RoomtypeRef.current)
   },[])
+
   return (
     <div className="px-5" ref={RoomtypeRef}>
       <DetailPageTypesHead></DetailPageTypesHead>
-      <DetailPageTypes></DetailPageTypes>
+      <DetailPageTypes types={types}></DetailPageTypes>
       <DetailPageRooms></DetailPageRooms>
     </div>
-  );
-};
+  )
+}
+
 export default DetailpageRoomTypes;

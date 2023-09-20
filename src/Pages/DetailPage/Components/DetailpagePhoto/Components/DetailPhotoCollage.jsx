@@ -8,22 +8,18 @@ import { Carousel } from "react-responsive-carousel";
 import { useDispatch, useSelector } from "react-redux";
 import { detailSliderSlice } from "../../../../../Redux/slider";
 
-const DetailPhotoCollage = () => {
-
+const DetailPhotoCollage = ({photos}) => {
  const modalState = useSelector(state => state.detailSliceReducer.isSliceModalOpen)
   const dispatch = useDispatch();
 
   const openModalHandler = () => {
     dispatch(detailSliderSlice.actions.setSliderModal(true));
-    console.log(modalState);
   }
   
   const closeModalHandler = () => {
     dispatch(detailSliderSlice.actions.setSliderModal(false));
-    console.log(modalState);
   }
 
-  console.log(modalState);
   return (
     <>
   {
@@ -32,15 +28,19 @@ const DetailPhotoCollage = () => {
     <>
       <div className="image_container fixed z-20 top-[45%] left-[50%] translate-y-[-50%] translate-x-[-50%]">
       <Carousel  showIndicators={true} dynamicHeight={true} className="w-[650px]  h-[330px] relative" infiniteLoop={true} showArrows={true}  showThumbs={false} >
-        <div className="max-w-[300px] w-full h-[400px]">
-          <img className="object-cover" src="https://cdn.universityliving.com/fit-in/1920x0/filters:no_upscale()/filters:format(webp)/cms/TV2uZnmzr73Wa9VvtCK8t9mGqQ5sSV.jpg" alt="" />
+         {
+          photos.length
+          ?
+          photos.map((data,index) => {
+            return (
+        <div className="max-w-[300px] w-full h-[400px]  " key={index}>
+          <img className="object-cover" src={data} alt="" />
         </div>
-            <div className="max-w-[300px] w-full h-[400px]">
-          <img className="object-cover" src="https://cdn.universityliving.com/fit-in/1920x0/filters:no_upscale()/filters:format(webp)/cms/TV2uZnmzr73Wa9VvtCK8t9mGqQ5sSV.jpg" alt="" />
-        </div>
-            <div className="max-w-[300px] w-full h-[400px]">
-          <img className="object-cover" src="https://cdn.universityliving.com/fit-in/1920x0/filters:no_upscale()/filters:format(webp)/cms/TV2uZnmzr73Wa9VvtCK8t9mGqQ5sSV.jpg" alt="" />
-        </div>
+            )
+          })
+          :
+          ''
+         }
       </Carousel>
       </div>
     <div className="fixed bg-[#0000006d] top-0 left-0 right-0 bottom-0 z-10 flex justify-center items-center" onClick={closeModalHandler}>
@@ -49,22 +49,25 @@ const DetailPhotoCollage = () => {
   }
   
     <div className="md:my-5 w-full px-0 sm:px-5">
-      <div className="lg:grid grid-cols-2 gap-3 md:rounded-xl overflow-hidden h-[45vh] md:h-[45vh] lg:h-[45vh]  w-full  md:max-h-[none]">
-        <div className="bg-[#f1f1f1] relative md:h-[45vh] lg:h-[45vh] h-[100%] md:max-h-[none]">
+      <div className="lg:grid grid-cols-2 gap-3 md:rounded-xl overflow-hidden h-[400px] max-[1024px]:h-[325px]   w-full  md:max-h-[none]">
+        <div className="bg-[#f1f1f1] relative  md:max-h-[none]">
           <div>
             <div>
             </div>
               <Carousel showIndicators={true} dynamicHeight={true} className="w-[100%] h-[100%] relative" infiniteLoop={true} showArrows={true}  showThumbs={false} >
-                <div className="item w-[100%] max-w-[640px] h-[45vh] object-cover">
-               <img className="w-[100%] object-cover " src={"https://cdn.universityliving.com/fit-in/1920x0/filters:no_upscale()/filters:format(webp)/cms/TV2uZnmzr73Wa9VvtCK8t9mGqQ5sSV.jpg"} alt="" />
-                </div>
-
-                <div className="item w-[100%] max-w-[640px] h-[45vh] object-cover">
-               <img className="w-[100%] object-cover " src={"https://cdn.universityliving.com/fit-in/1920x0/filters:no_upscale()/filters:format(webp)/cms/TV2uZnmzr73Wa9VvtCK8t9mGqQ5sSV.jpg"} alt="" />
-                </div>
-                <div className="item w-[100%] max-w-[640px] h-[45vh] object-cover">
-               <img className="w-[100%] object-cover " src={"https://cdn.universityliving.com/fit-in/1920x0/filters:no_upscale()/filters:format(webp)/cms/TV2uZnmzr73Wa9VvtCK8t9mGqQ5sSV.jpg"} alt="" />
-                </div>
+              {
+          photos
+          ?
+          photos.map((data,index) => {
+            return (
+        <div key={index} className="max-w-[300px] w-full h-[400px] max-[1024px]:h-[325px]">
+          <img className="object-cover" src={data} alt="" />
+        </div>
+            )
+          })
+          :
+          ''
+         }
 
               </Carousel>
 
@@ -94,52 +97,27 @@ const DetailPhotoCollage = () => {
             </div>
           </div>
         </div>
-        <ul className="md:grid grid-cols-2 h-full gap-x-3 gap-y-3 hiddens">
-          <li className="bg-[#f1f1f1] flex justify-center items-center lg:h-[22vh] relative te-property-img" onClick={openModalHandler}>
-            <img
+        <ul className="md:grid grid-cols-2 grid-rows-2  h-full  hiddens ">
+          {
+            photos
+            &&
+            photos.map((data,index) => {
+              return (
+            <li key={index}  className="bg-[#f1f1f1]  flex justify-center items-center relative te-property-img" onClick={openModalHandler} >
 
-              alt=""
-              title=""
-              sizes="(max-width: 768px) 50vw, 10vw"
-              src="https://cdn.universityliving.com/fit-in/1920x0/filters:no_upscale()/filters:format(webp)/cms/zu5Zj39s9LoNnj3sjlwvTr1bHU4NyR.jpg"
-              decoding="async"
-              data-nimg="fill"
-              className="object-cover cursor-pointer "
-              />
-          </li>
-          <li className="bg-[#f1f1f1] flex justify-center items-center lg:h-[22vh] relative te-property-img" onClick={openModalHandler}>
             <img
               alt=""
               title=""
               sizes="(max-width: 768px) 50vw, 10vw"
-              src="https://cdn.universityliving.com/fit-in/1920x0/filters:no_upscale()/filters:format(webp)/cms/zu5Zj39s9LoNnj3sjlwvTr1bHU4NyR.jpg"
+              src={data}
               decoding="async"
               data-nimg="fill"
-              className="object-cover cursor-pointer "
+              className="object-cover cursor-pointer p-[5px]"
               />
           </li>
-          <li className="bg-[#f1f1f1] flex justify-center items-center lg:h-[22vh] relative te-property-img" onClick={openModalHandler}>
-            <img
-              alt=""
-              title=""
-              sizes="(max-width: 768px) 50vw, 10vw"
-              src="https://cdn.universityliving.com/fit-in/1920x0/filters:no_upscale()/filters:format(webp)/cms/zu5Zj39s9LoNnj3sjlwvTr1bHU4NyR.jpg"
-              decoding="async"
-              data-nimg="fill"
-              className="object-cover cursor-pointer "
-              />
-          </li>
-          <li className="bg-[#f1f1f1] flex justify-center items-center lg:h-[22vh] relative te-property-img" onClick={openModalHandler}>
-            <img
-              alt=""
-              title=""
-              sizes="(max-width: 768px) 50vw, 10vw"
-              src="https://cdn.universityliving.com/fit-in/1920x0/filters:no_upscale()/filters:format(webp)/cms/zu5Zj39s9LoNnj3sjlwvTr1bHU4NyR.jpg"
-              decoding="async"
-              data-nimg="fill"
-              className="object-cover cursor-pointer "
-              />
-          </li>
+              )
+            })
+          }
         </ul>
       </div>
     </div>

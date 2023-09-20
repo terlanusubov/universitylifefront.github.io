@@ -91,19 +91,21 @@ const addToWishListHandler = async () => {
         <div className='card'>
             <div className='rounded-lg shadow-md hover:shadow-md transition-all flex-shrink-0 lg:w-full flex flex-col text-opacity-100 text-[#3e3E3E]'>
                 <div className='relative h-52'>
-                    <Link  to={`/accomodations/bedroom/${props.bedRoomId}`} replace className='w-full h-full'>
-                        <Carousel infiniteLoop={true} showThumbs={false} showStatus={false}>
-                            <div>
-                                <img className='h-52 w-full rounded-t-md object-cover'  src={props.slideImages[0]} />
-                            </div>
-                            <div>
-                                <img className='h-52 w-full rounded-t-md object-cover'  src={props.slideImages[1]} />
-                            </div>
-                            <div>
-                                <img className='h-52 w-full rounded-t-md object-cover'  src={props.slideImages[2]} />
-                            </div>
-                        </Carousel>
-                    </Link>
+                            {
+                                props.slideImages
+                                &&
+                            <Carousel infiniteLoop={true} showThumbs={false} showStatus={false}>
+                                {props.slideImages.map((data,index) => {
+                                    return (
+                                        <Link to={`/accomodations/bedroom/${props.bedRoomId}`} key={index}  className='w-full h-full inline-block'>
+                                            <div className='h-[200px]'>
+                                                <img className='h-52 w-full rounded-t-md object-cover'  src={data} />
+                                            </div>
+                                        </Link>
+                                    )
+                                })}                               
+                            </Carousel>
+                            }
                     {/* <div className='offer-link'>
                         <Link className='flex items-center absolute left-3 bg-white text-xs px-2 p-1 cursor-pointer rounded-b text-black font-semibold before:absolute before:border-t-[7px] before:-left-[6px] before:border-r-[6px] before:border-r-[#9e9e9e] before:scale-100 before:top-0 before:border-transparent after:absolute after:border-t-[7px] after:-right-[6px] after:border-l-[6px] after:border-l-[#9e9e9e] after:scale-100 after:top-0 after:border-transparent'>
                         <img src={offerimg} alt="" className='w-[22px] h-[22px]' />
