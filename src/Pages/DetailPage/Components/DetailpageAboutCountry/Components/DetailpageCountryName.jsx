@@ -14,6 +14,7 @@ const dispatch = useDispatch();
 const [isFavorite,setIsFavorite] = useState(false);
 const [favorites,setFavorites] = useState([])
 const [wishListId,setWishListId] = useState();
+const [userWishListId,setUserWishListId] = useState();
 
   const fetchFavorites =  async () => {
     if (!userId) {
@@ -27,11 +28,12 @@ const [wishListId,setWishListId] = useState();
 
 
   const deleteFromWishlistHandler = async () => {
-    if (!wishListId) {
+    if (!userWishListId) {
+      console.log('wishlistid doesnt exist');
       return false;
     }
-
-    const promise = await fetch(import.meta.env.VITE_API_KEY  + `/userwishlist/${wishListId}`, {
+    console.log(import.meta.env.VITE_API_KEY  + `/userwishlist/${userWishListId}`);
+    const promise = await fetch(import.meta.env.VITE_API_KEY  + `/userwishlist/${userWishListId}`, {
       method:'DELETE'
     })
     const response = await promise.json();
@@ -48,7 +50,7 @@ const [wishListId,setWishListId] = useState();
         return false;
     }
     if (isFavorite) {
-      deleteFromWishlistHandler();
+      await deleteFromWishlistHandler();
       return false;
     }
     const promise = await fetch(import.meta.env.VITE_API_KEY + '/userwishlist', {
@@ -64,11 +66,13 @@ const [wishListId,setWishListId] = useState();
     const response = await promise.json();
     if (response.statusCode === 200) {
       toast.success('Item Successfully Added');
+      setUserWishListId(response.response.userWishlistId)
       setIsFavorite(true)
     }
     else if (response.statusCode === 208) {
       toast.error('This Item Already Exist In Your Wishlist')
     }
+   console.log(response);
   }
 
 

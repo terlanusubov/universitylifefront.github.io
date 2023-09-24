@@ -44,6 +44,7 @@ const Cards = () => {
     const promise = await fetch(import.meta.env.VITE_API_KEY + `/bedroom?Page=${currentPage}&UniversityId=${filterString}`)
     const {response} = await promise.json();
     const {dictance:distance,bedRooms:bedRoomsArr,totalPage} = response;
+    
     setDistances(distance);
     setTotalPage(totalPage)
     const mappedDistances =  distance.map((data) => {
@@ -69,6 +70,7 @@ const Cards = () => {
     const promise = await fetch(import.meta.env.VITE_API_KEY + `/bedroom?Page=${currentPage}&CityId=${FilterCityId ? FilterCityId : currentCityFilter}`)
     const {response} = await promise.json();
     const {bedRooms,totalPage} = response
+    await fetchFavorites();
     setBedRooms(bedRooms)
     setTotalPage(totalPage)
   }
@@ -148,9 +150,10 @@ const Cards = () => {
       setFavoritedIds(response.map((data) => {
         return {id:data.id, userWishlistId:data.userWishlistId}
       }));
+    
     }
   }
-
+console.log(favoritedIds);
   const changePageHandler = (e) => {
     setCurrentPage(e);
     console.log(e);
@@ -171,6 +174,7 @@ const Cards = () => {
               // let isFavorite = favoritedIds.map((data) => data.id).includes(data.id);
                let isFavorite = favoritedIds.some((UserFavorites) => UserFavorites.id == data.id);
                let wishListId = favoritedIds.find((favorited) => favorited.id == data.id);
+               console.log(isFavorite);
                return <Card userWishlistId={wishListId ? wishListId.userWishlistId : null} isFavorite={isFavorite} bedRoomId={data.id} type={data.bedRoomRoomTypes} price={data.price} key={data.id} title={data.name} description={data.description} slideImages={data.bedRoomImages} />
           })
           :

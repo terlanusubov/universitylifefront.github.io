@@ -91,9 +91,9 @@ const DetailPhotoCollage = ({photos}) => {
               <div className=" inline-block">
                 <FaImage></FaImage>
               </div>
-              <div className="flex justify-between">
+              {/* <div className="flex justify-between">
                 <p className="content-font pl-2">See all 25 images</p>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

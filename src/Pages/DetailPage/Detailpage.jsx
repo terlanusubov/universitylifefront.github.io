@@ -24,6 +24,7 @@ const Detailpage = () => {
     })
     const {response} = await promise.json();
     setApiResponse(response)
+    console.log(response);
   }
 
 
@@ -46,10 +47,10 @@ const Detailpage = () => {
     <div>
       <Toaster/>
       <DetailPhoto photos={apiResponse.bedRoomImages} ></DetailPhoto>
-      <DetailPageNav></DetailPageNav>
+      {/* <DetailPageNav></DetailPageNav> */}
       <DetailPageLoc cords={roomTypeCords}></DetailPageLoc>
       <DetailpageAboutCountry userId={userId} bedRoomId={bedRoomId} description={apiResponse.description}></DetailpageAboutCountry>
-      <DetailpageRoomTypes types={apiResponse.bedRoomRoomTypes} typeIds={apiResponse.bedRoomRoomTypeIds} setCords={setRoomsTypeCords}></DetailpageRoomTypes>
+      <DetailpageRoomTypes bedRoomId={bedRoomId} userId={userId} types={apiResponse.bedRoomRoomTypes} typeIds={apiResponse.bedRoomRoomTypeIds} setCords={setRoomsTypeCords}></DetailpageRoomTypes>
     </div>
   );
 };

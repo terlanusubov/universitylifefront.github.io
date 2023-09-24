@@ -21,13 +21,13 @@ const ProfilePageMainContainer = () => {
     <div className='profile_page_main_container max-[1024px]:m-auto bg-transparent max-w-[950px] rounded-[14px] w-[100%]'>
       {
         state==='bookings' ? 
-        <MyBookings></MyBookings> 
+        <MyBookings/>
         : 
         state==='wishlist' ? 
-        <Wishlist></Wishlist> 
+        <Wishlist/> 
         :
         state==='profile' ?
-        <PersonalInfo></PersonalInfo>
+        <PersonalInfo/>
         :
         ''
       }

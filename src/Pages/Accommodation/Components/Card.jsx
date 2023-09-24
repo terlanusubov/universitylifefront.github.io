@@ -97,7 +97,7 @@ const addToWishListHandler = async () => {
                             <Carousel infiniteLoop={true} showThumbs={false} showStatus={false}>
                                 {props.slideImages.map((data,index) => {
                                     return (
-                                        <Link to={`/accomodations/bedroom/${props.bedRoomId}`} key={index}  className='w-full h-full inline-block'>
+                                        <Link target="_blank" to={`/accomodations/bedroom/${props.bedRoomId}`} key={index}  className='w-full h-full inline-block'>
                                             <div className='h-[200px]'>
                                                 <img className='h-52 w-full rounded-t-md object-cover'  src={data} />
                                             </div>
