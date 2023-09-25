@@ -57,12 +57,16 @@ const Services = () => {
                                     )
                                 })
                                 :
+                                servicesLoading
+                                ?
                                 <>
                                     <div className="animate-pulse rounded-[5px] duration-[.2s] w-[100%] h-[128px] bg-gray-200"></div>
                                     <div className="animate-pulse rounded-[5px] duration-[.2s] w-[100%] h-[128px] bg-gray-200"></div>
                                     <div className="animate-pulse rounded-[5px] duration-[.2s] w-[100%] h-[128px] bg-gray-200"></div>
 
                                 </>
+                                :
+                                'There is no Service'
                         }
 
                     </div>
