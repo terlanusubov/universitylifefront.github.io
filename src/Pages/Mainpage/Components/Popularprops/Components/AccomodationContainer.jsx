@@ -27,8 +27,10 @@ const fetchRooms = async () => {
 }
 
   useEffect(() => {
-    fetchRooms();
-  },[CityState.id])
+    if (CityState.id) {
+      fetchRooms();
+    }
+  },[CityState?.id])
 
   return (
     <div className='flex-[1] popular_props_accommodation_container content-start grid grid-cols-3 max-[1024px]:flex max-[1024px]:overflow-x-scroll max-[1024px]:overflow-y-hidden gap-[10px]  pl-[20px] max-[1150px]:pl-[10px] max-[1024px]:pt-[50px] '>

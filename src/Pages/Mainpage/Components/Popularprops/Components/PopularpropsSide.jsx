@@ -40,7 +40,10 @@ const PopularpropsSide = () => {
 
 
     useEffect(() => {
-        fetchCities();
+        console.log(state.id);
+        if (state.id) {
+            fetchCities();
+        }
     },[state.id])
 
     const  setCurrentCity =  (country) => {

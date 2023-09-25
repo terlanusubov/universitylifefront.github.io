@@ -32,8 +32,9 @@ const PopularpropsNav = () => {
 
 
   const [countries,setCountries] = useState([])
-  
+  const [loading,setLoading] = useState(false);
   const fetchCountries = async () => {
+    setLoading(true)
     const promise = await fetch(import.meta.env.VITE_API_KEY + '/countries');
     const response = await promise.json()
     let defaultCountry;
@@ -51,6 +52,7 @@ const PopularpropsNav = () => {
       }
     })
     setCountries(mappedResponse)
+    setLoading(false)
     dispatch(propertiesSlice.actions.setCurrentCountry(defaultCountry))
   } 
 
@@ -72,12 +74,16 @@ const PopularpropsNav = () => {
                       )
                     })
                   :
+                  loading
+                  ?
                   <>
                     <button  className={`option animate-pulse duration-[.25s]  bg-gray-300   h-[44px] w-[100%] max-w-[180px] rounded-[22px]`}>   
                     </button>
                     <button  className={`option animate-pulse duration-[.25s] bg-gray-300   h-[44px] w-[100%] max-w-[180px] rounded-[22px]`}>   
                     </button>
                   </>
+                  :
+                  'There is no country available'
                   }
             </div>
     </div>
