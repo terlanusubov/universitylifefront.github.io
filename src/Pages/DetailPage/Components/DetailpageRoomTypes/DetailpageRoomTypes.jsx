@@ -11,13 +11,14 @@ const DetailpageRoomTypes = ({setCords,types,typeIds,userId,bedRoomId}) => {
   useEffect(() => {
     setCords(RoomtypeRef.current)
   },[])
-  const [currentFilterIndex,setCurrentFilterIndex] = useState(0);
+  const [currentIndex,setCurrentIndex] = useState(0);
+  const [currentFilterId,setCurrentFilterId] = useState(typeIds?.[0]);
 
   return (
     <div className="px-5" ref={RoomtypeRef}>
       <DetailPageTypesHead></DetailPageTypesHead>
-      <DetailPageTypes currentFilterIndex={currentFilterIndex}  setCurrentFilterIndex={setCurrentFilterIndex} types={types}></DetailPageTypes>
-      <DetailPageRooms typeIds={typeIds} currentFilterIndex={currentFilterIndex} bedRoomId={bedRoomId} bedRoomTypeIds={typeIds} userId={userId}></DetailPageRooms>
+      <DetailPageTypes currentIndex={currentIndex}  setCurrentIndex={setCurrentIndex} types={types}></DetailPageTypes>
+      <DetailPageRooms typeIds={typeIds} currentIndex={currentIndex} bedRoomId={bedRoomId} bedRoomTypeIds={typeIds} userId={userId}></DetailPageRooms>
     </div>
   )
 }

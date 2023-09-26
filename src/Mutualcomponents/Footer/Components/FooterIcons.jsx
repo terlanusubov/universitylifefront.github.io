@@ -13,7 +13,7 @@ const FooterIcons = () => {
     iconStyles: "FooterIcons",
   };
   const stylesA = {
-    aStyles: " text-customBlue hover:text-white bg-white hover:bg-customBlue",
+    aStyles: " text-customBlue bg-white hover:scale-[1.15] duration-[.2s]",
   };
 
   return (

@@ -1,11 +1,11 @@
 import React from 'react'
 import { useState } from 'react';
 import toast from 'react-hot-toast';
+import { Carousel } from 'react-responsive-carousel';
 
-const Booking = ({images,bedroomName,description,price,userId,type,bedRoomId}) => {
+const Booking = ({images,bedroomName,description,price,userId,type,bedRoomId,id,bedRoomRoomIds}) => {
 
   const [addBookLoading,setAddBookLoading] = useState(false)
-
   const addBookHandler = async () => {
     setAddBookLoading(true)
     const promise = await fetch(import.meta.env.VITE_API_KEY + '/book',{
@@ -15,13 +15,17 @@ const Booking = ({images,bedroomName,description,price,userId,type,bedRoomId}) =
       },
       body: JSON.stringify({
         userId: +userId,
-        bedRoomRoomId:+bedRoomId
+        bedRoomRoomId:+id
       })
     })
     const result = await promise.json();
-    console.log(result);
+
+ 
     if (result.statusCode == 200) {
       toast.success("Booked Successfully");
+    }
+    else if (result.statusCode == 208) {
+      toast.error("This Item Already Exist in Your Bookings")
     }
     setAddBookLoading(false)
   }
@@ -30,7 +34,67 @@ const Booking = ({images,bedroomName,description,price,userId,type,bedRoomId}) =
 
   return (
     <div className="rounded-xl shadow-3xl mb-10">
+        <div className="grid grid-cols-12 gap-x-4">
+            <div className="col-span-12 lg:col-span-5 relative h-full max-h-[200px] md:max-h-[260px]">
+            
+              
+              <Carousel infiniteLoop showThumbs={false}>
+              {
+                images?.length
+                &&
+                images.map((src) => {
+                  return (
+                    <div className="image max-w-[400px] w-full h-[260px]">
+                      <img className='w-full h-full object-cover' src={src} alt=''/>
+                    </div>
+                  )
+                })
+              }
 
+              </Carousel>
+              {/* <img
+                alt=""
+                sizes="(max-width: 768px) 40vw, 33vw"
+                src={'https://cdn.universityliving.com/cms/yV9M9JSr5knfW5pHcovliEgJUE6sWX.webp?w=640'}
+                width="485"
+                height="280"
+                decoding="async"
+                data-nimg="1"
+                className="te-room-img object-cover h-full md:max-h-[260px] w-full rounded-t-xl lg:rounded-tl-xl lg:rounded-tr-none cursor-pointer"
+                loading="lazy"
+              /> */}
+              <div className="absolute bottom-2.5 flex">
+                <div className="rounded ml-2 px-1.5 py-0.5 flex bg-black/50 cursor-pointer">
+                  <img
+                    alt="View all photos"
+                    srcSet="https://cdn.universityliving.com/files/1669200157285photo.svg?w=32 1x, https://cdn.universityliving.com/files/1669200157285photo.svg?w=48 2x"
+                    src="https://cdn.universityliving.com/files/1669200157285photo.svg?w=48"
+                    width="20"
+                    height="24"
+                    decoding="async"
+                    data-nimg="1"
+                    className="w-[20px] h-[24px]"
+                    loading="lazy"
+                  />
+            
+                </div>
+              </div>
+            </div>
+            <div className="col-span-12 lg:col-span-7 p-4 pb-0 lg:p-0 lg:pt-4 flex flex-col">
+              <div className="text-lg font-bold mb-4 text-gray-800">
+                  {bedroomName}
+              </div>
+              <div>
+                <div className="relative">
+                  <div className="md:mr-4 content-font leading-6 text-gray-600 transition-all max-h-[165px] md:max-h-[140px] lg:max-h-[120px] overflow-y-auto">
+                    <p>
+                     {description}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
     <div className="px-4 lg:px-6">
       <div className="border-t border-gray-300 mt-6 mb-3"></div>
       <div className="hidden lg:grid grid-cols-4 gap-4">

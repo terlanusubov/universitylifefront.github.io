@@ -5,14 +5,14 @@ import "../Styles/footernav.css";
 
 const FooterNav = () => {
   return (
-    <div className="footer_nav flex justify-evenly">
+    <div className="footer_nav flex justify-between">
       <CountryComponent
         location={
           "High Result Academy Ltd, Monomark House"
         }
         phoneNumber={"+44 754 209 33 84"}
         email={"hasan.azizov@hra.az"}
-        title={"Baku"}
+        title={"London"}
       />
       
       <FooterAbout></FooterAbout>

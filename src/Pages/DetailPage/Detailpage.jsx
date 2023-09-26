@@ -24,7 +24,6 @@ const Detailpage = () => {
     })
     const {response} = await promise.json();
     setApiResponse(response)
-    console.log(response);
   }
 
 

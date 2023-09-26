@@ -23,7 +23,7 @@ const [userWishListId,setUserWishListId] = useState();
     const promise = await fetch(import.meta.env.VITE_API_KEY + `/userwishlist?UserId=${userId}`)
     const response = await promise.json();
     setIsFavorite(response.some((data) => data.id === +bedRoomId));
-    setWishListId(response.find((data) => data.id === +bedRoomId).userWishlistId)
+    setWishListId(response.find((data) => data.id === +bedRoomId)?.userWishlistId)
   }
 
 
