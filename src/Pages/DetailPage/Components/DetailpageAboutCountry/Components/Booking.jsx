@@ -1,12 +1,18 @@
 import React from 'react'
 import { useState } from 'react';
 import toast from 'react-hot-toast';
+import { useDispatch } from 'react-redux';
 import { Carousel } from 'react-responsive-carousel';
+import { ModalSlice } from '../../../../../Redux/ModalSlice';
 
 const Booking = ({images,bedroomName,description,price,userId,type,bedRoomId,id,bedRoomRoomIds}) => {
-
+  const dispatch = useDispatch();
   const [addBookLoading,setAddBookLoading] = useState(false)
   const addBookHandler = async () => {
+    if (!localStorage.getItem('tokenId')) {
+      dispatch(ModalSlice.actions.openModal())
+      return false;
+    }
     setAddBookLoading(true)
     const promise = await fetch(import.meta.env.VITE_API_KEY + '/book',{
       method:'POST',

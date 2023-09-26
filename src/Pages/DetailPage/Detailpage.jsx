@@ -36,7 +36,7 @@ const Detailpage = () => {
 
     return JSON.parse(jsonPayload);
   }
-  const [{id:userId},setUserId] = useState(parseJwt(localStorage.getItem('tokenId')))
+  const [{id:userId},setUserId] = useState(localStorage.getItem('tokenId') ? parseJwt(localStorage.getItem('tokenId')) : false)
 
   useEffect(() => {
     fetchBedRoomDetails();
