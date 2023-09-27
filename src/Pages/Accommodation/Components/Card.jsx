@@ -135,7 +135,7 @@ const addToWishListHandler = async () => {
                         <Link className='font-bold max-w-[73%] truncate text-[#3E3E3E]'>
                             <p className='truncate'>{props.title}</p>
                         </Link>
-                        <div className='max-w-[192px] truncate text-[#3E3E3E]'>{props.distance} miles</div>
+                        <div className='max-w-[192px] truncate text-[#3E3E3E]'>{props.distanceToCenter} miles</div>
                     </div>
                     <div className='flex justify-between items-center my-1.5'>
                         <div className='text-xs truncate pr-4'>

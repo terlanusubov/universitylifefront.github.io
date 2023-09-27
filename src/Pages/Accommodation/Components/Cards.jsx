@@ -174,8 +174,7 @@ console.log(favoritedIds);
               // let isFavorite = favoritedIds.map((data) => data.id).includes(data.id);
                let isFavorite = favoritedIds.some((UserFavorites) => UserFavorites.id == data.id);
                let wishListId = favoritedIds.find((favorited) => favorited.id == data.id);
-               console.log(isFavorite);
-               return <Card userWishlistId={wishListId ? wishListId.userWishlistId : null} isFavorite={isFavorite} bedRoomId={data.id} type={data.bedRoomRoomTypes} price={data.price} key={data.id} title={data.name} description={data.description} slideImages={data.bedRoomImages} />
+               return <Card distanceToCenter={data.distanceToCenter} userWishlistId={wishListId ? wishListId.userWishlistId : null} isFavorite={isFavorite} bedRoomId={data.id} type={data.bedRoomRoomTypes} price={data.price} key={data.id} title={data.name} description={data.description} slideImages={data.bedRoomImages} />
           })
           :
           <div className=''>there is no bedroom </div>
