@@ -32,7 +32,7 @@ const Services = () => {
                     <img src={ServicesBanner} alt="" className="object-cover" />
                     <div className="services-banner-title">
                         <h1>Essential services for safe and happy journey</h1>
-                        <button>Explore All Services</button>
+                        {/* <button>Explore All Services</button> */}
                     </div>
                 </div>
                 {/* //////////////////////// */}

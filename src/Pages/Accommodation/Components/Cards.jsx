@@ -19,14 +19,13 @@ const Cards = () => {
   const [endOffset, setEndOffset] = useState(0)
   const [favoritedIds,setFavoritedIds] = useState([]);
   const [distances,setDistances] = useState([])
-  const [distanceLimit,setDistanceLimit] = useState(5300);
+  const [distanceLimit,setDistanceLimit] = useState(15);
   const [loadingBedRooms,setLoadingBedrooms] = useState(true)
   const [currentPage, setCurrentPage] = useState(useParams().page)
   const [currentCityFilter,setCurrentCityFilter] = useState(useParams().cityId)
   // States
   const carouselRef = useRef(null); 
   const navigate = useNavigate();
-
   const FilterCityId = useSelector((state) => state.accomodationReducer.currentFilterOptions.cityId)
   const filterString = useSelector((state) => state.accomodationReducer.currentFilterOptions.universityId)
 
@@ -41,10 +40,10 @@ const Cards = () => {
   }
 
   const fetchBedRoomsWithUniversity = async () => {   
+    console.log(import.meta.env.VITE_API_KEY + `/bedroom?Page=${currentPage}&UniversityId=${filterString}`);
     const promise = await fetch(import.meta.env.VITE_API_KEY + `/bedroom?Page=${currentPage}&UniversityId=${filterString}`)
     const {response} = await promise.json();
     const {dictance:distance,bedRooms:bedRoomsArr,totalPage} = response;
-    
     setDistances(distance);
     setTotalPage(totalPage)
     const mappedDistances =  distance.map((data) => {
@@ -54,14 +53,17 @@ const Cards = () => {
         distance: arr[0][1]
       }
     })
-    const validDistances = mappedDistances.filter((data) => data.distance < distanceLimit);
 
+    const validDistances = mappedDistances.filter((data) => data.distance < distanceLimit);
+    console.log(mappedDistances);
     const filteredBedrooms =  bedRoomsArr.filter((bedRoom) => {
       if (validDistances.some((data) => +data.id === bedRoom.id)) {
         return bedRoom
       }
+      
     });
-
+    console.log(mappedDistances);
+    console.log(bedRooms);
     setBedRooms(filteredBedrooms)
     navigate('/accomodations/page/1')
   }
@@ -101,6 +103,7 @@ const Cards = () => {
 
   useEffect(() => {
     if (filterString) {
+      console.log('filterstring chagned');
         dispatch(AccomodationSlice.actions.setCurrentFilterOption({universityId:filterString,cityId:''}))
         fetchBedRoomsWithUniversity();
       }
@@ -157,7 +160,8 @@ const Cards = () => {
     console.log(e);
     navigate(`/accomodations/page/${e}`, {replace:true})
   }
-
+  
+  
   return (
     <>
     <Toaster/>

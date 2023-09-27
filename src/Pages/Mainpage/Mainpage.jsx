@@ -24,7 +24,7 @@ const Mainpage = () => {
       <Popularcities></Popularcities>
       {/* <Comments></Comments> */}
       <Popularprops></Popularprops>
-      <Partners></Partners>
+      {/* <Partners></Partners> */}
    </div>
   )
 }

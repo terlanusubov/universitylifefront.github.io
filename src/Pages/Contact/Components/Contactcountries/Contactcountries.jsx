@@ -5,7 +5,7 @@ import { CountryElement } from "./Components/CountryElement";
 
 const Contactcountries = () => {
   return (
-    <div className="contact_contries_container  my-8 flex justify-center">
+    <div className="contact_contries_container  my-8 flex justify-start">
       <CountryElement></CountryElement>
     </div>
   );

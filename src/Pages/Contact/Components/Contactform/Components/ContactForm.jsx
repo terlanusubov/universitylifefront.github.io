@@ -279,7 +279,7 @@ export const ContactForm = () => {
         <div className="w-full flex justify-center">
           <button
             onClick={submitFormHandler}
-            className="w-full flex justify-center lg:w-auto lg:mx-auto my-5 te-cu-submit  my-1 px-16 py-2 rounded-md text-base bg-customOrange text-white hover:bg-theme-orange-hover border border-theme-orange transition-colors disabled:opacity-70 disabled:cursor-not-allowed"
+            className="w-full flex justify-center lg:w-auto lg:mx-auto my-5 te-cu-submit  my-1 px-16 py-2 rounded-md text-base bg-customOrange text-white hover:bg-theme-orange-hover  border-theme-orange transition-colors disabled:opacity-70 disabled:cursor-not-allowed"
             type="Submit"
           >
             Submit
