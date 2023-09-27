@@ -20,7 +20,7 @@ const Room = (props) => {
           </div>
         </div> */}
           <img src={props.bg} draggable={false} className='select-none w-[100%] h-[100%] rounded-[20px] object-cover' alt="" />
-        <div className='room_views   p-[10px] max-[1200px]:p-[6px] bg-black absolute bottom-[10px] left-[10px] text-white bg-opacity-[0.6] rounded-[10px] text-[15px]'>{props.views} views last week</div>
+        {/* <div className='room_views   p-[10px] max-[1200px]:p-[6px] bg-black absolute bottom-[10px] left-[10px] text-white bg-opacity-[0.6] rounded-[10px] text-[15px]'>{props.views} views last week</div> */}
         {/* <div className="heart_icon_container absolute top-[15px] right-[15px] cursor-pointer text-[23px]">
           <HeartIconFill className='opacity-[0.6]'></HeartIconFill>
         </div> */}
