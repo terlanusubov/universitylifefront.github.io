@@ -140,8 +140,6 @@ const Cards = () => {
       }, 100);
   },[currentPage])
   
-
-  
   const fetchFavorites = async () => {
     if (localStorage.getItem('tokenId')) {
       const userId = parseJwt(localStorage.getItem('tokenId')).id
@@ -153,6 +151,7 @@ const Cards = () => {
     
     }
   }
+
   const changePageHandler = (e) => {
     setCurrentPage(e);
     console.log(e);
@@ -162,7 +161,7 @@ const Cards = () => {
   return (
     <>
     <Toaster/>
-    <div>
+    <div className='mb-[30px]'>
       <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-3 mb-7">
         {
           bedRooms.length

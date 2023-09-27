@@ -30,8 +30,8 @@ const containerRef = useRef();
         <Cards /> 
         {/* <Best /> */}
         {/* <Nearby /> */}
-        <PerfectHome />
-        <FrequentlyAsked />
+        {/* <PerfectHome /> */}
+        {/* <FrequentlyAsked /> */}
     </div>
   )
 }
