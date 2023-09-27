@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 // Assets
-import BannerURl from '../../Assets/bannerbg.png'
+import BannerURl from '../../Assets/bannerbg.gif'
 // Components
 import Bannertext from './Components/Bannertext'
 import Bannerinput from './Components/Bannerinput'
@@ -29,7 +29,7 @@ const Banner = () => {
     } )
   })
   return (
-    <div style={{backgroundImage:`url(${BannerURl})`}}  className={` main_page_banner flex flex-col items-start justify-center gap-[30px] h-[70vh] px-[50px]  bg-cover bg-center max-[1024px]:px-[30px] max-[930px]:bg-right pt-[60px] max-[450px]:pt-[30px]`}>
+    <div style={{backgroundImage:`url(${BannerURl})`,backgroundSize:'cover'}}  className={` main_page_banner flex flex-col items-start justify-center gap-[30px] h-[70vh] px-[50px]  bg-cover bg-center max-[1024px]:px-[30px] max-[930px]:bg-right pt-[60px] max-[450px]:pt-[30px]`}>
 
 <div className="banner_content max-w-[1440px] w-[100%] mx-auto max-[1500px]:px-[10px]">
           <Bannertext></Bannertext>

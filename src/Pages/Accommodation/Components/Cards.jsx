@@ -153,14 +153,11 @@ const Cards = () => {
     
     }
   }
-console.log(favoritedIds);
   const changePageHandler = (e) => {
     setCurrentPage(e);
     console.log(e);
     navigate(`/accomodations/page/${e}`, {replace:true})
   }
-
-
 
   return (
     <>
