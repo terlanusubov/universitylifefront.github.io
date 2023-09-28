@@ -18,7 +18,7 @@ const DetailpageRoomTypes = ({setCords,types,typeIds,userId,bedRoomId}) => {
     <div className="px-5" ref={RoomtypeRef}>
       <DetailPageTypesHead></DetailPageTypesHead>
       <DetailPageTypes currentIndex={currentIndex}  setCurrentIndex={setCurrentIndex} types={types}></DetailPageTypes>
-      <DetailPageRooms typeIds={typeIds} currentIndex={currentIndex} bedRoomId={bedRoomId} bedRoomTypeIds={typeIds} userId={userId}></DetailPageRooms>
+      <DetailPageRooms types={types} typeIds={typeIds} currentIndex={currentIndex} bedRoomId={bedRoomId} bedRoomTypeIds={typeIds} userId={userId}></DetailPageRooms>
     </div>
   )
 }

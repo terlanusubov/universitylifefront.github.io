@@ -4,7 +4,7 @@ import "../../../Styles/DetailPageRooms.css";
 import Booking from "../../DetailpageAboutCountry/Components/Booking";
 /////////
 
-const DetailPageRooms = ({userId,bedRoomTypeIds,bedRoomId,currentIndex,typeIds}) => {
+const DetailPageRooms = ({userId,bedRoomTypeIds,bedRoomId,currentIndex,typeIds,types}) => {
   const [bedRoomRooms,setBedRoomRooms] = useState([]);
 
   const getBedroomsByTypeId = async () => {
@@ -40,8 +40,9 @@ const DetailPageRooms = ({userId,bedRoomTypeIds,bedRoomId,currentIndex,typeIds})
         bedRoomRooms.length
         ?
         bedRoomRooms.map((data) => {
+          console.log(data)
           return (
-            <Booking bedRoomRoomIds={data.bedRoomRoomIds}  bedRoomId={data.bedRoomId} type={data.name} userId={userId} key={data.id} id={data.id}  price={data.price} description={`space. Also, the students living in the apartment get access to all the communal facilities.`} bedroomName={data.bedRoomName} images={data.image}/>
+            <Booking bedRoomType={types[currentIndex]} bedRoomRoomIds={data.bedRoomRoomIds}  bedRoomId={data.bedRoomId} type={data.name} userId={userId} key={data.id} id={data.id}  price={data.price} description={data.description} bedroomName={data.name} images={data.image}/>
           )
         })
         :

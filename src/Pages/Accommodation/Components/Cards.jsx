@@ -23,7 +23,6 @@ const Cards = () => {
   const [loadingBedRooms,setLoadingBedrooms] = useState(false)
   const [currentPage, setCurrentPage] = useState(useParams().page)
   const [currentCityFilter,setCurrentCityFilter] = useState(useParams().cityId);
-
   // States
   const carouselRef = useRef(null); 
   const navigate = useNavigate();
@@ -85,6 +84,7 @@ const Cards = () => {
   }
 
   const fetchBedRooms = async () => {
+  
     setLoadingBedrooms(true)
     const promise = await fetch(import.meta.env.VITE_API_KEY +`/bedroom?Page=${currentPage}`);
     const result = await promise.json();
@@ -138,15 +138,24 @@ const Cards = () => {
   },[])
   
   useEffect(() => {
-    if (!filterString && !currentCityFilter) {
+    console.log(currentCityFilter);
+    if (currentCityFilter) {
+       console.log('test 2');
+     fetchBedRoomsWithCity();
+   }
+   else if (filterString) {
+    console.log('test 3');
+    fetchBedRoomsWithUniversity();
+  }
+
+
+
+   else if (!filterString && !FilterCityId) {
       fetchBedRooms();
+      console.log(currentCityFilter);
+      console.log(filterString);
     }
-   else if (currentCityFilter) {
-      fetchBedRoomsWithCity();
-    }
-    else if (filterString) {
-      fetchBedRoomsWithUniversity();
-    }
+   
       setTimeout(() => {
         window.scroll({
           top: 0, 
@@ -169,9 +178,14 @@ const Cards = () => {
   }
 
   const changePageHandler = (e) => {
+    if (FilterCityId) {
+      navigate(`/accomodations/page/${e}/city/${FilterCityId}`);
+      return false;
+    }
+    else {
+      navigate(`/accomodations/page/${e}`, {replace:true})
+    }
     setCurrentPage(e);
-    console.log(e);
-    navigate(`/accomodations/page/${e}`, {replace:true})
   }
   
   

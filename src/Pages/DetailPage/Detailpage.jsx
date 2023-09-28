@@ -61,7 +61,7 @@ const Detailpage = () => {
       <DetailPhoto photos={apiResponse.bedRoomImages} ></DetailPhoto>
       {/* <DetailPageNav></DetailPageNav> */}
       <DetailPageLoc cords={roomTypeCords}></DetailPageLoc>
-      <DetailpageAboutCountry userId={userId} bedRoomId={bedRoomId} description={apiResponse.description}></DetailpageAboutCountry>
+      <DetailpageAboutCountry bedRoomName={apiResponse.name} userId={userId} bedRoomId={bedRoomId} description={apiResponse.description}></DetailpageAboutCountry>
       <DetailpageRoomTypes bedRoomId={bedRoomId} userId={userId} types={apiResponse.bedRoomRoomTypes} typeIds={apiResponse.bedRoomRoomTypeIds} setCords={setRoomsTypeCords}></DetailpageRoomTypes>
     </div>
   );

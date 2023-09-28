@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import { Carousel } from 'react-responsive-carousel';
 import { ModalSlice } from '../../../../../Redux/ModalSlice';
 
-const Booking = ({images,bedroomName,description,price,userId,type,bedRoomId,id,bedRoomRoomIds}) => {
+const Booking = ({images,bedroomName,description,price,userId,type,bedRoomId,id,bedRoomRoomIds,bedRoomType}) => {
   const dispatch = useDispatch();
   const [addBookLoading,setAddBookLoading] = useState(false)
   const addBookHandler = async () => {
@@ -92,7 +92,7 @@ const Booking = ({images,bedroomName,description,price,userId,type,bedRoomId,id,
               </div>
               <div>
                 <div className="relative">
-                  <div className="md:mr-4 content-font leading-6 text-gray-600 transition-all max-h-[165px] md:max-h-[140px] lg:max-h-[120px] overflow-y-auto">
+                  <div className="md:mr-4 content-font leading-6 text-gray-600 transition-all max-h-[165px] md:max-h-[140px] lg:max-h-[120px]">
                     <p>
                      {description}
                     </p>
@@ -110,18 +110,14 @@ const Booking = ({images,bedroomName,description,price,userId,type,bedRoomId,id,
               Bedroom Name
             </p>
           </li>
-          <li className="w-2/6">
-            <p className="content-font text-gray-600 font-bold">Move</p>
-          </li>
+    
           <li className="w-2/12">
             <p className="content-font text-gray-600 font-bold">Type</p>
           </li>
           <li className="w-2/12">
             <p className="content-font text-gray-600 font-bold">Price</p>
           </li>
-          <li className="w-2/12">
-            <p className="content-font text-gray-600 font-bold">Total </p>
-          </li>
+       
         </ul>
       </div>
       <div className="DetailPagelastBorder">
@@ -134,19 +130,11 @@ const Booking = ({images,bedroomName,description,price,userId,type,bedRoomId,id,
               >
                 <p className="content-font text-gray-600">{bedroomName}</p>
               </li>
-              <li className="w-8/12 lg:w-2/6 mb-4 lg:mb-0" data-label="Move">
-                <div className="content-font text-gray-600">
-                  <div className="lg:pr-3">Sep 9, 2023 - Aug 31, 2024</div>
-                </div>
-              </li>
               <li className="w-4/12 lg:w-2/12" data-label="Occupancy">
-                <p className="content-font text-gray-600">{type}</p>
-              </li>
-              <li className="w-4/12 lg:w-2/12" data-label="Price">
-                <p className="content-font text-gray-600">189&nbsp;£/week</p>
+                <p className="content-font text-gray-600">{bedRoomType}</p>
               </li>
               <li className="w-4/12 lg:w-2/12" data-label="Total">
-                <p className="content-font text-gray-600">{price} £</p>
+                <p className="content-font text-gray-600">Weekly {price} £</p>
               </li>
             </ul>
             <ul className="col-span-4 lg:col-span-1 flex justify-end gap-x-3 flex-row-reverse lg:flex-row">

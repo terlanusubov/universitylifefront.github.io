@@ -94,7 +94,7 @@ const SearchUniversity = () => {
                                                                 </div>
                                                                 <div>
                                                                     <p>{data.name}</p>
-                                                                    <p className='text-[0.6rem] font-light'>London, United Kingdom</p>
+                                                                    <p className='text-[0.6rem] font-light'>{data.countryName}</p>
                                                                 </div>
                                                             </div>
                                                     )
