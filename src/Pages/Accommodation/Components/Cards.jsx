@@ -20,9 +20,10 @@ const Cards = () => {
   const [favoritedIds,setFavoritedIds] = useState([]);
   const [distances,setDistances] = useState([])
   const [distanceLimit,setDistanceLimit] = useState(15);
-  const [loadingBedRooms,setLoadingBedrooms] = useState(true)
+  const [loadingBedRooms,setLoadingBedrooms] = useState(false)
   const [currentPage, setCurrentPage] = useState(useParams().page)
-  const [currentCityFilter,setCurrentCityFilter] = useState(useParams().cityId)
+  const [currentCityFilter,setCurrentCityFilter] = useState(useParams().cityId);
+
   // States
   const carouselRef = useRef(null); 
   const navigate = useNavigate();
@@ -41,6 +42,7 @@ const Cards = () => {
 
   const fetchBedRoomsWithUniversity = async () => {   
     console.log(import.meta.env.VITE_API_KEY + `/bedroom?Page=${currentPage}&UniversityId=${filterString}`);
+    setLoadingBedrooms(true)
     const promise = await fetch(import.meta.env.VITE_API_KEY + `/bedroom?Page=${currentPage}&UniversityId=${filterString}`)
     const {response} = await promise.json();
     const {dictance:distance,bedRooms:bedRoomsArr,totalPage} = response;
@@ -65,21 +67,25 @@ const Cards = () => {
     console.log(mappedDistances);
     console.log(filteredBedrooms);
     console.log('test');
+    setLoadingBedrooms(false)
     setBedRooms(filteredBedrooms)
     navigate('/accomodations/page/1')
   }
 
   const fetchBedRoomsWithCity = async () => {
+    setLoadingBedrooms(true)
     const promise = await fetch(import.meta.env.VITE_API_KEY + `/bedroom?Page=${currentPage}&CityId=${FilterCityId ? FilterCityId : currentCityFilter}`)
     const {response} = await promise.json();
     const {bedRooms,totalPage} = response
     await fetchFavorites();
     setBedRooms(bedRooms)
     console.log('fetch bedrooms w city');
-    setTotalPage(totalPage)
+    setTotalPage(totalPage);
+    setLoadingBedrooms(false)
   }
 
   const fetchBedRooms = async () => {
+    setLoadingBedrooms(true)
     const promise = await fetch(import.meta.env.VITE_API_KEY +`/bedroom?Page=${currentPage}`);
     const result = await promise.json();
     const { bedRooms, pageSize, totalData, totalPage } = result.response;
@@ -184,7 +190,16 @@ const Cards = () => {
                return <Card distanceToCenter={data.distanceToCenter} userWishlistId={wishListId ? wishListId.userWishlistId : null} isFavorite={isFavorite} bedRoomId={data.id} type={data.bedRoomRoomTypes} price={data.price} key={data.id} title={data.name} description={data.description} slideImages={data.bedRoomImages} />
           })
           :
-          <div className=''>there is no bedroom </div>
+          loadingBedRooms
+          ?
+          <>
+          <div className='h-[300px] animate-pulse bg-gray-300 rounded-[10px]'></div>
+          <div className='h-[300px] animate-pulse bg-gray-300 rounded-[10px]'></div>
+          <div className='h-[300px] animate-pulse bg-gray-300 rounded-[10px]'></div>
+          </>
+
+          :
+          'There is no bedroom available'
         }
       </div>
       <div className='sm:flex sm:flex-1 sm:items-center sm:justify-between'>
