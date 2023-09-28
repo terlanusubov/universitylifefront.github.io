@@ -11,7 +11,6 @@ import { AccomodationSlice } from '../../../Redux/AccomodationSlice';
 
 
 const SearchUniversity = () => {
-    const [search, setSearch] = useState('');
     
     const searchInputRef = useRef();
     const [SearchValue, setSearchValue] = useState('');
@@ -27,8 +26,7 @@ const SearchUniversity = () => {
 
     const selectUniversityHandler = (data) => {
         setSearchValue(data.name);
-        dispatch(AccomodationSlice.actions.setCurrentFilterOption({universityId:data.universityId,cityId:data.cityId}));
-        
+        dispatch(AccomodationSlice.actions.setCurrentFilterOption({universityId:data.universityId,cityId:''}));
         setIsShown(false)
     }
 

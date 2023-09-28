@@ -63,7 +63,8 @@ const Cards = () => {
       
     });
     console.log(mappedDistances);
-    console.log(bedRooms);
+    console.log(filteredBedrooms);
+    console.log('test');
     setBedRooms(filteredBedrooms)
     navigate('/accomodations/page/1')
   }
@@ -74,6 +75,7 @@ const Cards = () => {
     const {bedRooms,totalPage} = response
     await fetchFavorites();
     setBedRooms(bedRooms)
+    console.log('fetch bedrooms w city');
     setTotalPage(totalPage)
   }
 
@@ -86,16 +88,21 @@ const Cards = () => {
     // setTotalData(totalData);
     await fetchFavorites();
     setBedRooms(bedRooms)
+    console.log('fetch bedrooms');
     // setEndOffset(0 + pageSize);
     setLoadingBedrooms(false)
   }
 
   useEffect(() => {
     if (FilterCityId) {
+      console.log(FilterCityId);
+ 
       dispatch(AccomodationSlice.actions.setCurrentFilterOption({universityId:'',cityId:FilterCityId}))
       fetchBedRoomsWithCity();
     }
     else if (currentCityFilter) {
+      console.log('currentfiltercityid');
+
       dispatch(AccomodationSlice.actions.setCurrentFilterOption({universityId:'',cityId:currentCityFilter}))
       fetchBedRoomsWithCity();
     }
