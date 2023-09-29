@@ -13,7 +13,7 @@ const DetailpageRoomTypes = ({setCords,types,typeIds,userId,bedRoomId}) => {
   },[])
   const [currentIndex,setCurrentIndex] = useState(0);
   const [currentFilterId,setCurrentFilterId] = useState(typeIds?.[0]);
-
+  
   return (
     <div className="px-5" ref={RoomtypeRef}>
       <DetailPageTypesHead></DetailPageTypesHead>

@@ -120,7 +120,7 @@ const PersonalInfo = () => {
                             <InputComponent setInputValue={setSurnameInputValue} inputValue={SurnameInputValue} inputId="surnameInput" inputTitle={'Surname'}></InputComponent>
                             <InputComponent setInputValue={setEmailInputValue} inputValue={EmailInputValue} inputId="emailInput" inputTitle={'Email'}></InputComponent>
                             <NumbersInput setInputValue={setPhoneInputValue} inputValue={PhoneInputValue}></NumbersInput>
-                            <button onClick={updateUserInfo} className='max-w-[250px] h-[40px] w-[100%] bg-customOrange flex items-center justify-center rounded-[10px] duration-[.1s] hover:bg-[#de6c5a] text-white'>
+                            <button onClick={updateUserInfo} className='max-w-[250px] h-[40px] w-[100%] bg-customOrange flex items-center justify-center rounded-[10px] duration-[.1s] hover:bg-customLightOrange text-white'>
                                 <span className="btn_text">
                                     Save Details
                                 </span>

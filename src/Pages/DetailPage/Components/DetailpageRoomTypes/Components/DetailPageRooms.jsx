@@ -11,8 +11,9 @@ const DetailPageRooms = ({userId,bedRoomTypeIds,bedRoomId,currentIndex,typeIds,t
       if (typeIds === undefined) {
         return false;
       }
+      console.log(typeIds[currentIndex]);
       console.log(import.meta.env.VITE_API_KEY + `/bedroomroom?BedRoomRoomTypeId${typeIds[currentIndex]}`);
-      const promise = await fetch(import.meta.env.VITE_API_KEY + `/bedroomroom?BedRoomRoomTypeId=${typeIds[currentIndex]}`)
+      const promise = await fetch(import.meta.env.VITE_API_KEY + `/bedroomroom?BedRoomRoomTypeId=${typeIds[currentIndex]}&BedRoomId=${bedRoomId}`)
       const response = await promise.json();
       console.log(response);
       setBedRoomRooms(response);

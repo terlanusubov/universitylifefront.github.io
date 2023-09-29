@@ -79,6 +79,7 @@ const Cards = ({setCurrentCity}) => {
     const {response} = await promise.json();
     const {bedRooms,totalPage} = response
     await fetchFavorites();
+    setCurrentCity(bedRooms[0].cityName)
     setBedRooms(bedRooms)
     console.log('fetch bedrooms w city');
     console.log(response);
