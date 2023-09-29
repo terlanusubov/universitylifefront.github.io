@@ -41,21 +41,21 @@ const Booking = ({images,bedroomName,description,price,userId,type,bedRoomId,id,
   return (
     <div className="rounded-xl shadow-3xl mb-10">
         <div className="grid grid-cols-12 gap-x-4">
-            <div className="col-span-12 lg:col-span-5 relative h-full max-h-[200px] md:max-h-[260px]">
+            <div className="col-span-12 lg:col-span-5 relative h-full ">
             
               
               <Carousel infiniteLoop showThumbs={false}>
-              {
-                images?.length
-                &&
-                images.map((src) => {
-                  return (
-                    <div className="image max-w-[400px] w-full h-[260px]">
-                      <img className='w-full h-full object-cover' src={src} alt=''/>
-                    </div>
-                  )
-                })
-              }
+                {
+                  images?.length
+                  &&
+                  images.map((src) => {
+                    return (
+                      <div className="image max-w-[400px] w-full h-[260px]">
+                        <img className='w-full h-full object-cover' src={src} alt=''/>
+                      </div>
+                    )
+                  })
+                }
 
               </Carousel>
               {/* <img
@@ -70,8 +70,8 @@ const Booking = ({images,bedroomName,description,price,userId,type,bedRoomId,id,
                 loading="lazy"
               /> */}
               <div className="absolute bottom-2.5 flex">
-                <div className="rounded ml-2 px-1.5 py-0.5 flex bg-black/50 cursor-pointer">
-                  <img
+                <div className="rounded ml-2  flex bg-black/50 cursor-pointer">
+                  {/* <img
                     alt="View all photos"
                     srcSet="https://cdn.universityliving.com/files/1669200157285photo.svg?w=32 1x, https://cdn.universityliving.com/files/1669200157285photo.svg?w=48 2x"
                     src="https://cdn.universityliving.com/files/1669200157285photo.svg?w=48"
@@ -81,18 +81,18 @@ const Booking = ({images,bedroomName,description,price,userId,type,bedRoomId,id,
                     data-nimg="1"
                     className="w-[20px] h-[24px]"
                     loading="lazy"
-                  />
+                  /> */}
             
                 </div>
               </div>
             </div>
-            <div className="col-span-12 lg:col-span-7 p-4 pb-0 lg:p-0 lg:pt-4 flex flex-col">
-              <div className="text-lg font-bold mb-4 text-gray-800">
+            <div className="col-span-12 lg:col-span-7  pb-0 lg:p-0  flex flex-col">
+              <div className="text-lg font-bold  text-gray-800">
                   {bedroomName}
               </div>
               <div>
                 <div className="relative">
-                  <div className="md:mr-4 content-font leading-6 text-gray-600 transition-all max-h-[165px] md:max-h-[140px] lg:max-h-[120px]">
+                  <div className="md:mr-4 content-font leading-6 text-gray-600 transition-all max-[1224px]:text-[15px]">
                     <p>
                      {description}
                     </p>

@@ -1,9 +1,14 @@
-.services-banner .services-img img {
-    /* background-image: url(../Assets/servicesbanner.jpg); */
-    background-size: cover;
-    width: 100%;
-    height: 400px;
-    background-repeat: no-repeat;
+.services-banner
+{
+
+    .services-img { 
+        height: 400px;
+        
+       > img {
+        /* background-image: url(../Assets/servicesbanner.jpg); */
+        width: 100%;
+        height: 100%;        
+    }}
 }
 
 .services {

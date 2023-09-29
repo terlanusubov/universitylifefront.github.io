@@ -38,7 +38,7 @@ const fetchRooms = async () => {
     {
       rooms.length
       ? 
-      rooms.map((data,index) => {
+      rooms.slice(0,6).map((data,index) => {
         console.log(data)
         return (
           <Room id={data.id} key={data.id}  bg={data.bedRoomImages[0]} roomName={data.name} offerPrice={50} weeklyPrice={data.price}></Room>
