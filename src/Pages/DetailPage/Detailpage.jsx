@@ -62,7 +62,7 @@ const Detailpage = () => {
       {/* <DetailPageNav></DetailPageNav> */}
       <DetailPageLoc cords={roomTypeCords}></DetailPageLoc>
       <DetailpageAboutCountry bedRoomName={apiResponse.name} userId={userId} bedRoomId={bedRoomId} description={apiResponse.description}></DetailpageAboutCountry>
-      <DetailpageRoomTypes bedRoomId={bedRoomId} userId={userId} types={apiResponse.bedRoomRoomTypes} typeIds={apiResponse.bedRoomRoomTypeIds} setCords={setRoomsTypeCords}></DetailpageRoomTypes>
+      <DetailpageRoomTypes bedRoomId={bedRoomId} userId={userId} types={[...new Set(apiResponse.bedRoomRoomTypes)]} typeIds={apiResponse.bedRoomRoomTypeIds} setCords={setRoomsTypeCords}></DetailpageRoomTypes>
     </div>
   );
 };
