@@ -31,7 +31,7 @@ const Services = () => {
                 <div className="services-img">
                     <img src={ServicesBanner} alt="" className="object-cover" />
                     <div className="services-banner-title">
-                        <h1>Essential services for safe and happy journey</h1>
+                        <h1>The services we provide for a comfortable university life</h1>
                         {/* <button>Explore All Services</button> */}
                     </div>
                 </div>
