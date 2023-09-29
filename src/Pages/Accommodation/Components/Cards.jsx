@@ -10,7 +10,7 @@ import { AccomodationSlice } from '../../../Redux/AccomodationSlice';
 import {favoritesSlice} from '../../../Redux/FavoritesSlice'
 import CustomPagination from './Pagination'
 import Pagination from 'rc-pagination';
-const Cards = () => {
+const Cards = ({setCurrentCity}) => {
   const dispatch = useDispatch();
   const [totalPage, setTotalPage] = useState(0);
   const [bedRooms, setBedRooms] = useState([]);
@@ -79,6 +79,7 @@ const Cards = () => {
     await fetchFavorites();
     setBedRooms(bedRooms)
     console.log('fetch bedrooms w city');
+    console.log(response);
     setTotalPage(totalPage);
     setLoadingBedrooms(false)
   }
