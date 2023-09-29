@@ -23,6 +23,7 @@ const Cards = ({setCurrentCity}) => {
   const [loadingBedRooms,setLoadingBedrooms] = useState(false)
   const [currentPage, setCurrentPage] = useState(useParams().page)
   const [currentCityFilter,setCurrentCityFilter] = useState(useParams().cityId);
+  const staticCityId = useParams()
   // States
   const carouselRef = useRef(null); 
   const navigate = useNavigate();
@@ -73,7 +74,8 @@ const Cards = ({setCurrentCity}) => {
 
   const fetchBedRoomsWithCity = async () => {
     setLoadingBedrooms(true)
-    const promise = await fetch(import.meta.env.VITE_API_KEY + `/bedroom?Page=${currentPage}&CityId=${FilterCityId ? FilterCityId : currentCityFilter}`)
+    console.log(staticCityId);
+    const promise = await fetch(import.meta.env.VITE_API_KEY + `/bedroom?Page=${currentPage}&CityId=${FilterCityId ? FilterCityId : staticCityId.cityId}`)
     const {response} = await promise.json();
     const {bedRooms,totalPage} = response
     await fetchFavorites();
@@ -83,7 +85,6 @@ const Cards = ({setCurrentCity}) => {
     setTotalPage(totalPage);
     setLoadingBedrooms(false)
   }
-
   const fetchBedRooms = async () => {
   
     setLoadingBedrooms(true)
@@ -107,10 +108,10 @@ const Cards = ({setCurrentCity}) => {
       dispatch(AccomodationSlice.actions.setCurrentFilterOption({universityId:'',cityId:FilterCityId}))
       fetchBedRoomsWithCity();
     }
-    else if (currentCityFilter) {
+    else if (staticCityId.cityId) {
       console.log('currentfiltercityid');
 
-      dispatch(AccomodationSlice.actions.setCurrentFilterOption({universityId:'',cityId:currentCityFilter}))
+      dispatch(AccomodationSlice.actions.setCurrentFilterOption({universityId:'',cityId:staticCityId.cityId}))
       fetchBedRoomsWithCity();
     }
   },[FilterCityId])
@@ -121,8 +122,8 @@ const Cards = ({setCurrentCity}) => {
         dispatch(AccomodationSlice.actions.setCurrentFilterOption({universityId:filterString,cityId:''}))
         fetchBedRoomsWithUniversity();
       }
-      else if (currentCityFilter) {
-        setCurrentCityFilter('')
+      else if (staticCityId.cityId) {
+        // setCurrentCityFilter('')
         dispatch(AccomodationSlice.actions.setCurrentFilterOption({universityId:filterString,cityId:''}))
       }
   },[filterString])
@@ -148,8 +149,6 @@ const Cards = ({setCurrentCity}) => {
     console.log('test 3');
     fetchBedRoomsWithUniversity();
   }
-
-
 
    else if (!filterString && !FilterCityId) {
       fetchBedRooms();
@@ -179,14 +178,14 @@ const Cards = ({setCurrentCity}) => {
   }
 
   const changePageHandler = (e) => {
-    if (FilterCityId) {
-      navigate(`/accomodations/page/${e}/city/${FilterCityId}`);
+    setCurrentPage(e);
+    if (staticCityId.cityId) {
+      navigate(`/accomodations/page/${e}/city/${staticCityId.cityId}`);
       return false;
     }
     else {
       navigate(`/accomodations/page/${e}`, {replace:true})
     }
-    setCurrentPage(e);
   }
   
   
