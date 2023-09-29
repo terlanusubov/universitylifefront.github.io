@@ -2,7 +2,7 @@
 {
 
     .services-img { 
-        height: 562px;
+        height: 500px;
         
        > img {
         /* background-image: url(../Assets/servicesbanner.jpg); */
@@ -12,7 +12,7 @@
 }
 
 .services {
-    padding: 50px 30px;
+    padding: 0px 30px 50px 30px;
 }
 
 .services-banner {
