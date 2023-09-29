@@ -2,7 +2,7 @@
 {
 
     .services-img { 
-        height: 400px;
+        height: 562px;
         
        > img {
         /* background-image: url(../Assets/servicesbanner.jpg); */
@@ -35,15 +35,18 @@
 .services-banner-title h1 {
     color: white;
     margin-bottom: 30px;
-    width: 50%;
+    width: 41%;
     font-size: 40px;
     font-weight: 600;
+    background-color: rgba(128, 128, 128, 0.411);
+    backdrop-filter: blur(3px);
+    border-radius: 10px;
 }
 
 .services-banner-title {
     position: absolute;
     width: 100%;
-    top: 0;
+    top: 30px;
     padding: 70px;
 }
 

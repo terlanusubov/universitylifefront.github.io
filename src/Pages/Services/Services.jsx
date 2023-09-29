@@ -28,7 +28,7 @@ const Services = () => {
         <>
 
             <section className='services-banner '>
-                <div className="services-img">
+                <div className="services-img ">
                     <img src={ServicesBanner} alt="" className="object-cover" />
                     <div className="services-banner-title">
                         <h1>The services we provide for a comfortable university life</h1>

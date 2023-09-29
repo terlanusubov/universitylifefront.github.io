@@ -8,7 +8,6 @@ const DetailPageTypes = ({types,currentIndex,setCurrentIndex}) => {
   const setCurrentBedRoomHandler = (index) => {
     setCurrentIndex(index)
   }
-
   return (
       <div className="py-1 w-full   bg-white z-[1] drop-shadow-md">
         <div className=" DetailTypes flex overflow-x-auto no-scrollbar container false">
