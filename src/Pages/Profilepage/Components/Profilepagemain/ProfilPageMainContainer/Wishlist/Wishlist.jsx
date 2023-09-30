@@ -38,6 +38,7 @@ const Wishlist = () => {
     const promise = await fetch(import.meta.env.VITE_API_KEY + `/userwishlist?UserId=${currentUserId}`);
     const response = await promise.json();
     setFavorites(response);
+    console.log(response);
     setWishListLoading(false);
     console.log(response);
   }
@@ -68,7 +69,7 @@ const Wishlist = () => {
                     ?
                     favorites.map((data) => {
                       return (
-                        <WishElement bedRoomImages={data.bedRoomImages} bedRoomName={data.name} price={data.price} distance={data.distanceToCenter} callback={deleteHandler} key={data.id} wishId={data.userWishlistId} bedRoomId={data.bedRoomId}/>
+                        <WishElement bedRoomRoomTypes={data.bedRoomRoomTypes} bedRoomImages={data.bedRoomImages} bedRoomName={data.name} price={data.price} distance={data.distanceToCenter} callback={deleteHandler} key={data.id} wishId={data.userWishlistId} bedRoomId={data.bedRoomId}/>
                         )
                       })
                     :
