@@ -84,7 +84,6 @@ const SearchUniversity = () => {
                                                 universities.length
                                                 ?
                                                 universities.map((data) => {
-                                                    console.log(data)
                                                     return (
                                                             <div className='flex items-center cursor-pointer' onClick={() => selectUniversityHandler(data)} key={data.universityId}>
                                                                 <div className='p-3'>

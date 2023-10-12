@@ -11,11 +11,10 @@ const DetailPageRooms = ({userId,bedRoomTypeIds,bedRoomId,currentIndex,typeIds,t
       if (typeIds === undefined) {
         return false;
       }
-      console.log(typeIds[currentIndex]);
-      console.log(import.meta.env.VITE_API_KEY + `/bedroomroom?BedRoomRoomTypeId${typeIds[currentIndex]}`);
+      // console.log(typeIds[currentIndex]);
+      // console.log(import.meta.env.VITE_API_KEY + `/bedroomroom?BedRoomRoomTypeId${typeIds[currentIndex]}`);
       const promise = await fetch(import.meta.env.VITE_API_KEY + `/bedroomroom?BedRoomRoomTypeId=${typeIds[currentIndex]}&BedRoomId=${bedRoomId}`)
       const response = await promise.json();
-      console.log(response);
       setBedRoomRooms(response);
   }
   useEffect(() => {
@@ -41,7 +40,6 @@ const DetailPageRooms = ({userId,bedRoomTypeIds,bedRoomId,currentIndex,typeIds,t
         bedRoomRooms.length
         ?
         bedRoomRooms.map((data) => {
-          console.log(data)
           return (
             <Booking bedRoomType={types[currentIndex]} bedRoomRoomIds={data.bedRoomRoomIds}  bedRoomId={data.bedRoomId} type={data.name} userId={userId} key={data.id} id={data.id}  price={data.price} description={data.description} bedroomName={data.name} images={data.image}/>
           )

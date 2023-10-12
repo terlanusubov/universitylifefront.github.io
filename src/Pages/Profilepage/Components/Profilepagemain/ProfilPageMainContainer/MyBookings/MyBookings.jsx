@@ -26,12 +26,10 @@ const MyBookings = () => {
        }
        setBooksLoading(true)
         const promise = await fetch(import.meta.env.VITE_API_KEY + `/book?UserId=${+userId}`);
-        console.log(+userId);
         const result = await promise.json();
         const {response} = result;
         setBookings(response);
         setBooksLoading(false)
-        console.log(result);
     }
 
     useEffect(() => {
@@ -46,7 +44,6 @@ const MyBookings = () => {
         const result =  await promise.json();
 
         if (result.statusCode === 200) {
-            console.log(result);
             toast.success("Item Successfully Removed");
             setBookings((prev) => prev.filter((data) => data.id !== id))
         }
@@ -86,9 +83,8 @@ const MyBookings = () => {
                         bookings.length
                         ?
                         bookings.map((data,index) => {
-                            console.log(data);
                             return (
-                        <div className="booking p-[10px]">
+                        <div key={index} className="booking p-[10px]">
                             <div className="booking_content  border rounded-[10px]">
                                 <div className="booking_image h-[250px]">
                                     <img src={data.image} className='w-full h-full object-cover rounded-t-[10px]' alt="" />

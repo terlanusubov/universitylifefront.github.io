@@ -34,13 +34,10 @@ const Wishlist = () => {
   const [deletedBedroomId,setDeletedBedroomId] = useState(0);
 
   const fetchWishList = async () => {
-    console.log(currentUserId);
     const promise = await fetch(import.meta.env.VITE_API_KEY + `/userwishlist?UserId=${currentUserId}`);
     const response = await promise.json();
     setFavorites(response);
-    console.log(response);
     setWishListLoading(false);
-    console.log(response);
   }
 
   useEffect(() => {

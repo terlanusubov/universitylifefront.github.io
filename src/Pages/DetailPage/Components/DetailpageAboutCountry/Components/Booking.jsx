@@ -48,9 +48,9 @@ const Booking = ({images,bedroomName,description,price,userId,type,bedRoomId,id,
                 {
                   images?.length
                   &&
-                  images.map((src) => {
+                  images.map((src,index) => {
                     return (
-                      <div className="image max-w-[400px] w-full h-[260px]">
+                      <div key={index} className="image max-w-[400px] w-full h-[260px]">
                         <img className='w-full h-full object-cover' src={src} alt=''/>
                       </div>
                     )

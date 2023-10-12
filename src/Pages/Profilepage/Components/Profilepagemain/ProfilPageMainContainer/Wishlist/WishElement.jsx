@@ -45,7 +45,7 @@ const WishElement = ({imgSource,distance,price,bedRoomId,wishId,callback,bedRoom
                 </div>
                 <div className="info_line_third flex justify-between">
                     <span className="text-[14px] room_location">
-                        {bedRoomRoomTypes.map(data => <span className='mx-[4px]'>{data}</span>)}
+                        {bedRoomRoomTypes.map((data,i) => <span key={i} className='mx-[4px]'>{data}</span>)}
                         {/* New York */}
                     </span>
                     <span className=" room_price text-customOrange font-[600] text-[16px]">
