@@ -4,7 +4,7 @@ const Data = (props) => {
   return (
     <>
     {
-      props.dataDigit 
+      props.dataDigit !== undefined 
       ?
       <div className='data max-w-[350px] w-[100%] justify-center max-[920px]:flex-col gap-[10px] flex items-center '>
   

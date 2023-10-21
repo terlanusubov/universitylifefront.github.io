@@ -6,7 +6,7 @@ import "../../../Styles/DetailpageAboutLocation.css";
 const DetailpageAboutLocation = () => {
   return (
     <div>
-      <div className="flex flex-col lg:flex-row lg:items-center content-font mt-4 gap-2 lg:gap-0">
+      {/* <div className="flex flex-col lg:flex-row lg:items-center content-font mt-4 gap-2 lg:gap-0">
         <div className="flex items-center">
           <span className="w-5 h-5 text-customOrange mr-2.5">
             <FaLocationDot></FaLocationDot>
@@ -17,7 +17,7 @@ const DetailpageAboutLocation = () => {
           <p className="te-vom">View on Map</p>
         </div>
       </div>
-      <div class=" divider my-5"></div>
+      <div className=" divider my-5"></div> */}
     </div>
   );
 };

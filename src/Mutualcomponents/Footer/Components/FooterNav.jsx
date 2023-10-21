@@ -5,23 +5,16 @@ import "../Styles/footernav.css";
 
 const FooterNav = () => {
   return (
-    <div className="footer_nav">
+    <div className="footer_nav flex justify-between">
       <CountryComponent
         location={
-          "5 Great James Street Holborn, WC1N 3DB London / United Kingdom"
+          "High Result Academy Ltd, Monomark House"
         }
-        phoneNumber={"+994 (50) 500 80 28"}
-        email={"book@londonist.az"}
-        title={"Baku"}
-      />
-      <CountryComponent
-        location={
-          "5 Great James Street Holborn, WC1N 3DB London / United Kingdom"
-        }
-        phoneNumber={"+44 20 7287 1912"}
-        email={"book@londonist.co.uk"}
+        phoneNumber={"+44 754 209 33 84"}
+        email={"hasan.azizov@hra.az"}
         title={"London"}
       />
+      
       <FooterAbout></FooterAbout>
     </div>
   );

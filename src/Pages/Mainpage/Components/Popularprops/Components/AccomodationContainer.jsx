@@ -27,8 +27,10 @@ const fetchRooms = async () => {
 }
 
   useEffect(() => {
-    fetchRooms();
-  },[CityState.id])
+    if (CityState.id) {
+      fetchRooms();
+    }
+  },[CityState?.id])
 
   return (
     <div className='flex-[1] popular_props_accommodation_container content-start grid grid-cols-3 max-[1024px]:flex max-[1024px]:overflow-x-scroll max-[1024px]:overflow-y-hidden gap-[10px]  pl-[20px] max-[1150px]:pl-[10px] max-[1024px]:pt-[50px] '>
@@ -36,10 +38,9 @@ const fetchRooms = async () => {
     {
       rooms.length
       ? 
-      rooms.map((data,index) => {
-        console.log(data)
+      rooms.slice(0,6).map((data,index) => {
         return (
-          <Room key={data.bedRoomStatusId} views={1561} bg={data.bedRoomImages[0]} roomName={data.name} offerPrice={50} weeklyPrice={data.price}></Room>
+          <Room id={data.id} key={data.id}  bg={data.bedRoomImages[0]} roomName={data.name} offerPrice={50} weeklyPrice={data.price}></Room>
         )
       })
       :

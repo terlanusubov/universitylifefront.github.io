@@ -34,12 +34,10 @@ const Wishlist = () => {
   const [deletedBedroomId,setDeletedBedroomId] = useState(0);
 
   const fetchWishList = async () => {
-    console.log(currentUserId);
     const promise = await fetch(import.meta.env.VITE_API_KEY + `/userwishlist?UserId=${currentUserId}`);
     const response = await promise.json();
     setFavorites(response);
     setWishListLoading(false);
-    console.log(response);
   }
 
   useEffect(() => {
@@ -68,7 +66,7 @@ const Wishlist = () => {
                     ?
                     favorites.map((data) => {
                       return (
-                        <WishElement bedRoomImages={data.bedRoomImages} bedRoomName={data.name} price={data.price} distance={data.distanceToCenter} callback={deleteHandler} key={data.id} wishId={data.userWishlistId} bedRoomId={data.bedRoomId}/>
+                        <WishElement bedRoomRoomTypes={data.bedRoomRoomTypes} bedRoomImages={data.bedRoomImages} bedRoomName={data.name} price={data.price} distance={data.distanceToCenter} callback={deleteHandler} key={data.id} wishId={data.userWishlistId} bedRoomId={data.bedRoomId}/>
                         )
                       })
                     :

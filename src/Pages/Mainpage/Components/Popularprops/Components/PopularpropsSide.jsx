@@ -6,7 +6,7 @@ const PopularpropsSide = () => {
 
     const [cities,setCities] = useState([]);
     const state = useSelector(state => state.propertiesReducer.currentCountry);
-    const countryId = useSelector(state => state.propertiesReducer.current)
+    // const countryId = useSelector(state => state.propertiesReducer.current)
     const dispatch = useDispatch();
     const [loadingCities,setLoadingCities] = useState(true)
 
@@ -40,7 +40,9 @@ const PopularpropsSide = () => {
 
 
     useEffect(() => {
-        fetchCities();
+        if (state.id) {
+            fetchCities();
+        }
     },[state.id])
 
     const  setCurrentCity =  (country) => {

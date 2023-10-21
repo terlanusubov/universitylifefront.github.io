@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import Sorting from './Components/Sorting'
 import Cards from './Components/Cards'
 import './Styles/accomodation.scss'
@@ -10,7 +10,7 @@ import SearchUniversity from './Components/SearchUniversity'
 import { useRef } from 'react'
 
 const Accommodation = () => {
-
+const [currentCity,setCurrentCity] = useState('')
 const containerRef = useRef();
   
   useEffect(() => {
@@ -25,13 +25,13 @@ const containerRef = useRef();
 
   return (
     <div className="accommodation container px-[16px] mx-auto" ref={containerRef} >
-        <Sorting />
+        <Sorting currentCity={currentCity} />
         <SearchUniversity />
-        <Cards /> 
+        <Cards setCurrentCity={setCurrentCity} /> 
         {/* <Best /> */}
         {/* <Nearby /> */}
-        <PerfectHome />
-        <FrequentlyAsked />
+        {/* <PerfectHome /> */}
+        {/* <FrequentlyAsked /> */}
     </div>
   )
 }

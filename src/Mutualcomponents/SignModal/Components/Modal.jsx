@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 // Components
 import InputComponent from './InputComponent'
@@ -176,7 +176,7 @@ const closeModal = () => {
               :           
               'Submit'       
               }</span></button>
-          <div className="auth_social_media flex flex-col w-[100%] gap-[10px]">
+          {/* <div className="auth_social_media flex flex-col w-[100%] gap-[10px]">
           <button className='google_auth pl-[10px] rounded-[10px] flex gap-[20px] items-center justify-between border hover:bg-gray-200 h-[40px] w-[100%]'>
               <span className="google_logo text-[26px]">
                   <GoogleIcon/>
@@ -193,7 +193,7 @@ const closeModal = () => {
                 Continue with Facebook
               </span>
           </button>
-          </div>
+          </div> */}
         </form>
         <form className='px-[20px] login_form flex min-w-[100%] flex-col gap-[20px] items-center'>
           <InputComponent inputValue={emailValueLogin} setInputValue={setEmailValueLogin} inputTitle={'Email'} inputId={'loginEmailInputId'}></InputComponent>
@@ -221,7 +221,7 @@ const closeModal = () => {
               
               
               }</span></button>
-          <div className="auth_social_media flex flex-col w-[100%] gap-[10px]">
+          {/* <div className="auth_social_media flex flex-col w-[100%] gap-[10px]">
           <button className='google_auth pl-[10px] rounded-[10px] flex gap-[20px] items-center justify-between border hover:bg-gray-200 h-[40px] w-[100%]'>
               <span className="google_logo text-[26px]">
                   <GoogleIcon/>
@@ -238,7 +238,7 @@ const closeModal = () => {
                 Continue with Facebook
               </span>
           </button>
-          </div>
+          </div> */}
         </form>
     
       </div>

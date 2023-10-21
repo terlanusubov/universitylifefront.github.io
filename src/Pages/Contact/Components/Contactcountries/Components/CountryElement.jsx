@@ -1,8 +1,21 @@
-import React from "react";
+import React,{useEffect} from "react";
 import "../../../Styles/CountryElement.css";
 import { FaWhatsapp, FaPhone } from "react-icons/fa6";
 
 export const CountryElement = () => {
+
+    
+  useEffect(() => {
+    setTimeout(() => {
+          window.scroll({
+            top: 0, 
+            left: 0, 
+            behavior: 'smooth' 
+           });
+        }, 100);
+  },[])
+
+
   return (
     <div className="CountryElement  cursor-pointer">
       <div className="CountryElImg">
@@ -15,8 +28,8 @@ export const CountryElement = () => {
         <h2 className=" text-customBlue text-base font-medium ">
           United Kingdom
         </h2>
-        <p className="text-xs my-2 md:content-font text-gray-500">
-          3rd Floor, 86-90 Paul Street, London - EC2A 4NE
+        <p className="text-xs my-2 py-[6px] md:content-font text-gray-500 ">
+        High Result Academy Ltd, Monomark House
         </p>
         <div className="CountryElContact flex place-items-center justify-between">
           {" "}
@@ -24,7 +37,7 @@ export const CountryElement = () => {
             <span className="mr-1.5">
               <FaPhone></FaPhone>
             </span>{" "}
-            <a href="">+994 77 500 80 99</a>
+            <a href="">+44 754 209 33 84</a>
           </div>
           <div className="CountryElWp text-customOrange">
             <a href="">

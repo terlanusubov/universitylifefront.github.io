@@ -28,11 +28,11 @@ const Services = () => {
         <>
 
             <section className='services-banner '>
-                <div className="services-img">
+                <div className="services-img ">
                     <img src={ServicesBanner} alt="" className="object-cover" />
                     <div className="services-banner-title">
-                        <h1>Essential services for safe and happy journey</h1>
-                        <button>Explore All Services</button>
+                        <h1>The services we provide for a comfortable university life</h1>
+                        {/* <button>Explore All Services</button> */}
                     </div>
                 </div>
                 {/* //////////////////////// */}
@@ -57,12 +57,16 @@ const Services = () => {
                                     )
                                 })
                                 :
+                                servicesLoading
+                                ?
                                 <>
                                     <div className="animate-pulse rounded-[5px] duration-[.2s] w-[100%] h-[128px] bg-gray-200"></div>
                                     <div className="animate-pulse rounded-[5px] duration-[.2s] w-[100%] h-[128px] bg-gray-200"></div>
                                     <div className="animate-pulse rounded-[5px] duration-[.2s] w-[100%] h-[128px] bg-gray-200"></div>
 
                                 </>
+                                :
+                                'There is no Service'
                         }
 
                     </div>

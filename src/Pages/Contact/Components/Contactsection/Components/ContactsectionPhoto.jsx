@@ -1,10 +1,11 @@
 import React from "react";
 import "../../../Styles/ContactsectionPhoto.css";
+import contactBanner from '../../../Assets/download.png'
 export const ContactsectionPhoto = () => {
   return (
-    <div className="ContactsectionPhoto text-center">
+    <div className="ContactsectionPhoto text-center flex justify-center">
       <img
-        src="https://cdn.universityliving.com/files/1665123052189got-a-question-image.webp?w=640"
+        src={contactBanner}
         alt=""
         decoding="async"
         data-nimg="1"

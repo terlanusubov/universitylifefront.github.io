@@ -4,7 +4,7 @@ const FooterBottom = () => {
   return (
     <div className="footer_bottom border-solid border-t-[1px] border-white">
       <div className="FooterBottom text-white ">
-        <p>© 2023 University Living Accommodation Pvt Ltd.</p>
+        <p>© 2023 University Life</p>
       </div>
     </div>
   );

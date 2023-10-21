@@ -6,12 +6,11 @@ import { useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { detailPageSlice } from '../../../Redux/detailPageSlice';
 import { AccomodationSlice } from '../../../Redux/AccomodationSlice';
-
+import {RiGraduationCapFill as Graduationicon} from 'react-icons/ri'
 
 
 
 const SearchUniversity = () => {
-    const [search, setSearch] = useState('');
     
     const searchInputRef = useRef();
     const [SearchValue, setSearchValue] = useState('');
@@ -27,8 +26,7 @@ const SearchUniversity = () => {
 
     const selectUniversityHandler = (data) => {
         setSearchValue(data.name);
-        dispatch(AccomodationSlice.actions.setCurrentFilterOption({universityId:data.universityId,cityId:data.cityId}));
-        
+        dispatch(AccomodationSlice.actions.setCurrentFilterOption({universityId:data.universityId,cityId:''}));
         setIsShown(false)
     }
 
@@ -89,14 +87,11 @@ const SearchUniversity = () => {
                                                     return (
                                                             <div className='flex items-center cursor-pointer' onClick={() => selectUniversityHandler(data)} key={data.universityId}>
                                                                 <div className='p-3'>
-                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                                                        <path d="M12.0003 14.3982L4.84082 12.1946V14.3625V15.8749C4.84082 17.5763 8.04728 18.9558 12.0024 18.9558C15.9573 18.9558 19.1643 17.5763 19.1643 15.8749C19.1643 15.8615 19.16 15.848 19.1597 15.8349V12.1946L12.0003 14.3982Z" fill="#F56A54" />
-                                                                        <path d="M0 9.66109L2.5577 10.576L2.77566 10.1092L3.71529 10.0293L3.84926 10.1687L3.04297 10.3599L2.92546 10.7077C2.92524 10.7077 1.10418 14.5149 1.37164 16.3773C1.37164 16.3773 2.50835 17.0554 3.64457 16.3773L3.94653 11.2852V10.8613L5.63786 10.4797L5.5184 10.7739L4.25736 11.184L4.8406 11.3923L12 13.5959L19.1594 11.3923L24 9.66112L12 5.04443L0 9.66109Z" fill="#F56A54" />
-                                                                    </svg>
+                                                                 <Graduationicon  className='text-[23px] text-customOrange'/>
                                                                 </div>
                                                                 <div>
                                                                     <p>{data.name}</p>
-                                                                    <p className='text-[0.6rem] font-light'>London, United Kingdom</p>
+                                                                    <p className='text-[0.6rem] font-light'>{data.city.name}, {data.countryName}</p>
                                                                 </div>
                                                             </div>
                                                     )

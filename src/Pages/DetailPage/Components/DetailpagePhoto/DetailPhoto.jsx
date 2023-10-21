@@ -4,10 +4,10 @@ import DetailPhotoCollage from "./Components/DetailPhotoCollage";
 /////////
 import "../../Styles/DetailpagePhoto.css";
 /////////
-const DetailPhoto = () => {
+const DetailPhoto = ({photos}) => {
   return (
     <div className="">
-      <DetailPhotoCollage></DetailPhotoCollage>
+      <DetailPhotoCollage photos={photos}></DetailPhotoCollage>
     </div>
   );
 };

@@ -2,7 +2,7 @@ import React from 'react'
 // Assets
 import roomImg from '../../../../Assets/roomimg.webp'
 import { useState } from 'react'
-const WishElement = ({imgSource,distance,price,bedRoomId,wishId,callback,bedRoomName,bedRoomImages}) => {
+const WishElement = ({imgSource,distance,price,bedRoomId,wishId,callback,bedRoomName,bedRoomImages,bedRoomRoomTypes}) => {
 
     const [deleteStart,setDeleteStart] = useState(false)
     const deleteHandler = async () => {
@@ -38,18 +38,18 @@ const WishElement = ({imgSource,distance,price,bedRoomId,wishId,callback,bedRoom
                 </div>
                 <div className="info_line_second flex justify-between">
                     <span className="text-[14px] room_property">
-                        Shared 	&middot; Other
                     </span>
                     <span className="text-[14px] room_pricing_title">
-                        Starts from
+                        {/* Starts from */}
                     </span>
                 </div>
                 <div className="info_line_third flex justify-between">
                     <span className="text-[14px] room_location">
-                        New York
+                        {bedRoomRoomTypes.map((data,i) => <span key={i} className='mx-[4px]'>{data}</span>)}
+                        {/* New York */}
                     </span>
                     <span className=" room_price text-customOrange font-[600] text-[16px]">
-                    {price} US$/month
+                    {price} £/month
                     </span>
                 </div>
             </div>
